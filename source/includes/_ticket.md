@@ -1,10 +1,17 @@
 
 # Ticket
+
+Your customers don't need anymore to be at branch for create attention tickets. You can use the endpoints of this section to allow them the ticket creation from anywhere easily, before the creation is necesary determine the branch, sector and service for the ticket.
+
 ## Get All Tickets
 
+> Sample Request:
+
 ```http
-GET /v1/tickets HTTP/1.1
+GET /customer/v1/tickets?customer_id=m809a31n HTTP/1.1
 ```
+
+> Sample Success Response:
 
 ```http
 HTTP/1.1 200 OK
@@ -16,6 +23,9 @@ Content-Type: application/json
     }
 ]
 ```
+
+> Sample error responses:
+
 ```http
 HTTP/1.1 400 Bad Request
 ```

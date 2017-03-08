@@ -1,10 +1,40 @@
 
 # Service
+
+A booking or ticket require to be associate to a service. You can obtain the available services from the endpoint of this section.
+
+## Service Object
+
+> Sample model:
+
+```json
+{
+    "id": "7b6",
+    "name": "Plataforma",
+    "short_name": "Plataforma"
+}
+```
+
+Model of service object.
+
+### Fields
+
+| |
+|:---|
+|**id** *string* <br>Service unique identifier. <p>*Validation pattern*: <code>^[0-9a-z]{2,6}$</code></p> |
+|**name** *string* <br>Complete name of the service. <p>*Maximum length*: <code>120</code></p> |
+|**short_name** *string* <br>Name to display in small devices. <p>*Maximum length*: <code>20</code></p> |
+
+
 ## Get All Services
 
+> Sample request:
+
 ```http
-GET /v1/services HTTP/1.1
+GET /customer/v1/services HTTP/1.1
 ```
+
+> Sample success response:
 
 ```http
 HTTP/1.1 200 OK
@@ -12,82 +42,58 @@ Content-Type: application/json
 
 [
     {
-        "id": "string",
-        "name": "string",
-        "short_name": "string"
+        "id": "7b6",
+        "name": "Plataforma",
+        "short_name": "Plataforma"
     }
 ]
 ```
+
+> Sample error responses:
+
 ```http
 HTTP/1.1 400 Bad Request
-```
-```http
-HTTP/1.1 404 Not Found
-```
-```http
-HTTP/1.1 500 Internal Server Error
-```
-
-Returns all available services that fulfill the filters. The services are sorted by their name.
-
-
-### Parameters
-Name | In | Type | Description
---- | --- | --- | ---
-branch_id | query | string | Optional. Unique identifier of branch.
-sector_id | query | string | Optional. Unique identifier of sector.
-fields | query | array[string] | Optional. Entity fields that will return at response.
-offset | query | integer | Optional. Position in pagination. Default is zero.
-limit | query | integer | Optional. Number of items to retrieve. Default is 10, maximum is 50.
-
-### Responses
-Http code | Type | Description
---- | --- | ---
-200 | array[[Service](#service)] | A list of services.
-400 | no content | Bad request.
-404 | no content | Non exists available services that fulfill the filters.
-500 | no content | An error has occurred.
-
-
-## Get Service
-
-```http
-GET /v1/services/{service_id} HTTP/1.1
-```
-
-```http
-HTTP/1.1 200 OK
 Content-Type: application/json
 
 {
-    "id": "string",
-    "name": "string",
-    "short_name": "string"
+    "message": "Requested field not found."
 }
 ```
 ```http
-HTTP/1.1 400 Bad Request
-```
-```http
-HTTP/1.1 404 Not Found
-```
-```http
 HTTP/1.1 500 Internal Server Error
+Content-Type: application/json
+
+{
+    "message": "An error has ocurred.",
+    "code": "ab90",
+    "more_info": "https://bmatic.com/docs/errors/ab90"
+}
 ```
 
-Returns a specific service requested by ID.
+Returns all available services that fulfill the filters.
 
+<aside class="notice">
+<strong>Order:</strong> The services are sorted by <code>short_name</code>.
+</aside>
 
-### Parameters
-Name | In | Type | Description
---- | --- | --- | ---
-service_id<span title="required" class="required">&nbsp;*&nbsp;</span> | path | string | Unique identifier of service.
-fields | query | array[string] | Optional. Entity fields that will return at response.
+### HTTP Request
+
+`GET /customer/v1/services`
+
+### Query Params
+
+| |
+|:---|
+|**branch_id** *string* <br>Unique identifier of branch.|
+|**sector_id** *string* <br>Unique identifier of sector.|
+|**fields** *array[string]* <span class="recomended-param">recomended</span> <br> Entity fields that will return at response. For example: `fields=id,short_name`. |
+|**offset** *int* <br> Position in pagination. Default is `0`, maximum is `99999`.|
+|**limit** *int* <br> Number of items to retrieve. Default is `10`, maximum is `50`.|
 
 ### Responses
-Http code | Type | Description
---- | --- | ---
-200 | [Service](#service) | A service.
-400 | no content | Bad request.
-404 | no content | Service not found.
-500 | no content | An error has occurred.
+
+| |
+|:---|
+|**200** *array[[Branch](#branch)]* <br>A list of services. Pagination headers are included: <ul><li><strong>X-Pagination-Count:</strong> Total number of items.</li><li><strong>X-Pagination-Page:</strong> Number of the current page.</li><li><strong>X-Pagination-Limit:</strong> Number of items returned.</li></ul>|
+|**400** *[Error](#error)* <br>Bad request. |
+|**500** *[Error](#error)* <br>An error has occurred.|
