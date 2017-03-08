@@ -16,12 +16,12 @@ Before you create tickets or bookings, you need a branch and sector provided by 
         "address": "Calle Beta 181 - 195, Callao",
         "latitude": -12.049919,
         "longitude": -77.0845193,
-        "status": "open",
+        "status": "OPEN",
         "opening_time": "2017-02-20T14:00:00.000Z",
         "closing_time": "2017-02-20T23:00:00.000Z",
         "low_estimated_time": 10,
         "high_estimated_time": 15,
-        "congestion_level": "medium",
+        "congestion_level": "MEDIUM",
         "is_virtual": true,
         "is_bookable": true,
         "sectors": [
@@ -29,7 +29,7 @@ Before you create tickets or bookings, you need a branch and sector provided by 
                 "id": "s8",
                 "name": "Tower A",
                 "short_name": "A",
-                "status": "open",
+                "status": "OPEN",
                 "services": ["s9","s10","s30"]
             }
         ]
@@ -74,7 +74,7 @@ Model of sector object.
     "id": "s8",
     "name": "Tower A",
     "short_name": "A",
-    "status": "open",
+    "status": "OPEN",
     "services": ["s9","s10","s30"]
 }
 ```
@@ -116,12 +116,12 @@ Content-Type: application/json
         "address": "Calle Beta 181 - 195, Callao",
         "latitude": -12.049919,
         "longitude": -77.0845193,
-        "status": "open",
+        "status": "OPEN",
         "opening_time": "2017-02-20T14:00:00.000Z",
         "closing_time": "2017-02-20T23:00:00.000Z",
         "low_estimated_time": 10,
         "high_estimated_time": 15,
-        "congestion_level": "medium",
+        "congestion_level": "MEDIUM",
         "is_virtual": true,
         "is_bookable": true,
         "sectors": [
@@ -129,7 +129,7 @@ Content-Type: application/json
                 "id": "s8",
                 "name": "Tower A",
                 "short_name": "A",
-                "status": "open",
+                "status": "OPEN",
                 "services": ["s9","s10","s30"]
             }
         ]
@@ -222,12 +222,12 @@ Content-Type: application/json
     "address": "Calle Beta 181 - 195, Callao",
     "latitude": -12.049919,
     "longitude": -77.0845193,
-    "status": "open",
+    "status": "OPEN",
     "opening_time": "2017-02-20T14:00:00.000Z",
     "closing_time": "2017-02-20T23:00:00.000Z",
     "low_estimated_time": 10,
     "high_estimated_time": 15,
-    "congestion_level": "medium",
+    "congestion_level": "MEDIUM",
     "is_virtual": true,
     "is_bookable": true,
     "sectors": [
@@ -235,7 +235,7 @@ Content-Type: application/json
             "id": "s8",
             "name": "Tower A",
             "short_name": "A",
-            "status": "open",
+            "status": "OPEN",
             "services": ["s9","s10","s30"]
         }
     ]
@@ -320,7 +320,7 @@ Content-Type: application/json
         "id": "s8",
         "name": "Tower A",
         "short_name": "A",
-        "status": "open",
+        "status": "OPEN",
         "services": ["s9","s10","s30"]
     }
 ]
