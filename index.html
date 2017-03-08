@@ -4,107 +4,188 @@
     <meta charset="utf-8">
     <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <title>API Reference</title>
+    <title>API Reference | Customer API of BMATIC</title>
 
-    <link href="stylesheets/screen.css" rel="stylesheet" media="screen" />
-    <link href="stylesheets/print.css" rel="stylesheet" media="print" />
     <style>
       .highlight table td { padding: 5px; }
 .highlight table pre { margin: 0; }
-.highlight, .highlight .w {
-  color: #f8f8f2;
-  background-color: #272822;
+.highlight {
+  color: #faf6e4;
+  background-color: #122b3b;
 }
-.highlight .err {
-  color: #151515;
-  background-color: #ac4142;
+.highlight .gl {
+  color: #dee5e7;
+  background-color: #4e5d62;
 }
 .highlight .c, .highlight .cd, .highlight .cm, .highlight .c1, .highlight .cs {
-  color: #505050;
+  color: #6c8b9f;
+  font-style: italic;
 }
 .highlight .cp {
-  color: #f4bf75;
+  color: #b2fd6d;
+  font-weight: bold;
+  font-style: italic;
 }
-.highlight .nt {
-  color: #f4bf75;
+.highlight .err {
+  color: #fefeec;
+  background-color: #cc0000;
 }
-.highlight .o, .highlight .ow {
-  color: #d0d0d0;
+.highlight .gr {
+  color: #fefeec;
+  background-color: #cc0000;
 }
-.highlight .p, .highlight .pi {
-  color: #d0d0d0;
-}
-.highlight .gi {
-  color: #90a959;
-}
-.highlight .gd {
-  color: #ac4142;
-}
-.highlight .gh {
-  color: #6a9fb5;
-  background-color: #151515;
+.highlight .k, .highlight .kd, .highlight .kv {
+  color: #f6dd62;
   font-weight: bold;
 }
-.highlight .k, .highlight .kn, .highlight .kp, .highlight .kr, .highlight .kv {
-  color: #aa759f;
+.highlight .o, .highlight .ow {
+  color: #4df4ff;
+}
+.highlight .p, .highlight .pi {
+  color: #4df4ff;
+}
+.highlight .gd {
+  color: #cc0000;
+}
+.highlight .gi {
+  color: #b2fd6d;
+}
+.highlight .ge {
+  font-style: italic;
+}
+.highlight .gs {
+  font-weight: bold;
+}
+.highlight .gt {
+  color: #dee5e7;
+  background-color: #4e5d62;
 }
 .highlight .kc {
-  color: #d28445;
+  color: #f696db;
+  font-weight: bold;
+}
+.highlight .kn {
+  color: #ffb000;
+  font-weight: bold;
+}
+.highlight .kp {
+  color: #ffb000;
+  font-weight: bold;
+}
+.highlight .kr {
+  color: #ffb000;
+  font-weight: bold;
+}
+.highlight .gh {
+  color: #ffb000;
+  font-weight: bold;
+}
+.highlight .gu {
+  color: #ffb000;
+  font-weight: bold;
 }
 .highlight .kt {
-  color: #d28445;
-}
-.highlight .kd {
-  color: #d28445;
-}
-.highlight .s, .highlight .sb, .highlight .sc, .highlight .sd, .highlight .s2, .highlight .sh, .highlight .sx, .highlight .s1 {
-  color: #90a959;
-}
-.highlight .sr {
-  color: #75b5aa;
-}
-.highlight .si {
-  color: #8f5536;
-}
-.highlight .se {
-  color: #8f5536;
-}
-.highlight .nn {
-  color: #f4bf75;
-}
-.highlight .nc {
-  color: #f4bf75;
+  color: #b2fd6d;
+  font-weight: bold;
 }
 .highlight .no {
-  color: #f4bf75;
+  color: #b2fd6d;
+  font-weight: bold;
 }
-.highlight .na {
-  color: #6a9fb5;
+.highlight .nc {
+  color: #b2fd6d;
+  font-weight: bold;
+}
+.highlight .nd {
+  color: #b2fd6d;
+  font-weight: bold;
+}
+.highlight .nn {
+  color: #b2fd6d;
+  font-weight: bold;
+}
+.highlight .bp {
+  color: #b2fd6d;
+  font-weight: bold;
+}
+.highlight .ne {
+  color: #b2fd6d;
+  font-weight: bold;
+}
+.highlight .nl {
+  color: #ffb000;
+  font-weight: bold;
+}
+.highlight .nt {
+  color: #ffb000;
+  font-weight: bold;
 }
 .highlight .m, .highlight .mf, .highlight .mh, .highlight .mi, .highlight .il, .highlight .mo, .highlight .mb, .highlight .mx {
-  color: #90a959;
+  color: #f696db;
+  font-weight: bold;
+}
+.highlight .ld {
+  color: #f696db;
+  font-weight: bold;
 }
 .highlight .ss {
-  color: #90a959;
+  color: #f696db;
+  font-weight: bold;
+}
+.highlight .s, .highlight .sb, .highlight .sd, .highlight .s2, .highlight .sh, .highlight .sx, .highlight .sr, .highlight .s1 {
+  color: #fff0a6;
+  font-weight: bold;
+}
+.highlight .se {
+  color: #4df4ff;
+  font-weight: bold;
+}
+.highlight .sc {
+  color: #4df4ff;
+  font-weight: bold;
+}
+.highlight .si {
+  color: #4df4ff;
+  font-weight: bold;
+}
+.highlight .nb {
+  font-weight: bold;
+}
+.highlight .ni {
+  color: #999999;
+  font-weight: bold;
+}
+.highlight .w {
+  color: #BBBBBB;
+}
+.highlight .nf {
+  color: #a8e1fe;
+}
+.highlight .py {
+  color: #a8e1fe;
+}
+.highlight .na {
+  color: #a8e1fe;
+}
+.highlight .nv, .highlight .vc, .highlight .vg, .highlight .vi {
+  color: #a8e1fe;
+  font-weight: bold;
 }
     </style>
+    <link href="stylesheets/screen.css" rel="stylesheet" media="screen" />
+    <link href="stylesheets/print.css" rel="stylesheet" media="print" />
       <script src="javascripts/all.js"></script>
   </head>
 
-  <body class="index" data-languages="[&quot;shell&quot;,&quot;ruby&quot;,&quot;python&quot;]">
+  <body class="index" data-languages="[]">
     <a href="#" id="nav-button">
       <span>
         NAV
-        <img src="images/navbar.png" />
+        <img src="images/navbar.png" alt="Navbar" />
       </span>
     </a>
     <div class="tocify-wrapper">
-      <img src="images/logo.png" />
-        <div class="lang-selector">
-              <a href="#" data-language-name="shell">shell</a>
-              <a href="#" data-language-name="ruby">ruby</a>
-              <a href="#" data-language-name="python">python</a>
-        </div>
+      <img src="images/logo.png" alt="Logo" />
         <div class="search">
           <input type="text" class="search" id="input-search" placeholder="Search">
         </div>
@@ -112,8 +193,7 @@
       <div id="toc">
       </div>
         <ul class="toc-footer">
-            <li><a href='#'>Sign Up for a Developer Key</a></li>
-            <li><a href='https://github.com/tripit/slate'>Documentation Powered by Slate</a></li>
+            <li><a href='http://www.hiper.com.pe'>Powered by HIPER S.A.</a></li>
         </ul>
     </div>
     <div class="page-wrapper">
@@ -121,227 +201,1863 @@
       <div class="content">
         <h1 id="introduction">Introduction</h1>
 
-<p>Welcome to the Kittn API! You can use our API to access Kittn API endpoints, which can get information on various cats, kittens, and breeds in our database.</p>
+<p>Welcome to the Customer API of BMATIC! You can use our API to integrate your application with us. Now, trought our endpoints you can access to services of BMATIC&rsquo;s branches from any application.</p>
 
-<p>We have language bindings in Shell, Ruby, and Python! You can view code examples in the dark area to the right, and you can switch the programming language of the examples with the tabs in the top right.</p>
+<p>You can download <a href="swagger.json">our specification</a> and generate your own client in your preference language trought code generator of <a href="http://swagger.io/">swagger</a> and  speed up your integration with us.</p>
 
-<p>This example API documentation page was created with <a href="https://github.com/tripit/slate">Slate</a>. Feel free to edit it and use it as a base for your own API&rsquo;s documentation.</p>
+<p>Improve your customers&rsquo; experience!</p>
 
-<h1 id="authentication">Authentication</h1>
+<p><strong>Schemes</strong>: <code class="prettyprint">http, https</code></p>
+
+<p><strong>Host</strong>: <code class="prettyprint">api.bmatic.com</code></p>
+
+<p><strong>Base path</strong>: <code class="prettyprint">/customer/v1</code></p>
+
+<style>
+    ul.enum {
+        margin: 0;
+        padding: 0 0 0 2px;
+        list-style-position: inside;
+    }
+    .required {
+        color: red;
+        font-weight: bold;
+    }
+    a.pseudo {
+        border-bottom:1px dashed;
+        text-decoration: none;
+    }
+</style>
+
+          <h1 id="branch">Branch</h1>
+
+<p>Before you create tickets or bookings, you need a branch and sector provided by the endpoints of this section (The bookings creation not required a sector). You considere use the recomended parameters for obtain a better performance in your application.</p>
+
+<h2 id="branch-object">Branch Object</h2>
 
 <blockquote>
-<p>To authorize, use this code:</p>
+<p>Sample object:</p>
 </blockquote>
-<pre class="highlight ruby"><code><span class="nb">require</span> <span class="s1">'kittn'</span>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"27b6"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Hiper Central"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"short_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Hiper"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AG001"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Calle Beta 181 - 195, Callao"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"latitude"</span><span class="p">:</span><span class="w"> </span><span class="mf">-12.049919</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"longitude"</span><span class="p">:</span><span class="w"> </span><span class="mf">-77.0845193</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"open"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"opening_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-02-20T14:00:00.000Z"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"closing_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-02-20T23:00:00.000Z"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"low_estimated_time"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"high_estimated_time"</span><span class="p">:</span><span class="w"> </span><span class="mi">15</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"congestion_level"</span><span class="p">:</span><span class="w"> </span><span class="s2">"medium"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"is_virtual"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"is_bookable"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"sectors"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"s8"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tower A"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"short_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"A"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"open"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"services"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"s9"</span><span class="p">,</span><span class="s2">"s10"</span><span class="p">,</span><span class="s2">"s30"</span><span class="p">]</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">]</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>Model of branch object.</p>
 
-<span class="n">api</span> <span class="o">=</span> <span class="no">Kittn</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">)</span>
-</code></pre>
-<pre class="highlight python"><code><span class="kn">import</span> <span class="nn">kittn</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="n">kittn</span><span class="o">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'meowmeowmeow'</span><span class="p">)</span>
-</code></pre>
-<pre class="highlight shell"><code><span class="c"># With shell, you can just pass the correct header with each request</span>
-curl <span class="s2">"api_endpoint_here"</span>
-  -H <span class="s2">"Authorization: meowmeowmeow"</span>
-</code></pre>
-
-<blockquote>
-<p>Make sure to replace <code class="prettyprint">meowmeowmeow</code> with your API key.</p>
-</blockquote>
-
-<p>Kittn uses API keys to allow access to the API. You can register a new Kittn API key at our <a href="http://example.com/developers">developer portal</a>.</p>
-
-<p>Kittn expects for the API key to be included in all API requests to the server in a header that looks like the following:</p>
-
-<p><code class="prettyprint">Authorization: meowmeowmeow</code></p>
-
-<aside class="notice">
-You must replace <code>meowmeowmeow</code> with your personal API key.
+<aside class="warning">
+<strong>Caution:</strong> The fields <code>low_estimated_time</code>, <code>high_estimated_time</code> and <code>congestion_level</code> are undefined when the branch is closed.
 </aside>
 
-<h1 id="kittens">Kittens</h1>
-
-<h2 id="get-all-kittens">Get All Kittens</h2>
-<pre class="highlight ruby"><code><span class="nb">require</span> <span class="s1">'kittn'</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="no">Kittn</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="p">.</span><span class="nf">kittens</span><span class="p">.</span><span class="nf">get</span>
-</code></pre>
-<pre class="highlight python"><code><span class="kn">import</span> <span class="nn">kittn</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="n">kittn</span><span class="o">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="o">.</span><span class="n">kittens</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
-</code></pre>
-<pre class="highlight shell"><code>curl <span class="s2">"http://example.com/api/kittens"</span>
-  -H <span class="s2">"Authorization: meowmeowmeow"</span>
-</code></pre>
-
-<blockquote>
-<p>The above command returns JSON structured like this:</p>
-</blockquote>
-<pre class="highlight json"><code><span class="p">[</span><span class="w">
-  </span><span class="p">{</span><span class="w">
-    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fluffums"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"breed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"calico"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"fluffiness"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"cuteness"</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="w">
-  </span><span class="p">},</span><span class="w">
-  </span><span class="p">{</span><span class="w">
-    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Max"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"breed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"unknown"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"fluffiness"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"cuteness"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="w">
-  </span><span class="p">}</span><span class="w">
-</span><span class="p">]</span><span class="w">
-</span></code></pre>
-
-<p>This endpoint retrieves all kittens.</p>
-
-<h3 id="http-request">HTTP Request</h3>
-
-<p><code class="prettyprint">GET http://example.com/api/kittens</code></p>
-
-<h3 id="query-parameters">Query Parameters</h3>
+<h3 id="fields">Fields</h3>
 
 <table><thead>
 <tr>
-<th>Parameter</th>
-<th>Default</th>
-<th>Description</th>
+<th style="text-align: left"></th>
 </tr>
 </thead><tbody>
 <tr>
-<td>include_cats</td>
-<td>false</td>
-<td>If set to true, the result will also include cats.</td>
+<td style="text-align: left"><strong>id</strong> <em>string</em> <br>Branch unique identifier. <p><em>Validation pattern</em>: <code>^[0-9a-z]{2,6}$</code></p></td>
 </tr>
 <tr>
-<td>available</td>
-<td>true</td>
-<td>If set to false, the result will include kittens that have already been adopted.</td>
+<td style="text-align: left"><strong>name</strong> <em>string</em> <br>Complete name of the branch. <p><em>Maximum length</em>: <code>120</code></p></td>
+</tr>
+<tr>
+<td style="text-align: left"><strong>short_name</strong> <em>string</em> <br>Name to display in small devices. <p><em>Maximum length</em>: <code>20</code></p></td>
+</tr>
+<tr>
+<td style="text-align: left"><strong>code</strong> <em>string</em> <br>Unique identifier for the branch used in your company system. <em>Validation pattern</em>: <code>^[0-9A-Za-z]{1,16}$</code></td>
+</tr>
+<tr>
+<td style="text-align: left"><strong>address</strong> <em>string</em> <br>Address of the branch. <p><em>Maximum length</em>: <code>100</code></p></td>
+</tr>
+<tr>
+<td style="text-align: left"><strong>latitude</strong> <em>float</em> <br>Latitude component of branch location. <p><em>Range of values</em>: <code> -90 ≤ latitude ≤ 90</code></p></td>
+</tr>
+<tr>
+<td style="text-align: left"><strong>longitude</strong> <em>float</em> <br>Longitude component of branch location. <p><em>Range of values</em>: <code> -90 ≤ longitude ≤ 90</code></p></td>
+</tr>
+<tr>
+<td style="text-align: left"><strong>status</strong> <em>enum</em> <br>Current status of the branch. <p><em>Possible values</em>: <ul><li><code>OPEN</code></li><li><code>CLOSE</code></li></ul></p></td>
+</tr>
+<tr>
+<td style="text-align: left"><strong>opening_time</strong> <em>date-time</em> <br>Opening time of the branch at current day, or next opening datetime. <p><em>Standard</em>: <code><a href="https://en.wikipedia.org/wiki/ISO_8601">ISO 8601</a></code></p></td>
+</tr>
+<tr>
+<td style="text-align: left"><strong>closing_time</strong> <em>date-time</em> <br>Closing time of the branch at current day, or next closing datetime. <p><em>Standard</em>: <code><a href="https://en.wikipedia.org/wiki/ISO_8601">ISO 8601</a></code></p></td>
+</tr>
+<tr>
+<td style="text-align: left"><strong>low_estimated_time</strong> <em>integer</em> <br> Lower bound of the estimated waiting time. <p><em>Minimun:</em> <code>0</code></p></td>
+</tr>
+<tr>
+<td style="text-align: left"><strong>high_estimated_time</strong> <em>integer</em> <br> Upper bound of the estimated waiting time. <p><em>Minimun:</em> <code>0</code></p></td>
+</tr>
+<tr>
+<td style="text-align: left"><strong>congestion_level</strong> <em>enum</em> <br> Congestion level of the branch. <p><em>Possible values</em>: <ul><li><code>LOW</code></li><li><code>MEDIUM</code></li><li><code>HIGH</code></li></ul></p></td>
+</tr>
+<tr>
+<td style="text-align: left"><strong>is_virtual</strong> <em>boolean</em> <br> Indicator of the possibility to create virtual tickets.</td>
+</tr>
+<tr>
+<td style="text-align: left"><strong>is_bookable</strong> <em>boolean</em> <br>Indicator of the possibility to bookings.</td>
+</tr>
+<tr>
+<td style="text-align: left"><strong>sectors</strong> <em>array[<a href="#sector">Sector</a>]</em> <br> List of the branch&rsquo;s sectors.<p><em>Unique items:</em> <code>true</code><br><em>Minimun items:</em> <code>1</code></p></td>
 </tr>
 </tbody></table>
 
-<aside class="success">
-Remember — a happy kitten is an authenticated kitten!
-</aside>
+<h2 id="sector-object">Sector Object</h2>
 
-<h2 id="get-a-specific-kitten">Get a Specific Kitten</h2>
-<pre class="highlight ruby"><code><span class="nb">require</span> <span class="s1">'kittn'</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="no">Kittn</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="p">.</span><span class="nf">kittens</span><span class="p">.</span><span class="nf">get</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-</code></pre>
-<pre class="highlight python"><code><span class="kn">import</span> <span class="nn">kittn</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="n">kittn</span><span class="o">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="o">.</span><span class="n">kittens</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-</code></pre>
-<pre class="highlight shell"><code>curl <span class="s2">"http://example.com/api/kittens/2"</span>
-  -H <span class="s2">"Authorization: meowmeowmeow"</span>
-</code></pre>
+<p>Model of sector object.</p>
 
 <blockquote>
-<p>The above command returns JSON structured like this:</p>
+<p>Sample object:</p>
 </blockquote>
-<pre class="highlight json"><code><span class="p">{</span><span class="w">
-  </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Max"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"breed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"unknown"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"fluffiness"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"cuteness"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="w">
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"s8"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tower A"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"short_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"A"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"open"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"services"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"s9"</span><span class="p">,</span><span class="s2">"s10"</span><span class="p">,</span><span class="s2">"s30"</span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-
-<p>This endpoint retrieves a specific kitten.</p>
-
-<aside class="warning">Inside HTML code blocks like this one, you can&rsquo;t use Markdown, so use <code>&lt;code&gt;</code> blocks to denote code.</aside>
-
-<h3 id="http-request">HTTP Request</h3>
-
-<p><code class="prettyprint">GET http://example.com/kittens/&lt;ID&gt;</code></p>
-
-<h3 id="url-parameters">URL Parameters</h3>
+<h3 id="fields">Fields</h3>
 
 <table><thead>
 <tr>
-<th>Parameter</th>
+<th style="text-align: left"></th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left"><strong>id</strong> <em>string</em> <br>Sector unique identifier. <p><em>Validation pattern</em>: <code>^[0-9a-z]{2,6}$</code></p></td>
+</tr>
+<tr>
+<td style="text-align: left"><strong>name</strong> <em>string</em> <br>Complete name of the sector. <p><em>Maximum length</em>: <code>120</code></p></td>
+</tr>
+<tr>
+<td style="text-align: left"><strong>short_name</strong> <em>string</em> <br>Name to display in small devices. <p><em>Maximum length</em>: <code>20</code></p></td>
+</tr>
+<tr>
+<td style="text-align: left"><strong>status</strong> <em>enum</em> <br>Current status of the sector. <p><em>Possible values</em>: <ul><li><code>OPEN</code></li><li><code>CLOSE</code></li></ul></p></td>
+</tr>
+<tr>
+<td style="text-align: left"><strong>services</strong> <em>array[string]</em> <br> List of ids of the services allowed at sector.<p><em>Unique items:</em> <code>true</code><br><em>Minimun items:</em> <code>1</code></p></td>
+</tr>
+</tbody></table>
+
+<h2 id="get-all-branches">Get All Branches</h2>
+
+<blockquote>
+<p>Sample request:</p>
+</blockquote>
+<pre class="highlight http tab-http"><code><span class="nf">GET</span> <span class="nn">/customer/v1/branches?offset=9&amp;limit=1</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+</code></pre>
+<blockquote>
+<p>Sample success response:</p>
+</blockquote>
+<pre class="highlight http tab-http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">X-Pagination-Count</span><span class="p">:</span> <span class="s">32</span>
+<span class="na">X-Pagination-Page</span><span class="p">:</span> <span class="s">10</span>
+<span class="na">X-Pagination-Limit</span><span class="p">:</span> <span class="s">1</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+
+<span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"27b6"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Hiper Central"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"short_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Hiper"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AG001"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Calle Beta 181 - 195, Callao"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"latitude"</span><span class="p">:</span><span class="w"> </span><span class="mf">-12.049919</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"longitude"</span><span class="p">:</span><span class="w"> </span><span class="mf">-77.0845193</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"open"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"opening_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-02-20T14:00:00.000Z"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"closing_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-02-20T23:00:00.000Z"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"low_estimated_time"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"high_estimated_time"</span><span class="p">:</span><span class="w"> </span><span class="mi">15</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"congestion_level"</span><span class="p">:</span><span class="w"> </span><span class="s2">"medium"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"is_virtual"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"is_bookable"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"sectors"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"s8"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tower A"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"short_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"A"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"open"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"services"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"s9"</span><span class="p">,</span><span class="s2">"s10"</span><span class="p">,</span><span class="s2">"s30"</span><span class="p">]</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">]</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>Sample error responses:</p>
+</blockquote>
+<pre class="highlight http tab-http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">400</span> <span class="ne">Bad Request</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+
+<span class="p">{</span><span class="w">
+    </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Invalid congestion level."</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><pre class="highlight http tab-http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">500</span> <span class="ne">Internal Server Error</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+
+<span class="p">{</span><span class="w">
+    </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"An error has ocurred."</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ab90"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"more_info"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://bmatic.com/docs/errors/ab90"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>Returns all branches with their sectors that fulfill the filters.</p>
+
+<aside class="notice">
+<strong>Order:</strong> The branches are sorted by the better distance to client location and the branches in the page returned are sorted by <code>low_estimated_time</code>. If the client location is not provided then the branches only are sorted by <code>low_estimated_time</code>.
+</aside>
+
+<aside class="success">
+<strong>Remember:</strong> The customers prefer to attend the nearest branches,for that it is recommendable ever use the parameters <code>longitude</code>, <code>latitude</code>, <code>min_latitude</code>, <code>max_latitude</code>, <code>min_latitude</code> and <code>max_longitude</code>.
+</aside>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">GET /customer/v1/branches</code></p>
+
+<h3 id="query-params">Query Params</h3>
+
+<table><thead>
+<tr>
+<th style="text-align: left"></th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left"><strong>latitude</strong> <em>float</em> <span class="recomended-param">recomended</span><br> Latitude component of customer location.</td>
+</tr>
+<tr>
+<td style="text-align: left"><strong>longitude</strong> <em>float</em> <span class="recomended-param">recomended</span><br> Longitude component of customer location.</td>
+</tr>
+<tr>
+<td style="text-align: left"><strong>min_latitude</strong> <em>float</em> <span class="recomended-param">recomended</span><br> Minimun latitude of the area that has to contain the branches.</td>
+</tr>
+<tr>
+<td style="text-align: left"><strong>max_latitude</strong> <em>float</em> <span class="recomended-param">recomended</span><br> Maximum latitude of the area that has to contain the branches.</td>
+</tr>
+<tr>
+<td style="text-align: left"><strong>min_longitude</strong> <em>float</em> <span class="recomended-param">recomended</span><br> Minimun longitude of the area that has to contain the branches.</td>
+</tr>
+<tr>
+<td style="text-align: left"><strong>max_longitude</strong> <em>float</em> <span class="recomended-param">recomended</span><br> Maximum longitude of the area that has to contain the branches.</td>
+</tr>
+<tr>
+<td style="text-align: left"><strong>service_id</strong> <em>string</em> <br>Unique identifier of service requested by customer.</td>
+</tr>
+<tr>
+<td style="text-align: left"><strong>is_virtual</strong> <em>boolean</em> <br> Flag of virtual ticket enable for branch.</td>
+</tr>
+<tr>
+<td style="text-align: left"><strong>is_bookable</strong> <em>boolean</em> <br> Flag of booking enable for branch.</td>
+</tr>
+<tr>
+<td style="text-align: left"><strong>status</strong> <em>enum</em> <br> Status of branch. Allowed values are <code class="prettyprint">open</code> and <code class="prettyprint">close</code>.</td>
+</tr>
+<tr>
+<td style="text-align: left"><strong>code</strong> <em>string</em> <br> Unique identifier for the branch used in your company system.</td>
+</tr>
+<tr>
+<td style="text-align: left"><strong>fields</strong> <em>array[string]</em> <span class="recomended-param">recomended</span> <br> Entity fields that will return at response. For example: <code class="prettyprint">fields=id,name,short_name</code>.</td>
+</tr>
+<tr>
+<td style="text-align: left"><strong>offset</strong> <em>int</em> <br> Position in pagination. Default is <code class="prettyprint">0</code>, maximum is <code class="prettyprint">99999</code>.</td>
+</tr>
+<tr>
+<td style="text-align: left"><strong>limit</strong> <em>int</em> <br> Number of items to retrieve. Default is <code class="prettyprint">10</code>, maximum is <code class="prettyprint">50</code>.</td>
+</tr>
+</tbody></table>
+
+<h3 id="responses">Responses</h3>
+
+<table><thead>
+<tr>
+<th style="text-align: left"></th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left"><strong>200</strong> <em>array[<a href="#branch">Branch</a>]</em> <br>A list of branches. Pagination headers are included: <ul><li><strong>X-Pagination-Count:</strong> Total number of items.</li><li><strong>X-Pagination-Page:</strong> Number of the current page.</li><li><strong>X-Pagination-Limit:</strong> Number of items returned.</li></ul></td>
+</tr>
+<tr>
+<td style="text-align: left"><strong>400</strong> <em><a href="#error">Error</a></em> <br>Bad request.</td>
+</tr>
+<tr>
+<td style="text-align: left"><strong>500</strong> <em><a href="#error">Error</a></em> <br>An error has occurred.</td>
+</tr>
+</tbody></table>
+
+<h2 id="get-branch">Get Branch</h2>
+
+<blockquote>
+<p>Sample request:</p>
+</blockquote>
+<pre class="highlight http tab-http"><code><span class="nf">GET</span> <span class="nn">/customer/v1/branches/{branch_id}</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+</code></pre>
+<blockquote>
+<p>Sample success response:</p>
+</blockquote>
+<pre class="highlight http tab-http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+
+<span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"27b6"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Hiper Central"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"short_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Hiper"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AG001"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Calle Beta 181 - 195, Callao"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"latitude"</span><span class="p">:</span><span class="w"> </span><span class="mf">-12.049919</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"longitude"</span><span class="p">:</span><span class="w"> </span><span class="mf">-77.0845193</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"open"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"opening_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-02-20T14:00:00.000Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"closing_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-02-20T23:00:00.000Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"low_estimated_time"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"high_estimated_time"</span><span class="p">:</span><span class="w"> </span><span class="mi">15</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"congestion_level"</span><span class="p">:</span><span class="w"> </span><span class="s2">"medium"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"is_virtual"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"is_bookable"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"sectors"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"s8"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tower A"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"short_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"A"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"open"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"services"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"s9"</span><span class="p">,</span><span class="s2">"s10"</span><span class="p">,</span><span class="s2">"s30"</span><span class="p">]</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>Sample error responses:</p>
+</blockquote>
+<pre class="highlight http tab-http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">400</span> <span class="ne">Bad Request</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+
+<span class="p">{</span><span class="w">
+    </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Requested field not found."</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><pre class="highlight http tab-http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">404</span> <span class="ne">Not Found</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+
+<span class="p">{</span><span class="w">
+    </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Branch not found."</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><pre class="highlight http tab-http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">500</span> <span class="ne">Internal Server Error</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+
+<span class="p">{</span><span class="w">
+    </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"An error has ocurred."</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ab90"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"more_info"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://bmatic.com/docs/errors/ab90"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>Returns a specific branch requested by ID.</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">GET /customer/v1/branches/{branch_id}</code></p>
+
+<h3 id="path-params">Path Params</h3>
+
+<table><thead>
+<tr>
+<th style="text-align: left"></th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left"><strong>branch_id</strong> <em>string</em> <span class="required-param">required</span> <br>Unique identifier of branch. For example <code class="prettyprint">27b6</code>.</td>
+</tr>
+</tbody></table>
+
+<h3 id="query-params">Query Params</h3>
+
+<table><thead>
+<tr>
+<th style="text-align: left"></th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left"><strong>fields</strong> <em>array[string]</em> <span class="recomended-param">recomended</span> <br> Entity fields that will return at response. For example: <code class="prettyprint">fields=id,name,short_name</code>.</td>
+</tr>
+</tbody></table>
+
+<h3 id="responses">Responses</h3>
+
+<table><thead>
+<tr>
+<th style="text-align: left"></th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left"><strong>200</strong> <em><a href="#branch">Branch</a></em> <br>A branch.</td>
+</tr>
+<tr>
+<td style="text-align: left"><strong>400</strong> <em><a href="#error">Error</a></em> <br>Bad request.</td>
+</tr>
+<tr>
+<td style="text-align: left"><strong>404</strong> <em><a href="#error">Error</a></em> <br>Branch not found.</td>
+</tr>
+<tr>
+<td style="text-align: left"><strong>500</strong> <em><a href="#error">Error</a></em> <br>An error has occurred.</td>
+</tr>
+</tbody></table>
+
+<h2 id="get-branch-sectors">Get Branch Sectors</h2>
+
+<blockquote>
+<p>Sample request:</p>
+</blockquote>
+<pre class="highlight http tab-http"><code><span class="nf">GET</span> <span class="nn">/v1/branches/{branch_id}/sectors?service_id=s9</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+</code></pre>
+<blockquote>
+<p>Sample success response:</p>
+</blockquote>
+<pre class="highlight http tab-http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+
+<span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"s8"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tower A"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"short_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"A"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"open"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"services"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"s9"</span><span class="p">,</span><span class="s2">"s10"</span><span class="p">,</span><span class="s2">"s30"</span><span class="p">]</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>Sample error responses:</p>
+</blockquote>
+<pre class="highlight http tab-http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">400</span> <span class="ne">Bad Request</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+
+<span class="p">{</span><span class="w">
+    </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Requested field not found."</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><pre class="highlight http tab-http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">500</span> <span class="ne">Internal Server Error</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+<span class="s">uccess response</span>
+<span class="s">{</span>
+<span class="s">    "message": "An error has ocurred.",</span>
+<span class="s">    "code": "ab90",</span>
+<span class="s">    "more_info": "https://bmatic.com/docs/errors/ab90"</span>
+<span class="s">}</span>
+</code></pre>
+<p>Returns all sectors of a specific branch that fulfill the filters.</p>
+
+<aside class="notice">
+<strong>Order:</strong> The sectors are sorted by <code>short_name</code>.
+</aside>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">GET /customer/v1/branches/{branch_id}/sectors</code></p>
+
+<h3 id="path-params">Path params</h3>
+
+<table><thead>
+<tr>
+<th style="text-align: left"></th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left"><strong>branch_id</strong> <em>string</em> <span class="required-param">required</span> <br>Unique identifier of branch. For example <code class="prettyprint">27b6</code>.</td>
+</tr>
+</tbody></table>
+
+<h3 id="query-params">Query Params</h3>
+
+<table><thead>
+<tr>
+<th style="text-align: left"></th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left"><strong>service_id</strong> <em>string</em> <br>Unique identifier of service requested by customer.</td>
+</tr>
+<tr>
+<td style="text-align: left"><strong>fields</strong> <em>array[string]</em> <span class="recomended-param">recomended</span> <br> Entity fields that will return at response. For example: <code class="prettyprint">fields=id,name,short_name</code>.</td>
+</tr>
+</tbody></table>
+
+<h3 id="responses">Responses</h3>
+
+<table><thead>
+<tr>
+<th style="text-align: left"></th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left"><strong>200</strong> <em>array[<a href="#sector">Sector</a>]</em> <br>A list of sectors.</td>
+</tr>
+<tr>
+<td style="text-align: left"><strong>400</strong> <em><a href="#error">Error</a></em> <br>Bad request.</td>
+</tr>
+<tr>
+<td style="text-align: left"><strong>500</strong> <em><a href="#error">Error</a></em> <br>An error has occurred.</td>
+</tr>
+</tbody></table>
+
+          <h1 id="service">Service</h1>
+
+<p>A booking or ticket require to be associate to a service. You can obtain the available services from the endpoint of this section.</p>
+
+<h2 id="service-object">Service Object</h2>
+
+<blockquote>
+<p>Sample model:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"7b6"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Plataforma"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"short_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Plataforma"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>Model of service object.</p>
+
+<h3 id="fields">Fields</h3>
+
+<table><thead>
+<tr>
+<th style="text-align: left"></th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left"><strong>id</strong> <em>string</em> <br>Service unique identifier. <p><em>Validation pattern</em>: <code>^[0-9a-z]{2,6}$</code></p></td>
+</tr>
+<tr>
+<td style="text-align: left"><strong>name</strong> <em>string</em> <br>Complete name of the service. <p><em>Maximum length</em>: <code>120</code></p></td>
+</tr>
+<tr>
+<td style="text-align: left"><strong>short_name</strong> <em>string</em> <br>Name to display in small devices. <p><em>Maximum length</em>: <code>20</code></p></td>
+</tr>
+</tbody></table>
+
+<h2 id="get-all-services">Get All Services</h2>
+
+<blockquote>
+<p>Sample request:</p>
+</blockquote>
+<pre class="highlight http tab-http"><code><span class="nf">GET</span> <span class="nn">/customer/v1/services</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+</code></pre>
+<blockquote>
+<p>Sample success response:</p>
+</blockquote>
+<pre class="highlight http tab-http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+
+<span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"7b6"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Plataforma"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"short_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Plataforma"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>Sample error responses:</p>
+</blockquote>
+<pre class="highlight http tab-http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">400</span> <span class="ne">Bad Request</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+
+<span class="p">{</span><span class="w">
+    </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Requested field not found."</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><pre class="highlight http tab-http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">500</span> <span class="ne">Internal Server Error</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+
+<span class="p">{</span><span class="w">
+    </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"An error has ocurred."</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ab90"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"more_info"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://bmatic.com/docs/errors/ab90"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>Returns all available services that fulfill the filters.</p>
+
+<aside class="notice">
+<strong>Order:</strong> The services are sorted by <code>short_name</code>.
+</aside>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">GET /customer/v1/services</code></p>
+
+<h3 id="query-params">Query Params</h3>
+
+<table><thead>
+<tr>
+<th style="text-align: left"></th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left"><strong>branch_id</strong> <em>string</em> <br>Unique identifier of branch.</td>
+</tr>
+<tr>
+<td style="text-align: left"><strong>sector_id</strong> <em>string</em> <br>Unique identifier of sector.</td>
+</tr>
+<tr>
+<td style="text-align: left"><strong>fields</strong> <em>array[string]</em> <span class="recomended-param">recomended</span> <br> Entity fields that will return at response. For example: <code class="prettyprint">fields=id,short_name</code>.</td>
+</tr>
+<tr>
+<td style="text-align: left"><strong>offset</strong> <em>int</em> <br> Position in pagination. Default is <code class="prettyprint">0</code>, maximum is <code class="prettyprint">99999</code>.</td>
+</tr>
+<tr>
+<td style="text-align: left"><strong>limit</strong> <em>int</em> <br> Number of items to retrieve. Default is <code class="prettyprint">10</code>, maximum is <code class="prettyprint">50</code>.</td>
+</tr>
+</tbody></table>
+
+<h3 id="responses">Responses</h3>
+
+<table><thead>
+<tr>
+<th style="text-align: left"></th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left"><strong>200</strong> <em>array[<a href="#branch">Branch</a>]</em> <br>A list of services. Pagination headers are included: <ul><li><strong>X-Pagination-Count:</strong> Total number of items.</li><li><strong>X-Pagination-Page:</strong> Number of the current page.</li><li><strong>X-Pagination-Limit:</strong> Number of items returned.</li></ul></td>
+</tr>
+<tr>
+<td style="text-align: left"><strong>400</strong> <em><a href="#error">Error</a></em> <br>Bad request.</td>
+</tr>
+<tr>
+<td style="text-align: left"><strong>500</strong> <em><a href="#error">Error</a></em> <br>An error has occurred.</td>
+</tr>
+</tbody></table>
+
+          <h1 id="ticket">Ticket</h1>
+
+<p>Your customers don&rsquo;t need anymore to be at branch for create attention tickets. You can use the endpoints of this section to allow them the ticket creation from anywhere easily, before the creation is necesary determine the branch, sector and service for the ticket.</p>
+
+<h2 id="get-all-tickets">Get All Tickets</h2>
+
+<blockquote>
+<p>Sample Request:</p>
+</blockquote>
+<pre class="highlight http tab-http"><code><span class="nf">GET</span> <span class="nn">/customer/v1/tickets?customer_id=m809a31n</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+</code></pre>
+<blockquote>
+<p>Sample Success Response:</p>
+</blockquote>
+<pre class="highlight http tab-http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+
+<span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>Sample error responses:</p>
+</blockquote>
+<pre class="highlight http tab-http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">400</span> <span class="ne">Bad Request</span>
+</code></pre><pre class="highlight http tab-http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">404</span> <span class="ne">Not Found</span>
+</code></pre><pre class="highlight http tab-http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">500</span> <span class="ne">Internal Server Error</span>
+</code></pre>
+<p>Returns all tickets created by a specific customer, the tickets are sorted descendantly by the creation date.</p>
+
+<h3 id="parameters">Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>In</th>
+<th>Type</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>ID</td>
-<td>The ID of the kitten to retrieve</td>
+<td>customer_id_type<span title="required" class="required">&nbsp;*&nbsp;</span></td>
+<td>query</td>
+<td>string</td>
+<td>Unique identifier of customer id type.</td>
+</tr>
+<tr>
+<td>customer_id_number<span title="required" class="required">&nbsp;*&nbsp;</span></td>
+<td>query</td>
+<td>string</td>
+<td>Number of customer id.</td>
+</tr>
+<tr>
+<td>fields</td>
+<td>query</td>
+<td>array[string]</td>
+<td>Optional. Entity fields that will return at response.</td>
+</tr>
+<tr>
+<td>offset</td>
+<td>query</td>
+<td>integer</td>
+<td>Optional. Position in pagination. Default is zero.</td>
+</tr>
+<tr>
+<td>limit</td>
+<td>query</td>
+<td>integer</td>
+<td>Optional. Number of items to retrieve. Default is 10, maximum is 50.</td>
 </tr>
 </tbody></table>
 
-          <h1 id="errors">Errors</h1>
-
-<aside class="notice">This error section is stored in a separate file in `includes/_errors.md`. Slate allows you to optionally separate out your docs into many files&hellip;just save them to the `includes` folder and add them to the top of your `index.md`&rsquo;s frontmatter. Files are included in the order listed.</aside>
-
-<p>The Kittn API uses the following error codes:</p>
+<h3 id="responses">Responses</h3>
 
 <table><thead>
 <tr>
-<th>Error Code</th>
-<th>Meaning</th>
+<th>Http code</th>
+<th>Type</th>
+<th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
+<td>200</td>
+<td>array[<a href="#ticket">Ticket</a>]</td>
+<td>A list of tickets.</td>
+</tr>
+<tr>
 <td>400</td>
-<td>Bad Request &ndash; Your request sucks</td>
-</tr>
-<tr>
-<td>401</td>
-<td>Unauthorized &ndash; Your API key is wrong</td>
-</tr>
-<tr>
-<td>403</td>
-<td>Forbidden &ndash; The kitten requested is hidden for administrators only</td>
+<td>no content</td>
+<td>Bad request.</td>
 </tr>
 <tr>
 <td>404</td>
-<td>Not Found &ndash; The specified kitten could not be found</td>
-</tr>
-<tr>
-<td>405</td>
-<td>Method Not Allowed &ndash; You tried to access a kitten with an invalid method</td>
-</tr>
-<tr>
-<td>406</td>
-<td>Not Acceptable &ndash; You requested a format that isn&rsquo;t json</td>
-</tr>
-<tr>
-<td>410</td>
-<td>Gone &ndash; The kitten requested has been removed from our servers</td>
-</tr>
-<tr>
-<td>418</td>
-<td>I&rsquo;m a teapot</td>
-</tr>
-<tr>
-<td>429</td>
-<td>Too Many Requests &ndash; You&rsquo;re requesting too many kittens! Slow down!</td>
+<td>no content</td>
+<td>Non exists tickets registered by the customer.</td>
 </tr>
 <tr>
 <td>500</td>
-<td>Internal Server Error &ndash; We had a problem with our server. Try again later.</td>
+<td>no content</td>
+<td>An error has occurred.</td>
+</tr>
+</tbody></table>
+
+<h2 id="create-ticket">Create Ticket</h2>
+<pre class="highlight http tab-http"><code><span class="nf">POST</span> <span class="nn">/v1/tickets</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+</code></pre><pre class="highlight http tab-http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">201</span> <span class="ne">Created</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+
+<span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><pre class="highlight http tab-http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">400</span> <span class="ne">Bad Request</span>
+</code></pre><pre class="highlight http tab-http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">500</span> <span class="ne">Internal Server Error</span>
+</code></pre>
+<p>Create a new customer ticket and then it returns it.</p>
+
+<h3 id="parameters">Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>In</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>channel<span title="required" class="required">&nbsp;*&nbsp;</span></td>
+<td>formData</td>
+<td>string</td>
+<td>Unique identifier of the channel used. This value is used to identify the type of device that consumes the API and should to be configured in administrative web of BMATIC.</td>
 </tr>
 <tr>
-<td>503</td>
-<td>Service Unavailable &ndash; We&rsquo;re temporarially offline for maintanance. Please try again later.</td>
+<td>branch_id<span title="required" class="required">&nbsp;*&nbsp;</span></td>
+<td>formData</td>
+<td>string</td>
+<td>Unique identifier of branch requested by customer.</td>
+</tr>
+<tr>
+<td>sector_id<span title="required" class="required">&nbsp;*&nbsp;</span></td>
+<td>formData</td>
+<td>string</td>
+<td>Unique identifier of sector requested by customer.</td>
+</tr>
+<tr>
+<td>service_id<span title="required" class="required">&nbsp;*&nbsp;</span></td>
+<td>formData</td>
+<td>string</td>
+<td>Unique identifier of service requested by customer.</td>
+</tr>
+<tr>
+<td>customer_id_type</td>
+<td>query</td>
+<td>string</td>
+<td>Optional. Unique identifier of customer id type.</td>
+</tr>
+<tr>
+<td>customer_id_number</td>
+<td>query</td>
+<td>string</td>
+<td>Optional. Number of customer id.</td>
+</tr>
+<tr>
+<td>phone</td>
+<td>formData</td>
+<td>string</td>
+<td>Optional. Customer phone for notifications.</td>
+</tr>
+</tbody></table>
+
+<h3 id="responses">Responses</h3>
+
+<table><thead>
+<tr>
+<th>Http code</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>201</td>
+<td><a href="#ticket">Ticket</a></td>
+<td>Successful creation.</td>
+</tr>
+<tr>
+<td>400</td>
+<td>no content</td>
+<td>Bad request.</td>
+</tr>
+<tr>
+<td>500</td>
+<td>no content</td>
+<td>An error has occurred.</td>
+</tr>
+</tbody></table>
+
+<h2 id="get-ticket">Get Ticket</h2>
+<pre class="highlight http tab-http"><code><span class="nf">GET</span> <span class="nn">/v1/tickets/{ticket_id}</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+</code></pre><pre class="highlight http tab-http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+
+<span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><pre class="highlight http tab-http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">400</span> <span class="ne">Bad Request</span>
+</code></pre><pre class="highlight http tab-http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">404</span> <span class="ne">Not Found</span>
+</code></pre><pre class="highlight http tab-http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">500</span> <span class="ne">Internal Server Error</span>
+</code></pre>
+<p>Returns a customer ticket by ID.</p>
+
+<h3 id="parameters">Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>In</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>ticket_id<span title="required" class="required">&nbsp;*&nbsp;</span></td>
+<td>path</td>
+<td>string</td>
+<td>Unique identifier of ticket.</td>
+</tr>
+<tr>
+<td>fields</td>
+<td>query</td>
+<td>array[string]</td>
+<td>Optional. Entity fields that will return at response.</td>
+</tr>
+</tbody></table>
+
+<h3 id="responses">Responses</h3>
+
+<table><thead>
+<tr>
+<th>Http code</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>200</td>
+<td><a href="#ticket">Ticket</a></td>
+<td>A ticket.</td>
+</tr>
+<tr>
+<td>400</td>
+<td>no content</td>
+<td>Bad request.</td>
+</tr>
+<tr>
+<td>404</td>
+<td>no content</td>
+<td>Ticket not found.</td>
+</tr>
+<tr>
+<td>500</td>
+<td>no content</td>
+<td>An error has occurred.</td>
+</tr>
+</tbody></table>
+
+<h2 id="update-ticket">Update Ticket</h2>
+<pre class="highlight http tab-http"><code><span class="nf">PUT</span> <span class="nn">/v1/tickets/{ticket_id}</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+</code></pre><pre class="highlight http tab-http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">204</span> <span class="ne">No Content</span>
+</code></pre><pre class="highlight http tab-http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">400</span> <span class="ne">Bad Request</span>
+</code></pre><pre class="highlight http tab-http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">404</span> <span class="ne">Not Found</span>
+</code></pre><pre class="highlight http tab-http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">500</span> <span class="ne">Internal Server Error</span>
+</code></pre>
+<p>Update a specific customer ticket(At least one parameter must be sent).</p>
+
+<h3 id="parameters">Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>In</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>ticket_id<span title="required" class="required">&nbsp;*&nbsp;</span></td>
+<td>path</td>
+<td>string</td>
+<td>Unique identifier of ticket.</td>
+</tr>
+<tr>
+<td>status</td>
+<td>formData</td>
+<td>string</td>
+<td>Optional. Updated status of the ticket.</td>
+</tr>
+<tr>
+<td>phone</td>
+<td>formData</td>
+<td>string</td>
+<td>Optional. Updated of phone for notifications.</td>
+</tr>
+</tbody></table>
+
+<h3 id="responses">Responses</h3>
+
+<table><thead>
+<tr>
+<th>Http code</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>204</td>
+<td>no content</td>
+<td>Successful update.</td>
+</tr>
+<tr>
+<td>400</td>
+<td>no content</td>
+<td>Bad request.</td>
+</tr>
+<tr>
+<td>404</td>
+<td>no content</td>
+<td>Ticket not found.</td>
+</tr>
+<tr>
+<td>500</td>
+<td>no content</td>
+<td>An error has occurred.</td>
+</tr>
+</tbody></table>
+
+<h2 id="delete-ticket">Delete Ticket</h2>
+<pre class="highlight http tab-http"><code><span class="nf">DELETE</span> <span class="nn">/v1/tickets/{ticket_id}</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+</code></pre><pre class="highlight http tab-http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">204</span> <span class="ne">No Content</span>
+</code></pre><pre class="highlight http tab-http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">400</span> <span class="ne">Bad Request</span>
+</code></pre><pre class="highlight http tab-http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">404</span> <span class="ne">Not Found</span>
+</code></pre><pre class="highlight http tab-http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">500</span> <span class="ne">Internal Server Error</span>
+</code></pre>
+<p>Delete a customer ticket by ID.</p>
+
+<h3 id="parameters">Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>In</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>ticket_id<span title="required" class="required">&nbsp;*&nbsp;</span></td>
+<td>path</td>
+<td>string</td>
+<td>Unique identifier of ticket.</td>
+</tr>
+</tbody></table>
+
+<h3 id="responses">Responses</h3>
+
+<table><thead>
+<tr>
+<th>Http code</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>204</td>
+<td>no content</td>
+<td>Successful deletion.</td>
+</tr>
+<tr>
+<td>400</td>
+<td>no content</td>
+<td>Bad request.</td>
+</tr>
+<tr>
+<td>404</td>
+<td>no content</td>
+<td>Ticket not found.</td>
+</tr>
+<tr>
+<td>500</td>
+<td>no content</td>
+<td>An error has occurred.</td>
+</tr>
+</tbody></table>
+
+          <h1 id="booking">Booking</h1>
+
+<h2 id="get-all-bookings">Get All Bookings</h2>
+<pre class="highlight http tab-http"><code><span class="nf">GET</span> <span class="nn">/v1/bookings</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+</code></pre><pre class="highlight http tab-http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+
+<span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre><pre class="highlight http tab-http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">400</span> <span class="ne">Bad Request</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+
+<span class="p">{</span><span class="w">
+    </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Status sended is not valid."</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><pre class="highlight http tab-http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">404</span> <span class="ne">Not Found</span>
+</code></pre><pre class="highlight http tab-http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">500</span> <span class="ne">Internal Server Error</span>
+</code></pre>
+<p>Returns all bookings created by a specific customer, the bookings are sorted descendantly by the creation date.</p>
+
+<h3 id="parameters">Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>In</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>customer_id_type<span title="required" class="required">&nbsp;*&nbsp;</span></td>
+<td>query</td>
+<td>string</td>
+<td>Unique identifier of customer id type.</td>
+</tr>
+<tr>
+<td>customer_id_number<span title="required" class="required">&nbsp;*&nbsp;</span></td>
+<td>query</td>
+<td>string</td>
+<td>Number of customer id.</td>
+</tr>
+<tr>
+<td>status</td>
+<td>query</td>
+<td>string</td>
+<td>Optional. Status of booking.</td>
+</tr>
+<tr>
+<td>fields</td>
+<td>query</td>
+<td>array[string]</td>
+<td>Optional. Entity fields that will return at response.</td>
+</tr>
+<tr>
+<td>offset</td>
+<td>query</td>
+<td>integer</td>
+<td>Optional. Position in pagination. Default is zero.</td>
+</tr>
+<tr>
+<td>limit</td>
+<td>query</td>
+<td>integer</td>
+<td>Optional. Number of items to retrieve. Default is 10, maximum is 50.</td>
+</tr>
+</tbody></table>
+
+<h3 id="responses">Responses</h3>
+
+<table><thead>
+<tr>
+<th>Http code</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>200</td>
+<td>array[<a href="#booking">Booking</a>]</td>
+<td>A list of bookings.</td>
+</tr>
+<tr>
+<td>400</td>
+<td><a href="#error">Error</a></td>
+<td>Bad request.</td>
+</tr>
+<tr>
+<td>404</td>
+<td>no content</td>
+<td>Non exists bookings that fulfill the filters.</td>
+</tr>
+<tr>
+<td>500</td>
+<td>no content</td>
+<td>An error has occurred.</td>
+</tr>
+</tbody></table>
+
+<h2 id="create-booking">Create Booking</h2>
+<pre class="highlight http tab-http"><code><span class="nf">POST</span> <span class="nn">/v1/bookings</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+</code></pre><pre class="highlight http tab-http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">201</span> <span class="ne">Created</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+
+<span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><pre class="highlight http tab-http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">400</span> <span class="ne">Bad Request</span>
+</code></pre><pre class="highlight http tab-http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">500</span> <span class="ne">Internal Server Error</span>
+</code></pre>
+<p>Create a new customer booking and then it returns it.</p>
+
+<h3 id="parameters">Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>In</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>channel<span title="required" class="required">&nbsp;*&nbsp;</span></td>
+<td>formData</td>
+<td>string</td>
+<td>Unique identifier of the channel used. This value is used to identify the type of device that consumes the API and should to be configured in administrative web of BMATIC.</td>
+</tr>
+<tr>
+<td>branch_id<span title="required" class="required">&nbsp;*&nbsp;</span></td>
+<td>formData</td>
+<td>string</td>
+<td>Unique identifier of branch requested.</td>
+</tr>
+<tr>
+<td>service_id<span title="required" class="required">&nbsp;*&nbsp;</span></td>
+<td>formData</td>
+<td>string</td>
+<td>Unique identifier of service requested.</td>
+</tr>
+<tr>
+<td>customer_id_type<span title="required" class="required">&nbsp;*&nbsp;</span></td>
+<td>formData</td>
+<td>string</td>
+<td>Unique identifier of customer id type.</td>
+</tr>
+<tr>
+<td>customer_id_number<span title="required" class="required">&nbsp;*&nbsp;</span></td>
+<td>formData</td>
+<td>string</td>
+<td>Number of customer id.</td>
+</tr>
+<tr>
+<td>start_time<span title="required" class="required">&nbsp;*&nbsp;</span></td>
+<td>formData</td>
+<td>string</td>
+<td>Start time of booking.</td>
+</tr>
+<tr>
+<td>end_time<span title="required" class="required">&nbsp;*&nbsp;</span></td>
+<td>formData</td>
+<td>string</td>
+<td>End time of booking.</td>
+</tr>
+</tbody></table>
+
+<h3 id="responses">Responses</h3>
+
+<table><thead>
+<tr>
+<th>Http code</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>201</td>
+<td><a href="#booking">Booking</a></td>
+<td>Successful creation.</td>
+</tr>
+<tr>
+<td>400</td>
+<td>no content</td>
+<td>Bad request.</td>
+</tr>
+<tr>
+<td>500</td>
+<td>no content</td>
+<td>An error has occurred.</td>
+</tr>
+</tbody></table>
+
+<h2 id="get-booking">Get Booking</h2>
+<pre class="highlight http tab-http"><code><span class="nf">GET</span> <span class="nn">/v1/bookings/{booking_id}</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+</code></pre><pre class="highlight http tab-http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+
+<span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><pre class="highlight http tab-http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">400</span> <span class="ne">Bad Request</span>
+</code></pre><pre class="highlight http tab-http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">404</span> <span class="ne">Not Found</span>
+</code></pre><pre class="highlight http tab-http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">500</span> <span class="ne">Internal Server Error</span>
+</code></pre>
+<p>Returns a customer booking by ID.</p>
+
+<h3 id="parameters">Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>In</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>booking_id<span title="required" class="required">&nbsp;*&nbsp;</span></td>
+<td>path</td>
+<td>string</td>
+<td>Unique identifier of booking.</td>
+</tr>
+<tr>
+<td>fields</td>
+<td>query</td>
+<td>array[string]</td>
+<td>Optional. Entity fields that will return at response.</td>
+</tr>
+</tbody></table>
+
+<h3 id="responses">Responses</h3>
+
+<table><thead>
+<tr>
+<th>Http code</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>200</td>
+<td><a href="#booking">Booking</a></td>
+<td>A booking.</td>
+</tr>
+<tr>
+<td>400</td>
+<td>no content</td>
+<td>Bad request.</td>
+</tr>
+<tr>
+<td>404</td>
+<td>no content</td>
+<td>Booking not found.</td>
+</tr>
+<tr>
+<td>500</td>
+<td>no content</td>
+<td>An error has occurred.</td>
+</tr>
+</tbody></table>
+
+<h2 id="delete-booking">Delete Booking</h2>
+<pre class="highlight http tab-http"><code><span class="nf">DELETE</span> <span class="nn">/v1/bookings/{booking_id}</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+</code></pre><pre class="highlight http tab-http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">204</span> <span class="ne">No Content</span>
+</code></pre><pre class="highlight http tab-http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">400</span> <span class="ne">Bad Request</span>
+</code></pre><pre class="highlight http tab-http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">404</span> <span class="ne">Not Found</span>
+</code></pre><pre class="highlight http tab-http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">500</span> <span class="ne">Internal Server Error</span>
+</code></pre>
+<p>Delete a customer booking by ID.</p>
+
+<h3 id="parameters">Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>In</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>booking_id<span title="required" class="required">&nbsp;*&nbsp;</span></td>
+<td>path</td>
+<td>string</td>
+<td>Unique identifier of booking.</td>
+</tr>
+</tbody></table>
+
+<h3 id="responses">Responses</h3>
+
+<table><thead>
+<tr>
+<th>Http code</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>204</td>
+<td>no content</td>
+<td>Successful deletion.</td>
+</tr>
+<tr>
+<td>400</td>
+<td>no content</td>
+<td>Bad request.</td>
+</tr>
+<tr>
+<td>404</td>
+<td>no content</td>
+<td>Booking not found.</td>
+</tr>
+<tr>
+<td>500</td>
+<td>no content</td>
+<td>An error has occurred.</td>
+</tr>
+</tbody></table>
+
+<h2 id="get-days-for-book">Get Days For Book</h2>
+<pre class="highlight http tab-http"><code><span class="nf">GET</span> <span class="nn">/v1/bookings/days</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+</code></pre><pre class="highlight http tab-http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+
+<span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"day"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"ranges"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"capacity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"start_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"end_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">]</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre><pre class="highlight http tab-http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">400</span> <span class="ne">Bad Request</span>
+</code></pre><pre class="highlight http tab-http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">404</span> <span class="ne">Not Found</span>
+</code></pre><pre class="highlight http tab-http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">500</span> <span class="ne">Internal Server Error</span>
+</code></pre>
+<p>Returns a list of days for book a specific service in a branch. The days are sorted ascendantly.</p>
+
+<h3 id="parameters">Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>In</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>branch_id<span title="required" class="required">&nbsp;*&nbsp;</span></td>
+<td>query</td>
+<td>string</td>
+<td>Unique identifier of branch requested.</td>
+</tr>
+<tr>
+<td>service_id<span title="required" class="required">&nbsp;*&nbsp;</span></td>
+<td>query</td>
+<td>string</td>
+<td>Unique identifier of service requested.</td>
+</tr>
+<tr>
+<td>offset</td>
+<td>query</td>
+<td>integer</td>
+<td>Optional. Position in pagination. Default is zero.</td>
+</tr>
+<tr>
+<td>limit</td>
+<td>query</td>
+<td>integer</td>
+<td>Optional. Number of items to retrieve. Default is 10, maximum is 50.</td>
+</tr>
+</tbody></table>
+
+<h3 id="responses">Responses</h3>
+
+<table><thead>
+<tr>
+<th>Http code</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>200</td>
+<td>array[<a href="#bookingday">BookingDay</a>]</td>
+<td>A list of booking days.</td>
+</tr>
+<tr>
+<td>400</td>
+<td>no content</td>
+<td>Bad request.</td>
+</tr>
+<tr>
+<td>404</td>
+<td>no content</td>
+<td>Non exists available booking days.</td>
+</tr>
+<tr>
+<td>500</td>
+<td>no content</td>
+<td>An error has occurred.</td>
+</tr>
+</tbody></table>
+
+          <h1 id="models">Models</h1>
+
+<h2 id="error">Error</h2>
+
+<blockquote>
+<p>Sample of error with help:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Not allowed service for the branch."</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9m86"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"more_info"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://bmatic.com/docs/errors/9m86"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>Sample of simple error:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Branch not found."</span><span class="p">,</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>HTTP body used when an error occurred.</p>
+
+<aside class="notice">
+All errors ocurred in the API return a message as information minimal.
+</aside>
+
+<aside class="notice">
+All error fields are read only.
+</aside>
+
+<h3 id="fields">Fields</h3>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>message<span title="required" class="required">&nbsp;*&nbsp;</span></td>
+<td>string</td>
+<td>A descriptive message regarding the exception.</td>
+</tr>
+<tr>
+<td>code</td>
+<td>string</td>
+<td>An error code to find help for the exception.</td>
+</tr>
+<tr>
+<td>more_info</td>
+<td>string</td>
+<td>The URL of BMatic&rsquo;s documentation for the error code. If the error code is undefined then this value is undefined too.</td>
+</tr>
+</tbody></table>
+
+<h2 id="service">Service</h2>
+
+<blockquote>
+<p>Sample model:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"7b6"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Plataforma"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"short_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Plataforma"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>Service model.</p>
+
+<aside class="notice">
+All service fields are mandatory and read only.
+</aside>
+
+<h3 id="fields">Fields</h3>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id<span title="required" class="required">&nbsp;*&nbsp;</span></td>
+<td>string</td>
+<td>Service unique identifier.</td>
+</tr>
+<tr>
+<td>name<span title="required" class="required">&nbsp;*&nbsp;</span></td>
+<td>string</td>
+<td>Complete name of the service.</td>
+</tr>
+<tr>
+<td>short_name<span title="required" class="required">&nbsp;*&nbsp;</span></td>
+<td>string</td>
+<td>Short name of service, used to display the service in small devices.</td>
+</tr>
+</tbody></table>
+
+<h2 id="branch">Branch</h2>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"short_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"latitude"</span><span class="p">:</span><span class="w"> </span><span class="s2">"number"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"longitude"</span><span class="p">:</span><span class="w"> </span><span class="s2">"number"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"opening_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"closing_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"low_estimated_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"high_estimated_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"congestion_level"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"is_virtual"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"is_bookable"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"sectors"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>Branch of BMATIC.</p>
+
+<h3 id="fields">Fields</h3>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>string</td>
+<td>Branch unique identifier.</td>
+</tr>
+<tr>
+<td>name</td>
+<td>string</td>
+<td>Complete name of the branch.</td>
+</tr>
+<tr>
+<td>short_name</td>
+<td>string</td>
+<td>Short name of branch, used to display it in small devices.</td>
+</tr>
+<tr>
+<td>code</td>
+<td>string</td>
+<td>Unique identifier for the branch used in your company system.</td>
+</tr>
+<tr>
+<td>address</td>
+<td>string</td>
+<td>Address of the branch.</td>
+</tr>
+<tr>
+<td>latitude</td>
+<td>number</td>
+<td>Latitude component of branch location.</td>
+</tr>
+<tr>
+<td>longitude</td>
+<td>number</td>
+<td>Longitude component of branch location.</td>
+</tr>
+<tr>
+<td>status</td>
+<td>string</td>
+<td>Current status of the branch.<div>Possible values:</div><ul class="enum"><li>open</li><li>close</li></ul></td>
+</tr>
+<tr>
+<td>opening_time</td>
+<td>string</td>
+<td>Opening time of the branch at current day, or next opening datetime.</td>
+</tr>
+<tr>
+<td>closing_time</td>
+<td>string</td>
+<td>Closing time of the branch at current day or next closing datetime.</td>
+</tr>
+<tr>
+<td>low_estimated_time</td>
+<td>integer</td>
+<td>Lower bound of the estimated waiting time. It is undefined when the branch is closed.</td>
+</tr>
+<tr>
+<td>high_estimated_time</td>
+<td>integer</td>
+<td>Upper bound of the estimated waiting time. It is undefined when the branch is closed.</td>
+</tr>
+<tr>
+<td>congestion_level</td>
+<td>string</td>
+<td>Congestion level of the branch. It is undefined when the branch is closed. <div>Posible values:</div><ul class="enum"><li>low</li><li>medium</li><li>high</li></ul></td>
+</tr>
+<tr>
+<td>is_virtual</td>
+<td>boolean</td>
+<td>Indicator of the possibility to create virtual tickets.</td>
+</tr>
+<tr>
+<td>is_bookable</td>
+<td>boolean</td>
+<td>Indicator of the possibility to bookings.</td>
+</tr>
+<tr>
+<td>sectors</td>
+<td>array[<a href="#sector">Sector</a>]</td>
+<td>List of the branch&rsquo;s sectors.</td>
+</tr>
+</tbody></table>
+
+<h2 id="sector">Sector</h2>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"short_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"opening_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"closing_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>Branch sector of BMATIC.</p>
+
+<h3 id="fields">Fields</h3>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Format</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>string</td>
+<td></td>
+<td>Sector unique identifier.</td>
+</tr>
+<tr>
+<td>name</td>
+<td>string</td>
+<td></td>
+<td>Complete name of sector.</td>
+</tr>
+<tr>
+<td>short_name</td>
+<td>string</td>
+<td></td>
+<td>Short name of sector, used to display it in small devices.</td>
+</tr>
+<tr>
+<td>status</td>
+<td>string</td>
+<td><div>Acceptable values:</div><ul class="enum"><li>open</li><li>close</li></ul></td>
+<td>Current status of the branch.</td>
+</tr>
+<tr>
+<td>opening_time</td>
+<td>string</td>
+<td>date-time</td>
+<td>Opening time of the sector at current day, or next opening datetime.</td>
+</tr>
+<tr>
+<td>closing_time</td>
+<td>string</td>
+<td>date-time</td>
+<td>Closing time of the sector at current day or next closing datetime.</td>
+</tr>
+</tbody></table>
+
+<h2 id="bookingrange">BookingRange</h2>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"capacity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"start_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"end_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>Time range with available bookings.</p>
+
+<h3 id="fields">Fields</h3>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Format</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>capacity</td>
+<td>integer</td>
+<td>int32</td>
+<td>Booking capacity of range.</td>
+</tr>
+<tr>
+<td>start_time</td>
+<td>string</td>
+<td>date-time</td>
+<td>Start time of range.</td>
+</tr>
+<tr>
+<td>end_time</td>
+<td>string</td>
+<td>date-time</td>
+<td>End time of range.</td>
+</tr>
+</tbody></table>
+
+<h2 id="bookingday">BookingDay</h2>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"day"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"ranges"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"capacity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"start_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"end_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>Day with available bookings.</p>
+
+<h3 id="fields">Fields</h3>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Format</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>day</td>
+<td>string</td>
+<td>date</td>
+<td>Day of time ranges with available bookings.</td>
+</tr>
+<tr>
+<td>ranges</td>
+<td>array[<a href="#bookingrange">BookingRange</a>]</td>
+<td></td>
+<td>List of time ranges with available bookings</td>
+</tr>
+</tbody></table>
+
+<h2 id="booking">Booking</h2>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>Booking model.</p>
+
+<h3 id="fields">Fields</h3>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Format</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>string</td>
+<td></td>
+<td>Booking unique identifier.</td>
+</tr>
+</tbody></table>
+
+<h2 id="ticket">Ticket</h2>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>Ticket model.</p>
+
+<h3 id="fields">Fields</h3>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Format</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>string</td>
+<td></td>
+<td>Ticket unique identifier.</td>
 </tr>
 </tbody></table>
 
       </div>
       <div class="dark-box">
-          <div class="lang-selector">
-                <a href="#" data-language-name="shell">shell</a>
-                <a href="#" data-language-name="ruby">ruby</a>
-                <a href="#" data-language-name="python">python</a>
-          </div>
       </div>
     </div>
   </body>
