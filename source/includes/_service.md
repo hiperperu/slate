@@ -76,7 +76,7 @@ Returns all available services that fulfill the filters.
 <strong>Order:</strong> The services are sorted by <code>short_name</code>.
 </aside>
 
-### HTTP Request
+### Endpoint
 
 `GET /customer/v1/services`
 

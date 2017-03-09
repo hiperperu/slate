@@ -1,5 +1,67 @@
 
 # Booking
+
+
+## Booking Range Object
+```json
+{
+    "capacity": "integer",
+    "start_time": "string",
+    "end_time": "string"
+}
+```
+
+Time range with available bookings.
+
+
+### Fields
+Name | Type | Format | Description
+--- | --- | --- | ---
+capacity | integer | int32 | Booking capacity of range.
+start_time | string | date-time | Start time of range.
+end_time | string | date-time | End time of range.
+
+
+## Booking Day Object
+```json
+{
+    "day": "string",
+    "ranges": [
+        {
+            "capacity": "integer",
+            "start_time": "string",
+            "end_time": "string"
+        }
+    ]
+}
+```
+
+Day with available bookings.
+
+
+### Fields
+Name | Type | Format | Description
+--- | --- | --- | ---
+day | string | date | Day of time ranges with available bookings.
+ranges | array[[BookingRange](#bookingrange)] |  | List of time ranges with available bookings
+
+
+## Booking Object
+```json
+{
+    "id": "string"
+}
+```
+
+Booking model.
+
+
+### Fields
+Name | Type | Format | Description
+--- | --- | --- | ---
+id | string |  | Booking unique identifier.
+
+
 ## Get All Bookings
 
 ```http

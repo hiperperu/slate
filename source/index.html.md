@@ -5,11 +5,12 @@ toc_footers:
 - <a href='http://www.hiper.com.pe'>Powered by HIPER S.A.</a>
 
 includes:
+  - guide
   - branch
   - service
   - ticket
   - booking
-  - models
+  - errors
 
 search: true
 ---

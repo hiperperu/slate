@@ -638,6 +638,24 @@ html, body {
     border-radius: 3px;
 }
 
+.operation-verbpath {
+    width: 100%;
+    border: 1px solid $border-color;
+    border-radius: $border-radius;
+    display: flex;
+    margin-bottom: 2rem;
+    position: relative;
+    box-sizing: border-box;
+}
+
+
+.operation-verbpath::before {
+    box-sizing: border-box;
+}
+.operation-verbpath::after {
+    box-sizing: border-box;
+}
+
 .highlight .c, .highlight .cm, .highlight .c1, .highlight .cs {
   color: #909090;
 }

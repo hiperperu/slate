@@ -168,7 +168,7 @@ Returns all branches with their sectors that fulfill the filters.
 <strong>Remember:</strong> The customers prefer to attend the nearest branches,for that it is recommendable ever use the parameters <code>longitude</code>, <code>latitude</code>, <code>min_latitude</code>, <code>max_latitude</code>, <code>min_latitude</code> and <code>max_longitude</code>.
 </aside>
 
-### HTTP Request
+### Endpoint
 
 `GET /customer/v1/branches`
 
@@ -275,7 +275,7 @@ Content-Type: application/json
 Returns a specific branch requested by ID.
 
 
-### HTTP Request
+### Endpoint
 
 `GET /customer/v1/branches/{branch_id}`
 
@@ -353,7 +353,7 @@ Returns all sectors of a specific branch that fulfill the filters.
 <strong>Order:</strong> The sectors are sorted by <code>short_name</code>.
 </aside>
 
-### HTTP Request
+### Endpoint
 
 `GET /customer/v1/branches/{branch_id}/sectors`
 

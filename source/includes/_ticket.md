@@ -162,7 +162,7 @@ Returns all tickets created by a specific customer.
 <strong>Caution:</strong> For this operation its necesary indicate a specific customer, You have two options, send the parameters <code>customer_id_type</code> and <code>customer_id_number</code> or just send <code>customer_id</code>. If you send all parameters, the API just consider the parameter <code>customer_id</code>.
 </aside>
 
-### HTTP Request
+### Endpoint
 
 `GET /customer/v1/tickets`
 
@@ -270,7 +270,7 @@ Content-Type: application/json
 Returns a customer ticket by ID.
 
 
-### HTTP Request
+### Endpoint
 
 `GET /customer/v1/tickets/{ticket_id}`
 
@@ -304,10 +304,10 @@ POST /customer/v1/tickets HTTP/1.1
 Content-Type: application/json
 
 {
-    "channel": "mobile",
     "branch_id": "27b6",
     "sector_id": "s8",
     "service_id": "7b6",
+    "channel": "mobile",
     "customer_id": "a9087s902m"
 }
 ```
@@ -382,99 +382,169 @@ Content-Type: application/json
 
 Create a new customer ticket and then returns it.
 
+### Endpoint
+
+`POST /customer/v1/tickets`
 
 ### Request
 
 | |
 |:---|
-|**fields** *array[string]* <span class="recomended-param">recomended</span> <br> Entity fields that will return at response. For example: `fields=id,queue,number`. |
-
-Name | In | Type | Description
---- | --- | --- | ---
-channel<span title="required" class="required">&nbsp;*&nbsp;</span> | formData | string | Unique identifier of the channel used. This value is used to identify the type of device that consumes the API and should to be configured in administrative web of BMATIC.
-branch_id<span title="required" class="required">&nbsp;*&nbsp;</span> | formData | string | Unique identifier of branch requested by customer.
-sector_id<span title="required" class="required">&nbsp;*&nbsp;</span> | formData | string | Unique identifier of sector requested by customer.
-service_id<span title="required" class="required">&nbsp;*&nbsp;</span> | formData | string | Unique identifier of service requested by customer.
-customer_id_type | query | string | Optional. Unique identifier of customer id type.
-customer_id_number | query | string | Optional. Number of customer id.
-phone | formData | string | Optional. Customer phone for notifications.
+|**branch_id** *string* <span class="required-param">required</span> <br> Unique identifier of branch request by customer. |
+|**sector_id** *string* <span class="required-param">required</span> <br> Unique identifier of sector requested by customer. |
+|**service_id** *string* <span class="required-param">required</span> <br> Unique identifier of service requested by customer. |
+|**channel** *string* <span class="recomended-param">recomended</span><br> Unique identifier of the channel used. Used only for audit purpose. |
+|**phone** *string* <span class="recomended-param">recomended</span><br> Customer phone for notifications. |
+|**customer_id** *string* <br> Unique identifier of the channel used. Used only for audit purpose. |
+|**customer_id_type** *string* <br> Unique identifier of customer id type. |
+|**customer_id_number** *string*  <br> Number of customer id. |
 
 ### Responses
-Http code | Type | Description
---- | --- | ---
-201 | [Ticket](#ticket) | Successful creation.
-400 | no content | Bad request.
-500 | no content | An error has occurred.
 
+| |
+|:---|
+|**201** *[Ticket](#ticket)* <br>A ticket.|
+|**400** *[Error](#error)* <br>Bad request. |
+|**500** *[Error](#error)* <br>An error has occurred.|
 
 ## Update Ticket
 
+> Sample request:
+
 ```http
-PUT /v1/tickets/{ticket_id} HTTP/1.1
+PATCH /v1/tickets/89m32b0998 HTTP/1.1
+Content-Type: application/json
+
+{
+    "status": "ENABLED"
+}
 ```
+
+> Sample success response:
 
 ```http
 HTTP/1.1 204 No Content
 ```
+
+> Sample error responses:
+
 ```http
 HTTP/1.1 400 Bad Request
+Content-Type: application/json
+
+{
+    "message": "Invalid status."
+}
 ```
 ```http
 HTTP/1.1 404 Not Found
+Content-Type: application/json
+
+{
+    "message": "Ticket not found."
+}
 ```
 ```http
 HTTP/1.1 500 Internal Server Error
+Content-Type: application/json
+
+{
+    "message": "An error has ocurred.",
+    "code": "ab90",
+    "more_info": "https://bmatic.com/docs/errors/ab90"
+}
 ```
 
-Update a specific customer ticket(At least one parameter must be sent).
+Update a specific customer ticket.
 
+### Endpoint
 
-### Parameters
-Name | In | Type | Description
---- | --- | --- | ---
-ticket_id<span title="required" class="required">&nbsp;*&nbsp;</span> | path | string | Unique identifier of ticket.
-status | formData | string | Optional. Updated status of the ticket.
-phone | formData | string | Optional. Updated of phone for notifications.
+`PATCH /customer/v1/tickets/{ticket_id}`
+
+### Path Params
+
+| |
+|:---|
+|**ticket_id** *string* <span class="required-param">required</span> <br>Unique identifier of ticket. For example `89m32b0998`.|
+
+### Request
+
+| |
+|:---|
+|**status** *enum* <br> New status for the ticket. Possible values are `BLOCKED` and `ENABLED`. |
+|**phone** *string* <br> New customer phone for notifications. |
 
 ### Responses
-Http code | Type | Description
---- | --- | ---
-204 | no content | Successful update.
-400 | no content | Bad request.
-404 | no content | Ticket not found.
-500 | no content | An error has occurred.
+
+| |
+|:---|
+|**204** *no content* <br>Successful update.|
+|**400** *[Error](#error)* <br>Bad request. |
+|**404** *[Error](#error)* <br>Ticket not found. |
+|**500** *[Error](#error)* <br>An error has occurred.|
 
 ## Delete Ticket
 
+> Sample request:
+
 ```http
-DELETE /v1/tickets/{ticket_id} HTTP/1.1
+DELETE /customer/v1/tickets/89m32b0998 HTTP/1.1
 ```
+
+> Sample success response:
 
 ```http
 HTTP/1.1 204 No Content
 ```
+
+> Sample error responses:
+
 ```http
 HTTP/1.1 400 Bad Request
+Content-Type: application/json
+
+{
+    "message": "Invalid ticket ID."
+}
 ```
 ```http
 HTTP/1.1 404 Not Found
+Content-Type: application/json
+
+{
+    "message": "Ticket not found."
+}
 ```
 ```http
 HTTP/1.1 500 Internal Server Error
+Content-Type: application/json
+
+{
+    "message": "An error has ocurred.",
+    "code": "ab90",
+    "more_info": "https://bmatic.com/docs/errors/ab90"
+}
 ```
+
 
 Delete a customer ticket by ID.
 
 
-### Parameters
-Name | In | Type | Description
---- | --- | --- | ---
-ticket_id<span title="required" class="required">&nbsp;*&nbsp;</span> | path | string | Unique identifier of ticket.
+### Endpoint
+
+`DELETE /customer/v1/tickets/{ticket_id}`
+
+### Path Params
+
+| |
+|:---|
+|**ticket_id** *string* <span class="required-param">required</span> <br>Unique identifier of ticket. For example `89m32b0998`.|
 
 ### Responses
-Http code | Type | Description
---- | --- | ---
-204 | no content | Successful deletion.
-400 | no content | Bad request.
-404 | no content | Ticket not found.
-500 | no content | An error has occurred.
+
+| |
+|:---|
+|**204** *no content* <br>Successful deletion.|
+|**400** *[Error](#error)* <br>Bad request. |
+|**404** *[Error](#error)* <br>Ticket not found. |
+|**500** *[Error](#error)* <br>An error has occurred.|
