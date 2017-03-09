@@ -1,72 +1,198 @@
 
 # Booking
 
+Allow to your customers reserve a attention schedule for a better customer experience reducing the waiting time and better the congestion of your branches. The endpoints of this section allow the creation of bookings from your application.
 
-## Booking Range Object
+## Booking Object
+
+> Sample object:
+
 ```json
 {
-    "capacity": "integer",
-    "start_time": "string",
-    "end_time": "string"
+    "id": "a90mos70om",
+    "code": "UxMa01m",
+    "channel": "mobile",
+    "status": "ACTIVE",
+    "phone": "+51987776576",
+    "branch": {
+        "id": "27b6",
+        "name": "Hiper Central",
+        "short_name": "Hiper",
+        "code": "AG001",
+        "address": "Calle Beta 181 - 195, Callao",
+        "latitude": -12.049919,
+        "longitude": -77.0845193,
+        "status": "OPEN",
+        "opening_time": "2017-02-20T14:00:00.000Z",
+        "closing_time": "2017-02-20T23:00:00.000Z",
+        "congestion_level": "MEDIUM"
+    },
+    "service": {
+        "id": "7b6",
+        "name": "Plataforma",
+        "short_name": "Plataforma"
+    },
+    "start_time": "2017-02-20T14:00:00.000Z",
+    "end_time": "2017-02-20T15:00:00.000Z",
+    "created_at": "2017-02-10T14:00:00.000Z",
+    "updated_at": "2017-02-10T14:00:00.000Z"
 }
 ```
 
-Time range with available bookings.
-
+Model of booking object.
 
 ### Fields
-Name | Type | Format | Description
---- | --- | --- | ---
-capacity | integer | int32 | Booking capacity of range.
-start_time | string | date-time | Start time of range.
-end_time | string | date-time | End time of range.
+
+| |
+|:---|
+|**id** *string* <br>Booking unique identifier. <p>*Validation pattern*: <code>^[0-9a-z]{8,16}$</code></p> |
+|**code** *string* <br>Booking code to display it to customer. <p>*Validation pattern*: <code>^[0-9a-zA-Z]{6,12}$</code> |
+|**channel** *string* <br>Code of channel used. <p>*Maximum length*: <code>20</code></p> |
+|**status** *enum* <br>Current status of the booking. <p>*Possible values*: <ul><li><code>ACTIVE</code></li><li><code>INACTIVE</code></li><li><code>DEFEATED</code></li></ul></p> |
+|**phone** *string* <br>Customer phone for notifications. <p>*Validation pattern*: <code>^\+[1-9]{1}[0-9]{3,14}$</code></p> |
+|**branch** *[Branch](#branch)* <br> Branch associated.</p> |
+|**service** *[Service](#service)* <br> Service associated.</p> |
+|**start_time** *date-time* <br> Start time of booking. <p>*Standard*: <code>[ISO 8601](https://en.wikipedia.org/wiki/ISO_8601)</code></p> |
+|**end_time** *date-time* <br> End time of booking.<p>*Standard*: <code>[ISO 8601](https://en.wikipedia.org/wiki/ISO_8601)</code></p>  |
+|**created_at** *date-time* <br> Datetime of ticket creation. <p>*Standard*: <code>[ISO 8601](https://en.wikipedia.org/wiki/ISO_8601)</code></p> |
+|**updated_at** *date-time* <br> Datetime of the last update of ticket. <p>*Standard*: <code>[ISO 8601](https://en.wikipedia.org/wiki/ISO_8601)</code></p>  |
 
 
 ## Booking Day Object
+
+> Sample object:
+
 ```json
 {
-    "day": "string",
+    "day": "2017-02-20T00:00:00.000Z",
     "ranges": [
         {
-            "capacity": "integer",
-            "start_time": "string",
-            "end_time": "string"
+            "start_time": "2017-02-20T14:00:00.000Z",
+            "end_time": "2017-02-20T15:00:00.000Z"
         }
     ]
 }
 ```
 
-Day with available bookings.
+Model of day object with available bookings.
 
 
 ### Fields
-Name | Type | Format | Description
---- | --- | --- | ---
-day | string | date | Day of time ranges with available bookings.
-ranges | array[[BookingRange](#bookingrange)] |  | List of time ranges with available bookings
 
+| |
+|:---|
+|**day** *date-time* <br> Date with available bookings. <p>*Standard*: <code>[ISO 8601](https://en.wikipedia.org/wiki/ISO_8601)</code></p> |
+|**ranges** *array[[BookingRange](#booking_range_object)]* <br> List of time ranges with available bookings.  |
 
-## Booking Object
+## Booking Range Object
+
+> Sample object
+
 ```json
 {
-    "id": "string"
+    "start_time": "2017-02-20T14:00:00.000Z",
+    "end_time": "2017-02-20T15:00:00.000Z"
 }
 ```
 
-Booking model.
-
+Model of time range object with available bookings.
 
 ### Fields
-Name | Type | Format | Description
---- | --- | --- | ---
-id | string |  | Booking unique identifier.
+
+| |
+|:---|
+|**start_time** *date-time* <br> Start time of range. <p>*Standard*: <code>[ISO 8601](https://en.wikipedia.org/wiki/ISO_8601)</code></p> |
+|**end_time** *date-time* <br> End time of range.<p>*Standard*: <code>[ISO 8601](https://en.wikipedia.org/wiki/ISO_8601)</code></p>  |
+
+
+## Get Days For Book
+
+> Sample request:
+
+```http
+GET /v1/bookings/days?branch_id=27b6&service_id=7b6 HTTP/1.1
+```
+
+> Sample success response:
+
+```http
+HTTP/1.1 200 OK
+X-Pagination-Count: 7
+X-Pagination-Page: 3
+X-Pagination-Limit: 1
+Content-Type: application/json
+
+[
+    {
+        "day": "2017-02-20T00:00:00.000Z",
+        "ranges": [
+            {
+                "start_time": "2017-02-20T14:00:00.000Z",
+                "end_time": "2017-02-20T15:00:00.000Z"
+            }
+        ]
+    }
+]
+```
+
+> Sample error responses:
+
+```http
+HTTP/1.1 400 Bad Request
+Content-Type: application/json
+
+{
+    "message": "Invalid branch ID."
+}
+```
+```http
+HTTP/1.1 500 Internal Server Error
+Content-Type: application/json
+
+{
+    "message": "An error has ocurred.",
+    "code": "ab90",
+    "more_info": "https://bmatic.com/docs/errors/ab90"
+}
+```
+
+Returns a list of days for book a specific service in a branch.
+
+<aside class="notice">
+<strong>Order:</strong> The booking days are sorted ascendantly by  <code>day</code>.
+</aside>
+
+### Endpoint
+
+`GET /customer/v1/bookings/days`
+
+### Query Params
+
+| |
+|:---|
+|**branch_id** *string* <span title="required" class="required-param">required</span> <br> Unique identifier of branch requested.|
+|**service_id** *string* <span title="required" class="required-param">required</span> <br> Unique identifier of service requested.|
+|**offset** *int* <br> Position in pagination. Default is `0`, maximum is `99999`.|
+|**limit** *int* <br> Number of items to retrieve. Default is `10`, maximum is `50`.|
+
+### Responses
+
+| |
+|:---|
+|**200** *array[[Booking](#booking-day-object)]* <br>A list of booking days. Pagination headers are included: <ul><li><strong>X-Pagination-Count:</strong> Total number of items.</li><li><strong>X-Pagination-Page:</strong> Number of the current page.</li><li><strong>X-Pagination-Limit:</strong> Number of items returned.</li></ul>|
+|**400** *[Error](#error)* <br>Bad request. |
+|**500** *[Error](#error)* <br>An error has occurred.|
 
 
 ## Get All Bookings
 
+> Sample request:
+
 ```http
-GET /v1/bookings HTTP/1.1
+GET /customer/v1/bookings?customer_id=m809a31n HTTP/1.1
 ```
+
+> Sample success response:
 
 ```http
 HTTP/1.1 200 OK
@@ -74,214 +200,432 @@ Content-Type: application/json
 
 [
     {
-        "id": "string"
+        "id": "a90mos70om",
+        "code": "UxMa01m",
+        "channel": "mobile",
+        "status": "ACTIVE",
+        "phone": "+51987776576",
+        "branch": {
+            "id": "27b6",
+            "name": "Hiper Central",
+            "short_name": "Hiper",
+            "code": "AG001",
+            "address": "Calle Beta 181 - 195, Callao",
+            "latitude": -12.049919,
+            "longitude": -77.0845193,
+            "status": "OPEN",
+            "opening_time": "2017-02-20T14:00:00.000Z",
+            "closing_time": "2017-02-20T23:00:00.000Z",
+            "congestion_level": "MEDIUM"
+        },
+        "service": {
+            "id": "7b6",
+            "name": "Plataforma",
+            "short_name": "Plataforma"
+        },
+        "start_time": "2017-02-20T14:00:00.000Z",
+        "end_time": "2017-02-20T15:00:00.000Z",
+        "created_at": "2017-02-10T14:00:00.000Z",
+        "updated_at": "2017-02-10T14:00:00.000Z"
     }
 ]
 ```
+
+> Sample error responses:
+
 ```http
 HTTP/1.1 400 Bad Request
 Content-Type: application/json
 
 {
-    "message": "Status sended is not valid."
+    "message": "Invalid customer ID."
+}
+```
+```http
+HTTP/1.1 500 Internal Server Error
+Content-Type: application/json
+
+{
+    "message": "An error has ocurred.",
+    "code": "ab90",
+    "more_info": "https://bmatic.com/docs/errors/ab90"
+}
+```
+
+Returns all tickets created by a specific customer.
+
+<aside class="notice">
+<strong>Order:</strong> The bookings are sorted descendantly by the field : <code>created_at</code>.
+</aside>
+
+<aside class="warning">
+<strong>Caution:</strong> For this operation its necesary indicate a specific customer, You have two options, send the parameters <code>customer_id_type</code> and <code>customer_id_number</code> or just send <code>customer_id</code>. If you send all parameters, the API just consider the parameter <code>customer_id</code>.
+</aside>
+
+### Endpoint
+
+`GET /customer/v1/bookings`
+
+### Query Params
+
+| |
+|:---|
+|**customer_id** *string* <span class="recomended-param">recomended</span><br>Customer unique identifier used in your company. <p>*Validation pattern*: <code>^[0-9A-Za-z]{1,20}$</code></p> |
+|**customer_id_type** *string* <br>Type of customer ID. <p>*Validation pattern*: <code>^[0-9a-zA-Z]{1,2}$</code></p> |
+|**customer_id_number** *integer* <br>Number of customer ID. <p>*Validation pattern*: <code>^[0-9a-zA-Z]{1,16}$</code></p> |
+|**fields** *array[string]* <span class="recomended-param">recomended</span> <br> Entity fields that will return at response. For example: `fields=id,code`. |
+
+### Responses
+
+| |
+|:---|
+|**200** *array[[Booking](#ticket)]* <br>A list of bookings. |
+|**400** *[Error](#error)* <br>Bad request. |
+|**500** *[Error](#error)* <br>An error has occurred.|
+
+
+## Get Booking
+
+> Sample request:
+
+```http
+GET /v1/bookings/a90mos70om HTTP/1.1
+```
+
+> Sample success response:
+
+```http
+HTTP/1.1 200 OK
+Content-Type: application/json
+
+{
+    "id": "a90mos70om",
+    "code": "UxMa01m",
+    "channel": "mobile",
+    "status": "ACTIVE",
+    "phone": "+51987776576",
+    "branch": {
+        "id": "27b6",
+        "name": "Hiper Central",
+        "short_name": "Hiper",
+        "code": "AG001",
+        "address": "Calle Beta 181 - 195, Callao",
+        "latitude": -12.049919,
+        "longitude": -77.0845193,
+        "status": "OPEN",
+        "opening_time": "2017-02-20T14:00:00.000Z",
+        "closing_time": "2017-02-20T23:00:00.000Z",
+        "congestion_level": "MEDIUM"
+    },
+    "service": {
+        "id": "7b6",
+        "name": "Plataforma",
+        "short_name": "Plataforma"
+    },
+    "start_time": "2017-02-20T14:00:00.000Z",
+    "end_time": "2017-02-20T15:00:00.000Z",
+    "created_at": "2017-02-10T14:00:00.000Z",
+    "updated_at": "2017-02-10T14:00:00.000Z"
+}
+```
+
+> Sample error responses:
+
+```http
+HTTP/1.1 400 Bad Request
+Content-Type: application/json
+
+{
+    "message": "Requested field not found."
 }
 ```
 ```http
 HTTP/1.1 404 Not Found
+Content-Type: application/json
+
+{
+    "message": "Booking not found."
+}
 ```
 ```http
 HTTP/1.1 500 Internal Server Error
+Content-Type: application/json
+
+{
+    "message": "An error has ocurred.",
+    "code": "ab90",
+    "more_info": "https://bmatic.com/docs/errors/ab90"
+}
 ```
 
-Returns all bookings created by a specific customer, the bookings are sorted descendantly by the creation date.
+Returns a customer booking by ID.
 
+### Endpoint
 
-### Parameters
-Name | In | Type | Description
---- | --- | --- | ---
-customer_id_type<span title="required" class="required">&nbsp;*&nbsp;</span> | query | string | Unique identifier of customer id type.
-customer_id_number<span title="required" class="required">&nbsp;*&nbsp;</span> | query | string | Number of customer id.
-status | query | string | Optional. Status of booking.
-fields | query | array[string] | Optional. Entity fields that will return at response.
-offset | query | integer | Optional. Position in pagination. Default is zero.
-limit | query | integer | Optional. Number of items to retrieve. Default is 10, maximum is 50.
+`GET /customer/v1/bookings/{booking_id}`
+
+### Path Params
+
+| |
+|:---|
+|**booking_id** *string* <span class="required-param">required</span> <br>Unique identifier of Booking. For example `a90mos70om`.|
+
+### Query Params
+
+| |
+|:---|
+|**fields** *array[string]* <span class="recomended-param">recomended</span> <br> Entity fields that will return at response. For example: `fields=id,queue,number`. |
 
 ### Responses
-Http code | Type | Description
---- | --- | ---
-200 | array[[Booking](#booking)] | A list of bookings.
-400 | [Error](#error) | Bad request.
-404 | no content | Non exists bookings that fulfill the filters.
-500 | no content | An error has occurred.
+
+| |
+|:---|
+|**200** *[Booking](#booking)* <br>A booking.|
+|**400** *[Error](#error)* <br>Bad request. |
+|**404** *[Error](#error)* <br>Booking not found. |
+|**500** *[Error](#error)* <br>An error has occurred.|
 
 ## Create Booking
 
+> Sample request:
+
 ```http
 POST /v1/bookings HTTP/1.1
+Content-Type: application/json
+
+{
+    "branch_id": "27b6",
+    "service_id": "7b6",
+    "channel": "mobile",
+    "customer_id": "a9087s902m",
+    "start_time":"2017-02-20T14:00:00.000Z",
+    "end_time":"2017-02-20T15:00:00.000Z"
+}
 ```
+
+> Sample success response:
 
 ```http
 HTTP/1.1 201 Created
 Content-Type: application/json
 
 {
-    "id": "string"
+    "id": "a90mos70om",
+    "code": "UxMa01m",
+    "channel": "mobile",
+    "status": "ACTIVE",
+    "phone": "+51987776576",
+    "branch": {
+        "id": "27b6",
+        "name": "Hiper Central",
+        "short_name": "Hiper",
+        "code": "AG001",
+        "address": "Calle Beta 181 - 195, Callao",
+        "latitude": -12.049919,
+        "longitude": -77.0845193,
+        "status": "OPEN",
+        "opening_time": "2017-02-20T14:00:00.000Z",
+        "closing_time": "2017-02-20T23:00:00.000Z",
+        "congestion_level": "MEDIUM"
+    },
+    "service": {
+        "id": "7b6",
+        "name": "Plataforma",
+        "short_name": "Plataforma"
+    },
+    "start_time": "2017-02-20T14:00:00.000Z",
+    "end_time": "2017-02-20T15:00:00.000Z",
+    "created_at": "2017-02-10T14:00:00.000Z",
+    "updated_at": "2017-02-10T14:00:00.000Z"
+}
+```
+
+> Sample error responses:
+
+```http
+HTTP/1.1 400 Bad Request
+Content-Type: application/json
+
+{
+    "message": "Invalid branch ID."
 }
 ```
 ```http
-HTTP/1.1 400 Bad Request
-```
-```http
 HTTP/1.1 500 Internal Server Error
+Content-Type: application/json
+
+{
+    "message": "An error has ocurred.",
+    "code": "ab90",
+    "more_info": "https://bmatic.com/docs/errors/ab90"
+}
 ```
 
 Create a new customer booking and then it returns it.
 
 
-### Parameters
-Name | In | Type | Description
---- | --- | --- | ---
-channel<span title="required" class="required">&nbsp;*&nbsp;</span> | formData | string | Unique identifier of the channel used. This value is used to identify the type of device that consumes the API and should to be configured in administrative web of BMATIC.
-branch_id<span title="required" class="required">&nbsp;*&nbsp;</span> | formData | string | Unique identifier of branch requested.
-service_id<span title="required" class="required">&nbsp;*&nbsp;</span> | formData | string | Unique identifier of service requested.
-customer_id_type<span title="required" class="required">&nbsp;*&nbsp;</span> | formData | string | Unique identifier of customer id type.
-customer_id_number<span title="required" class="required">&nbsp;*&nbsp;</span> | formData | string | Number of customer id.
-start_time<span title="required" class="required">&nbsp;*&nbsp;</span> | formData | string | Start time of booking.
-end_time<span title="required" class="required">&nbsp;*&nbsp;</span> | formData | string | End time of booking.
+### Endpoint
+
+`POST /customer/v1/bookings`
+
+### Request
+
+| |
+|:---|
+|**branch_id** *string* <span class="required-param">required</span> <br> Unique identifier of branch request by customer. |
+|**service_id** *string* <span class="required-param">required</span> <br> Unique identifier of service requested by customer. |
+|**channel** *string* <span class="recomended-param">recomended</span><br> Unique identifier of the channel used. Used only for audit purpose. |
+|**phone** *string* <span class="recomended-param">recomended</span><br> Customer phone for notifications. |
+|**start_time** *string* <span class="required-param">required</span> <br> Start time of booking. |
+|**end_time** *string* <span class="required-param">required</span> <br> End time of booking. |
+|**customer_id** *string* <br> Unique identifier of the channel used. Used only for audit purpose. |
+|**customer_id_type** *string* <br> Unique identifier of customer id type. |
+|**customer_id_number** *string*  <br> Number of customer id. |
 
 ### Responses
-Http code | Type | Description
---- | --- | ---
-201 | [Booking](#booking) | Successful creation.
-400 | no content | Bad request.
-500 | no content | An error has occurred.
 
+| |
+|:---|
+|**201** *[Booking](#booking-object)* <br>A booking.|
+|**400** *[Error](#error)* <br>Bad request. |
+|**500** *[Error](#error)* <br>An error has occurred.|
 
-## Get Booking
+## Update Booking
 
-```http
-GET /v1/bookings/{booking_id} HTTP/1.1
-```
+> Sample request:
 
 ```http
-HTTP/1.1 200 OK
+PATCH /customer/v1/bookings/a90mos70om HTTP/1.1
 Content-Type: application/json
 
 {
-    "id": "string"
+    "phone": "+51908999189"
 }
 ```
-```http
-HTTP/1.1 400 Bad Request
-```
-```http
-HTTP/1.1 404 Not Found
-```
-```http
-HTTP/1.1 500 Internal Server Error
-```
 
-Returns a customer booking by ID.
-
-
-### Parameters
-Name | In | Type | Description
---- | --- | --- | ---
-booking_id<span title="required" class="required">&nbsp;*&nbsp;</span> | path | string | Unique identifier of booking.
-fields | query | array[string] | Optional. Entity fields that will return at response.
-
-### Responses
-Http code | Type | Description
---- | --- | ---
-200 | [Booking](#booking) | A booking.
-400 | no content | Bad request.
-404 | no content | Booking not found.
-500 | no content | An error has occurred.
-
-## Delete Booking
-
-```http
-DELETE /v1/bookings/{booking_id} HTTP/1.1
-```
+> Sample success response:
 
 ```http
 HTTP/1.1 204 No Content
 ```
+
+> Sample errors responses:
+
 ```http
 HTTP/1.1 400 Bad Request
+Content-Type: application/json
+
+{
+    "message": "Invalid phone number."
+}
 ```
 ```http
 HTTP/1.1 404 Not Found
+Content-Type: application/json
+
+{
+    "message": "Booking not found."
+}
 ```
 ```http
 HTTP/1.1 500 Internal Server Error
+Content-Type: application/json
+
+{
+    "message": "An error has ocurred.",
+    "code": "ab90",
+    "more_info": "https://bmatic.com/docs/errors/ab90"
+}
+```
+
+Update a specific customer booking.
+
+###Endpoint
+
+`PATCH /customer/v1/bookings/{booking_id}`
+
+### Path Params
+
+| |
+|:---|
+|**booking_id** *string* <span class="required-param">required</span> <br>Unique identifier of booking. For example `a90mos70om`.|
+
+### Request
+
+| |
+|:---|
+|**phone** *string* <br> New customer phone for notifications. |
+
+### Responses
+
+| |
+|:---|
+|**204** *no content* <br>Successful update.|
+|**400** *[Error](#error)* <br>Bad request. |
+|**404** *[Error](#error)* <br>Booking not found. |
+|**500** *[Error](#error)* <br>An error has occurred.|
+
+## Delete Booking
+
+> Sample request:
+
+```http
+DELETE /customer/v1/bookings/a90mos70om HTTP/1.1
+```
+
+> Sample success response:
+
+```http
+HTTP/1.1 204 No Content
+```
+
+> Sample error responses:
+
+```http
+HTTP/1.1 400 Bad Request
+Content-Type: application/json
+
+{
+    "message": "Invalid phone number."
+}
+```
+```http
+HTTP/1.1 404 Not Found
+Content-Type: application/json
+
+{
+    "message": "Booking not found."
+}
+```
+```http
+HTTP/1.1 500 Internal Server Error
+Content-Type: application/json
+
+{
+    "message": "An error has ocurred.",
+    "code": "ab90",
+    "more_info": "https://bmatic.com/docs/errors/ab90"
+}
 ```
 
 Delete a customer booking by ID.
 
 
-### Parameters
-Name | In | Type | Description
---- | --- | --- | ---
-booking_id<span title="required" class="required">&nbsp;*&nbsp;</span> | path | string | Unique identifier of booking.
+###Endpoint
+
+`DELETE /customer/v1/bookings/{booking_id}`
+
+### Path Params
+
+| |
+|:---|
+|**booking_id** *string* <span class="required-param">required</span> <br>Unique identifier of booking. For example `a90mos70om`.|
 
 ### Responses
-Http code | Type | Description
---- | --- | ---
-204 | no content | Successful deletion.
-400 | no content | Bad request.
-404 | no content | Booking not found.
-500 | no content | An error has occurred.
 
-
-## Get Days For Book
-
-```http
-GET /v1/bookings/days HTTP/1.1
-```
-
-```http
-HTTP/1.1 200 OK
-Content-Type: application/json
-
-[
-    {
-        "day": "string",
-        "ranges": [
-            {
-                "capacity": "integer",
-                "start_time": "string",
-                "end_time": "string"
-            }
-        ]
-    }
-]
-```
-```http
-HTTP/1.1 400 Bad Request
-```
-```http
-HTTP/1.1 404 Not Found
-```
-```http
-HTTP/1.1 500 Internal Server Error
-```
-
-Returns a list of days for book a specific service in a branch. The days are sorted ascendantly.
-
-
-### Parameters
-Name | In | Type | Description
---- | --- | --- | ---
-branch_id<span title="required" class="required">&nbsp;*&nbsp;</span> | query | string | Unique identifier of branch requested.
-service_id<span title="required" class="required">&nbsp;*&nbsp;</span> | query | string | Unique identifier of service requested.
-offset | query | integer | Optional. Position in pagination. Default is zero.
-limit | query | integer | Optional. Number of items to retrieve. Default is 10, maximum is 50.
-
-### Responses
-Http code | Type | Description
---- | --- | ---
-200 | array[[BookingDay](#bookingday)] | A list of booking days.
-400 | no content | Bad request.
-404 | no content | Non exists available booking days.
-500 | no content | An error has occurred.
+| |
+|:---|
+|**204** *no content* <br>Successful deletion.|
+|**400** *[Error](#error)* <br>Bad request. |
+|**404** *[Error](#error)* <br>Booking not found. |
+|**500** *[Error](#error)* <br>An error has occurred.|

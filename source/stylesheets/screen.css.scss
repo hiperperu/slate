@@ -476,7 +476,6 @@ html, body {
     margin-top: 1.5em;
     margin-bottom: 1.5em;
     line-height: 1.6;
-    text-align: justify;
   }
 
   aside:before {
@@ -638,22 +637,16 @@ html, body {
     border-radius: 3px;
 }
 
-.operation-verbpath {
-    width: 100%;
-    border: 1px solid $border-color;
-    border-radius: $border-radius;
-    display: flex;
-    margin-bottom: 2rem;
-    position: relative;
-    box-sizing: border-box;
+.param-type {
+    word-spacing: 0px;
+    color: $tg-grey;
+    font-style: italic;
 }
 
-
-.operation-verbpath::before {
-    box-sizing: border-box;
-}
-.operation-verbpath::after {
-    box-sizing: border-box;
+.verb-description {
+    word-spacing: 0px;
+    color: $tg-grey;
+    font-style: italic;
 }
 
 .highlight .c, .highlight .cm, .highlight .c1, .highlight .cs {
