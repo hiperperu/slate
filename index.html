@@ -229,6 +229,10 @@
     }
 </style>
 
+          <h1 id="getting-started">Getting Started</h1>
+
+<p>Welcome!</p>
+
           <h1 id="branch">Branch</h1>
 
 <p>Before you create tickets or bookings, you need a branch and sector provided by the endpoints of this section (The bookings creation not required a sector). You considere use the recomended parameters for obtain a better performance in your application.</p>
@@ -440,7 +444,7 @@
 <strong>Remember:</strong> The customers prefer to attend the nearest branches,for that it is recommendable ever use the parameters <code>longitude</code>, <code>latitude</code>, <code>min_latitude</code>, <code>max_latitude</code>, <code>min_latitude</code> and <code>max_longitude</code>.
 </aside>
 
-<h3 id="http-request">HTTP Request</h3>
+<h3 id="endpoint">Endpoint</h3>
 
 <p><code class="prettyprint">GET /customer/v1/branches</code></p>
 
@@ -579,7 +583,7 @@
 </span></code></pre>
 <p>Returns a specific branch requested by ID.</p>
 
-<h3 id="http-request">HTTP Request</h3>
+<h3 id="endpoint">Endpoint</h3>
 
 <p><code class="prettyprint">GET /customer/v1/branches/{branch_id}</code></p>
 
@@ -675,7 +679,7 @@
 <strong>Order:</strong> The sectors are sorted by <code>short_name</code>.
 </aside>
 
-<h3 id="http-request">HTTP Request</h3>
+<h3 id="endpoint">Endpoint</h3>
 
 <p><code class="prettyprint">GET /customer/v1/branches/{branch_id}/sectors</code></p>
 
@@ -804,7 +808,7 @@
 <strong>Order:</strong> The services are sorted by <code>short_name</code>.
 </aside>
 
-<h3 id="http-request">HTTP Request</h3>
+<h3 id="endpoint">Endpoint</h3>
 
 <p><code class="prettyprint">GET /customer/v1/services</code></p>
 
@@ -1039,7 +1043,7 @@
 <strong>Caution:</strong> For this operation its necesary indicate a specific customer, You have two options, send the parameters <code>customer_id_type</code> and <code>customer_id_number</code> or just send <code>customer_id</code>. If you send all parameters, the API just consider the parameter <code>customer_id</code>.
 </aside>
 
-<h3 id="http-request">HTTP Request</h3>
+<h3 id="endpoint">Endpoint</h3>
 
 <p><code class="prettyprint">GET /customer/v1/tickets</code></p>
 
@@ -1161,7 +1165,7 @@
 </span></code></pre>
 <p>Returns a customer ticket by ID.</p>
 
-<h3 id="http-request">HTTP Request</h3>
+<h3 id="endpoint">Endpoint</h3>
 
 <p><code class="prettyprint">GET /customer/v1/tickets/{ticket_id}</code></p>
 
@@ -1219,10 +1223,10 @@
 <span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
 
 <span class="p">{</span><span class="w">
-    </span><span class="s2">"channel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"mobile"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"branch_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"27b6"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"sector_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"s8"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"service_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"7b6"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"channel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"mobile"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"customer_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"a9087s902m"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
@@ -1292,6 +1296,10 @@
 </span></code></pre>
 <p>Create a new customer ticket and then returns it.</p>
 
+<h3 id="endpoint">Endpoint</h3>
+
+<p><code class="prettyprint">POST /customer/v1/tickets</code></p>
+
 <h3 id="request">Request</h3>
 
 <table><thead>
@@ -1300,59 +1308,28 @@
 </tr>
 </thead><tbody>
 <tr>
-<td style="text-align: left"><strong>fields</strong> <em>array[string]</em> <span class="recomended-param">recomended</span> <br> Entity fields that will return at response. For example: <code class="prettyprint">fields=id,queue,number</code>.</td>
-</tr>
-</tbody></table>
-
-<table><thead>
-<tr>
-<th>Name</th>
-<th>In</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>channel<span title="required" class="required">&nbsp;*&nbsp;</span></td>
-<td>formData</td>
-<td>string</td>
-<td>Unique identifier of the channel used. This value is used to identify the type of device that consumes the API and should to be configured in administrative web of BMATIC.</td>
+<td style="text-align: left"><strong>branch_id</strong> <em>string</em> <span class="required-param">required</span> <br> Unique identifier of branch request by customer.</td>
 </tr>
 <tr>
-<td>branch_id<span title="required" class="required">&nbsp;*&nbsp;</span></td>
-<td>formData</td>
-<td>string</td>
-<td>Unique identifier of branch requested by customer.</td>
+<td style="text-align: left"><strong>sector_id</strong> <em>string</em> <span class="required-param">required</span> <br> Unique identifier of sector requested by customer.</td>
 </tr>
 <tr>
-<td>sector_id<span title="required" class="required">&nbsp;*&nbsp;</span></td>
-<td>formData</td>
-<td>string</td>
-<td>Unique identifier of sector requested by customer.</td>
+<td style="text-align: left"><strong>service_id</strong> <em>string</em> <span class="required-param">required</span> <br> Unique identifier of service requested by customer.</td>
 </tr>
 <tr>
-<td>service_id<span title="required" class="required">&nbsp;*&nbsp;</span></td>
-<td>formData</td>
-<td>string</td>
-<td>Unique identifier of service requested by customer.</td>
+<td style="text-align: left"><strong>channel</strong> <em>string</em> <span class="recomended-param">recomended</span><br> Unique identifier of the channel used. Used only for audit purpose.</td>
 </tr>
 <tr>
-<td>customer_id_type</td>
-<td>query</td>
-<td>string</td>
-<td>Optional. Unique identifier of customer id type.</td>
+<td style="text-align: left"><strong>phone</strong> <em>string</em> <span class="recomended-param">recomended</span><br> Customer phone for notifications.</td>
 </tr>
 <tr>
-<td>customer_id_number</td>
-<td>query</td>
-<td>string</td>
-<td>Optional. Number of customer id.</td>
+<td style="text-align: left"><strong>customer_id</strong> <em>string</em> <br> Unique identifier of the channel used. Used only for audit purpose.</td>
 </tr>
 <tr>
-<td>phone</td>
-<td>formData</td>
-<td>string</td>
-<td>Optional. Customer phone for notifications.</td>
+<td style="text-align: left"><strong>customer_id_type</strong> <em>string</em> <br> Unique identifier of customer id type.</td>
+</tr>
+<tr>
+<td style="text-align: left"><strong>customer_id_number</strong> <em>string</em>  <br> Number of customer id.</td>
 </tr>
 </tbody></table>
 
@@ -1360,64 +1337,91 @@
 
 <table><thead>
 <tr>
-<th>Http code</th>
-<th>Type</th>
-<th>Description</th>
+<th style="text-align: left"></th>
 </tr>
 </thead><tbody>
 <tr>
-<td>201</td>
-<td><a href="#ticket">Ticket</a></td>
-<td>Successful creation.</td>
+<td style="text-align: left"><strong>201</strong> <em><a href="#ticket">Ticket</a></em> <br>A ticket.</td>
 </tr>
 <tr>
-<td>400</td>
-<td>no content</td>
-<td>Bad request.</td>
+<td style="text-align: left"><strong>400</strong> <em><a href="#error">Error</a></em> <br>Bad request.</td>
 </tr>
 <tr>
-<td>500</td>
-<td>no content</td>
-<td>An error has occurred.</td>
+<td style="text-align: left"><strong>500</strong> <em><a href="#error">Error</a></em> <br>An error has occurred.</td>
 </tr>
 </tbody></table>
 
 <h2 id="update-ticket">Update Ticket</h2>
-<pre class="highlight http tab-http"><code><span class="nf">PUT</span> <span class="nn">/v1/tickets/{ticket_id}</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
-</code></pre><pre class="highlight http tab-http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">204</span> <span class="ne">No Content</span>
-</code></pre><pre class="highlight http tab-http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">400</span> <span class="ne">Bad Request</span>
-</code></pre><pre class="highlight http tab-http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">404</span> <span class="ne">Not Found</span>
-</code></pre><pre class="highlight http tab-http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">500</span> <span class="ne">Internal Server Error</span>
-</code></pre>
-<p>Update a specific customer ticket(At least one parameter must be sent).</p>
 
-<h3 id="parameters">Parameters</h3>
+<blockquote>
+<p>Sample request:</p>
+</blockquote>
+<pre class="highlight http tab-http"><code><span class="nf">PATCH</span> <span class="nn">/v1/tickets/89m32b0998</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+
+<span class="p">{</span><span class="w">
+    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ENABLED"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>Sample success response:</p>
+</blockquote>
+<pre class="highlight http tab-http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">204</span> <span class="ne">No Content</span>
+</code></pre>
+<blockquote>
+<p>Sample error responses:</p>
+</blockquote>
+<pre class="highlight http tab-http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">400</span> <span class="ne">Bad Request</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+
+<span class="p">{</span><span class="w">
+    </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Invalid status."</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><pre class="highlight http tab-http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">404</span> <span class="ne">Not Found</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+
+<span class="p">{</span><span class="w">
+    </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Ticket not found."</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><pre class="highlight http tab-http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">500</span> <span class="ne">Internal Server Error</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+
+<span class="p">{</span><span class="w">
+    </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"An error has ocurred."</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ab90"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"more_info"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://bmatic.com/docs/errors/ab90"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>Update a specific customer ticket.</p>
+
+<h3 id="endpoint">Endpoint</h3>
+
+<p><code class="prettyprint">PATCH /customer/v1/tickets/{ticket_id}</code></p>
+
+<h3 id="path-params">Path Params</h3>
 
 <table><thead>
 <tr>
-<th>Name</th>
-<th>In</th>
-<th>Type</th>
-<th>Description</th>
+<th style="text-align: left"></th>
 </tr>
 </thead><tbody>
 <tr>
-<td>ticket_id<span title="required" class="required">&nbsp;*&nbsp;</span></td>
-<td>path</td>
-<td>string</td>
-<td>Unique identifier of ticket.</td>
+<td style="text-align: left"><strong>ticket_id</strong> <em>string</em> <span class="required-param">required</span> <br>Unique identifier of ticket. For example <code class="prettyprint">89m32b0998</code>.</td>
+</tr>
+</tbody></table>
+
+<h3 id="request">Request</h3>
+
+<table><thead>
+<tr>
+<th style="text-align: left"></th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left"><strong>status</strong> <em>enum</em> <br> New status for the ticket. Possible values are <code class="prettyprint">BLOCKED</code> and <code class="prettyprint">ENABLED</code>.</td>
 </tr>
 <tr>
-<td>status</td>
-<td>formData</td>
-<td>string</td>
-<td>Optional. Updated status of the ticket.</td>
-</tr>
-<tr>
-<td>phone</td>
-<td>formData</td>
-<td>string</td>
-<td>Optional. Updated of phone for notifications.</td>
+<td style="text-align: left"><strong>phone</strong> <em>string</em> <br> New customer phone for notifications.</td>
 </tr>
 </tbody></table>
 
@@ -1425,57 +1429,74 @@
 
 <table><thead>
 <tr>
-<th>Http code</th>
-<th>Type</th>
-<th>Description</th>
+<th style="text-align: left"></th>
 </tr>
 </thead><tbody>
 <tr>
-<td>204</td>
-<td>no content</td>
-<td>Successful update.</td>
+<td style="text-align: left"><strong>204</strong> <em>no content</em> <br>Successful update.</td>
 </tr>
 <tr>
-<td>400</td>
-<td>no content</td>
-<td>Bad request.</td>
+<td style="text-align: left"><strong>400</strong> <em><a href="#error">Error</a></em> <br>Bad request.</td>
 </tr>
 <tr>
-<td>404</td>
-<td>no content</td>
-<td>Ticket not found.</td>
+<td style="text-align: left"><strong>404</strong> <em><a href="#error">Error</a></em> <br>Ticket not found.</td>
 </tr>
 <tr>
-<td>500</td>
-<td>no content</td>
-<td>An error has occurred.</td>
+<td style="text-align: left"><strong>500</strong> <em><a href="#error">Error</a></em> <br>An error has occurred.</td>
 </tr>
 </tbody></table>
 
 <h2 id="delete-ticket">Delete Ticket</h2>
-<pre class="highlight http tab-http"><code><span class="nf">DELETE</span> <span class="nn">/v1/tickets/{ticket_id}</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
-</code></pre><pre class="highlight http tab-http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">204</span> <span class="ne">No Content</span>
-</code></pre><pre class="highlight http tab-http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">400</span> <span class="ne">Bad Request</span>
-</code></pre><pre class="highlight http tab-http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">404</span> <span class="ne">Not Found</span>
-</code></pre><pre class="highlight http tab-http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">500</span> <span class="ne">Internal Server Error</span>
+
+<blockquote>
+<p>Sample request:</p>
+</blockquote>
+<pre class="highlight http tab-http"><code><span class="nf">DELETE</span> <span class="nn">/customer/v1/tickets/89m32b0998</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 </code></pre>
+<blockquote>
+<p>Sample success response:</p>
+</blockquote>
+<pre class="highlight http tab-http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">204</span> <span class="ne">No Content</span>
+</code></pre>
+<blockquote>
+<p>Sample error responses:</p>
+</blockquote>
+<pre class="highlight http tab-http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">400</span> <span class="ne">Bad Request</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+
+<span class="p">{</span><span class="w">
+    </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Invalid ticket ID."</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><pre class="highlight http tab-http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">404</span> <span class="ne">Not Found</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+
+<span class="p">{</span><span class="w">
+    </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Ticket not found."</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><pre class="highlight http tab-http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">500</span> <span class="ne">Internal Server Error</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+
+<span class="p">{</span><span class="w">
+    </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"An error has ocurred."</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ab90"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"more_info"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://bmatic.com/docs/errors/ab90"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
 <p>Delete a customer ticket by ID.</p>
 
-<h3 id="parameters">Parameters</h3>
+<h3 id="endpoint">Endpoint</h3>
+
+<p><code class="prettyprint">DELETE /customer/v1/tickets/{ticket_id}</code></p>
+
+<h3 id="path-params">Path Params</h3>
 
 <table><thead>
 <tr>
-<th>Name</th>
-<th>In</th>
-<th>Type</th>
-<th>Description</th>
+<th style="text-align: left"></th>
 </tr>
 </thead><tbody>
 <tr>
-<td>ticket_id<span title="required" class="required">&nbsp;*&nbsp;</span></td>
-<td>path</td>
-<td>string</td>
-<td>Unique identifier of ticket.</td>
+<td style="text-align: left"><strong>ticket_id</strong> <em>string</em> <span class="required-param">required</span> <br>Unique identifier of ticket. For example <code class="prettyprint">89m32b0998</code>.</td>
 </tr>
 </tbody></table>
 
@@ -1483,34 +1504,126 @@
 
 <table><thead>
 <tr>
-<th>Http code</th>
-<th>Type</th>
-<th>Description</th>
+<th style="text-align: left"></th>
 </tr>
 </thead><tbody>
 <tr>
-<td>204</td>
-<td>no content</td>
-<td>Successful deletion.</td>
+<td style="text-align: left"><strong>204</strong> <em>no content</em> <br>Successful deletion.</td>
 </tr>
 <tr>
-<td>400</td>
-<td>no content</td>
-<td>Bad request.</td>
+<td style="text-align: left"><strong>400</strong> <em><a href="#error">Error</a></em> <br>Bad request.</td>
 </tr>
 <tr>
-<td>404</td>
-<td>no content</td>
-<td>Ticket not found.</td>
+<td style="text-align: left"><strong>404</strong> <em><a href="#error">Error</a></em> <br>Ticket not found.</td>
 </tr>
 <tr>
-<td>500</td>
-<td>no content</td>
-<td>An error has occurred.</td>
+<td style="text-align: left"><strong>500</strong> <em><a href="#error">Error</a></em> <br>An error has occurred.</td>
 </tr>
 </tbody></table>
 
           <h1 id="booking">Booking</h1>
+
+<h2 id="booking-range-object">Booking Range Object</h2>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"capacity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"start_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"end_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>Time range with available bookings.</p>
+
+<h3 id="fields">Fields</h3>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Format</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>capacity</td>
+<td>integer</td>
+<td>int32</td>
+<td>Booking capacity of range.</td>
+</tr>
+<tr>
+<td>start_time</td>
+<td>string</td>
+<td>date-time</td>
+<td>Start time of range.</td>
+</tr>
+<tr>
+<td>end_time</td>
+<td>string</td>
+<td>date-time</td>
+<td>End time of range.</td>
+</tr>
+</tbody></table>
+
+<h2 id="booking-day-object">Booking Day Object</h2>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"day"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"ranges"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"capacity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"start_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"end_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>Day with available bookings.</p>
+
+<h3 id="fields">Fields</h3>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Format</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>day</td>
+<td>string</td>
+<td>date</td>
+<td>Day of time ranges with available bookings.</td>
+</tr>
+<tr>
+<td>ranges</td>
+<td>array[<a href="#bookingrange">BookingRange</a>]</td>
+<td></td>
+<td>List of time ranges with available bookings</td>
+</tr>
+</tbody></table>
+
+<h2 id="booking-object">Booking Object</h2>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>Booking model.</p>
+
+<h3 id="fields">Fields</h3>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Format</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>string</td>
+<td></td>
+<td>Booking unique identifier.</td>
+</tr>
+</tbody></table>
 
 <h2 id="get-all-bookings">Get All Bookings</h2>
 <pre class="highlight http tab-http"><code><span class="nf">GET</span> <span class="nn">/v1/bookings</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
@@ -1922,9 +2035,9 @@
 </tr>
 </tbody></table>
 
-          <h1 id="models">Models</h1>
+          <h1 id="errors">Errors</h1>
 
-<h2 id="error">Error</h2>
+<h2 id="error-object">Error Object</h2>
 
 <blockquote>
 <p>Sample of error with help:</p>
@@ -1978,105 +2091,61 @@ All error fields are read only.
 </tr>
 </tbody></table>
 
-<h2 id="bookingrange">BookingRange</h2>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-    </span><span class="s2">"capacity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"start_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"end_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-<p>Time range with available bookings.</p>
+<h2 id="error-types">Error Types</h2>
 
-<h3 id="fields">Fields</h3>
+<aside class="notice">This error section is stored in a separate file in `includes/_errors.md`. Slate allows you to optionally separate out your docs into many files&hellip;just save them to the `includes` folder and add them to the top of your `index.md`&lsquo;s frontmatter. Files are included in the order listed.</aside>
+
+<p>The Kittn API uses the following error codes:</p>
 
 <table><thead>
 <tr>
-<th>Name</th>
-<th>Type</th>
-<th>Format</th>
-<th>Description</th>
+<th>Error Code</th>
+<th>Meaning</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>capacity</td>
-<td>integer</td>
-<td>int32</td>
-<td>Booking capacity of range.</td>
+<td>400</td>
+<td>Bad Request &ndash; Your request sucks</td>
 </tr>
 <tr>
-<td>start_time</td>
-<td>string</td>
-<td>date-time</td>
-<td>Start time of range.</td>
+<td>401</td>
+<td>Unauthorized &ndash; Your API key is wrong</td>
 </tr>
 <tr>
-<td>end_time</td>
-<td>string</td>
-<td>date-time</td>
-<td>End time of range.</td>
-</tr>
-</tbody></table>
-
-<h2 id="bookingday">BookingDay</h2>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-    </span><span class="s2">"day"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"ranges"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"capacity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"start_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"end_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
-        </span><span class="p">}</span><span class="w">
-    </span><span class="p">]</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-<p>Day with available bookings.</p>
-
-<h3 id="fields">Fields</h3>
-
-<table><thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Format</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>day</td>
-<td>string</td>
-<td>date</td>
-<td>Day of time ranges with available bookings.</td>
+<td>403</td>
+<td>Forbidden &ndash; The kitten requested is hidden for administrators only</td>
 </tr>
 <tr>
-<td>ranges</td>
-<td>array[<a href="#bookingrange">BookingRange</a>]</td>
-<td></td>
-<td>List of time ranges with available bookings</td>
+<td>404</td>
+<td>Not Found &ndash; The specified kitten could not be found</td>
 </tr>
-</tbody></table>
-
-<h2 id="booking">Booking</h2>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-<p>Booking model.</p>
-
-<h3 id="fields">Fields</h3>
-
-<table><thead>
 <tr>
-<th>Name</th>
-<th>Type</th>
-<th>Format</th>
-<th>Description</th>
+<td>405</td>
+<td>Method Not Allowed &ndash; You tried to access a kitten with an invalid method</td>
 </tr>
-</thead><tbody>
 <tr>
-<td>id</td>
-<td>string</td>
-<td></td>
-<td>Booking unique identifier.</td>
+<td>406</td>
+<td>Not Acceptable &ndash; You requested a format that isn&rsquo;t json</td>
+</tr>
+<tr>
+<td>410</td>
+<td>Gone &ndash; The kitten requested has been removed from our servers</td>
+</tr>
+<tr>
+<td>418</td>
+<td>I&rsquo;m a teapot</td>
+</tr>
+<tr>
+<td>429</td>
+<td>Too Many Requests &ndash; You&rsquo;re requesting too many kittens! Slow down!</td>
+</tr>
+<tr>
+<td>500</td>
+<td>Internal Server Error &ndash; We had a problem with our server. Try again later.</td>
+</tr>
+<tr>
+<td>503</td>
+<td>Service Unavailable &ndash; We&rsquo;re temporarily offline for maintenance. Please try again later.</td>
 </tr>
 </tbody></table>
 
