@@ -213,35 +213,20 @@
 
 <p><strong>Base path</strong>: <code class="prettyprint">/customer/v1</code></p>
 
-<style>
-    ul.enum {
-        margin: 0;
-        padding: 0 0 0 2px;
-        list-style-position: inside;
-    }
-    .required {
-        color: red;
-        font-weight: bold;
-    }
-    a.pseudo {
-        border-bottom:1px dashed;
-        text-decoration: none;
-    }
-</style>
+<h1 id="getting-started">Getting Started</h1>
 
-          <h1 id="getting-started">Getting Started</h1>
+<p>Welcome to our API! Enjoy the integration!</p>
 
-<p>Welcome!</p>
-
-          <h1 id="branch">Branch</h1>
+<h1 id="branch">Branch</h1>
 
 <p>Before you create tickets or bookings, you need a branch and sector provided by the endpoints of this section (The bookings creation not required a sector). You considere use the recomended parameters for obtain a better performance in your application.</p>
 
-<h2 id="branch-object">Branch Object</h2>
+<p><h2 id="the-branch-object">The Branch object</h2></p>
 
 <blockquote>
 <p>Sample object:</p>
 </blockquote>
+
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
         </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"27b6"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Hiper Central"</span><span class="p">,</span><span class="w">
@@ -269,6 +254,7 @@
         </span><span class="p">]</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span></code></pre>
+
 <p>Model of branch object.</p>
 
 <aside class="warning">
@@ -283,62 +269,63 @@
 </tr>
 </thead><tbody>
 <tr>
-<td style="text-align: left"><strong>id</strong> <em>string</em> <br>Branch unique identifier. <p><em>Validation pattern</em>: <code>^[0-9a-z]{2,6}$</code></p></td>
+<td style="text-align: left"><strong>id</strong> <span class="param-type">string</span> <br>Branch unique identifier.</td>
 </tr>
 <tr>
-<td style="text-align: left"><strong>name</strong> <em>string</em> <br>Complete name of the branch. <p><em>Maximum length</em>: <code>120</code></p></td>
+<td style="text-align: left"><strong>name</strong> <span class="param-type">string</span> <br>Complete name of the branch. <p><em>Maximum length</em>: <code>120</code></p></td>
 </tr>
 <tr>
-<td style="text-align: left"><strong>short_name</strong> <em>string</em> <br>Name to display in small devices. <p><em>Maximum length</em>: <code>20</code></p></td>
+<td style="text-align: left"><strong>short_name</strong> <span class="param-type">string</span> <br>Name to display in small devices. <p><em>Maximum length</em>: <code>20</code></p></td>
 </tr>
 <tr>
-<td style="text-align: left"><strong>code</strong> <em>string</em> <br>Unique identifier for the branch used in your company system. <em>Validation pattern</em>: <code>^[0-9A-Za-z]{1,16}$</code></td>
+<td style="text-align: left"><strong>code</strong> <span class="param-type">string</span> <br>Unique identifier for the branch used in your company system.</td>
 </tr>
 <tr>
-<td style="text-align: left"><strong>address</strong> <em>string</em> <br>Address of the branch. <p><em>Maximum length</em>: <code>100</code></p></td>
+<td style="text-align: left"><strong>address</strong> <span class="param-type">string</span> <br>Address of the branch. <p><em>Maximum length</em>: <code>100</code></p></td>
 </tr>
 <tr>
-<td style="text-align: left"><strong>latitude</strong> <em>float</em> <br>Latitude component of branch location. <p><em>Range of values</em>: <code> -90 ≤ latitude ≤ 90</code></p></td>
+<td style="text-align: left"><strong>latitude</strong> <span class="param-type">float</span> <br>Latitude component of branch location.</td>
 </tr>
 <tr>
-<td style="text-align: left"><strong>longitude</strong> <em>float</em> <br>Longitude component of branch location. <p><em>Range of values</em>: <code> -90 ≤ longitude ≤ 90</code></p></td>
+<td style="text-align: left"><strong>longitude</strong> <span class="param-type">float</span> <br>Longitude component of branch location.</td>
 </tr>
 <tr>
-<td style="text-align: left"><strong>status</strong> <em>enum</em> <br>Current status of the branch. <p><em>Possible values</em>: <ul><li><code>OPEN</code></li><li><code>CLOSE</code></li></ul></p></td>
+<td style="text-align: left"><strong>status</strong> <span class="param-type">enum</span> <br>Current status of the branch. <p><em>Possible values</em>: <ul><li><code>OPEN</code></li><li><code>CLOSE</code></li></ul></p></td>
 </tr>
 <tr>
-<td style="text-align: left"><strong>opening_time</strong> <em>date-time</em> <br>Opening time of the branch at current day, or next opening datetime. <p><em>Standard</em>: <code><a href="https://en.wikipedia.org/wiki/ISO_8601">ISO 8601</a></code></p></td>
+<td style="text-align: left"><strong>opening_time</strong> <span class="param-type">date-time</span> <br>Opening time of the branch at current day, or next opening datetime. <p><em>Standard</em>: <code><a href="https://en.wikipedia.org/wiki/ISO_8601">ISO 8601</a></code></p></td>
 </tr>
 <tr>
-<td style="text-align: left"><strong>closing_time</strong> <em>date-time</em> <br>Closing time of the branch at current day, or next closing datetime. <p><em>Standard</em>: <code><a href="https://en.wikipedia.org/wiki/ISO_8601">ISO 8601</a></code></p></td>
+<td style="text-align: left"><strong>closing_time</strong> <span class="param-type">date-time</span> <br>Closing time of the branch at current day, or next closing datetime. <p><em>Standard</em>: <code><a href="https://en.wikipedia.org/wiki/ISO_8601">ISO 8601</a></code></p></td>
 </tr>
 <tr>
-<td style="text-align: left"><strong>low_estimated_time</strong> <em>integer</em> <br> Lower bound of the estimated waiting time. <p><em>Minimun:</em> <code>0</code></p></td>
+<td style="text-align: left"><strong>low_estimated_time</strong> <span class="param-type">int</span> <br> Lower bound of the estimated waiting time.</p></td>
 </tr>
 <tr>
-<td style="text-align: left"><strong>high_estimated_time</strong> <em>integer</em> <br> Upper bound of the estimated waiting time. <p><em>Minimun:</em> <code>0</code></p></td>
+<td style="text-align: left"><strong>high_estimated_time</strong> <span class="param-type">int</span> <br> Upper bound of the estimated waiting time.</td>
 </tr>
 <tr>
-<td style="text-align: left"><strong>congestion_level</strong> <em>enum</em> <br> Congestion level of the branch. <p><em>Possible values</em>: <ul><li><code>LOW</code></li><li><code>MEDIUM</code></li><li><code>HIGH</code></li></ul></p></td>
+<td style="text-align: left"><strong>congestion_level</strong> <span class="param-type">enum</span> <br> Congestion level of the branch. <p><em>Possible values</em>: <ul><li><code>LOW</code></li><li><code>MEDIUM</code></li><li><code>HIGH</code></li></ul></p></td>
 </tr>
 <tr>
-<td style="text-align: left"><strong>is_virtual</strong> <em>boolean</em> <br> Indicator of the possibility to create virtual tickets.</td>
+<td style="text-align: left"><strong>is_virtual</strong> <span class="param-type">boolean</span> <br> Indicator of the possibility to create virtual tickets.</td>
 </tr>
 <tr>
-<td style="text-align: left"><strong>is_bookable</strong> <em>boolean</em> <br>Indicator of the possibility to bookings.</td>
+<td style="text-align: left"><strong>is_bookable</strong> <span class="param-type">boolean</span> <br>Indicator of the possibility to bookings.</td>
 </tr>
 <tr>
-<td style="text-align: left"><strong>sectors</strong> <em>array[<a href="#sector">Sector</a>]</em> <br> List of the branch&rsquo;s sectors.<p><em>Unique items:</em> <code>true</code><br><em>Minimun items:</em> <code>1</code></p></td>
+<td style="text-align: left"><strong>sectors</strong> <span class="param-type">array[<a href="#sector-object">Sector</a>]</span> <br> List of the branch&rsquo;s sectors.<p><em>Minimun items:</em> <code>1</code></p></td>
 </tr>
 </tbody></table>
 
-<h2 id="sector-object">Sector Object</h2>
+<p><h2 id="the-sector-object">The Sector object</h2></p>
 
 <p>Model of sector object.</p>
 
 <blockquote>
 <p>Sample object:</p>
 </blockquote>
+
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"s8"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tower A"</span><span class="p">,</span><span class="w">
@@ -347,6 +334,7 @@
     </span><span class="s2">"services"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"s9"</span><span class="p">,</span><span class="s2">"s10"</span><span class="p">,</span><span class="s2">"s30"</span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
+
 <h3 id="fields">Fields</h3>
 
 <table><thead>
@@ -371,16 +359,19 @@
 </tr>
 </tbody></table>
 
-<h2 id="get-all-branches">Get All Branches</h2>
+<p><h2 id="list-all-branches">List all branches</h2></p>
 
 <blockquote>
 <p>Sample request:</p>
 </blockquote>
+
 <pre class="highlight http tab-http"><code><span class="nf">GET</span> <span class="nn">/customer/v1/branches?offset=9&amp;limit=1</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 </code></pre>
+
 <blockquote>
 <p>Sample success response:</p>
 </blockquote>
+
 <pre class="highlight http tab-http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
 <span class="na">X-Pagination-Count</span><span class="p">:</span> <span class="s">32</span>
 <span class="na">X-Pagination-Page</span><span class="p">:</span> <span class="s">10</span>
@@ -416,9 +407,11 @@
     </span><span class="p">}</span><span class="w">
 </span><span class="p">]</span><span class="w">
 </span></code></pre>
+
 <blockquote>
 <p>Sample error responses:</p>
 </blockquote>
+
 <pre class="highlight http tab-http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">400</span> <span class="ne">Bad Request</span>
 <span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
 
@@ -434,6 +427,7 @@
     </span><span class="s2">"more_info"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://bmatic.com/docs/errors/ab90"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
+
 <p>Returns all branches with their sectors that fulfill the filters.</p>
 
 <aside class="notice">
@@ -517,16 +511,19 @@
 </tr>
 </tbody></table>
 
-<h2 id="get-branch">Get Branch</h2>
+<p><h2 id="get-a-branch">Get a branch</h2></p>
 
 <blockquote>
 <p>Sample request:</p>
 </blockquote>
+
 <pre class="highlight http tab-http"><code><span class="nf">GET</span> <span class="nn">/customer/v1/branches/{branch_id}</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 </code></pre>
+
 <blockquote>
 <p>Sample success response:</p>
 </blockquote>
+
 <pre class="highlight http tab-http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
 <span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
 
@@ -557,9 +554,11 @@
     </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
+
 <blockquote>
 <p>Sample error responses:</p>
 </blockquote>
+
 <pre class="highlight http tab-http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">400</span> <span class="ne">Bad Request</span>
 <span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
 
@@ -581,6 +580,7 @@
     </span><span class="s2">"more_info"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://bmatic.com/docs/errors/ab90"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
+
 <p>Returns a specific branch requested by ID.</p>
 
 <h3 id="endpoint">Endpoint</h3>
@@ -632,16 +632,19 @@
 </tr>
 </tbody></table>
 
-<h2 id="get-branch-sectors">Get Branch Sectors</h2>
+<p><h2 id="list-all-branch-sectors">List all branch sectors</h2></p>
 
 <blockquote>
 <p>Sample request:</p>
 </blockquote>
+
 <pre class="highlight http tab-http"><code><span class="nf">GET</span> <span class="nn">/v1/branches/{branch_id}/sectors?service_id=s9</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 </code></pre>
+
 <blockquote>
 <p>Sample success response:</p>
 </blockquote>
+
 <pre class="highlight http tab-http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
 <span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
 
@@ -655,9 +658,11 @@
     </span><span class="p">}</span><span class="w">
 </span><span class="p">]</span><span class="w">
 </span></code></pre>
+
 <blockquote>
 <p>Sample error responses:</p>
 </blockquote>
+
 <pre class="highlight http tab-http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">400</span> <span class="ne">Bad Request</span>
 <span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
 
@@ -673,6 +678,7 @@
 <span class="s">    "more_info": "https://bmatic.com/docs/errors/ab90"</span>
 <span class="s">}</span>
 </code></pre>
+
 <p>Returns all sectors of a specific branch that fulfill the filters.</p>
 
 <aside class="notice">
@@ -728,21 +734,23 @@
 </tr>
 </tbody></table>
 
-          <h1 id="service">Service</h1>
+<h1 id="service">Service</h1>
 
 <p>A booking or ticket require to be associate to a service. You can obtain the available services from the endpoint of this section.</p>
 
-<h2 id="service-object">Service Object</h2>
+<p><h2 id="the-service-object">The Service object</h2></p>
 
 <blockquote>
 <p>Sample model:</p>
 </blockquote>
+
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"7b6"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Plataforma"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"short_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Plataforma"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
+
 <p>Model of service object.</p>
 
 <h3 id="fields">Fields</h3>
@@ -763,16 +771,19 @@
 </tr>
 </tbody></table>
 
-<h2 id="get-all-services">Get All Services</h2>
+<p><h2 id="list-all-services">List all services</h2></p>
 
 <blockquote>
 <p>Sample request:</p>
 </blockquote>
+
 <pre class="highlight http tab-http"><code><span class="nf">GET</span> <span class="nn">/customer/v1/services</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 </code></pre>
+
 <blockquote>
 <p>Sample success response:</p>
 </blockquote>
+
 <pre class="highlight http tab-http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
 <span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
 
@@ -784,9 +795,11 @@
     </span><span class="p">}</span><span class="w">
 </span><span class="p">]</span><span class="w">
 </span></code></pre>
+
 <blockquote>
 <p>Sample error responses:</p>
 </blockquote>
+
 <pre class="highlight http tab-http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">400</span> <span class="ne">Bad Request</span>
 <span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
 
@@ -802,6 +815,7 @@
     </span><span class="s2">"more_info"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://bmatic.com/docs/errors/ab90"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
+
 <p>Returns all available services that fulfill the filters.</p>
 
 <aside class="notice">
@@ -854,15 +868,16 @@
 </tr>
 </tbody></table>
 
-          <h1 id="ticket">Ticket</h1>
+<h1 id="ticket">Ticket</h1>
 
 <p>Your customers don&rsquo;t need anymore to be at branch for create attention tickets. You can use the endpoints of this section to allow them the ticket creation from anywhere easily, before the creation is necesary determine the branch, sector and service for the ticket.</p>
 
-<h2 id="ticket-object">Ticket Object</h2>
+<p><h2 id="the-ticket-object">The Ticket object</h2></p>
 
 <blockquote>
-<p>Sample Object:</p>
+<p>Sample object:</p>
 </blockquote>
+
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"89m32b0998"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"queue"</span><span class="p">:</span><span class="w"> </span><span class="s2">"T"</span><span class="p">,</span><span class="w">
@@ -903,6 +918,7 @@
     </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-02-20T10:00:00.000Z"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
+
 <p>Model of ticket object.</p>
 
 <aside class="warning">
@@ -960,16 +976,19 @@
 </tr>
 </tbody></table>
 
-<h2 id="get-all-tickets">Get All Tickets</h2>
+<p><h2 id="list-all-tickets">List all tickets</h2></p>
 
 <blockquote>
 <p>Sample Request:</p>
 </blockquote>
+
 <pre class="highlight http tab-http"><code><span class="nf">GET</span> <span class="nn">/customer/v1/tickets?customer_id=m809a31n</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 </code></pre>
+
 <blockquote>
 <p>Sample Success Response:</p>
 </blockquote>
+
 <pre class="highlight http tab-http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
 <span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
 
@@ -1015,9 +1034,11 @@
     </span><span class="p">}</span><span class="w">
 </span><span class="p">]</span><span class="w">
 </span></code></pre>
+
 <blockquote>
 <p>Sample error responses:</p>
 </blockquote>
+
 <pre class="highlight http tab-http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">400</span> <span class="ne">Bad Request</span>
 <span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
 
@@ -1033,6 +1054,7 @@
     </span><span class="s2">"more_info"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://bmatic.com/docs/errors/ab90"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
+
 <p>Returns all tickets created by a specific customer.</p>
 
 <aside class="notice">
@@ -1086,16 +1108,19 @@
 </tr>
 </tbody></table>
 
-<h2 id="get-ticket">Get Ticket</h2>
+<p><h2 id="get-a-ticket">Get a ticket</h2></p>
 
 <blockquote>
 <p>Sample request:</p>
 </blockquote>
+
 <pre class="highlight http tab-http"><code><span class="nf">GET</span> <span class="nn">/customer/v1/tickets/89m32b0998</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 </code></pre>
+
 <blockquote>
 <p>Sample success response:</p>
 </blockquote>
+
 <pre class="highlight http tab-http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
 <span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
 
@@ -1139,9 +1164,11 @@
     </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-02-20T10:00:00.000Z"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
+
 <blockquote>
 <p>Sample error responses:</p>
 </blockquote>
+
 <pre class="highlight http tab-http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">400</span> <span class="ne">Bad Request</span>
 <span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
 
@@ -1163,6 +1190,7 @@
     </span><span class="s2">"more_info"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://bmatic.com/docs/errors/ab90"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
+
 <p>Returns a customer ticket by ID.</p>
 
 <h3 id="endpoint">Endpoint</h3>
@@ -1214,11 +1242,12 @@
 </tr>
 </tbody></table>
 
-<h2 id="create-ticket">Create Ticket</h2>
+<p><h2 id="create-a-ticket">Create a ticket</h2></p>
 
 <blockquote>
 <p>Sample request:</p>
 </blockquote>
+
 <pre class="highlight http tab-http"><code><span class="nf">POST</span> <span class="nn">/customer/v1/tickets</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 <span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
 
@@ -1230,9 +1259,11 @@
     </span><span class="s2">"customer_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"a9087s902m"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
+
 <blockquote>
 <p>Sample success response:</p>
 </blockquote>
+
 <pre class="highlight http tab-http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">201</span> <span class="ne">Created</span>
 <span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
 
@@ -1276,9 +1307,11 @@
     </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-02-20T10:00:00.000Z"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
+
 <blockquote>
 <p>Sample error responses:</p>
 </blockquote>
+
 <pre class="highlight http tab-http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">400</span> <span class="ne">Bad Request</span>
 <span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
 
@@ -1294,6 +1327,7 @@
     </span><span class="s2">"more_info"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://bmatic.com/docs/errors/ab90"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
+
 <p>Create a new customer ticket and then returns it.</p>
 
 <h3 id="endpoint">Endpoint</h3>
@@ -1351,11 +1385,12 @@
 </tr>
 </tbody></table>
 
-<h2 id="update-ticket">Update Ticket</h2>
+<p><h2 id="update-a-ticket">Update a ticket</h2></p>
 
 <blockquote>
 <p>Sample request:</p>
 </blockquote>
+
 <pre class="highlight http tab-http"><code><span class="nf">PATCH</span> <span class="nn">/v1/tickets/89m32b0998</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 <span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
 
@@ -1363,14 +1398,18 @@
     </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ENABLED"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
+
 <blockquote>
 <p>Sample success response:</p>
 </blockquote>
+
 <pre class="highlight http tab-http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">204</span> <span class="ne">No Content</span>
 </code></pre>
+
 <blockquote>
 <p>Sample error responses:</p>
 </blockquote>
+
 <pre class="highlight http tab-http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">400</span> <span class="ne">Bad Request</span>
 <span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
 
@@ -1392,6 +1431,7 @@
     </span><span class="s2">"more_info"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://bmatic.com/docs/errors/ab90"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
+
 <p>Update a specific customer ticket.</p>
 
 <h3 id="endpoint">Endpoint</h3>
@@ -1446,21 +1486,26 @@
 </tr>
 </tbody></table>
 
-<h2 id="delete-ticket">Delete Ticket</h2>
+<p><h2 id="delete-a-ticket">Delete a ticket</h2></p>
 
 <blockquote>
 <p>Sample request:</p>
 </blockquote>
+
 <pre class="highlight http tab-http"><code><span class="nf">DELETE</span> <span class="nn">/customer/v1/tickets/89m32b0998</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 </code></pre>
+
 <blockquote>
 <p>Sample success response:</p>
 </blockquote>
+
 <pre class="highlight http tab-http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">204</span> <span class="ne">No Content</span>
 </code></pre>
+
 <blockquote>
 <p>Sample error responses:</p>
 </blockquote>
+
 <pre class="highlight http tab-http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">400</span> <span class="ne">Bad Request</span>
 <span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
 
@@ -1482,6 +1527,7 @@
     </span><span class="s2">"more_info"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://bmatic.com/docs/errors/ab90"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
+
 <p>Delete a customer ticket by ID.</p>
 
 <h3 id="endpoint">Endpoint</h3>
@@ -1521,15 +1567,16 @@
 </tr>
 </tbody></table>
 
-          <h1 id="booking">Booking</h1>
+<h1 id="booking">Booking</h1>
 
 <p>Allow to your customers reserve a attention schedule for a better customer experience reducing the waiting time and better the congestion of your branches. The endpoints of this section allow the creation of bookings from your application.</p>
 
-<h2 id="booking-object">Booking Object</h2>
+<p><h2 id="the-booking-object">The Booking object</h2></p>
 
 <blockquote>
 <p>Sample object:</p>
 </blockquote>
+
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"a90mos70om"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"UxMa01m"</span><span class="p">,</span><span class="w">
@@ -1560,6 +1607,7 @@
     </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-02-10T14:00:00.000Z"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
+
 <p>Model of booking object.</p>
 
 <h3 id="fields">Fields</h3>
@@ -1604,11 +1652,12 @@
 </tr>
 </tbody></table>
 
-<h2 id="booking-day-object">Booking Day Object</h2>
+<p><h2 id="the-booking-day-object">The Booking Day object</h2></p>
 
 <blockquote>
 <p>Sample object:</p>
 </blockquote>
+
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"day"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-02-20T00:00:00.000Z"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"ranges"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
@@ -1619,6 +1668,7 @@
     </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
+
 <p>Model of day object with available bookings.</p>
 
 <h3 id="fields">Fields</h3>
@@ -1636,16 +1686,18 @@
 </tr>
 </tbody></table>
 
-<h2 id="booking-range-object">Booking Range Object</h2>
+<p><h2 id="booking-range-object">Booking Range object</h2></p>
 
 <blockquote>
 <p>Sample object</p>
 </blockquote>
+
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"start_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-02-20T14:00:00.000Z"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"end_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-02-20T15:00:00.000Z"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
+
 <p>Model of time range object with available bookings.</p>
 
 <h3 id="fields">Fields</h3>
@@ -1663,16 +1715,19 @@
 </tr>
 </tbody></table>
 
-<h2 id="get-days-for-book">Get Days For Book</h2>
+<p><h2 id="list-all-days-for-book">List all days for book</h2></p>
 
 <blockquote>
 <p>Sample request:</p>
 </blockquote>
+
 <pre class="highlight http tab-http"><code><span class="nf">GET</span> <span class="nn">/v1/bookings/days?branch_id=27b6&amp;service_id=7b6</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 </code></pre>
+
 <blockquote>
 <p>Sample success response:</p>
 </blockquote>
+
 <pre class="highlight http tab-http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
 <span class="na">X-Pagination-Count</span><span class="p">:</span> <span class="s">7</span>
 <span class="na">X-Pagination-Page</span><span class="p">:</span> <span class="s">3</span>
@@ -1691,9 +1746,11 @@
     </span><span class="p">}</span><span class="w">
 </span><span class="p">]</span><span class="w">
 </span></code></pre>
+
 <blockquote>
 <p>Sample error responses:</p>
 </blockquote>
+
 <pre class="highlight http tab-http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">400</span> <span class="ne">Bad Request</span>
 <span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
 
@@ -1709,6 +1766,7 @@
     </span><span class="s2">"more_info"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://bmatic.com/docs/errors/ab90"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
+
 <p>Returns a list of days for book a specific service in a branch.</p>
 
 <aside class="notice">
@@ -1758,16 +1816,19 @@
 </tr>
 </tbody></table>
 
-<h2 id="get-all-bookings">Get All Bookings</h2>
+<p><h2 id="list-all-bookings">List all bookings</h2></p>
 
 <blockquote>
 <p>Sample request:</p>
 </blockquote>
+
 <pre class="highlight http tab-http"><code><span class="nf">GET</span> <span class="nn">/customer/v1/bookings?customer_id=m809a31n</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 </code></pre>
+
 <blockquote>
 <p>Sample success response:</p>
 </blockquote>
+
 <pre class="highlight http tab-http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
 <span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
 
@@ -1803,9 +1864,11 @@
     </span><span class="p">}</span><span class="w">
 </span><span class="p">]</span><span class="w">
 </span></code></pre>
+
 <blockquote>
 <p>Sample error responses:</p>
 </blockquote>
+
 <pre class="highlight http tab-http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">400</span> <span class="ne">Bad Request</span>
 <span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
 
@@ -1821,6 +1884,7 @@
     </span><span class="s2">"more_info"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://bmatic.com/docs/errors/ab90"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
+
 <p>Returns all tickets created by a specific customer.</p>
 
 <aside class="notice">
@@ -1874,16 +1938,19 @@
 </tr>
 </tbody></table>
 
-<h2 id="get-booking">Get Booking</h2>
+<p><h2 id="get-a-booking">Get a booking</h2></p>
 
 <blockquote>
 <p>Sample request:</p>
 </blockquote>
+
 <pre class="highlight http tab-http"><code><span class="nf">GET</span> <span class="nn">/v1/bookings/a90mos70om</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 </code></pre>
+
 <blockquote>
 <p>Sample success response:</p>
 </blockquote>
+
 <pre class="highlight http tab-http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
 <span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
 
@@ -1917,9 +1984,11 @@
     </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-02-10T14:00:00.000Z"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
+
 <blockquote>
 <p>Sample error responses:</p>
 </blockquote>
+
 <pre class="highlight http tab-http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">400</span> <span class="ne">Bad Request</span>
 <span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
 
@@ -1941,6 +2010,7 @@
     </span><span class="s2">"more_info"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://bmatic.com/docs/errors/ab90"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
+
 <p>Returns a customer booking by ID.</p>
 
 <h3 id="endpoint">Endpoint</h3>
@@ -1992,11 +2062,12 @@
 </tr>
 </tbody></table>
 
-<h2 id="create-booking">Create Booking</h2>
+<p><h2 id="create-a-new-booking">Create a new booking</h2></p>
 
 <blockquote>
 <p>Sample request:</p>
 </blockquote>
+
 <pre class="highlight http tab-http"><code><span class="nf">POST</span> <span class="nn">/v1/bookings</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 <span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
 
@@ -2009,9 +2080,11 @@
     </span><span class="s2">"end_time"</span><span class="p">:</span><span class="s2">"2017-02-20T15:00:00.000Z"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
+
 <blockquote>
 <p>Sample success response:</p>
 </blockquote>
+
 <pre class="highlight http tab-http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">201</span> <span class="ne">Created</span>
 <span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
 
@@ -2045,9 +2118,11 @@
     </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-02-10T14:00:00.000Z"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
+
 <blockquote>
 <p>Sample error responses:</p>
 </blockquote>
+
 <pre class="highlight http tab-http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">400</span> <span class="ne">Bad Request</span>
 <span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
 
@@ -2063,6 +2138,7 @@
     </span><span class="s2">"more_info"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://bmatic.com/docs/errors/ab90"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
+
 <p>Create a new customer booking and then it returns it.</p>
 
 <h3 id="endpoint">Endpoint</h3>
@@ -2123,11 +2199,12 @@
 </tr>
 </tbody></table>
 
-<h2 id="update-booking">Update Booking</h2>
+<p><h2 id="update-a-booking">Update a booking</h2></p>
 
 <blockquote>
 <p>Sample request:</p>
 </blockquote>
+
 <pre class="highlight http tab-http"><code><span class="nf">PATCH</span> <span class="nn">/customer/v1/bookings/a90mos70om</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 <span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
 
@@ -2135,14 +2212,18 @@
     </span><span class="s2">"phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"+51908999189"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
+
 <blockquote>
 <p>Sample success response:</p>
 </blockquote>
+
 <pre class="highlight http tab-http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">204</span> <span class="ne">No Content</span>
 </code></pre>
+
 <blockquote>
 <p>Sample errors responses:</p>
 </blockquote>
+
 <pre class="highlight http tab-http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">400</span> <span class="ne">Bad Request</span>
 <span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
 
@@ -2164,6 +2245,7 @@
     </span><span class="s2">"more_info"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://bmatic.com/docs/errors/ab90"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
+
 <p>Update a specific customer booking.</p>
 
 <h3 id="endpoint">Endpoint</h3>
@@ -2215,21 +2297,26 @@
 </tr>
 </tbody></table>
 
-<h2 id="delete-booking">Delete Booking</h2>
+<p><h2 id="delete-a-booking">Delete a booking</h2></p>
 
 <blockquote>
 <p>Sample request:</p>
 </blockquote>
+
 <pre class="highlight http tab-http"><code><span class="nf">DELETE</span> <span class="nn">/customer/v1/bookings/a90mos70om</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 </code></pre>
+
 <blockquote>
 <p>Sample success response:</p>
 </blockquote>
+
 <pre class="highlight http tab-http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">204</span> <span class="ne">No Content</span>
 </code></pre>
+
 <blockquote>
 <p>Sample error responses:</p>
 </blockquote>
+
 <pre class="highlight http tab-http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">400</span> <span class="ne">Bad Request</span>
 <span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
 
@@ -2251,6 +2338,7 @@
     </span><span class="s2">"more_info"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://bmatic.com/docs/errors/ab90"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
+
 <p>Delete a customer booking by ID.</p>
 
 <h3 id="endpoint">Endpoint</h3>
@@ -2290,21 +2378,23 @@
 </tr>
 </tbody></table>
 
-          <h1 id="errors">Errors</h1>
+<h1 id="errors">Errors</h1>
 
 <p>The description and the types of errors generated by our API are in this section, it&rsquo;s very important that your application control them appropriately.</p>
 
-<h2 id="error-object">Error Object</h2>
+<p><h2 id="the-error-object">The Error object</h2></p>
 
 <blockquote>
 <p>Sample object:</p>
 </blockquote>
+
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Not allowed service for the branch."</span><span class="p">,</span><span class="w">
     </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9m86"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"more_info"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://bmatic.com/docs/errors/9m86"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
+
 <p>HTTP body used when an error occurred.</p>
 
 <aside class="notice">The fields <code>code</code> and <code>more_info</code> to be return only when the error is documented.</aside>
@@ -2327,7 +2417,7 @@
 </tr>
 </tbody></table>
 
-<h2 id="error-types">Error Types</h2>
+<p><h2 id="the-error-types">The error types</h2></p>
 
 <p>The Customer API uses the following error codes:</p>
 
@@ -2346,6 +2436,22 @@
 <td style="text-align: left"><strong>500</strong> <span class="verb-description">Internal Server Error</span> <br> When an unexpected error has ocurred, then this error is throwed.</td>
 </tr>
 </tbody></table>
+
+<style>
+    ul.enum {
+        margin: 0;
+        padding: 0 0 0 2px;
+        list-style-position: inside;
+    }
+    .required {
+        color: red;
+        font-weight: bold;
+    }
+    a.pseudo {
+        border-bottom:1px dashed;
+        text-decoration: none;
+    }
+</style>
 
       </div>
       <div class="dark-box">
