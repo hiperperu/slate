@@ -4,13 +4,39 @@ title: API Reference | Customer API of BMATIC
 toc_footers:
 - <a href='http://www.hiper.com.pe'>Powered by HIPER S.A.</a>
 
-includes:
-  - guide
-  - branch
-  - service
-  - ticket
-  - booking
-  - errors
+branch:
+    - the_branch_object
+    - the_sector_object
+    - list_all_branches
+    - get_a_branch
+    - list_all_branch_sectors
+
+service:
+    - the_service_object
+    - list_all_services
+
+ticket:
+    - the_ticket_object
+    - list_all_tickets
+    - get_a_ticket
+    - create_a_new_ticket
+    - update_a_ticket
+    - delete_a_ticket
+
+booking:
+    - the_booking_object
+    - the_booking_day_object
+    - the_booking_range_object
+    - list_all_days_for_book
+    - list_all_bookings
+    - get_a_booking
+    - create_a_new_booking
+    - update_a_booking
+    - delete_a_booking
+
+errors:
+    - the_error_object
+    - the_error_types
 
 search: true
 ---
@@ -28,6 +54,13 @@ Improve your customers' experience!
 **Host**: `api.bmatic.com`
 
 **Base path**: `/customer/v1`
+
+<%= partial "includes/getting_started" %>
+<%= partial "includes/branch" %>
+<%= partial "includes/service" %>
+<%= partial "includes/ticket" %>
+<%= partial "includes/booking" %>
+<%= partial "includes/errors" %>
 
 <style>
     ul.enum {

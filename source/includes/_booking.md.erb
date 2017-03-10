@@ -1,0 +1,8 @@
+
+# Booking
+
+Allow to your customers reserve a attention schedule for a better customer experience reducing the waiting time and better the congestion of your branches. The endpoints of this section allow the creation of bookings from your application.
+
+<% current_page.data.booking && current_page.data.booking.each do |resource| %>
+  <%= partial "includes/booking/#{resource}" %>
+<% end %>

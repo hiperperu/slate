@@ -1,0 +1,8 @@
+
+# Branch
+
+Before you create tickets or bookings, you need a branch and sector provided by the endpoints of this section (The bookings creation not required a sector). You considere use the recomended parameters for obtain a better performance in your application.
+
+<% current_page.data.branch && current_page.data.branch.each do |resource| %>
+  <%= partial "includes/branch/#{resource}" %>
+<% end %>
