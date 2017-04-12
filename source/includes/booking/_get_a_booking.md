@@ -4,10 +4,10 @@
 > Sample request:
 
 ```http
-GET /v1/bookings/a90mos70om HTTP/1.1
+GET /customer/v1/bookings/a90mos70om HTTP/1.1
 ```
 
-> Sample success response:
+> Sample response:
 
 ```http
 HTTP/1.1 200 OK
@@ -44,35 +44,6 @@ Content-Type: application/json
 }
 ```
 
-> Sample error responses:
-
-```http
-HTTP/1.1 400 Bad Request
-Content-Type: application/json
-
-{
-    "message": "Requested field not found."
-}
-```
-```http
-HTTP/1.1 404 Not Found
-Content-Type: application/json
-
-{
-    "message": "Booking not found."
-}
-```
-```http
-HTTP/1.1 500 Internal Server Error
-Content-Type: application/json
-
-{
-    "message": "An error has ocurred.",
-    "code": "ab90",
-    "more_info": "https://bmatic.com/docs/errors/ab90"
-}
-```
-
 Returns a customer booking by ID.
 
 ### Endpoint
@@ -83,19 +54,19 @@ Returns a customer booking by ID.
 
 | |
 |:---|
-|**booking_id** *string* <span class="required-param">required</span> <br>Unique identifier of Booking. For example `a90mos70om`.|
+|**booking_id** <span class="param-type">string</span> <span class="required-param">required</span> <br>Unique identifier of booking. |
 
 ### Query Params
 
 | |
 |:---|
-|**fields** *array[string]* <span class="recomended-param">recomended</span> <br> Entity fields that will return at response. For example: `fields=id,queue,number`. |
+|**fields** <span class="param-type">array[string]</span> <span class="recomended-param">recomended</span> <br> Entity fields that will return at response. For example: `fields=id,queue,number`. |
 
 ### Responses
 
 | |
 |:---|
-|**200** *[Booking](#booking)* <br>A booking.|
-|**400** *[Error](#error)* <br>Bad request. |
-|**404** *[Error](#error)* <br>Booking not found. |
-|**500** *[Error](#error)* <br>An error has occurred.|
+|**200** <span class="verb-description">OK</span> *[Booking](#booking)* <br>Booking found, returns the booking requested.|
+|**400** <span class="verb-description">Bad request</span> *[Error](#error)* <br>One or more parameters are not valid, returns a description of validation failed. |
+|**404** <span class="verb-description">Not Found</span> <br>Booking not found. |
+|**500** <span class="verb-description">Internal Server Error</span>*[Error](#error)* <br>An unexpected error has occurred, returns a description of the exception.|

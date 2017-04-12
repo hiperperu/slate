@@ -505,6 +505,64 @@ html, body {
     border-radius: $border-radius;
     background-color: $search-highlight;
   }
+
+  ul {
+    list-style: none;
+    line-height:1.6;
+    padding-left: 28px;
+  }
+
+  li>ul {
+    list-style-type: square;
+    background-color: none;
+    line-height: 1.0;
+  }
+
+  li>ul>li {
+    background-color: inherit;
+    border: none;
+    padding: 0px;
+  }
+
+  li>ul>li:nth-child(odd)  {
+    background-color: inherit;
+  }
+
+  li>ul>li:nth-child(even)  {
+    background-color: inherit;
+  }
+
+  li>ul>li:first-line  {
+    line-height: inherit;
+    word-spacing: inherit;
+  }
+
+  li>ul> :first-child {
+    border: none;
+  }
+
+  ul > :first-child {
+    border-top: $solid-border;
+  }
+
+  li:nth-child(odd) {
+    background-color: lighten($main-bg,3.2%);
+  }
+
+  li:nth-child(even) {
+    background-color: darken($main-bg,.5%);
+  }
+
+  li {
+    padding: 15px;
+    border-bottom: $solid-border;
+  }
+
+  li:first-line {
+    line-height: 3.2;
+    word-spacing: 8px;
+  }
+
 }
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -639,6 +697,11 @@ html, body {
 
 .param-type {
     word-spacing: 0px;
+    color: $tg-grey;
+    font-style: italic;
+}
+
+.param-condition {
     color: $tg-grey;
     font-style: italic;
 }

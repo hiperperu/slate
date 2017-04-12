@@ -7,39 +7,10 @@
 DELETE /customer/v1/bookings/a90mos70om HTTP/1.1
 ```
 
-> Sample success response:
+> Sample response:
 
 ```http
 HTTP/1.1 204 No Content
-```
-
-> Sample error responses:
-
-```http
-HTTP/1.1 400 Bad Request
-Content-Type: application/json
-
-{
-    "message": "Invalid phone number."
-}
-```
-```http
-HTTP/1.1 404 Not Found
-Content-Type: application/json
-
-{
-    "message": "Booking not found."
-}
-```
-```http
-HTTP/1.1 500 Internal Server Error
-Content-Type: application/json
-
-{
-    "message": "An error has ocurred.",
-    "code": "ab90",
-    "more_info": "https://bmatic.com/docs/errors/ab90"
-}
 ```
 
 Delete a customer booking by ID.
@@ -53,13 +24,12 @@ Delete a customer booking by ID.
 
 | |
 |:---|
-|**booking_id** *string* <span class="required-param">required</span> <br>Unique identifier of booking. For example `a90mos70om`.|
+|**booking_id** <span class="param-type">string</span> <span class="required-param">required</span> <br>Unique identifier of booking. |
 
 ### Responses
 
 | |
 |:---|
-|**204** *no content* <br>Successful deletion.|
-|**400** *[Error](#error)* <br>Bad request. |
-|**404** *[Error](#error)* <br>Booking not found. |
-|**500** *[Error](#error)* <br>An error has occurred.|
+|**204** <span class="verb-description">No Content</span> <br>Successful deletion.|
+|**404** <span class="verb-description">Not Found</span> <br>Booking not found. |
+|**500** <span class="verb-description">Internal Server Error</span> *[Error](#error)* <br>An unexpected error has occurred, returns a description of the exception. |

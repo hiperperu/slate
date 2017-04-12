@@ -7,7 +7,7 @@
 GET /customer/v1/bookings?customer_id=m809a31n HTTP/1.1
 ```
 
-> Sample success response:
+> Sample response:
 
 ```http
 HTTP/1.1 200 OK
@@ -46,27 +46,6 @@ Content-Type: application/json
 ]
 ```
 
-> Sample error responses:
-
-```http
-HTTP/1.1 400 Bad Request
-Content-Type: application/json
-
-{
-    "message": "Invalid customer ID."
-}
-```
-```http
-HTTP/1.1 500 Internal Server Error
-Content-Type: application/json
-
-{
-    "message": "An error has ocurred.",
-    "code": "ab90",
-    "more_info": "https://bmatic.com/docs/errors/ab90"
-}
-```
-
 Returns all tickets created by a specific customer.
 
 <aside class="notice">
@@ -74,7 +53,13 @@ Returns all tickets created by a specific customer.
 </aside>
 
 <aside class="warning">
-<strong>Caution:</strong> For this operation its necesary indicate a specific customer, You have two options, send the parameters <code>customer_id_type</code> and <code>customer_id_number</code> or just send <code>customer_id</code>. If you send all parameters, the API just consider the parameter <code>customer_id</code>.
+<strong>Caution: </strong> You have to consider the following:
+<ul>
+<li>
+
+</li>
+For this operation its necesary indicate a specific customer, You have two options, send the <code>customer_id_type</code> and the <code>customer_id_number</code> or only send the <code>customer_id</code>. If you send all parameters, the API just consider the parameter <code>customer_id</code>.
+</ul>
 </aside>
 
 ### Endpoint

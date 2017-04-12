@@ -5,15 +5,13 @@ toc_footers:
 - <a href='http://www.hiper.com.pe'>Powered by HIPER S.A.</a>
 
 branch:
-    - the_branch_object
-    - the_sector_object
     - list_all_branches
     - get_a_branch
     - list_all_branch_sectors
 
 service:
-    - the_service_object
     - list_all_services
+    - get_a_service
 
 ticket:
     - the_ticket_object
@@ -38,6 +36,11 @@ errors:
     - the_error_object
     - the_error_types
 
+objects:
+    - branch
+    - sector
+    - service
+
 search: true
 ---
 
@@ -61,6 +64,7 @@ Improve your customers' experience!
 <%= partial "includes/ticket" %>
 <%= partial "includes/booking" %>
 <%= partial "includes/errors" %>
+<%= partial "includes/objects" %>
 
 <style>
     ul.enum {

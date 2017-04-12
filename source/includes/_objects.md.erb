@@ -1,0 +1,8 @@
+
+# Common Objects Definitions
+
+Collection of common objects used by the API
+
+<% current_page.data.objects && current_page.data.objects.each do |resource| %>
+  <%= partial "includes/objects/#{resource}" %>
+<% end %>

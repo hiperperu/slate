@@ -17,7 +17,7 @@ Content-Type: application/json
 }
 ```
 
-> Sample success response:
+> Sample response:
 
 ```http
 HTTP/1.1 201 Created
@@ -54,29 +54,17 @@ Content-Type: application/json
 }
 ```
 
-> Sample error responses:
-
-```http
-HTTP/1.1 400 Bad Request
-Content-Type: application/json
-
-{
-    "message": "Invalid branch ID."
-}
-```
-```http
-HTTP/1.1 500 Internal Server Error
-Content-Type: application/json
-
-{
-    "message": "An error has ocurred.",
-    "code": "ab90",
-    "more_info": "https://bmatic.com/docs/errors/ab90"
-}
-```
-
 Create a new customer booking and then it returns it.
 
+<aside class="warning">
+<strong>Caution: </strong> You have to consider the following before create a booking:
+<ul>
+<li>The branch referenced by the <code>branch_id</code> have to allow the bookings.</li>
+<li>The <code>start_time</code> and the <code>end_time</code> have to be available for the branch and service.</li>
+<li>If you send a <code>customer_id_type</code> it's mandatory send a <code>customer_id_number</code>.</li>
+<li>If you send a <code>customer_id</code>, then the <code>customer_id_type</code> and  <code>customer_id_number</code> are ignored.</li>
+<ul>
+</aside>
 
 ### Endpoint
 
@@ -86,20 +74,20 @@ Create a new customer booking and then it returns it.
 
 | |
 |:---|
-|**branch_id** *string* <span class="required-param">required</span> <br> Unique identifier of branch request by customer. |
-|**service_id** *string* <span class="required-param">required</span> <br> Unique identifier of service requested by customer. |
-|**channel** *string* <span class="recomended-param">recomended</span><br> Unique identifier of the channel used. Used only for audit purpose. |
-|**phone** *string* <span class="recomended-param">recomended</span><br> Customer phone for notifications. |
-|**start_time** *string* <span class="required-param">required</span> <br> Start time of booking. |
-|**end_time** *string* <span class="required-param">required</span> <br> End time of booking. |
-|**customer_id** *string* <br> Unique identifier of the channel used. Used only for audit purpose. |
-|**customer_id_type** *string* <br> Unique identifier of customer id type. |
-|**customer_id_number** *string*  <br> Number of customer id. |
+|**branch_id** <span class="param-type">string</span> <span class="required-param">required</span> <br> Unique identifier of branch. |
+|**service_id** <span class="param-type">string</span> <span class="required-param">required</span> <br> Unique identifier of service. |
+|**channel** <span class="param-type">string</span> <span class="recomended-param">recomended</span><br> Free text to identify the channel used. Used only for audit purpose. <p><span class="param-condition">Maximum length:  </span>`20`</p> |
+|**phone** <span class="param-type">string</span> <span class="recomended-param">recomended</span><br> Customer phone for notifications. <p><span class="param-condition">Validation pattern:  </span>`^+[1-9]{1}[0-9]{3,14}$`</p>|
+|**start_time** <span class="param-type">date-time</span> <span class="required-param">required</span> <br> Start time of booking. <p><span class="param-condition">Format:  </span><code>[ISO 8601](https://en.wikipedia.org/wiki/ISO_8601)</code></p>|
+|**end_time** <span class="param-type">date-time</span> <span class="required-param">required</span> <br> End time of booking. <p><span class="param-condition">Format:  </span><code>[ISO 8601](https://en.wikipedia.org/wiki/ISO_8601)</code></p> |
+|**customer_id** <span class="param-type">string</span> <br> Customer unique identifier used in your company. <p><span class="param-condition">Validation pattern:  </span>`^[0-9A-Z]{1,20}$`</p> |
+|**customer_id_type** <span class="param-type">string</span> <br> Unique identifier of customer id type. <p><span class="param-condition">Validation pattern:  </span>`^[0-9A-Z]{1,4}$`</p>|
+|**customer_id_number** <span class="param-type">string</span>  <br> Number of customer id. <p><span class="param-condition">Validation pattern:  </span>`^[0-9A-Z]{1,16}$`</p>|
 
 ### Responses
 
 | |
 |:---|
-|**201** *[Booking](#booking-object)* <br>A booking.|
-|**400** *[Error](#error)* <br>Bad request. |
-|**500** *[Error](#error)* <br>An error has occurred.|
+|**201** <span class="verb-description">Created</span> *[Booking](#the-booking-object)* <br>Successful creation, returns the new booking created.|
+|**400** <span class="verb-description">Bad Request</span> *[Error](#the-error-object)* <br>One or more parameters are not valid, returns a description of validation failed.  |
+|**500** <span class="verb-description">Internal Server Error</span> *[Error](#the-error-object)* <br>An unexpected error has occurred, returns a description of the exception. |
