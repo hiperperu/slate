@@ -1,54 +1,53 @@
 ---
-title: API Reference | Customer API of BMATIC
+title: API Reference | BMATIC API
 
 toc_footers:
 - <a href='http://www.hiper.com.pe'>Powered by HIPER S.A.</a>
 
-branch:
-    - list_all_branches
-    - get_a_branch
-    - list_all_branch_sectors
+branches_api:
+    - list_branches
+    - show_branch_details
 
-service:
-    - list_all_services
-    - get_a_service
+tickets_api:
+    - list_available_services_for_tickets
+    - list_customer_tickets
+    - show_ticket_details
+    - create_ticket
+    - update_ticket
+    - delete_ticket
 
-ticket:
-    - the_ticket_object
-    - list_all_tickets
-    - get_a_ticket
-    - create_a_new_ticket
-    - update_a_ticket
-    - delete_a_ticket
+bookings_api:
+    - list_available_services_for_bookings
+    - list_available_days_for_bookings
+    - list_customer_bookings
+    - show_booking_details
+    - create_booking
+    - update_booking
+    - delete_booking
 
-booking:
-    - the_booking_object
-    - the_booking_day_object
-    - the_booking_range_object
-    - list_all_days_for_book
-    - list_all_bookings
-    - get_a_booking
-    - create_a_new_booking
-    - update_a_booking
-    - delete_a_booking
+error_messages:
+    - bad_request
+    - not_found
+    - internal_server_error
 
-errors:
-    - the_error_object
-    - the_error_types
-
-objects:
+common_object_definitions:
+    - booking
     - branch
+    - day
+    - print_line
+    - range
     - sector
     - service
+    - ticket
 
 search: true
 ---
 
 # Introduction
 
-Welcome to the Customer API of BMATIC! You can use our API to integrate your application with us. Now, trought our endpoints you can access to services of BMATIC's branches from any application.
+Welcome to the Bmatic API! You can use our API to integrate your application with us. Now, trought our endpoints you can access to services of BMATIC's branches from any application.
 
-You can download [our specification](./swagger.json) and generate your own client in your preference language trought code generator of [swagger](http://swagger.io/) and  speed up your integration with us.
+You can download [our specification](./swagger.json) and generate your own client in your preference language trought the code generator of [swagger](http://swagger.io/) and  speed up your integration with us.
 
 Improve your customers' experience!
 
@@ -56,15 +55,13 @@ Improve your customers' experience!
 
 **Host**: `api.bmatic.com`
 
-**Base path**: `/customer/v1`
+**Base path**: `/v1`
 
-<%= partial "includes/getting_started" %>
-<%= partial "includes/branch" %>
-<%= partial "includes/service" %>
-<%= partial "includes/ticket" %>
-<%= partial "includes/booking" %>
-<%= partial "includes/errors" %>
-<%= partial "includes/objects" %>
+<%= partial "includes/branches_api" %>
+<%= partial "includes/tickets_api" %>
+<%= partial "includes/bookings_api" %>
+<%= partial "includes/error_messages" %>
+<%= partial "includes/common_object_definitions" %>
 
 <style>
     ul.enum {

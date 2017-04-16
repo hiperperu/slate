@@ -1,0 +1,8 @@
+
+# Error Messages
+
+A booking or ticket require to be associate to a service. You can obtain the available services from the endpoint of this section.
+
+<% current_page.data.error_messages && current_page.data.error_messages.each do |resource| %>
+  <%= partial "includes/error_messages/#{resource}" %>
+<% end %>

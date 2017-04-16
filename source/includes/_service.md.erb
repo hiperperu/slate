@@ -1,8 +1,0 @@
-
-# Service
-
-A booking or ticket require to be associate to a service. You can obtain the available services from the endpoint of this section.
-
-<% current_page.data.service && current_page.data.service.each do |resource| %>
-  <%= partial "includes/service/#{resource}" %>
-<% end %>
