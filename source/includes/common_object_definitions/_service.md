@@ -16,5 +16,5 @@ Model of service object.
 ### Fields
 
 * **id** <span class="param-type">String</span>  <br>Service unique identifier.
-* **name** <span class="param-type">String</span>  <br>Complete name of the service. <p>*Maximum length*: <code>120</code></p>
+* **name** <span class="param-type">String</span>  <br>Complete name of the service. <p>*Maximum length*: <code>50</code></p>
 * **shortName** <span class="param-type">String</span>  <br>Name to display in small devices. <p>*Maximum length*: <code>20</code></p>

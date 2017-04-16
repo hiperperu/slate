@@ -4,7 +4,7 @@
 > Sample request:
 
 ```http
-GET /v1/services HTTP/1.1
+GET /v1/tickets/channel/c10/services HTTP/1.1
 ```
 
 > Sample response:
@@ -22,31 +22,26 @@ Content-Type: application/json
 ]
 ```
 
-Returns all available services that fulfill the filters.
+Returns available services to generate tickets from the channel referenced.
 
-<aside class="notice">
-<strong>Order:</strong> The services are sorted by <code>shortName</code>.
+<aside class="warning">
+<strong>Caution: </strong> You should consider the following:
+<ul>
+<li>This operation throw a error(404) when the channel referenced not exists.</li>
+<li>An empty list is returned when not exist services to generate tickets from the branch referenced.</li>
+<ul>
 </aside>
 
 ### Endpoint
 
-`GET /v1/services`
+`GET /v1/tickets/channel/{channelId}/services`
 
-### Query Params
+### Path Params
 
-* **channelId** <span class="recomended-param">recomended</span> *String* <br>Channel unique identifier.
-* **isVirtual** *Boolean* <br>Indicator of virtual tickets enabled for the service.
-* **isBookable** *Boolean* <br>Indicator of bookings enabled for the service.
-* **fields** *List\<String\>* <span class="recomended-param">recomended</span> <br> Entity fields that will return at response. For example: `fields=id,shortName`.
-* **offset** *Integer* <br> Position in pagination.<p>*Default value:* <code>0</code><br>*Maximum value:* <code>9999</code></p>
-* **limit** *Integer* <br> Number of items to retrieve.<p>*Default value:* <code>10</code><br>*Maximum value:* <code>50</code></p>
+* **channelId** <span class="param-type">String</span> <span class="required-param">required</span> <br>Channel unique identifier.
 
 ### Responses
 
-* **200** <span class="verb-description">Ok</span> *List\<[Service](#the-service-object)\>* <br>A list of services.
-* **400** <span class="verb-description">Bad Request</span> *[Error](#the-error-object)* <br>One or more parameters are not valid, returns a description of validation failed.
-* **500** <span class="verb-description">Internal Server Error</span> *[Error](#the-error-object)* <br>An unexpected error has occurred, returns a description of the exception.
-
-* **200** <span class="verb-description">Ok</span> *[Service](#the-service-object)* <br>A service.
-* **404** <span class="verb-description">Not Found</span> *[Error](#the-error-object)* <br>The resource requested not found, returns a simple error message.
-* **500** <span class="verb-description">Internal Server Error</span> *[Error](#the-error-object)* <br>An unexpected error has occurred, returns a description of the exception.
+* **200** <span class="verb-description">Ok</span> *List\<[Service](#service)\>* <br>A list of services.
+* **404** <span class="verb-description">Not Found</span> <br>The resource requested not found, returns a simple error message.
+* **500** <span class="verb-description">Internal Server Error</span> *[Error](#error)* <br>An unexpected error has occurred, returns a simple error message.

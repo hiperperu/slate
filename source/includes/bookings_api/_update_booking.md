@@ -4,7 +4,7 @@
 > Sample request:
 
 ```http
-PATCH /customer/v1/bookings/a90mos70om HTTP/1.1
+PUT /v1/bookings/customer/c9mas9js/bookings/a90mos70om HTTP/1.1
 Content-Type: application/json
 
 {
@@ -12,64 +12,30 @@ Content-Type: application/json
 }
 ```
 
-> Sample success response:
+> Sample response:
 
 ```http
 HTTP/1.1 204 No Content
-```
-
-> Sample errors responses:
-
-```http
-HTTP/1.1 400 Bad Request
-Content-Type: application/json
-
-{
-    "message": "Invalid phone number."
-}
-```
-```http
-HTTP/1.1 404 Not Found
-Content-Type: application/json
-
-{
-    "message": "Booking not found."
-}
-```
-```http
-HTTP/1.1 500 Internal Server Error
-Content-Type: application/json
-
-{
-    "message": "An error has ocurred.",
-    "code": "ab90",
-    "more_info": "https://bmatic.com/docs/errors/ab90"
-}
 ```
 
 Update a specific customer booking.
 
 ###Endpoint
 
-`PATCH /customer/v1/bookings/{booking_id}`
+`PUT /v1/bookings/customer/{customerId}/bookings/{bookingId}`
 
 ### Path Params
 
-| |
-|:---|
-|**booking_id** *string* <span class="required-param">required</span> <br>Unique identifier of booking. For example `a90mos70om`.|
+* **customerId** <span class="param-type">String</span> <span class="required-param">required</span> <br> Customer unique identifier.
+* **bookingId** <span class="param-type">String</span> <span class="required-param">required</span> <br>Unique identifier of booking.
 
 ### Request
 
-| |
-|:---|
-|**phone** *string* <br> New customer phone for notifications. |
+* **phone** <span class="param-type">String</span> <br> New customer phone for notifications. <p><span class="param-condition">Validation pattern: </span>`^+[1-9]{1}[0-9]{3,14}$`</p>
 
 ### Responses
 
-| |
-|:---|
-|**204** *no content* <br>Successful update.|
-|**400** *[Error](#error)* <br>Bad request. |
-|**404** *[Error](#error)* <br>Booking not found. |
-|**500** *[Error](#error)* <br>An error has occurred.|
+* **204** *no content* <br>Successful update.
+* **400** <span class="verb-description">Bad Request</span> *[ValidationError](#validation-error)* <br>One or more parameters are not valid, returns a description of validation failed.
+* **404** <span class="verb-description">Not Found</span> *[Error](#error)* <br>The resource requested not found, returns a simple error message.
+* **500** <span class="verb-description">Internal Server Error</span> *[Error](#error)* <br>An unexpected error has occurred, returns a simple error message.

@@ -4,7 +4,7 @@
 > Sample request:
 
 ```http
-GET /v1/branches/{branchId} HTTP/1.1
+GET /v1/branches/branch/{branchId} HTTP/1.1
 ```
 
 > Sample response:
@@ -20,9 +20,7 @@ Content-Type: application/json
     "address": "Calle Beta 181 - 195, Callao",
     "latitude": -12.049919,
     "longitude": -77.0845193,
-    "status": "OPEN",
-    "isVirtual": true,
-    "isBookable": true,
+    "status": "ACTIVE",
     "congestion": "MEDIUM",
     "lowEstimatedTime": 10,
     "highEstimatedTime": 14,
@@ -31,7 +29,7 @@ Content-Type: application/json
             "id": "m8",
             "name": "Tower A",
             "shortName": "A",
-            "status": "OPEN",
+            "status": "ACTIVE",
             "services": ["s9","s10","s30"]
         }
     ]
@@ -43,18 +41,18 @@ Returns a specific branch requested by ID.
 
 ### Endpoint
 
-`GET /v1/branches/{branchId}`
+`GET /v1/branches/branch/{branchId}`
 
 ### Path Params
 
-* **branchId** *string* <span class="required-param">required</span> <br>Unique identifier of branch.
+* **branchId** <span class="param-type">String</span> <span class="required-param">required</span> <br>Unique identifier of branch.
 
 ### Query Params
 
-* **fields** *List\<String\>* <span class="recomended-param">recomended</span> <br> Entity fields that will return at response. For example: `fields=id,name,shortName`.
+* **fields** <span class="param-type">List\<String\></span> <span class="recomended-param">recomended</span> <br> Entity fields that will return at response. For example: `fields=id,name,shortName`.
 
 ### Responses
 
-* **200** <span class="verb-description">Ok</span> *[Branch](#the-branch-object)* <br>A branch.
-* **404** <span class="verb-description">Not Found</span> *[Error](#the-error-object)* <br>The resource requested not found, returns a simple error message.
-* **500** <span class="verb-description">Internal Server Error</span> *[Error](#the-error-object)* <br>An unexpected error has occurred, returns a description of the exception.
+* **200** <span class="verb-description">Ok</span> *[Branch](#branch)* <br>A branch.
+* **404** <span class="verb-description">Not Found</span> *[Error](#error)* <br>The resource requested not found, returns a simple error message.
+* **500** <span class="verb-description">Internal Server Error</span> *[Error](#error)* <br>An unexpected error has occurred, returns a simple error message.

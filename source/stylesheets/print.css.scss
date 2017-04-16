@@ -151,6 +151,35 @@ body {
     margin-top: 1.5em;
     margin-bottom: 1.5em;
     line-height: 1.6;
+    ul {
+      list-style-type: square;
+      background-color: none;
+      line-height: 1.0;
+    }
+
+    ul>li {
+      background-color: inherit;
+      border: none;
+      padding: 0px;
+    }
+
+    ul>li:nth-child(odd)  {
+      background-color: inherit;
+    }
+
+    ul>li:nth-child(even)  {
+      background-color: inherit;
+    }
+
+    ul>li:first-line  {
+      line-height: inherit;
+      word-spacing: inherit;
+    }
+
+    ul> :first-child {
+      border: none;
+    }
+
   }
 
   aside:before {
@@ -169,5 +198,102 @@ body {
 
   aside.success:before {
     @extend %icon-ok-sign;
+  }
+
+
+
+  ul {
+    list-style: none;
+    line-height:1.6;
+    padding-left: 28px;
+  }
+
+  li>ul {
+    list-style-type: square;
+    background-color: none;
+    line-height: 1.0;
+  }
+
+  li>ul>li {
+    background-color: inherit;
+    border: none;
+    padding: 0px;
+  }
+
+  li>ul>li:nth-child(odd)  {
+    background-color: inherit;
+  }
+
+  li>ul>li:nth-child(even)  {
+    background-color: inherit;
+  }
+
+  li>ul>li:first-line  {
+    line-height: inherit;
+    word-spacing: inherit;
+  }
+
+  li>ul> :first-child {
+    border: none;
+  }
+
+  ul > :first-child {
+    border-top: $solid-border;
+  }
+
+  li:nth-child(odd) {
+    background-color: lighten($main-bg,3.2%);
+  }
+
+  li:nth-child(even) {
+    background-color: darken($main-bg,.5%);
+  }
+
+  li {
+    padding: 15px;
+    border-bottom: $solid-border;
+  }
+
+  li:first-line {
+    line-height: 3.2;
+    word-spacing: 8px;
+  }
+
+  .required-param {
+    color: $white;
+    background-color: $tg-red;
+    border-radius: $border-radius;
+    padding: 1px $nav-v-padding;
+
+    @extend %label-font;
+      border-radius: 3px;
+  }
+
+
+  .recomended-param {
+    color: $white;
+    background-color: $tg-green;
+    border-radius: $border-radius;
+    padding: 1px $nav-v-padding;
+
+    @extend %label-font;
+      border-radius: 3px;
+  }
+
+  .param-type {
+      word-spacing: 0px;
+      color: $tg-grey;
+      font-style: italic;
+  }
+
+  .param-condition {
+      color: $tg-grey;
+      font-style: italic;
+  }
+
+  .verb-description {
+      word-spacing: 0px;
+      color: $tg-grey;
+      font-style: italic;
   }
 }

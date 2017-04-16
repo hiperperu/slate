@@ -11,9 +11,7 @@
     "address": "Calle Beta 181 - 195, Callao",
     "latitude": -12.049919,
     "longitude": -77.0845193,
-    "status": "OPEN",
-    "isVirtual": true,
-    "isBookable": true,
+    "status": "ACTIVE",
     "congestion": "MEDIUM",
     "lowEstimatedTime": 10,
     "highEstimatedTime": 14,
@@ -22,7 +20,7 @@
             "id": "m8",
             "name": "Tower A",
             "shortName": "A",
-            "status": "OPEN",
+            "status": "ACTIVE",
             "services": ["s9","s10","s30"]
         }
     ]
@@ -38,14 +36,12 @@ Model of branch object.
 ### Fields
 
 * **id** <span class="param-type">String</span> <br>Branch unique identifier.
-* **name** <span class="param-type">String</span> <br>Complete name of the branch. <p>*Maximum length*: <code>120</code></p>
+* **name** <span class="param-type">String</span> <br>Complete name of the branch. <p>*Maximum length*: <code>50</code></p>
 * **shortName** <span class="param-type">String</span> <br>Name to display in small devices. <p>*Maximum length*: <code>20</code></p>
 * **address** <span class="param-type">String</span> <br>Branch address. <p>*Maximum length*: <code>100</code></p>
 * **latitude** <span class="param-type">Float</span> <br>Latitude component of branch location.
 * **longitude** <span class="param-type">Float</span> <br>Longitude component of branch location.
 * **status** <span class="param-type">Enum</span> <br>Current status of the branch. <p>*Possible values*: <ul><li><code>ACTIVE</code></li><li><code>INACTIVE</code></li></ul></p>
-* **isVirtual** <span class="param-type">Boolean</span> <br>Possibility to create virtual tickets.
-* **isBookable** <span class="param-type">Boolean</span> <br>Possibility to book.
 * **congestion** <span class="param-type">String</span> <br>Congestion of the branch. <p>*Possible values*: <ul><li><code>LOW</code></li><li><code>MEDIUM</code></li><li><code>HIGH</code></li></ul></p>
 * **lowEstimatedTime** <span class="param-type">Integer</span> <br>Lower bound of the estimated waiting time.
 * **highEstimatedTime** <span class="param-type">Integer</span> <br>Upper bound of the estimated waiting time.

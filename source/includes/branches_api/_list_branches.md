@@ -4,7 +4,7 @@
 > Sample request:
 
 ```http
-GET /v1/branches?offset=9&limit=1 HTTP/1.1
+GET /v1/branches/branch?offset=9&limit=1 HTTP/1.1
 ```
 
 > Sample response:
@@ -24,9 +24,7 @@ Content-Type: application/json
         "address": "Calle Beta 181 - 195, Callao",
         "latitude": -12.049919,
         "longitude": -77.0845193,
-        "status": "OPEN",
-        "isVirtual": true,
-        "isBookable": true,
+        "status": "ACTIVE",
         "congestion": "MEDIUM",
         "lowEstimatedTime": 10,
         "highEstimatedTime": 14,
@@ -35,7 +33,7 @@ Content-Type: application/json
                 "id": "m8",
                 "name": "Tower A",
                 "shortName": "A",
-                "status": "OPEN",
+                "status": "ACTIVE",
                 "services": ["s9","s10","s30"]
             }
         ]
@@ -44,6 +42,10 @@ Content-Type: application/json
 ```
 
 Returns all branches with their sectors that fulfill the filters.
+
+<aside class="warning">
+<strong>Warning:</strong> The branches to return should to be marked with the flag <code>expose by API</code> from the Bmatic configuration.
+</aside>
 
 <aside class="notice">
 <strong>Order:</strong> The branches are sorted by the better distance to client location and then by its shortName.
@@ -59,20 +61,19 @@ Returns all branches with their sectors that fulfill the filters.
 
 ### Query Params
 
-* **latitude** *Float* <span class="recomended-param">recomended</span><br> Latitude component of customer location.
-* **longitude** *Float* <span class="recomended-param">recomended</span><br> Longitude component of customer location.
-* **minLatitude** *Float* <span class="recomended-param">recomended</span><br> Minimun latitude of the area that has to contain the branches.
-* **maxLatitude** *Float* <span class="recomended-param">recomended</span><br> Maximum latitude of the area that has to contain the branches.
-* **minLongitude** *Float* <span class="recomended-param">recomended</span><br> Minimun longitude of the area that has to contain the branches.
-* **maxLongitude** *Float* <span class="recomended-param">recomended</span><br> Maximum longitude of the area that has to contain the branches.
-* **serviceId** *String* <br>Unique identifier of service requested by customer.
-* **status** *Enum* <br> Current status of branch. <p>*Possible values*: <ul><li><code>ACTIVE</code></li><li><code>INACTIVE</code></li></ul></p>
-* **fields** *List\<String\>* <span class="recomended-param">recomended</span> <br> Entity fields that will return at response. For example: `fields=id,name,shortName`.
-* **offset** *Integer* <br> Position in pagination.<p>*Default value:* <code>0</code><br>*Maximum value:* <code>9999</code></p>
-* **limit** *Integer* <br> Number of items to retrieve.<p>*Default value:* <code>10</code><br>*Maximum value:* <code>50</code></p>
+* **latitude** <span class="param-type">Float</span> <span class="recomended-param">recomended</span><br> Latitude component of customer location.
+* **longitude** <span class="param-type">Float</span> <span class="recomended-param">recomended</span><br> Longitude component of customer location.
+* **minLatitude** <span class="param-type">Float</span> <span class="recomended-param">recomended</span><br> Minimun latitude of the area that has to contain the branches.
+* **maxLatitude** <span class="param-type">Float</span> <span class="recomended-param">recomended</span><br> Maximum latitude of the area that has to contain the branches.
+* **minLongitude** <span class="param-type">Float</span> <span class="recomended-param">recomended</span><br> Minimun longitude of the area that has to contain the branches.
+* **maxLongitude** <span class="param-type">Float</span> <span class="recomended-param">recomended</span><br> Maximum longitude of the area that has to contain the branches.
+* **serviceId** <span class="param-type">String</span> <br> Unique identifier of service supported by the branch.
+* **fields** <span class="param-type">List\<String\></span> <span class="recomended-param">recomended</span> <br> Entity fields that will return at response. For example: `fields=id,name,shortName`.
+* **offset** <span class="param-type">Integer</span> <br> Position in pagination.<p>*Default value:* <code>0</code><br>*Maximum value:* <code>9999</code></p>
+* **limit** <span class="param-type">Integer</span> <br> Number of items to retrieve.<p>*Default value:* <code>10</code><br>*Maximum value:* <code>50</code></p>
 
 ### Responses
 
 * **200** <span class="verb-description">Ok</span> *List\<[Branch](#branch)\>* <br>A list of branches. Pagination headers are included: <ul><li><strong>X-Pagination-Count:</strong> Total number of items.</li><li><strong>X-Pagination-Page:</strong> Number of current page.</li><li><strong>X-Pagination-Limit:</strong> Limit of items per page.</li></ul>
-* **400** <span class="verb-description">Bad Request</span> *[Error](#the-error-object)* <br>One or more parameters are not valid, returns a description of validation failed.
-* **500** <span class="verb-description">Internal Server Error</span> *[Error](#the-error-object)* <br>An unexpected error has occurred, returns a description of the exception.
+* **400** <span class="verb-description">Bad Request</span> *[ValidationError](#validation-error)* <br>One or more parameters are not valid, returns a description of validation failed.
+* **500** <span class="verb-description">Internal Server Error</span> *[Error](#error)* <br>An unexpected error has occurred, returns a simple error message.

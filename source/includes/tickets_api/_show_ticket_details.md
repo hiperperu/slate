@@ -4,82 +4,69 @@
 > Sample request:
 
 ```http
-GET /customer/v1/tickets/89m32b0998 HTTP/1.1
+GET /v1/tickets/customer/c9mas9js/tickets/89m32b0 HTTP/1.1
 ```
 
-> Sample success response:
+> Sample response:
 
 ```http
 HTTP/1.1 200 OK
 Content-Type: application/json
 
 {
-    "id": "89m32b0998",
+    "id": "89m32b0",
     "queue": "T",
     "number": 2,
-    "channel": "mobile",
+    "position": 10,
     "status": "BLOCKED",
-    "low_estimated_time": "10",
-    "high_estimated_time": "15",
+    "lowEstimatedTime": "10",
+    "highEstimatedTime": "15",
     "phone": "+51987776576",
-    "messages":[
+    "messages": [
         "We have a promotion for you!"
     ],
+    "channel": {
+        "id": "a10",
+        "name": "Mobile",
+        "shortName": "Mobile"
+    },
     "branch": {
         "id": "27b6",
         "name": "Hiper Central",
-        "short_name": "Hiper",
-        "code": "AG001",
+        "shortName": "Hiper",
         "address": "Calle Beta 181 - 195, Callao",
         "latitude": -12.049919,
         "longitude": -77.0845193,
-        "status": "OPEN",
-        "opening_time": "2017-02-20T14:00:00.000Z",
-        "closing_time": "2017-02-20T23:00:00.000Z",
-        "congestion_level": "MEDIUM"
+        "status": "ACTIVE",
+        "congestion": "MEDIUM"
     },
     "sector": {
         "id": "s8",
         "name": "Tower A",
-        "short_name": "A",
-        "status": "OPEN"
+        "shortName": "A",
+        "status": "ACTIVE"
     },
     "service": {
         "id": "7b6",
         "name": "Plataforma",
-        "short_name": "Plataforma"
+        "shortName": "Plataforma"
     },
-    "created_at": "2017-02-20T10:00:00.000Z",
-    "updated_at": "2017-02-20T10:00:00.000Z"
-}
-```
-
-> Sample error responses:
-
-```http
-HTTP/1.1 400 Bad Request
-Content-Type: application/json
-
-{
-    "message": "Requested field not found."
-}
-```
-```http
-HTTP/1.1 404 Not Found
-Content-Type: application/json
-
-{
-    "message": "Ticket not found."
-}
-```
-```http
-HTTP/1.1 500 Internal Server Error
-Content-Type: application/json
-
-{
-    "message": "An error has ocurred.",
-    "code": "ab90",
-    "more_info": "https://bmatic.com/docs/errors/ab90"
+    "counter": {
+        "id": "v10",
+        "name": "V10",
+        "teller": "achavez"
+    },
+    "createdAt": "2017-02-20T10:00:00.000Z",
+    "updatedAt": "2017-02-20T10:00:00.000Z",
+    "print": [
+        {
+            "align": "CENTER",
+            "font": "A_REGULAR",
+            "previous": "Welcome to",
+            "content": "Hiper",
+            "next": "!"
+        }
+    ]
 }
 ```
 
@@ -88,25 +75,19 @@ Returns a customer ticket by ID.
 
 ### Endpoint
 
-`GET /customer/v1/tickets/{ticket_id}`
+`GET /v1/tickets/customer/{customerId}/tickets/{ticketId}`
 
 ### Path Params
 
-| |
-|:---|
-|**ticket_id** *string* <span class="required-param">required</span> <br>Unique identifier of Ticket. For example `89m32b0998`.|
+* **customerId** <span class="param-type">String</span> <span class="required-param">required</span> <br> Customer unique identifier.
+* **ticketId** <span class="param-type">String</span> <span class="required-param">required</span> <br>Unique identifier of ticket.
 
 ### Query Params
 
-| |
-|:---|
-|**fields** *array[string]* <span class="recomended-param">recomended</span> <br> Entity fields that will return at response. For example: `fields=id,queue,number`. |
+* **fields** <span class="param-type">List\<String\></span> <span class="recomended-param">recomended</span> <br> Entity fields that will return at response. For example: `fields=id,queue,number`.
 
 ### Responses
 
-| |
-|:---|
-|**200** *[Ticket](#ticket)* <br>A ticket.|
-|**400** *[Error](#error)* <br>Bad request. |
-|**404** *[Error](#error)* <br>Ticket not found. |
-|**500** *[Error](#error)* <br>An error has occurred.|
+* **200** <span class="verb-description">OK</span> *[Ticket](#ticket)* <br>A ticket.
+* **404** <span class="verb-description">Not Found</span> *[Error](#error)* <br>The resource requested not found, returns a simple error message.
+* **500** <span class="verb-description">Internal Server Error</span> *[Error](#error)* <br>An unexpected error has occurred, returns a simple error message.

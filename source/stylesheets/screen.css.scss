@@ -476,6 +476,35 @@ html, body {
     margin-top: 1.5em;
     margin-bottom: 1.5em;
     line-height: 1.6;
+
+    ul {
+      list-style-type: square;
+      background-color: none;
+      line-height: 1.0;
+    }
+
+    ul>li {
+      background-color: inherit;
+      border: none;
+      padding: 0px;
+    }
+
+    ul>li:nth-child(odd)  {
+      background-color: inherit;
+    }
+
+    ul>li:nth-child(even)  {
+      background-color: inherit;
+    }
+
+    ul>li:first-line  {
+      line-height: inherit;
+      word-spacing: inherit;
+    }
+
+    ul> :first-child {
+      border: none;
+    }
   }
 
   aside:before {

@@ -5,9 +5,10 @@
 
 ```json
 {
-    "id": "89m32b0998",
+    "id": "89m32b0",
     "queue": "T",
     "number": 2,
+    "position": 10,
     "status": "BLOCKED",
     "lowEstimatedTime": "10",
     "highEstimatedTime": "15",
@@ -27,19 +28,24 @@
         "address": "Calle Beta 181 - 195, Callao",
         "latitude": -12.049919,
         "longitude": -77.0845193,
-        "status": "OPEN",
-        "congestion_level": "MEDIUM"
+        "status": "ACTIVE",
+        "congestion": "MEDIUM"
     },
     "sector": {
         "id": "s8",
         "name": "Tower A",
         "shortName": "A",
-        "status": "OPEN"
+        "status": "ACTIVE"
     },
     "service": {
         "id": "7b6",
         "name": "Plataforma",
         "shortName": "Plataforma"
+    },
+    "counter": {
+        "id": "v10",
+        "name": "V10",
+        "teller": "achavez"
     },
     "createdAt": "2017-02-20T10:00:00.000Z",
     "updatedAt": "2017-02-20T10:00:00.000Z",
@@ -65,7 +71,8 @@ Model of ticket object.
 
 * **id** <span class="param-type">String</span> <br>Ticket unique identifier.
 * **queue** <span class="param-type">String</span> <br>Id of queue assigned to ticket.
-* **number** <span class="param-type">Integer</span> <br>Position of ticket in queue.
+* **number** <span class="param-type">Integer</span> <br>Number in queue assigned to ticket.
+* **position** <span class="param-type">Integer</span> <br>Position of ticket in queue.
 * **status** <span class="param-type">Enum</span> <br>Current status of the branch. <p>*Possible values*: <ul><li><code>BLOCKED</code></li><li><code>ENABLED</code></li></ul></p>
 * **lowEstimatedTime** <span class="param-type">Integer</span> <br> Lower bound of the estimated waiting time.
 * **highEstimatedTime** <span class="param-type">Integer</span> <br> Upper bound of the estimated waiting time.
@@ -75,6 +82,7 @@ Model of ticket object.
 * **branch** <span class="param-type">[Branch](#branch)</span> <br> Branch associated.</p>
 * **sector** <span class="param-type">[Sector](#sector)</span> <br> Sector associated.</p>
 * **service** <span class="param-type">[Service](#service)</span>  <br> Service associated.</p>
+* **counter** <span class="param-type">[Counter](#counter)</span>  <br> Counter associated.</p>
 * **createdAt** <span class="param-type">DateTime</span> <br> Datetime of ticket creation. <p>*Standard*: <code>[ISO 8601](https://en.wikipedia.org/wiki/ISO_8601)</code></p>
 * **updatedAt** <span class="param-type">DateTime</span> <br> Datetime of the last update of ticket. <p>*Standard*: <code>[ISO 8601](https://en.wikipedia.org/wiki/ISO_8601)</code></p>  
-* **print**
+* **print** <span class="param-type">List\<[PrintLine](#print-line)\></span>

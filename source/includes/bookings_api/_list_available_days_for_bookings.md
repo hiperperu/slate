@@ -4,10 +4,10 @@
 > Sample request:
 
 ```http
-GET /v1/bookings/days?branch_id=27b6&service_id=7b6 HTTP/1.1
+GET /v1/bookings/availability/service/s8/branch/27b6 HTTP/1.1
 ```
 
-> Sample success response:
+> Sample response:
 
 ```http
 HTTP/1.1 200 OK
@@ -21,58 +21,45 @@ Content-Type: application/json
         "day": "2017-02-20T00:00:00.000Z",
         "ranges": [
             {
-                "start_time": "2017-02-20T14:00:00.000Z",
-                "end_time": "2017-02-20T15:00:00.000Z"
+                "startTime": "2017-02-20T14:00:00.000Z",
+                "endTime": "2017-02-20T15:00:00.000Z"
             }
         ]
     }
 ]
 ```
 
-> Sample error responses:
-
-```http
-HTTP/1.1 400 Bad Request
-Content-Type: application/json
-
-{
-    "message": "Invalid branch ID."
-}
-```
-```http
-HTTP/1.1 500 Internal Server Error
-Content-Type: application/json
-
-{
-    "message": "An error has ocurred.",
-    "code": "ab90",
-    "more_info": "https://bmatic.com/docs/errors/ab90"
-}
-```
-
 Returns a list of days for book a specific service in a branch.
 
+<aside class="warning">
+<strong>Caution: </strong> You should consider the following:
+<ul>
+<li>This operation throw a error(404) when the service or branch referenced not exists or not exists configuration of availability for the service and branch requested.</li>
+<li>An empty list is returned when not exist more bookings availables.</li>
+<ul>
+</aside>
+
 <aside class="notice">
-<strong>Order:</strong> The booking days are sorted ascendantly by  <code>day</code>.
+<strong>Order:</strong> The booking days are sorted ascendantly by <code>day</code>.
 </aside>
 
 ### Endpoint
 
-`GET /customer/v1/bookings/days`
+`GET /v1/bookings/availability/service/{serviceId}/branch/{branchId}`
+
+### Path Params
+
+* **serviceId** <span class="param-type">String</span> <span title="required" class="required-param">required</span> <br> Service unique identifier.
+* **branchId** <span class="param-type">String</span> <span title="required" class="required-param">required</span> <br> Branch unique identifier.
 
 ### Query Params
 
-| |
-|:---|
-|**branch_id** *string* <span title="required" class="required-param">required</span> <br> Unique identifier of branch requested.|
-|**service_id** *string* <span title="required" class="required-param">required</span> <br> Unique identifier of service requested.|
-|**offset** *int* <br> Position in pagination. Default is `0`, maximum is `99999`.|
-|**limit** *int* <br> Number of items to retrieve. Default is `10`, maximum is `50`.|
+* **offset** <span class="param-type">Integer</span> <br> Position in pagination.<p>*Default value:* <code>0</code><br>*Maximum value:* <code>9999</code></p>
+* **limit** <span class="param-type">Integer</span> <br> Number of items to retrieve.<p>*Default value:* <code>10</code><br>*Maximum value:* <code>50</code></p>
 
 ### Responses
 
-| |
-|:---|
-|**200** *array[[Booking](#booking-day-object)]* <br>A list of booking days. Pagination headers are included: <ul><li><strong>X-Pagination-Count:</strong> Total number of items.</li><li><strong>X-Pagination-Page:</strong> Number of the current page.</li><li><strong>X-Pagination-Limit:</strong> Number of items returned.</li></ul>|
-|**400** *[Error](#error)* <br>Bad request. |
-|**500** *[Error](#error)* <br>An error has occurred.|
+* **200** <span class="verb-description">Ok</span> *List\<[Day](#day)\>* <br>A list of days. Pagination headers are included: <ul><li><strong>X-Pagination-Count:</strong> Total number of items.</li><li><strong>X-Pagination-Page:</strong> Number of current page.</li><li><strong>X-Pagination-Limit:</strong> Limit of items per page.</li></ul>
+* **400** <span class="verb-description">Bad Request</span> *[ValidationError](#validation-error)* <br>One or more parameters are not valid, returns a description of validation failed.
+* **404** <span class="verb-description">Not Found</span> <br>The resource requested not found, returns a simple error message.
+* **500** <span class="verb-description">Internal Server Error</span> *[Error](#error)* <br>An unexpected error has occurred, returns a simple error message.
