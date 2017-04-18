@@ -215,7 +215,7 @@
 
 <h1 id="branches-api">Branches API</h1>
 
-<p>Before you create tickets or bookings, you need a branch and sector provided by the endpoints of this section (The bookings creation not required a sector). You should consider use the recommended parameters for obtain a better performance in your application.</p>
+<p>Before you create tickets or bookings, you need a branch and sector provided by the endpoints of this section (The booking creation does not require a sector). You should consider to use the recommended parameters for a better application performance.</p>
 
 <p><h2 id="list-branches">List branches</h2></p>
 
@@ -250,11 +250,11 @@
         </span><span class="s2">"highEstimatedTime"</span><span class="p">:</span><span class="w"> </span><span class="mi">14</span><span class="p">,</span><span class="w">
         </span><span class="s2">"sectors"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
             </span><span class="p">{</span><span class="w">
-                </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"m8"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"m9"</span><span class="p">,</span><span class="w">
                 </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tower A"</span><span class="p">,</span><span class="w">
                 </span><span class="s2">"shortName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"A"</span><span class="p">,</span><span class="w">
                 </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACTIVE"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"services"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"s9"</span><span class="p">,</span><span class="s2">"s10"</span><span class="p">,</span><span class="s2">"s30"</span><span class="p">]</span><span class="w">
+                </span><span class="s2">"services"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"s8"</span><span class="p">,</span><span class="w"> </span><span class="s2">"s9"</span><span class="p">,</span><span class="w"> </span><span class="s2">"s10"</span><span class="p">,</span><span class="w"> </span><span class="s2">"s30"</span><span class="p">]</span><span class="w">
             </span><span class="p">}</span><span class="w">
         </span><span class="p">]</span><span class="w">
     </span><span class="p">}</span><span class="w">
@@ -264,15 +264,24 @@
 <p>Returns all branches with their sectors that fulfill the filters.</p>
 
 <aside class="warning">
-<strong>Warning:</strong> The branches to return should to be marked with the flag <code>expose by API</code> from the Bmatic configuration.
+<strong>Caution:</strong>
+    You should consider the next:
+    <ul>
+        <li>The branches to return should to be marked with the flag <code>expose by API</code> from the Bmatic configuration panel.</li>
+        <li>An empty collection is returned when no branch fulfill the filters.</li>
+        <li>For filter the branches by area it is necessary specified the parameters <code>minLatitude</code>, <code>maxLatitude</code>, <code>minLongitude</code> and <code>maxLongitude</code>. If any of these parameters is not sended then all will be ignored.</li>
+        <li>For order the branches by proximity to the client location it is necessary specified the parameters <code>latitude</code>, <code>longitude</code>. If any of these parameters is not sended then all will be ignored.</li>
+    </ul>
 </aside>
 
 <aside class="notice">
-<strong>Order:</strong> The branches are sorted by the better distance to client location and then by its shortName.
+<strong>Order:</strong>
+    The branches are sorted by the better distance to client location and their shortName.
 </aside>
 
 <aside class="success">
-<strong>Remember:</strong> The customers prefer to attend the nearest branches, for that it is recommendable ever use the parameters <code>longitude</code>, <code>latitude</code>, <code>minLatitude</code>, <code>maxLatitude</code>, <code>minLongitude</code> and <code>maxLongitude</code>.
+<strong>Remember:</strong>
+    The customers prefer to attend the nearest branches, for that it is recommendable ever use the parameters <code>longitude</code>, <code>latitude</code>, <code>minLatitude</code>, <code>maxLatitude</code>, <code>minLongitude</code> and <code>maxLongitude</code>.
 </aside>
 
 <h3 id="endpoint">Endpoint</h3>
@@ -282,24 +291,50 @@
 <h3 id="query-params">Query Params</h3>
 
 <ul>
-<li><strong>latitude</strong> <span class="param-type">Float</span> <span class="recomended-param">recomended</span><br> Latitude component of customer location.</li>
-<li><strong>longitude</strong> <span class="param-type">Float</span> <span class="recomended-param">recomended</span><br> Longitude component of customer location.</li>
-<li><strong>minLatitude</strong> <span class="param-type">Float</span> <span class="recomended-param">recomended</span><br> Minimun latitude of the area that has to contain the branches.</li>
-<li><strong>maxLatitude</strong> <span class="param-type">Float</span> <span class="recomended-param">recomended</span><br> Maximum latitude of the area that has to contain the branches.</li>
-<li><strong>minLongitude</strong> <span class="param-type">Float</span> <span class="recomended-param">recomended</span><br> Minimun longitude of the area that has to contain the branches.</li>
-<li><strong>maxLongitude</strong> <span class="param-type">Float</span> <span class="recomended-param">recomended</span><br> Maximum longitude of the area that has to contain the branches.</li>
-<li><strong>serviceId</strong> <span class="param-type">String</span> <br> Unique identifier of service supported by the branch.</li>
-<li><strong>fields</strong> <span class="param-type">List&lt;String&gt;</span> <span class="recomended-param">recomended</span> <br> Entity fields that will return at response. For example: <code class="prettyprint">fields=id,name,shortName</code>.</li>
-<li><strong>offset</strong> <span class="param-type">Integer</span> <br> Position in pagination.<p><em>Default value:</em> <code>0</code><br><em>Maximum value:</em> <code>9999</code></p></li>
-<li><strong>limit</strong> <span class="param-type">Integer</span> <br> Number of items to retrieve.<p><em>Default value:</em> <code>10</code><br><em>Maximum value:</em> <code>50</code></p></li>
+<li><p><strong>latitude</strong> <span class="param-type">Float</span> <span class="recomended-param">recomended</span><br>
+Latitude component of customer location.</p></li>
+<li><p><strong>longitude</strong> <span class="param-type">Float</span> <span class="recomended-param">recomended</span><br>
+Longitude component of customer location.</p></li>
+<li><p><strong>minLatitude</strong> <span class="param-type">Float</span> <span class="recomended-param">recomended</span><br>
+Minimum latitude of the area that has to contain the branches.</p></li>
+<li><p><strong>maxLatitude</strong> <span class="param-type">Float</span> <span class="recomended-param">recomended</span><br>
+Maximum latitude of the area that has to contain the branches.</p></li>
+<li><p><strong>minLongitude</strong> <span class="param-type">Float</span> <span class="recomended-param">recomended</span><br>
+Minimum longitude of the area that has to contain the branches.</p></li>
+<li><p><strong>maxLongitude</strong> <span class="param-type">Float</span> <span class="recomended-param">recomended</span><br>
+Maximum longitude of the area that has to contain the branches.</p></li>
+<li><p><strong>serviceId</strong> <span class="param-type">String</span><br>
+Unique identifier of service supported by the branch.</p></li>
+<li><p><strong>fields</strong> <span class="param-type">List&lt;String&gt;</span> <span class="recomended-param">recomended</span><br>
+Entity fields that will return at response. For example: <code class="prettyprint">fields=id,name,shortName</code>.</p></li>
+<li><p><strong>offset</strong> <span class="param-type">Integer</span><br>
+Position in pagination.
+<p>
+<span class="param-condition">Default value:</span> <code>0</code><br>
+<span class="param-condition">Maximum value:</span> <code>9999</code>
+</p></p></li>
+<li><p><strong>limit</strong> <span class="param-type">Integer</span><br>
+Number of items to retrieve.
+<p>
+<span class="param-condition">Default value:</span> <code>10</code><br>
+<span class="param-condition">Maximum value:</span> <code>50</code>
+</p></p></li>
 </ul>
 
 <h3 id="responses">Responses</h3>
 
 <ul>
-<li><strong>200</strong> <span class="verb-description">Ok</span> <em>List&lt;<a href="#branch">Branch</a>&gt;</em> <br>A list of branches. Pagination headers are included: <ul><li><strong>X-Pagination-Count:</strong> Total number of items.</li><li><strong>X-Pagination-Page:</strong> Number of current page.</li><li><strong>X-Pagination-Limit:</strong> Limit of items per page.</li></ul></li>
-<li><strong>400</strong> <span class="verb-description">Bad Request</span> <em><a href="#validation-error">ValidationError</a></em> <br>One or more parameters are not valid, returns a description of validation failed.</li>
-<li><strong>500</strong> <span class="verb-description">Internal Server Error</span> <em><a href="#error">Error</a></em> <br>An unexpected error has occurred, returns a simple error message.</li>
+<li><p><strong>200</strong> <span class="verb-description">Ok</span> <span class="param-type">List&lt;<a href="#branch">Branch</a>&gt;</span><br>
+A list of branches. Pagination headers are included:
+<ul>
+<li><strong>X-Pagination-Count:</strong> Total number of items.</li>
+<li><strong>X-Pagination-Page:</strong> Number of current page.</li>
+<li><strong>X-Pagination-Limit:</strong> Limit of items per page.</li>
+</ul></p></li>
+<li><p><strong>400</strong> <span class="verb-description">Bad Request</span> <span class="param-type">List&lt;<a href="#validation-error">ValidationError</a>&gt;</span><br>
+One or more parameters are not valid, returns a description of validation failed.</p></li>
+<li><p><strong>500</strong> <span class="verb-description">Internal Server Error</span> <span class="param-type"><a href="#error">Error</a></span><br>
+An unexpected error has occurred, returns a simple error message.</p></li>
 </ul>
 
 <p><h2 id="show-branch-details">Show branch details</h2></p>
@@ -331,11 +366,11 @@
     </span><span class="s2">"highEstimatedTime"</span><span class="p">:</span><span class="w"> </span><span class="mi">14</span><span class="p">,</span><span class="w">
     </span><span class="s2">"sectors"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
         </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"m8"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"m9"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tower A"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"shortName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"A"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACTIVE"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"services"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"s9"</span><span class="p">,</span><span class="s2">"s10"</span><span class="p">,</span><span class="s2">"s30"</span><span class="p">]</span><span class="w">
+            </span><span class="s2">"services"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"s8"</span><span class="p">,</span><span class="w"> </span><span class="s2">"s9"</span><span class="p">,</span><span class="w"> </span><span class="s2">"s10"</span><span class="p">,</span><span class="w"> </span><span class="s2">"s30"</span><span class="p">]</span><span class="w">
         </span><span class="p">}</span><span class="w">
     </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -350,26 +385,31 @@
 <h3 id="path-params">Path Params</h3>
 
 <ul>
-<li><strong>branchId</strong> <span class="param-type">String</span> <span class="required-param">required</span> <br>Unique identifier of branch.</li>
+<li><strong>branchId</strong> <span class="param-type">String</span> <span class="required-param">required</span><br>
+Branch unique identifier (Configured from Bmatic configuration panel).</li>
 </ul>
 
 <h3 id="query-params">Query Params</h3>
 
 <ul>
-<li><strong>fields</strong> <span class="param-type">List&lt;String&gt;</span> <span class="recomended-param">recomended</span> <br> Entity fields that will return at response. For example: <code class="prettyprint">fields=id,name,shortName</code>.</li>
+<li><strong>fields</strong> <span class="param-type">List&lt;String&gt;</span> <span class="recomended-param">recomended</span><br>
+Entity fields that will return at response. For example: <code class="prettyprint">fields=id,name,shortName</code>.</li>
 </ul>
 
 <h3 id="responses">Responses</h3>
 
 <ul>
-<li><strong>200</strong> <span class="verb-description">Ok</span> <em><a href="#branch">Branch</a></em> <br>A branch.</li>
-<li><strong>404</strong> <span class="verb-description">Not Found</span> <em><a href="#error">Error</a></em> <br>The resource requested not found, returns a simple error message.</li>
-<li><strong>500</strong> <span class="verb-description">Internal Server Error</span> <em><a href="#error">Error</a></em> <br>An unexpected error has occurred, returns a simple error message.</li>
+<li><p><strong>200</strong> <span class="verb-description">Ok</span> <span class="param-type"><a href="#branch">Branch</a></span><br>
+A branch.</p></li>
+<li><p><strong>404</strong> <span class="verb-description">Not Found</span> <span class="param-type"><a href="#error">Error</a></span><br>
+The resource requested not found, returns a simple error message.</p></li>
+<li><p><strong>500</strong> <span class="verb-description">Internal Server Error</span> <span class="param-type"><a href="#error">Error</a></span><br>
+An unexpected error has occurred, returns a simple error message.</p></li>
 </ul>
 
 <h1 id="tickets-api">Tickets API</h1>
 
-<p>Your customers don&rsquo;t need anymore to be at branch for create attention tickets. You can use the endpoints of this section to allow them the ticket creation from anywhere easily, before the creation is necesary determine the branch, sector and service for the ticket.</p>
+<p>Your customers don&rsquo;t need anymore to be at branch for create tickets. You can use the endpoints of this section to allow them the ticket creation from anywhere easily.</p>
 
 <p><h2 id="list-available-services-for-tickets">List available services for tickets</h2></p>
 
@@ -396,13 +436,13 @@
 </span><span class="p">]</span><span class="w">
 </span></code></pre>
 
-<p>Returns available services to generate tickets from the channel referenced.</p>
+<p>Returns available services to generate tickets from the channel used.</p>
 
 <aside class="warning">
 <strong>Caution: </strong> You should consider the following:
 <ul>
-<li>This operation throw a error(404) when the channel referenced not exists.</li>
-<li>An empty list is returned when not exist services to generate tickets from the branch referenced.</li>
+    <li>This operation throw a error(404) when the channel referenced not exists.</li>
+    <li>An empty list is returned when not exist services to generate tickets from the channel used.</li>
 <ul>
 </aside>
 
@@ -413,15 +453,19 @@
 <h3 id="path-params">Path Params</h3>
 
 <ul>
-<li><strong>channelId</strong> <span class="param-type">String</span> <span class="required-param">required</span> <br>Channel unique identifier.</li>
+<li><strong>channelId</strong> <span class="param-type">String</span> <span class="required-param">required</span><br>
+Unique identifier of the channel used. This value should to be fixed in the client application.</li>
 </ul>
 
 <h3 id="responses">Responses</h3>
 
 <ul>
-<li><strong>200</strong> <span class="verb-description">Ok</span> <em>List&lt;<a href="#service">Service</a>&gt;</em> <br>A list of services.</li>
-<li><strong>404</strong> <span class="verb-description">Not Found</span> <br>The resource requested not found, returns a simple error message.</li>
-<li><strong>500</strong> <span class="verb-description">Internal Server Error</span> <em><a href="#error">Error</a></em> <br>An unexpected error has occurred, returns a simple error message.</li>
+<li><p><strong>200</strong> <span class="verb-description">Ok</span> <span class="param-type">List&lt;<a href="#service">Service</a>&gt;</span><br>
+A list of services.</p></li>
+<li><p><strong>404</strong> <span class="verb-description">Not Found</span> <span class="param-type"><a href="#error">Error</a></span><br>
+The resource requested not found, returns a simple error message.</p></li>
+<li><p><strong>500</strong> <span class="verb-description">Internal Server Error</span> <span class="param-type"><a href="#error">Error</a></span><br>
+An unexpected error has occurred, returns a simple error message.</p></li>
 </ul>
 
 <p><h2 id="list-customer-tickets">List customer tickets</h2></p>
@@ -454,7 +498,7 @@
             </span><span class="s2">"We have a promotion for you!"</span><span class="w">
         </span><span class="p">],</span><span class="w">
         </span><span class="s2">"channel"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"a10"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"c10"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Mobile"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"shortName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Mobile"</span><span class="w">
         </span><span class="p">},</span><span class="w">
@@ -469,13 +513,13 @@
             </span><span class="s2">"congestion"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MEDIUM"</span><span class="w">
         </span><span class="p">},</span><span class="w">
         </span><span class="s2">"sector"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"s8"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"m9"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tower A"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"shortName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"A"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACTIVE"</span><span class="w">
         </span><span class="p">},</span><span class="w">
         </span><span class="s2">"service"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"7b6"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"s8"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Plataforma"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"shortName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Plataforma"</span><span class="w">
         </span><span class="p">},</span><span class="w">
@@ -502,11 +546,17 @@
 <p>Returns all tickets created by a specific customer.</p>
 
 <aside class="warning">
-<strong>Caution:</strong> When the ticket is called by the teller is automatically deleted and is not available anymore.
+<strong>Caution:</strong>
+You should consider the following:
+<ul>
+    <li>When the ticket is called by the teller is automatically deleted and is not available anymore.</li>
+    <li>An empty list is returned when not exist registered tickets with the <code>customerId</code> received.</li>
+<ul>
 </aside>
 
 <aside class="notice">
-<strong>Order:</strong> The tickets are sorted descendantly by the field : <code>created_at</code>.
+<strong>Order:</strong>
+The tickets are sorted descendantly by the field: <code>createdAt</code>.
 </aside>
 
 <h3 id="endpoint">Endpoint</h3>
@@ -522,14 +572,17 @@
 <h3 id="query-params">Query Params</h3>
 
 <ul>
-<li><strong>fields</strong> <span class="param-type">List&lt;String&gt;</span> <span class="recomended-param">recomended</span> <br> Entity fields that will return at response. For example: <code class="prettyprint">fields=id,queue,number</code>.</li>
+<li><strong>fields</strong> <span class="param-type">List&lt;String&gt;</span> <span class="recomended-param">recomended</span><br>
+Entity fields that will return at response. For example: <code class="prettyprint">fields=id,queue,number</code>.</li>
 </ul>
 
 <h3 id="responses">Responses</h3>
 
 <ul>
-<li><strong>200</strong> <span class="verb-description">Ok</span> <em>List&lt;<a href="#ticket">Ticket</a>&gt;</em> <br>A list of tickets.</li>
-<li><strong>500</strong> <span class="verb-description">Internal Server Error</span> <em><a href="#error">Error</a></em> <br>An unexpected error has occurred, returns a simple error message.</li>
+<li><p><strong>200</strong> <span class="verb-description">Ok</span> <span class="param-type">List&lt;<a href="#ticket">Ticket</a>&gt;</span><br>
+A list of tickets.</p></li>
+<li><p><strong>500</strong> <span class="verb-description">Internal Server Error</span> <span class="param-type"><a href="#error">Error</a></span><br>
+An unexpected error has occurred, returns a simple error message.</p></li>
 </ul>
 
 <p><h2 id="show-ticket-details">Show ticket details</h2></p>
@@ -561,7 +614,7 @@
         </span><span class="s2">"We have a promotion for you!"</span><span class="w">
     </span><span class="p">],</span><span class="w">
     </span><span class="s2">"channel"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"a10"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"c10"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Mobile"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"shortName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Mobile"</span><span class="w">
     </span><span class="p">},</span><span class="w">
@@ -576,13 +629,13 @@
         </span><span class="s2">"congestion"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MEDIUM"</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="s2">"sector"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"s8"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"m9"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tower A"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"shortName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"A"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACTIVE"</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="s2">"service"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"7b6"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"s8"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Plataforma"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"shortName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Plataforma"</span><span class="w">
     </span><span class="p">},</span><span class="w">
@@ -614,22 +667,28 @@
 <h3 id="path-params">Path Params</h3>
 
 <ul>
-<li><strong>customerId</strong> <span class="param-type">String</span> <span class="required-param">required</span> <br> Customer unique identifier.</li>
-<li><strong>ticketId</strong> <span class="param-type">String</span> <span class="required-param">required</span> <br>Unique identifier of ticket.</li>
+<li><p><strong>customerId</strong> <span class="param-type">String</span> <span class="required-param">required</span><br>
+Customer unique identifier (Obtained it from the customers integration interface).</p></li>
+<li><p><strong>ticketId</strong> <span class="param-type">String</span> <span class="required-param">required</span><br>
+Ticket unique identifier (Generated in the ticket creation).</p></li>
 </ul>
 
 <h3 id="query-params">Query Params</h3>
 
 <ul>
-<li><strong>fields</strong> <span class="param-type">List&lt;String&gt;</span> <span class="recomended-param">recomended</span> <br> Entity fields that will return at response. For example: <code class="prettyprint">fields=id,queue,number</code>.</li>
+<li><strong>fields</strong> <span class="param-type">List&lt;String&gt;</span> <span class="recomended-param">recomended</span><br>
+Entity fields that will return at response. For example: <code class="prettyprint">fields=id,queue,number</code>.</li>
 </ul>
 
 <h3 id="responses">Responses</h3>
 
 <ul>
-<li><strong>200</strong> <span class="verb-description">OK</span> <em><a href="#ticket">Ticket</a></em> <br>A ticket.</li>
-<li><strong>404</strong> <span class="verb-description">Not Found</span> <em><a href="#error">Error</a></em> <br>The resource requested not found, returns a simple error message.</li>
-<li><strong>500</strong> <span class="verb-description">Internal Server Error</span> <em><a href="#error">Error</a></em> <br>An unexpected error has occurred, returns a simple error message.</li>
+<li><p><strong>200</strong> <span class="verb-description">OK</span> <span class="param-type"><a href="#ticket">Ticket</a></span><br>
+A ticket.</p></li>
+<li><p><strong>404</strong> <span class="verb-description">Not Found</span> <span class="param-type"><a href="#error">Error</a></span><br>
+The resource requested not found, returns a simple error message.</p></li>
+<li><p><strong>500</strong> <span class="verb-description">Internal Server Error</span> <span class="param-type"><a href="#error">Error</a></span><br>
+An unexpected error has occurred, returns a simple error message.</p></li>
 </ul>
 
 <p><h2 id="create-ticket">Create ticket</h2></p>
@@ -646,9 +705,10 @@
     </span><span class="s2">"branchId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"27b6"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"sectorId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"m9"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"serviceId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"s8"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"categoryId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"mobile"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"name"</span><span class="p">:</span><span class="s2">"Mr. Smith"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"document"</span><span class="p">:</span><span class="w"> </span><span class="s2">"90452291"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"categoryId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"i10"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Mr. Smith"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"docType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"D"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"docNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"90452291"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"+51987882567"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
@@ -668,12 +728,12 @@
     </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BLOCKED"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"lowEstimatedTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"highEstimatedTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"15"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"+51987776576"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"+51987882567"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"messages"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
         </span><span class="s2">"We have a promotion for you!"</span><span class="w">
     </span><span class="p">],</span><span class="w">
     </span><span class="s2">"channel"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"a10"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"c10"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Mobile"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"shortName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Mobile"</span><span class="w">
     </span><span class="p">},</span><span class="w">
@@ -688,13 +748,13 @@
         </span><span class="s2">"congestion"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MEDIUM"</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="s2">"sector"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"s8"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"m9"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tower A"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"shortName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"A"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACTIVE"</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="s2">"service"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"7b6"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"s8"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Plataforma"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"shortName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Plataforma"</span><span class="w">
     </span><span class="p">},</span><span class="w">
@@ -720,15 +780,77 @@
 <p>Create a new customer ticket and then returns it.</p>
 
 <aside class="warning">
-<strong>Caution: </strong> You should consider the following before create a ticket:
+<strong>Caution:</strong>
+You should consider the following before create a ticket:
 <ul>
-<li>The channel referenced by the <code>channelId</code> have to support the service requested.</li>
-<li>The branch referenced by the <code>branchId</code> have to contain the sector referenced by the <code>sectorId</code>. </li>
-<li>The sector referenced by the <code>sectorId</code> have to support the service requested.</li>
-<li>The client referenced by the <code>customerId</code> should has no other ticket.</li>
-<li>The customer category referenced by the <code>categoryId</code> should has a queue configured for the service requested and the channel used.</li>
+    <li>The channel used should support the requested service.</li>
+    <li>The requested branch should contain the requested sector.</li>
+    <li>The requested sector should support the requested service.</li>
+    <li>The customer should has no other ticket.</li>
+    <li>The customer category referenced by the <code>categoryId</code> should has a queue configured for the requested service and the channel used.</li>
 <ul>
 </aside>
+
+<p>This operation can throw the next validation errors:</p>
+
+<table><thead>
+<tr>
+<th>Code</th>
+<th>Field</th>
+<th>Message</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>40001</td>
+<td>channelId</td>
+<td>Channel not exists.</td>
+</tr>
+<tr>
+<td>40002</td>
+<td>serviceId</td>
+<td>Service not exists.</td>
+</tr>
+<tr>
+<td>40003</td>
+<td>branchId</td>
+<td>Branch not exists.</td>
+</tr>
+<tr>
+<td>40004</td>
+<td>sectorId</td>
+<td>Sector not exists.</td>
+</tr>
+<tr>
+<td>40005</td>
+<td>categoryId</td>
+<td>Customer category not exists.</td>
+</tr>
+<tr>
+<td>40006</td>
+<td>serviceId</td>
+<td>Service not supported by the channel.</td>
+</tr>
+<tr>
+<td>40008</td>
+<td>serviceId</td>
+<td>Service not supported by the sector.</td>
+</tr>
+<tr>
+<td>40009</td>
+<td>branchId</td>
+<td>Branch is not the sector owner.</td>
+</tr>
+<tr>
+<td>40010</td>
+<td>customerId</td>
+<td>Customer has another ticket.</td>
+</tr>
+<tr>
+<td>40011</td>
+<td>categoryId</td>
+<td>Customer category has no configured queue type for the service and  channel.</td>
+</tr>
+</tbody></table>
 
 <h3 id="endpoint">Endpoint</h3>
 
@@ -737,31 +859,58 @@
 <h3 id="path-params">Path Params</h3>
 
 <ul>
-<li><strong>customerId</strong> <span class="param-type">String</span> <br> Customer unique identifier.</li>
+<li><strong>customerId</strong> <span class="param-type">String</span><br>
+Customer unique identifier (Obtained it from the customers integration interface).</li>
 </ul>
 
 <h3 id="request">Request</h3>
 
 <ul>
-<li><strong>channelId</strong> <span class="param-type">String</span> <span class="required-param">required</span> <br> Channel unique identifier.</li>
-<li><strong>branchId</strong> <span class="param-type">String</span> <span class="required-param">required</span> <br> Branch unique identifier.</li>
-<li><strong>sectorId</strong> <span class="param-type">String</span> <span class="required-param">required</span> <br> Sector unique identifier.</li>
-<li><strong>serviceId</strong> <span class="param-type">String</span> <span class="required-param">required</span> <br> Service unique identifier.</li>
-<li><strong>categoryId</strong> <span class="param-type">String</span> <span class="required-param">required</span><br> Customer category unique identifier.</li>
-<li><strong>name</strong> <span class="param-type">String</span> <br> Name or alias of client used for contact purpose. <p><span class="param-condition">Maximum length: </span><code class="prettyprint">50</code></p></li>
-<li><strong>document</strong> <span class="param-type">String</span>  <br> Document number of customer. <p><span class="param-condition">Maximum length: </span><code class="prettyprint">20</code></p></li>
-<li><strong>phone</strong> <span class="param-type">String</span> <br> Customer phone for notifications. <p><span class="param-condition">Validation pattern: </span><code class="prettyprint">^+[1-9]{1}[0-9]{3,14}$</code></p></li>
-<li><strong>teller</strong> <span class="param-type">String</span> <br> Account name of teller associated to the customer. When this parameter is provided, the ticket generated should associate to the counter of the teller referenced.</li>
-<li><strong>messagesToCustomer</strong> <span class="param-type">List&lt;String&gt;</span> <br> Messages to print in ticket.</li>
-<li><strong>messagesToTeller</strong> <span class="param-type">List&lt;String&gt;</span> <br> Messages to show in counter.</li>
+<li><p><strong>channelId</strong> <span class="param-type">String</span> <span class="required-param">required</span><br>
+Unique identifier of the channel used. This value should to be fixed in the client application.</p></li>
+<li><p><strong>branchId</strong> <span class="param-type">String</span> <span class="required-param">required</span><br>
+Unique identifier of the requested branch.</p></li>
+<li><p><strong>sectorId</strong> <span class="param-type">String</span> <span class="required-param">required</span><br>
+Unique identifier of the requested sector.</p></li>
+<li><p><strong>serviceId</strong> <span class="param-type">String</span> <span class="required-param">required</span><br>
+Unique identifier of the requested service.</p></li>
+<li><p><strong>categoryId</strong> <span class="param-type">String</span> <span class="required-param">required</span><br>
+Customer category unique identifier (Obtained it from the customers integration interface).</p></li>
+<li><p><strong>name</strong> <span class="param-type">String</span><br>
+Name or alias of the client used for contact purpose.
+<p>
+<span class="param-condition">Maximum length:</span> <code class="prettyprint">50</code>
+</p></p></li>
+<li><p><strong>docType</strong> <span class="param-type">String</span><br>
+Type of document used to identify the client.
+<p>
+<span class="param-condition">Maximum length:</span> <code class="prettyprint">5</code>
+</p></p></li>
+<li><p><strong>docNumber</strong> <span class="param-type">String</span><br>
+Number of document used to identify the client.
+<p>
+<span class="param-condition">Maximum length:</span> <code class="prettyprint">20</code>
+</p></p></li>
+<li><p><strong>phone</strong> <span class="param-type">String</span><br>
+Customer phone for notifications associated to the booking.
+<p>
+<span class="param-condition">Validation pattern:</span> <code class="prettyprint">^+[1-9]{1}[0-9]{3,14}$</code>
+</p></p></li>
+<li><p><strong>teller</strong> <span class="param-type">String</span> <br>
+Account name of teller associated to the customer. When this parameter is provided, the ticket generated should associate to the counter of the teller referenced.</p></li>
+<li><p><strong>messagesToCustomer</strong> <span class="param-type">List&lt;String&gt;</span> <br> Messages to print in ticket (Obtained it from the customers integration interface).</p></li>
+<li><p><strong>messagesToTeller</strong> <span class="param-type">List&lt;String&gt;</span> <br> Messages to show in counter (Obtained it from the customers integration interface).</p></li>
 </ul>
 
 <h3 id="responses">Responses</h3>
 
 <ul>
-<li><strong>201</strong> <span class="verb-description">Created</span> <em><a href="#ticket">Ticket</a></em> <br>Successful creation, returns the new ticket created.</li>
-<li><strong>400</strong> <span class="verb-description">Bad Request</span> <em><a href="#validation-error">ValidationError</a></em> <br>One or more parameters are not valid, returns a description of validation failed.</li>
-<li><strong>500</strong> <span class="verb-description">Internal Server Error</span> <em><a href="#error">Error</a></em> <br>An unexpected error has occurred, returns a simple error message.</li>
+<li><p><strong>201</strong> <span class="verb-description">Created</span> <span class="param-type"><a href="#ticket">Ticket</a></span><br>
+Successful creation, returns the new ticket.</p></li>
+<li><p><strong>400</strong> <span class="verb-description">Bad Request</span> <span class="param-type">List&lt;<a href="#validation-error">ValidationError</a>&gt;</span><br>
+One or more parameters are not valid, returns a description of validation failed.</p></li>
+<li><p><strong>500</strong> <span class="verb-description">Internal Server Error</span> <span class="param-type"><a href="#error">Error</a></span><br>
+An unexpected error has occurred, returns a simple error message.</p></li>
 </ul>
 
 <p><h2 id="update-ticket">Update ticket</h2></p>
@@ -785,40 +934,55 @@
 <pre class="highlight http tab-http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">204</span> <span class="ne">No Content</span>
 </code></pre>
 
-<p>Update a specific customer ticket.</p>
+<p>Update a customer ticket by ID.</p>
 
 <h3 id="endpoint">Endpoint</h3>
 
-<p><code class="prettyprint">PATCH /customer/v1/tickets/{ticket_id}</code></p>
-
-<h3 id="endpoint">Endpoint</h3>
-
-<p><code class="prettyprint">PUT /v1/bookings/customer/{customerId}/bookings/{bookingId}</code></p>
+<p><code class="prettyprint">PUT /v1/tickets/customer/{customerId}/tickets/{ticketId}</code></p>
 
 <h3 id="path-params">Path Params</h3>
 
 <ul>
-<li><strong>customerId</strong> <span class="param-type">String</span> <span class="required-param">required</span> <br> Customer unique identifier.</li>
-<li><strong>ticketId</strong> <span class="param-type">String</span> <span class="required-param">required</span> <br>Unique identifier of ticket.</li>
+<li><p><strong>customerId</strong> <span class="param-type">String</span> <span class="required-param">required</span><br>
+Customer unique identifier (Obtained it from the customers integration interface).</p></li>
+<li><p><strong>ticketId</strong> <span class="param-type">String</span> <span class="required-param">required</span><br>
+Ticket unique identifier (Generated in the ticket creation).</p></li>
 </ul>
 
 <h3 id="request">Request</h3>
 
 <ul>
-<li><strong>status</strong> <span class="param-type">Enum</span> <br> New status for the ticket. <p><em>Possible values</em>: <ul><li><code>BLOCKED</code></li><li><code>ENABLED</code></li></ul></p></li>
-<li><strong>phone</strong> <span class="param-type">String</span> <br> New customer phone for notifications. <p><span class="param-condition">Validation pattern: </span><code class="prettyprint">^+[1-9]{1}[0-9]{3,14}$</code></p></li>
+<li><p><strong>status</strong> <span class="param-type">Enum</span><br>
+New status for the ticket.
+<p>
+<span class="param-condition">Possible values:</span><br>
+<ul>
+    <li><code>BLOCKED</code></li>
+    <li><code>ENABLED</code></li>
 </ul>
+
+<p></p></p></li>
+<li><p><strong>phone</strong> <span class="param-type">String</span><br>
+New customer phone for notifications.
+<p>
+<span class="param-condition">Validation pattern:</span> <code class="prettyprint">^+[1-9]{1}[0-9]{3,14}$</code>
+</p></p></li>
+</ul></p>
 
 <h3 id="responses">Responses</h3>
 
 <ul>
-<li><strong>204</strong> <em>no content</em> <br>Successful update.</li>
-<li><strong>400</strong> <span class="verb-description">Bad Request</span> <em><a href="#validation-error">ValidationError</a></em> <br>One or more parameters are not valid, returns a description of validation failed.</li>
-<li><strong>404</strong> <span class="verb-description">Not Found</span> <em><a href="#error">Error</a></em> <br>The resource requested not found, returns a simple error message.</li>
-<li><strong>500</strong> <span class="verb-description">Internal Server Error</span> <em><a href="#error">Error</a></em> <br>An unexpected error has occurred, returns a simple error message.</li>
+<li><p><strong>204</strong> <span class="verb-description">No Content</span><br>
+Successful update.</p></li>
+<li><p><strong>400</strong> <span class="verb-description">Bad Request</span> <span class="param-type">List&lt;<a href="#validation-error">ValidationError</a>&gt;</span><br>
+One or more parameters are not valid, returns a description of validation failed.</p></li>
+<li><p><strong>404</strong> <span class="verb-description">Not Found</span> <span class="param-type"><a href="#error">Error</a></span><br>
+The resource requested not found, returns a simple error message.</p></li>
+<li><p><strong>500</strong> <span class="verb-description">Internal Server Error</span> <span class="param-type"><a href="#error">Error</a></span><br>
+An unexpected error has occurred, returns a simple error message.</p></li>
 </ul>
 
-<p><h2 id="delete-ticket">Delete ticket</h2></p>
+<p><h2 id="cancel-ticket">Cancel ticket</h2></p>
 
 <blockquote>
 <p>Sample request:</p>
@@ -834,7 +998,7 @@
 <pre class="highlight http tab-http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">204</span> <span class="ne">No Content</span>
 </code></pre>
 
-<p>Delete a customer ticket by ID.</p>
+<p>Cancel a customer ticket by ID.</p>
 
 <h3 id="endpoint">Endpoint</h3>
 
@@ -843,22 +1007,28 @@
 <h3 id="path-params">Path Params</h3>
 
 <ul>
-<li><strong>customerId</strong> <span class="param-type">String</span> <span class="required-param">required</span> <br>Customer unique identifier.</li>
-<li><strong>ticketId</strong> <span class="param-type">String</span> <span class="required-param">required</span> <br>Ticket unique identifier.</li>
+<li><p><strong>customerId</strong> <span class="param-type">String</span> <span class="required-param">required</span><br>
+Customer unique identifier (Obtained it from the customers integration interface).</p></li>
+<li><p><strong>ticketId</strong> <span class="param-type">String</span> <span class="required-param">required</span><br>
+Ticket unique identifier (Generated in the ticket creation).</p></li>
 </ul>
 
 <h3 id="responses">Responses</h3>
 
 <ul>
-<li><strong>204</strong> <span class="verb-description">No Content</span> <br>Successful deletion.</li>
-<li><strong>400</strong> <span class="verb-description">Bad Request</span> <em><a href="#validation-error">ValidationError</a></em> <br>One or more parameters are not valid, returns a description of validation failed.</li>
-<li><strong>404</strong> <span class="verb-description">Not Found</span> <br>The resource requested not found, returns a simple error message.</li>
-<li><strong>500</strong> <span class="verb-description">Internal Server Error</span> <em><a href="#error">Error</a></em> <br>An unexpected error has occurred, returns a simple error message.</li>
+<li><p><strong>204</strong> <span class="verb-description">No Content</span><br>
+Successful cancelation.</p></li>
+<li><p><strong>400</strong> <span class="verb-description">Bad Request</span> <span class="param-type">List&lt;<a href="#validation-error">ValidationError</a>&gt;</span><br>
+One or more parameters are not valid, returns a description of validation failed.</p></li>
+<li><p><strong>404</strong> <span class="verb-description">Not Found</span> <span class="param-type"><a href="#error">Error</a></span><br>
+The resource requested not found, returns a simple error message.</p></li>
+<li><p><strong>500</strong> <span class="verb-description">Internal Server Error</span> <span class="param-type"><a href="#error">Error</a></span><br>
+An unexpected error has occurred, returns a simple error message.</p></li>
 </ul>
 
 <h1 id="bookings-api">Bookings API</h1>
 
-<p>Allow to your customers reserve a attention schedule for a better customer experience reducing the waiting time and better the congestion of your branches. The endpoints of this section allow the creation of bookings from your application.</p>
+<p>Allow to your customers reserve a attention schedule for a better experience reducing the waiting time and improve the congestion of your branches. The endpoints of this section allow the creation of bookings from your application.</p>
 
 <p><h2 id="list-available-services-for-booking">List available services for booking</h2></p>
 
@@ -885,13 +1055,14 @@
 </span><span class="p">]</span><span class="w">
 </span></code></pre>
 
-<p>Returns available services to book from the channel referenced.</p>
+<p>Returns available services to book from the channel used.</p>
 
 <aside class="warning">
-<strong>Caution: </strong> You should consider the following:
+<strong>Caution:</strong>
+You should consider the following:
 <ul>
-<li>This operation throw a error(404) when the channel referenced not exists.</li>
-<li>An empty list is returned when not exist bookable services from the branch referenced.</li>
+    <li>This operation throw a error(404) when the channel referenced not exists.</li>
+    <li>An empty list is returned when not exist bookable services from the channel used</li>
 <ul>
 </aside>
 
@@ -902,15 +1073,19 @@
 <h3 id="path-params">Path Params</h3>
 
 <ul>
-<li><strong>channelId</strong> <span class="param-type">String</span> <span class="required-param">required</span> <br>Channel unique identifier.</li>
+<li><strong>channelId</strong> <span class="param-type">String</span> <span class="required-param">required</span><br>
+Unique identifier of the channel used. This value should to be fixed in the client application.</li>
 </ul>
 
 <h3 id="responses">Responses</h3>
 
 <ul>
-<li><strong>200</strong> <span class="verb-description">Ok</span> <em>List&lt;<a href="#service">Service</a>&gt;</em> <br>A list of services.</li>
-<li><strong>404</strong> <span class="verb-description">Not Found</span> <br>The resource requested not found, returns a simple error message.</li>
-<li><strong>500</strong> <span class="verb-description">Internal Server Error</span> <em><a href="#error">Error</a></em> <br>An unexpected error has occurred, returns a simple error message.</li>
+<li><p><strong>200</strong> <span class="verb-description">Ok</span> <span class="param-type">List&lt;<a href="#service">Service</a>&gt;</span><br>
+A list of services.</p></li>
+<li><p><strong>404</strong> <span class="verb-description">Not Found</span> <span class="param-type"><a href="#error">Error</a></span><br>
+The resource requested not found, returns a simple error message.</p></li>
+<li><p><strong>500</strong> <span class="verb-description">Internal Server Error</span> <span class="param-type"><a href="#error">Error</a></span><br>
+An unexpected error has occurred, returns a simple error message.</p></li>
 </ul>
 
 <p><h2 id="list-available-days-for-booking">List available days for booking</h2></p>
@@ -919,7 +1094,7 @@
 <p>Sample request:</p>
 </blockquote>
 
-<pre class="highlight http tab-http"><code><span class="nf">GET</span> <span class="nn">/v1/bookings/availability/service/s8/branch/27b6</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<pre class="highlight http tab-http"><code><span class="nf">GET</span> <span class="nn">/v1/bookings/availability?serviceId=s8&amp;branchId=27b6</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 </code></pre>
 
 <blockquote>
@@ -945,45 +1120,60 @@
 </span><span class="p">]</span><span class="w">
 </span></code></pre>
 
-<p>Returns a list of days for book a specific service in a branch.</p>
+<p>Returns a list of days for book a service in a branch.</p>
 
 <aside class="warning">
-<strong>Caution: </strong> You should consider the following:
+<strong>Caution: </strong> 
+You should consider the following:
 <ul>
-<li>This operation throw a error(404) when the service or branch referenced not exists or not exists configuration of availability for the service and branch requested.</li>
-<li>An empty list is returned when not exist more bookings availables.</li>
+    <li>An empty list is returned when not exist more available bookings  or not exists availability configuration for the service and branch requested.</li>
 <ul>
 </aside>
 
 <aside class="notice">
-<strong>Order:</strong> The booking days are sorted ascendantly by <code>day</code>.
+<strong>Order:</strong>
+The booking days are sorted ascendantly by <code>day</code>.
 </aside>
 
 <h3 id="endpoint">Endpoint</h3>
 
-<p><code class="prettyprint">GET /v1/bookings/availability/service/{serviceId}/branch/{branchId}</code></p>
-
-<h3 id="path-params">Path Params</h3>
-
-<ul>
-<li><strong>serviceId</strong> <span class="param-type">String</span> <span title="required" class="required-param">required</span> <br> Service unique identifier.</li>
-<li><strong>branchId</strong> <span class="param-type">String</span> <span title="required" class="required-param">required</span> <br> Branch unique identifier.</li>
-</ul>
+<p><code class="prettyprint">GET /v1/bookings/availability</code></p>
 
 <h3 id="query-params">Query Params</h3>
 
 <ul>
-<li><strong>offset</strong> <span class="param-type">Integer</span> <br> Position in pagination.<p><em>Default value:</em> <code>0</code><br><em>Maximum value:</em> <code>9999</code></p></li>
-<li><strong>limit</strong> <span class="param-type">Integer</span> <br> Number of items to retrieve.<p><em>Default value:</em> <code>10</code><br><em>Maximum value:</em> <code>50</code></p></li>
+<li><p><strong>serviceId</strong> <span class="param-type">String</span> <span title="required" class="required-param">required</span><br>
+Unique identifier of requested service.</p></li>
+<li><p><strong>branchId</strong> <span class="param-type">String</span> <span title="required" class="required-param">required</span><br>
+Unique identifier of requested branch.</p></li>
+<li><p><strong>offset</strong> <span class="param-type">Integer</span><br>
+Position in pagination.
+<p>
+<span class="param-condition">Default value:</span> <code>0</code><br>
+<span class="param-condition">Maximum value:</span> <code>9999</code>
+</p></p></li>
+<li><p><strong>limit</strong> <span class="param-type">Integer</span><br>
+Number of items to retrieve.
+<p>
+<span class="param-condition">Default value:</span> <code>10</code><br>
+<span class="param-condition">Maximum value:</span> <code>50</code>
+</p></p></li>
 </ul>
 
 <h3 id="responses">Responses</h3>
 
 <ul>
-<li><strong>200</strong> <span class="verb-description">Ok</span> <em>List&lt;<a href="#day">Day</a>&gt;</em> <br>A list of days. Pagination headers are included: <ul><li><strong>X-Pagination-Count:</strong> Total number of items.</li><li><strong>X-Pagination-Page:</strong> Number of current page.</li><li><strong>X-Pagination-Limit:</strong> Limit of items per page.</li></ul></li>
-<li><strong>400</strong> <span class="verb-description">Bad Request</span> <em><a href="#validation-error">ValidationError</a></em> <br>One or more parameters are not valid, returns a description of validation failed.</li>
-<li><strong>404</strong> <span class="verb-description">Not Found</span> <br>The resource requested not found, returns a simple error message.</li>
-<li><strong>500</strong> <span class="verb-description">Internal Server Error</span> <em><a href="#error">Error</a></em> <br>An unexpected error has occurred, returns a simple error message.</li>
+<li><p><strong>200</strong> <span class="verb-description">Ok</span> <span class="param-type">List&lt;<a href="#day">Day</a>&gt;</span><br>
+A list of days. Pagination headers are included:
+<ul>
+<li><strong>X-Pagination-Count:</strong> Total number of items.</li>
+<li><strong>X-Pagination-Page:</strong> Number of current page.</li>
+<li><strong>X-Pagination-Limit:</strong> Limit of items per page.</li>
+</ul></p></li>
+<li><p><strong>400</strong> <span class="verb-description">Bad Request</span> <span class="param-type">List&lt;<a href="#validation-error">ValidationError</a>&gt;</span><br>
+One or more parameters are not valid, returns a description of validation failed.</p></li>
+<li><p><strong>500</strong> <span class="verb-description">Internal Server Error</span> <span class="param-type"><a href="#error">Error</a></span><br>
+An unexpected error has occurred, returns a simple error message.</p></li>
 </ul>
 
 <p><h2 id="list-customer-bookings">List customer bookings</h2></p>
@@ -1023,7 +1213,7 @@
             </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACTIVE"</span><span class="w">
         </span><span class="p">},</span><span class="w">
         </span><span class="s2">"service"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"7b6"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"s8"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Plataforma"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"shortName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Plataforma"</span><span class="w">
         </span><span class="p">},</span><span class="w">
@@ -1038,11 +1228,17 @@
 <p>Returns all bookings created by a specific customer.</p>
 
 <aside class="warning">
-<strong>Precaution:</strong> The booking is automatically deleted after the booking day and is not available anymore.
+<strong>Caution:</strong>
+You should consider the following:
+<ul>
+    <li>The bookings are not available anymore after the booking day.</li>
+    <li>An empty list is returned when not exist registered bookings with the <code>customerId</code> received.</li>
+<ul>
 </aside>
 
 <aside class="notice">
-<strong>Order:</strong> The bookings are sorted descendantly by the field : <code>createdAt</code>.
+<strong>Order:</strong>
+The bookings are sorted descendantly by the field: <code>createdAt</code>.
 </aside>
 
 <h3 id="endpoint">Endpoint</h3>
@@ -1052,20 +1248,24 @@
 <h3 id="path-params">Path Params</h3>
 
 <ul>
-<li><strong>customerId</strong> <span class="param-type">String</span> <span class="required-param">required</span> <br> Customer unique identifier.</li>
+<li><strong>customerId</strong> <span class="param-type">String</span> <span class="required-param">required</span><br>
+Customer unique identifier (Obtained it from the customers integration interface).</li>
 </ul>
 
 <h3 id="query-params">Query Params</h3>
 
 <ul>
-<li><strong>fields</strong> <span class="param-type">List&lt;String&gt;</span> <span class="recomended-param">recomended</span> <br> Entity fields that will return at response. For example: <code class="prettyprint">fields=id,code,status</code>.</li>
+<li><strong>fields</strong> <span class="param-type">List&lt;String&gt;</span> <span class="recomended-param">recomended</span><br>
+Entity fields that will return at response. For example: <code class="prettyprint">fields=id,code,status</code>.</li>
 </ul>
 
 <h3 id="responses">Responses</h3>
 
 <ul>
-<li><strong>200</strong> <span class="verb-description">Ok</span> <em>List&lt;<a href="#booking">Booking</a>&gt;</em> <br>A list of bookings.</li>
-<li><strong>500</strong> <span class="verb-description">Internal Server Error</span> <em><a href="#error">Error</a></em> <br>An unexpected error has occurred, returns a simple error message.</li>
+<li><p><strong>200</strong> <span class="verb-description">Ok</span> <span class="param-type">List&lt;<a href="#booking">Booking</a>&gt;</span><br>
+A list of bookings.</p></li>
+<li><p><strong>500</strong> <span class="verb-description">Internal Server Error</span> <span class="param-type"><a href="#error">Error</a></span><br>
+An unexpected error has occurred, returns a simple error message.</p></li>
 </ul>
 
 <p><h2 id="show-booking-details">Show booking details</h2></p>
@@ -1074,7 +1274,7 @@
 <p>Sample request:</p>
 </blockquote>
 
-<pre class="highlight http tab-http"><code><span class="nf">GET</span> <span class="nn">/v1/bookings/customer/c9mas9js/bookings/a90mos70om</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<pre class="highlight http tab-http"><code><span class="nf">GET</span> <span class="nn">/v1/bookings/customer/c9mas9js/bookings/a90mos</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 </code></pre>
 
 <blockquote>
@@ -1104,7 +1304,7 @@
         </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACTIVE"</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="s2">"service"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"7b6"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"s8"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Plataforma"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"shortName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Plataforma"</span><span class="w">
     </span><span class="p">},</span><span class="w">
@@ -1124,22 +1324,28 @@
 <h3 id="path-params">Path Params</h3>
 
 <ul>
-<li><strong>customerId</strong> <span class="param-type">String</span> <span class="required-param">required</span> <br> Customer unique identifier.</li>
-<li><strong>bookingId</strong> <span class="param-type">String</span> <span class="required-param">required</span> <br>Unique identifier of booking.</li>
+<li><p><strong>customerId</strong> <span class="param-type">String</span> <span class="required-param">required</span><br>
+Customer unique identifier (Obtained it from the customers integration interface).</p></li>
+<li><p><strong>bookingId</strong> <span class="param-type">String</span> <span class="required-param">required</span><br>
+Booking unique identifier (Generated in the booking creation).</p></li>
 </ul>
 
 <h3 id="query-params">Query Params</h3>
 
 <ul>
-<li><strong>fields</strong> <span class="param-type">List&lt;String&gt;</span> <span class="recomended-param">recomended</span> <br> Entity fields that will return at response. For example: <code class="prettyprint">fields=id,code,status</code>.</li>
+<li><strong>fields</strong> <span class="param-type">List&lt;String&gt;</span> <span class="recomended-param">recomended</span><br>
+Entity fields that will return at response. For example: <code class="prettyprint">fields=id,code,status</code>.</li>
 </ul>
 
 <h3 id="responses">Responses</h3>
 
 <ul>
-<li><strong>200</strong> <span class="verb-description">OK</span> <em><a href="#booking">Booking</a></em> <br>A booking.</li>
-<li><strong>404</strong> <span class="verb-description">Not Found</span> <em><a href="#error">Error</a></em> <br>The resource requested not found, returns a simple error message.</li>
-<li><strong>500</strong> <span class="verb-description">Internal Server Error</span> <em><a href="#error">Error</a></em> <br>An unexpected error has occurred, returns a simple error message.</li>
+<li><p><strong>200</strong> <span class="verb-description">OK</span> <span class="param-type"><a href="#booking">Booking</a></span><br>
+A booking.</p></li>
+<li><p><strong>404</strong> <span class="verb-description">Not Found</span> <span class="param-type"><a href="#error">Error</a></span><br>
+The resource requested not found, returns a simple error message.</p></li>
+<li><p><strong>500</strong> <span class="verb-description">Internal Server Error</span> <span class="param-type"><a href="#error">Error</a></span><br>
+An unexpected error has occurred, returns a simple error message.</p></li>
 </ul>
 
 <p><h2 id="create-booking">Create booking</h2></p>
@@ -1154,9 +1360,10 @@
 <span class="p">{</span><span class="w">
     </span><span class="s2">"channelId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"c10"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"branchId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"27b6"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"serviceId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"s9"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"serviceId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"s8"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Mr. Smith"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"document"</span><span class="p">:</span><span class="w"> </span><span class="s2">"90452291"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"docType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"D"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"docNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"90452291"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"+51987882567"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"startTime"</span><span class="p">:</span><span class="s2">"2017-02-20T14:00:00.000Z"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"endTime"</span><span class="p">:</span><span class="s2">"2017-02-20T15:00:00.000Z"</span><span class="w">
@@ -1190,7 +1397,7 @@
         </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACTIVE"</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="s2">"service"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"7b6"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"s8"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Plataforma"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"shortName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Plataforma"</span><span class="w">
     </span><span class="p">},</span><span class="w">
@@ -1204,14 +1411,71 @@
 <p>Create a new customer booking and then it returns it.</p>
 
 <aside class="warning">
-<strong>Caution: </strong> You should consider the following before create a booking:
+<strong>Caution: </strong>
+You should consider the following before create a booking:
 <ul>
-<li>The channel referenced by the <code>channelId</code> have to support the service requested.</li>
-<li>The branch referenced by the <code>branchId</code> have to support the service requested.</li>
-<li>The client referenced by the <code>customerId</code> should has no other booking for the same requested service in state <code>ACTIVE</code> or <code>PENDING</code>.</li>
-<li>The <code>startTime</code> and the <code>endTime</code> have to be available for the branch and service.</li>
+    <li>The channel referenced should support the service requested.</li>
+    <li>The branch referenced should support the service requested.</li>
+    <li>The client referenced should has no other booking in state <code>ACTIVE</code> or <code>PENDING</code> for the same requested service.</li>
+    <li>The <code>startTime</code> and the <code>endTime</code> should to be available.</li>
 <ul>
 </aside>
+
+<p>This operation can throw the next validation errors:</p>
+
+<table><thead>
+<tr>
+<th>Code</th>
+<th>Field</th>
+<th>Message</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>40001</td>
+<td>channelId</td>
+<td>Channel not exists.</td>
+</tr>
+<tr>
+<td>40002</td>
+<td>serviceId</td>
+<td>Service not exists.</td>
+</tr>
+<tr>
+<td>40003</td>
+<td>branchId</td>
+<td>Branch not exists.</td>
+</tr>
+<tr>
+<td>40006</td>
+<td>serviceId</td>
+<td>Service not supported by the channel.</td>
+</tr>
+<tr>
+<td>40007</td>
+<td>serviceId</td>
+<td>Service not supported by the branch.</td>
+</tr>
+<tr>
+<td>40012</td>
+<td>customerId</td>
+<td>Customer has another valid booking for the same service.</td>
+</tr>
+<tr>
+<td>40013</td>
+<td>startTime</td>
+<td>Booking start time not valid.</td>
+</tr>
+<tr>
+<td>40014</td>
+<td>endTime</td>
+<td>Booking end time not valid.</td>
+</tr>
+<tr>
+<td>40015</td>
+<td>serviceId</td>
+<td>Service not available in the requested time.</td>
+</tr>
+</tbody></table>
 
 <h3 id="endpoint">Endpoint</h3>
 
@@ -1220,28 +1484,60 @@
 <h3 id="path-params">Path Params</h3>
 
 <ul>
-<li><strong>customerId</strong> <span class="param-type">String</span> <br> Customer unique identifier.</li>
+<li><strong>customerId</strong> <span class="param-type">String</span><br>
+Customer unique identifier (Obtained it from the customers integration interface).</li>
 </ul>
 
 <h3 id="request">Request</h3>
 
 <ul>
-<li><strong>channelId</strong> <span class="param-type">String</span> <span class="required-param">required</span><br> Channel unique identifier.</li>
-<li><strong>branchId</strong> <span class="param-type">String</span> <span class="required-param">required</span> <br> Branch unique identifier.</li>
-<li><strong>serviceId</strong> <span class="param-type">String</span> <span class="required-param">required</span> <br> Service unique identifier.</li>
-<li><strong>name</strong> <span class="param-type">String</span> <br> Name or alias of client used for contact purpose. <p><span class="param-condition">Maximum length: </span><code class="prettyprint">50</code></p></li>
-<li><strong>document</strong> <span class="param-type">String</span>  <br> Document number of customer. <p><span class="param-condition">Maximum length: </span><code class="prettyprint">20</code></p></li>
-<li><strong>phone</strong> <span class="param-type">String</span> <br> Customer phone for notifications. <p><span class="param-condition">Validation pattern: </span><code class="prettyprint">^+[1-9]{1}[0-9]{3,14}$</code></p></li>
-<li><strong>startTime</strong> <span class="param-type">DateTime</span> <span class="required-param">required</span> <br> Start time of booking. <p><span class="param-condition">Format:  </span><code><a href="https://en.wikipedia.org/wiki/ISO_8601">ISO 8601</a></code></p></li>
-<li><strong>endTime</strong> <span class="param-type">DateTime</span> <span class="required-param">required</span> <br> End time of booking. <p><span class="param-condition">Format:  </span><code><a href="https://en.wikipedia.org/wiki/ISO_8601">ISO 8601</a></code></p></li>
+<li><p><strong>channelId</strong> <span class="param-type">String</span> <span class="required-param">required</span><br>
+Unique identifier of the channel used. This value should to be fixed in the client application.</p></li>
+<li><p><strong>branchId</strong> <span class="param-type">String</span> <span class="required-param">required</span><br>
+Unique identifier of the requested branch.</p></li>
+<li><p><strong>serviceId</strong> <span class="param-type">String</span> <span class="required-param">required</span><br>
+Unique identifier of the requested service.</p></li>
+<li><p><strong>name</strong> <span class="param-type">String</span><br>
+Name or alias of the client used for contact purpose.
+<p>
+<span class="param-condition">Maximum length:</span> <code class="prettyprint">50</code>
+</p></p></li>
+<li><p><strong>docType</strong> <span class="param-type">String</span><br>
+Type of document used to identify the client.
+<p>
+<span class="param-condition">Maximum length:</span> <code class="prettyprint">5</code>
+</p></p></li>
+<li><p><strong>docNumber</strong> <span class="param-type">String</span><br>
+Number of document used to identify the client.
+<p>
+<span class="param-condition">Maximum length:</span> <code class="prettyprint">20</code>
+</p></p></li>
+<li><p><strong>phone</strong> <span class="param-type">String</span><br>
+Customer phone for notifications associated to the booking.
+<p>
+<span class="param-condition">Validation pattern:</span> <code class="prettyprint">^+[1-9]{1}[0-9]{3,14}$</code>
+</p></p></li>
+<li><p><strong>startTime</strong> <span class="param-type">DateTime</span> <span class="required-param">required</span><br>
+Start time of booking.
+<p>
+<span class="param-condition">Format:</span> <code><a href="https://en.wikipedia.org/wiki/ISO_8601">ISO 8601</a></code>
+</p></p></li>
+<li><p><strong>endTime</strong> <span class="param-type">DateTime</span> <span class="required-param">required</span><br>
+End time of booking.
+<p>
+<span class="param-condition">Format:</span> <code><a href="https://en.wikipedia.org/wiki/ISO_8601">ISO 8601</a></code>
+</p></p></li>
 </ul>
 
 <h3 id="responses">Responses</h3>
 
 <ul>
-<li><strong>201</strong> <span class="verb-description">Created</span> <em><a href="#booking">Booking</a></em> <br>Successful creation, returns the new booking created.</li>
-<li><strong>400</strong> <span class="verb-description">Bad Request</span> <em><a href="#validation-error">ValidationError</a></em> <br>One or more parameters are not valid, returns a description of validation failed.</li>
-<li><strong>500</strong> <span class="verb-description">Internal Server Error</span> <em><a href="#error">Error</a></em> <br>An unexpected error has occurred, returns a simple error message.</li>
+<li><p><strong>201</strong> <span class="verb-description">Created</span> <span class="param-type"><a href="#booking">Booking</a></span><br>
+Successful creation, returns the new booking.</p></li>
+<li><p><strong>400</strong> <span class="verb-description">Bad Request</span> <span class="param-type">List&lt;<a href="#validation-error">ValidationError</a>&gt;</span><br>
+One or more parameters are not valid, returns a description of validation failed.</p></li>
+<li><p><strong>500</strong> <span class="verb-description">Internal Server Error</span> <span class="param-type"><a href="#error">Error</a></span><br>
+An unexpected error has occurred, returns a simple error message.</p></li>
 </ul>
 
 <p><h2 id="update-booking">Update booking</h2></p>
@@ -1250,7 +1546,7 @@
 <p>Sample request:</p>
 </blockquote>
 
-<pre class="highlight http tab-http"><code><span class="nf">PUT</span> <span class="nn">/v1/bookings/customer/c9mas9js/bookings/a90mos70om</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<pre class="highlight http tab-http"><code><span class="nf">PUT</span> <span class="nn">/v1/bookings/customer/c9mas9js/bookings/a90mos</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 <span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
 
 <span class="p">{</span><span class="w">
@@ -1265,7 +1561,7 @@
 <pre class="highlight http tab-http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">204</span> <span class="ne">No Content</span>
 </code></pre>
 
-<p>Update a specific customer booking.</p>
+<p>Update a customer booking by ID.</p>
 
 <h3 id="endpoint">Endpoint</h3>
 
@@ -1274,26 +1570,36 @@
 <h3 id="path-params">Path Params</h3>
 
 <ul>
-<li><strong>customerId</strong> <span class="param-type">String</span> <span class="required-param">required</span> <br> Customer unique identifier.</li>
-<li><strong>bookingId</strong> <span class="param-type">String</span> <span class="required-param">required</span> <br>Unique identifier of booking.</li>
+<li><p><strong>customerId</strong> <span class="param-type">String</span> <span class="required-param">required</span><br>
+Customer unique identifier (Obtained it from the customers integration interface).</p></li>
+<li><p><strong>bookingId</strong> <span class="param-type">String</span> <span class="required-param">required</span><br>
+Booking unique identifier (Generated in the booking creation).</p></li>
 </ul>
 
 <h3 id="request">Request</h3>
 
 <ul>
-<li><strong>phone</strong> <span class="param-type">String</span> <br> New customer phone for notifications. <p><span class="param-condition">Validation pattern: </span><code class="prettyprint">^+[1-9]{1}[0-9]{3,14}$</code></p></li>
+<li><strong>phone</strong> <span class="param-type">String</span><br>
+New customer phone for notifications.
+<p>
+<span class="param-condition">Validation pattern:</span> <code class="prettyprint">^+[1-9]{1}[0-9]{3,14}$</code>
+</p></li>
 </ul>
 
 <h3 id="responses">Responses</h3>
 
 <ul>
-<li><strong>204</strong> <em>no content</em> <br>Successful update.</li>
-<li><strong>400</strong> <span class="verb-description">Bad Request</span> <em><a href="#validation-error">ValidationError</a></em> <br>One or more parameters are not valid, returns a description of validation failed.</li>
-<li><strong>404</strong> <span class="verb-description">Not Found</span> <em><a href="#error">Error</a></em> <br>The resource requested not found, returns a simple error message.</li>
-<li><strong>500</strong> <span class="verb-description">Internal Server Error</span> <em><a href="#error">Error</a></em> <br>An unexpected error has occurred, returns a simple error message.</li>
+<li><p><strong>204</strong> <span class="verb-description">No Content</span><br>
+Successful update.</p></li>
+<li><p><strong>400</strong> <span class="verb-description">Bad Request</span> <span class="param-type">List&lt;<a href="#validation-error">ValidationError</a>&gt;</span><br>
+One or more parameters are not valid, returns a description of validation failed.</p></li>
+<li><p><strong>404</strong> <span class="verb-description">Not Found</span> <span class="param-type"><a href="#error">Error</a></span><br>
+The resource requested not found, returns a simple error message.</p></li>
+<li><p><strong>500</strong> <span class="verb-description">Internal Server Error</span> <span class="param-type"><a href="#error">Error</a></span><br>
+An unexpected error has occurred, returns a simple error message.</p></li>
 </ul>
 
-<p><h2 id="delete-booking">Delete booking</h2></p>
+<p><h2 id="cancel-booking">Cancel booking</h2></p>
 
 <blockquote>
 <p>Sample request:</p>
@@ -1309,14 +1615,7 @@
 <pre class="highlight http tab-http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">204</span> <span class="ne">No Content</span>
 </code></pre>
 
-<p>Delete a customer booking by ID.</p>
-
-<aside class="warning">
-<strong>Caution: </strong> You should consider the following before delete a booking:
-<ul>
-<li>The booking to delete should to be in state <code>ACTIVE</code> or <code>PENDING</code>.</li>
-<ul>
-</aside>
+<p>Cancel a customer booking by ID.</p>
 
 <h3 id="endpoint">Endpoint</h3>
 
@@ -1325,22 +1624,185 @@
 <h3 id="path-params">Path Params</h3>
 
 <ul>
-<li><strong>customerId</strong> <span class="param-type">String</span> <span class="required-param">required</span> <br>Customer unique identifier.</li>
-<li><strong>bookingId</strong> <span class="param-type">String</span> <span class="required-param">required</span> <br>Booking unique identifier.</li>
+<li><p><strong>customerId</strong> <span class="param-type">String</span> <span class="required-param">required</span><br>
+Customer unique identifier (Obtained it from the customers integration interface).</p></li>
+<li><p><strong>bookingId</strong> <span class="param-type">String</span> <span class="required-param">required</span><br>
+Booking unique identifier (Generated in the booking creation).</p></li>
 </ul>
 
 <h3 id="responses">Responses</h3>
 
 <ul>
-<li><strong>204</strong> <span class="verb-description">No Content</span> <br>Successful deletion.</li>
-<li><strong>400</strong> <span class="verb-description">Bad Request</span> <em><a href="#validation-error">ValidationError</a></em> <br>One or more parameters are not valid, returns a description of validation failed.</li>
-<li><strong>404</strong> <span class="verb-description">Not Found</span> <br>The resource requested not found, returns a simple error message.</li>
-<li><strong>500</strong> <span class="verb-description">Internal Server Error</span> <em><a href="#error">Error</a></em> <br>An unexpected error has occurred, returns a simple error message.</li>
+<li><p><strong>204</strong> <span class="verb-description">No Content</span><br>
+Successful cancelation.</p></li>
+<li><p><strong>400</strong> <span class="verb-description">Bad Request</span> <span class="param-type">List&lt;<a href="#validation-error">ValidationError</a>&gt;</span><br>
+One or more parameters are not valid, returns a description of validation failed.</p></li>
+<li><p><strong>404</strong> <span class="verb-description">Not Found</span> <span class="param-type"><a href="#error">Error</a></span><br>
+The resource requested not found, returns a simple error message.</p></li>
+<li><p><strong>500</strong> <span class="verb-description">Internal Server Error</span> <span class="param-type"><a href="#error">Error</a></span><br>
+An unexpected error has occurred, returns a simple error message.</p></li>
 </ul>
+
+<h1 id="error-messages">Error Messages</h1>
+
+<p>Collection of error messages generated from the API endpoints.</p>
+
+<p><h2 id="bad-request">Bad Request</h2></p>
+
+<blockquote>
+<p>Sample response:</p>
+</blockquote>
+
+<pre class="highlight http tab-http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">400</span> <span class="ne">Bad Request</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+
+<span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">40003</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Customer 'c9mas9js' has a ticket on hold"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"field"</span><span class="p">:</span><span class="s2">"customerId"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
+
+<p>HTTP response when an validation error occurred. The field <code>code</code> is not returned when the error is originated by validation of contract.</p>
+
+<aside class="success">
+<strong>Remember:</strong>
+All operations that return a error with code assigned contain the list of possible errors in their documentation.
+</aside>
+
+<p>The errors with a code assigned are the next:</p>
+
+<table><thead>
+<tr>
+<th>Code</th>
+<th>Field</th>
+<th>Message</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>40001</td>
+<td>channelId</td>
+<td>Channel not exists.</td>
+</tr>
+<tr>
+<td>40002</td>
+<td>serviceId</td>
+<td>Service not exists.</td>
+</tr>
+<tr>
+<td>40003</td>
+<td>branchId</td>
+<td>Branch not exists.</td>
+</tr>
+<tr>
+<td>40004</td>
+<td>sectorId</td>
+<td>Sector not exists.</td>
+</tr>
+<tr>
+<td>40005</td>
+<td>categoryId</td>
+<td>Customer category not exists.</td>
+</tr>
+<tr>
+<td>40006</td>
+<td>serviceId</td>
+<td>Service not supported by the channel.</td>
+</tr>
+<tr>
+<td>40007</td>
+<td>serviceId</td>
+<td>Service not supported by the branch.</td>
+</tr>
+<tr>
+<td>40008</td>
+<td>serviceId</td>
+<td>Service not supported by the sector.</td>
+</tr>
+<tr>
+<td>40009</td>
+<td>branchId</td>
+<td>Branch is not the sector owner.</td>
+</tr>
+<tr>
+<td>40010</td>
+<td>customerId</td>
+<td>Customer has another ticket.</td>
+</tr>
+<tr>
+<td>40011</td>
+<td>categoryId</td>
+<td>Customer category has no configured queue type for the service and  channel.</td>
+</tr>
+<tr>
+<td>40012</td>
+<td>customerId</td>
+<td>Customer has another valid booking for the same service.</td>
+</tr>
+<tr>
+<td>40013</td>
+<td>startTime</td>
+<td>Booking start time not valid.</td>
+</tr>
+<tr>
+<td>40014</td>
+<td>endTime</td>
+<td>Booking end time not valid.</td>
+</tr>
+<tr>
+<td>40015</td>
+<td>serviceId</td>
+<td>Service not available in the requested time.</td>
+</tr>
+</tbody></table>
+
+<p><h2 id="not-found">Not Found</h2></p>
+
+<blockquote>
+<p>Sample response:</p>
+</blockquote>
+
+<pre class="highlight http tab-http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">404</span> <span class="ne">Not Found</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+
+<span class="p">{</span><span class="w">
+    </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Resource not found."</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>When a requested resource not found, a generic error message is returned.</p>
+
+<aside class="warning">
+<strong>Caution:</strong>
+If you obtain this type of error maybe you are request an invalid endpoint or the requested resource is not available anymore, please review the documentation of the operation invoked.
+</aside>
+
+<p><h2 id="internal-server-error">Internal Server Error</h2></p>
+
+<blockquote>
+<p>Sample response:</p>
+</blockquote>
+
+<pre class="highlight http tab-http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">500</span> <span class="ne">Internal Server Error</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+
+<span class="p">{</span><span class="w">
+    </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"An unexpected error has occurred."</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>When an unexpected error occur, a generic error message is returned and the error detail is saved in API log.</p>
+
+<aside class="warning"> 
+<strong>Caution:</strong>
+If you obtain this type of error contact your support.
+</aside>
 
 <h1 id="common-object-definitions">Common Object Definitions</h1>
 
-<p>Collection of common objects used by the API</p>
+<p>Collection of common objects used by the API.</p>
 
 <p><h2 id="booking">Booking</h2></p>
 
@@ -1368,7 +1830,7 @@
         </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACTIVE"</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="s2">"service"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"7b6"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"s8"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Plataforma"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"shortName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Plataforma"</span><span class="w">
     </span><span class="p">},</span><span class="w">
@@ -1388,18 +1850,50 @@
 <h3 id="fields">Fields</h3>
 
 <ul>
-<li><strong>id</strong> <span class="param-type">String</span> <br> Booking unique identifier.</li>
-<li><strong>code</strong> <span class="param-type">String</span> <br> Booking code to display it to customer.</li>
-<li><strong>status</strong> <span class="param-type">Enum</span> <br> Current status of the booking. <p><em>Possible values</em>: <ul><li><code>ACTIVE</code></li><li><code>INACTIVE</code></li><li><code>DEFEATED</code></li></ul></p></li>
-<li><strong>phone</strong> <span class="param-type">String</span> <br> Customer phone for notifications.</li>
-<li><strong>channel</strong> <span class="param-type"><a href="#channel">Channel</a></span> <br> Channel associated.</li>
-<li><strong>branch</strong> <span class="param-type"><a href="#branch">Branch</a></span> <br> Branch associated.</p></li>
-<li><strong>service</strong> <span class="param-type"><a href="#service">Service</a></span> <br> Service associated.</p></li>
-<li><strong>startTime</strong> <em>date-time</em> <br> Start time of booking. <p><em>Standard</em>: <code><a href="https://en.wikipedia.org/wiki/ISO_8601">ISO 8601</a></code></p></li>
-<li><strong>endTime</strong> <em>date-time</em> <br> End time of booking.<p><em>Standard</em>: <code><a href="https://en.wikipedia.org/wiki/ISO_8601">ISO 8601</a></code></p></li>
-<li><strong>createdAt</strong> <em>date-time</em> <br> Datetime of ticket creation. <p><em>Standard</em>: <code><a href="https://en.wikipedia.org/wiki/ISO_8601">ISO 8601</a></code></p></li>
-<li><strong>updatedAt</strong> <em>date-time</em> <br> Datetime of the last update of ticket. <p><em>Standard</em>: <code><a href="https://en.wikipedia.org/wiki/ISO_8601">ISO 8601</a></code></p></li>
+<li><p><strong>id</strong> <span class="param-type">String</span><br>
+Booking unique identifier (Auto generated by Bmatic).</p></li>
+<li><p><strong>code</strong> <span class="param-type">String</span><br>
+Booking code to display it to customer (Auto generated by Bmatic).</p></li>
+<li><p><strong>status</strong> <span class="param-type">Enum</span><br>
+Current status of the booking.
+<p>
+<span class="param-condition">Possible values:</span>
+<ul>
+    <li><code>ACTIVE</code>: When the current time is between the booking start time minus the configured tolerance and the end time plus the configured tolerance.</li>
+    <li><code>INACTIVE</code>: When the current time is lower to the booking start time minus the configured tolerance.</li>
+    <li><code>DEFEATED</code>: When the current time is upper to the booking end time plus the configured tolerance.</li>
 </ul>
+
+<p></p></p></li>
+<li><p><strong>phone</strong> <span class="param-type">String</span><br>
+Customer phone for notifications associated to the booking.</p></li>
+<li><p><strong>channel</strong> <span class="param-type"><a href="#channel">Channel</a></span><br>
+Channel where the booking was created.</p></li>
+<li><p><strong>branch</strong> <span class="param-type"><a href="#branch">Branch</a></span><br>
+Branch where the booking is valid.</p></li>
+<li><p><strong>service</strong> <span class="param-type"><a href="#service">Service</a></span><br>
+Service booked.</p></li>
+<li><p><strong>startTime</strong> <span class="param-type">DateTime</span><br>
+Start time of booking.
+<p>
+<span class="param-condition">Standard:</span> <code><a href="https://en.wikipedia.org/wiki/ISO_8601">ISO 8601</a></code>
+</p></p></li>
+<li><p><strong>endTime</strong> <span class="param-type">DateTime</span><br>
+End time of booking.
+<p>
+<span class="param-condition">Standard:</span> <code><a href="https://en.wikipedia.org/wiki/ISO_8601">ISO 8601</a></code>
+</p></p></li>
+<li><p><strong>createdAt</strong> <span class="param-type">DateTime</span><br>
+Datetime of ticket creation.
+<p>
+<span class="param-condition">Standard:</span> <code><a href="https://en.wikipedia.org/wiki/ISO_8601">ISO 8601</a></code>
+</p></p></li>
+<li><p><strong>updatedAt</strong> <span class="param-type">DateTime</span><br>
+Datetime of the last update of ticket.
+<p>
+<span class="param-condition">Standard:</span> <code><a href="https://en.wikipedia.org/wiki/ISO_8601">ISO 8601</a></code>
+</p></p></li>
+</ul></p>
 
 <p><h2 id="branch">Branch</h2></p>
 
@@ -1420,11 +1914,11 @@
     </span><span class="s2">"highEstimatedTime"</span><span class="p">:</span><span class="w"> </span><span class="mi">14</span><span class="p">,</span><span class="w">
     </span><span class="s2">"sectors"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
         </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"m8"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"m9"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tower A"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"shortName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"A"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACTIVE"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"services"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"s9"</span><span class="p">,</span><span class="s2">"s10"</span><span class="p">,</span><span class="s2">"s30"</span><span class="p">]</span><span class="w">
+            </span><span class="s2">"services"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"s8"</span><span class="p">,</span><span class="w"> </span><span class="s2">"s9"</span><span class="p">,</span><span class="w"> </span><span class="s2">"s10"</span><span class="p">,</span><span class="w"> </span><span class="s2">"s30"</span><span class="p">]</span><span class="w">
         </span><span class="p">}</span><span class="w">
     </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -1433,29 +1927,75 @@
 <p>Model of branch object.</p>
 
 <aside class="warning">
-<strong>Caution:</strong> The fields <code>congestion</code>, <code>lowEstimatedTime</code>, <code>highEstimatedTime</code> are undefined when the branch is closed.
+    <strong>Caution:</strong> The <code>congestion</code>, <code>lowEstimatedTime</code> and <code>highEstimatedTime</code> are calculated using the configuration of the associated branch type. You need configure the next:
+    <ul>
+        <li>Time range to consider to calculate the waiting time.</li>
+        <li>Desviation of waiting time.</li>
+        <li>Minimal waiting time of medium congestion.</li>
+        <li>Minimal waiting time of high congestion.</li>
+    </ul>
+    If the branch is <code>INACTIVE</code> this fields are not returned.
 </aside>
 
 <h3 id="fields">Fields</h3>
 
 <ul>
-<li><strong>id</strong> <span class="param-type">String</span> <br>Branch unique identifier.</li>
-<li><strong>name</strong> <span class="param-type">String</span> <br>Complete name of the branch. <p><em>Maximum length</em>: <code>50</code></p></li>
-<li><strong>shortName</strong> <span class="param-type">String</span> <br>Name to display in small devices. <p><em>Maximum length</em>: <code>20</code></p></li>
-<li><strong>address</strong> <span class="param-type">String</span> <br>Branch address. <p><em>Maximum length</em>: <code>100</code></p></li>
-<li><strong>latitude</strong> <span class="param-type">Float</span> <br>Latitude component of branch location.</li>
-<li><strong>longitude</strong> <span class="param-type">Float</span> <br>Longitude component of branch location.</li>
-<li><strong>status</strong> <span class="param-type">Enum</span> <br>Current status of the branch. <p><em>Possible values</em>: <ul><li><code>ACTIVE</code></li><li><code>INACTIVE</code></li></ul></p></li>
-<li><strong>congestion</strong> <span class="param-type">String</span> <br>Congestion of the branch. <p><em>Possible values</em>: <ul><li><code>LOW</code></li><li><code>MEDIUM</code></li><li><code>HIGH</code></li></ul></p></li>
-<li><strong>lowEstimatedTime</strong> <span class="param-type">Integer</span> <br>Lower bound of the estimated waiting time.</li>
-<li><strong>highEstimatedTime</strong> <span class="param-type">Integer</span> <br>Upper bound of the estimated waiting time.</li>
-<li><strong>sectors</strong> <span class="param-type">List&lt;<a href="#sector">Sector</a>&gt;</span> <br> List of the branch&rsquo;s sectors.<p><em>Unique items:</em> <code>true</code><br><em>Minimum items:</em> <code>1</code></p></li>
+<li><p><strong>id</strong> <span class="param-type">String</span><br>
+Branch unique identifier (Configured from Bmatic configuration panel).</p></li>
+<li><p><strong>name</strong> <span class="param-type">String</span><br>
+Complete name of the branch.
+<p>
+<span class="param-condition">Maximum length:</span> <code>50</code>
+</p></p></li>
+<li><p><strong>shortName</strong> <span class="param-type">String</span><br>
+Name to display in small devices.
+<p>
+<span class="param-condition">Maximum length:</span> <code>20</code>
+</p></p></li>
+<li><p><strong>address</strong> <span class="param-type">String</span><br>
+Branch address.
+<p>
+<span class="param-condition">Maximum length:</span> <code>100</code>
+</p></p></li>
+<li><p><strong>latitude</strong> <span class="param-type">Float</span><br>
+Latitude component of branch location.</p></li>
+<li><p><strong>longitude</strong> <span class="param-type">Float</span><br>
+Longitude component of branch location.</p></li>
+<li><p><strong>status</strong> <span class="param-type">Enum</span><br>
+Current status of the branch.
+<p>
+<span class="param-condition">Possible values:</span>
+    <ul>
+        <li><code>ACTIVE</code>: At least one sector is <code>ACTIVE</code></li>
+        <li><code>INACTIVE</code>: All sectors are <code>INACTIVE</code></li>
+    </ul>
+</p></p></li>
+<li><p><strong>congestion</strong> <span class="param-type">String</span><br>
+Flag of branch congestion.
+<p>
+<span class="param-condition">Possible values:</span>
+    <ul>
+        <li><code>LOW</code>: The average waiting time is lower to the minimal waiting time of medium congestion.</li>
+        <li><code>MEDIUM</code>: The average waiting time is lower to the minimal waiting time of high congestion but equal or upper to the minimal waiting time of medium congestion.</li>
+        <li><code>HIGH</code>: The average waiting time is equal or upper to the minimal waiting time of high congestion</li>
+    </ul>
+</p></p></li>
+<li><p><strong>lowEstimatedTime</strong> <span class="param-type">Integer</span><br>
+Lower bound of the estimated waiting time. It&rsquo;s equal to the average waiting time minus the configured desviation.</p></li>
+<li><p><strong>highEstimatedTime</strong> <span class="param-type">Integer</span><br>
+Upper bound of the estimated waiting time. It&rsquo;s equal to the average waiting time plus the configured desviation.</p></li>
+<li><p><strong>sectors</strong> <span class="param-type">List&lt;<a href="#sector">Sector</a>&gt;</span><br>
+List of the branch&rsquo;s sectors. A correct configuration include at least one sector per branch.
+<p>
+<span class="param-condition">Unique items:</span> <code>true</code><br>
+<span class="param-condition">Minimum items:</span> <code>1</code>
+</p></p></li>
 </ul>
 
 <p><h2 id="channel">Channel</h2></p>
 
 <blockquote>
-<p>Sample model:</p>
+<p>Sample object:</p>
 </blockquote>
 
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
@@ -1470,15 +2010,24 @@
 <h3 id="fields">Fields</h3>
 
 <ul>
-<li><strong>id</strong> <span class="param-type">String</span>  <br>Channel unique identifier.</li>
-<li><strong>name</strong> <span class="param-type">String</span>  <br>Complete name of the channel. <p><em>Maximum length</em>: <code>50</code></p></li>
-<li><strong>shortName</strong> <span class="param-type">String</span>  <br>Name to display in small devices. <p><em>Maximum length</em>: <code>20</code></p></li>
+<li><p><strong>id</strong> <span class="param-type">String</span><br>
+Channel unique identifier (Configured from Bmatic configuration panel).</p></li>
+<li><p><strong>name</strong> <span class="param-type">String</span><br>
+Complete name of the channel.
+<p>
+<span class="param-condition">Maximum length:</span> <code>50</code>
+</p></p></li>
+<li><p><strong>shortName</strong> <span class="param-type">String</span><br>
+Name to display in small devices.
+<p>
+<span class="param-condition">Maximum length:</span> <code>20</code>
+</p></p></li>
 </ul>
 
 <p><h2 id="counter">Counter</h2></p>
 
 <blockquote>
-<p>Sample model:</p>
+<p>Sample object:</p>
 </blockquote>
 
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
@@ -1493,9 +2042,18 @@
 <h3 id="fields">Fields</h3>
 
 <ul>
-<li><strong>id</strong> <span class="param-type">String</span>  <br>Counter unique identifier.</li>
-<li><strong>name</strong> <span class="param-type">String</span>  <br>Name of the counter. <p><em>Maximum length</em>: <code>50</code></p></li>
-<li><strong>teller</strong> <span class="param-type">String</span>  <br>Account name of teller in counter. <p><em>Maximum length</em>: <code>50</code></p></li>
+<li><p><strong>id</strong> <span class="param-type">String</span><br>
+Counter unique identifier (Configured from Bmatic configuration panel).</p></li>
+<li><p><strong>name</strong> <span class="param-type">String</span><br>
+Name of the counter.
+<p>
+<span class="param-condition">Maximum length:</span> <code>50</code>
+</p></p></li>
+<li><p><strong>teller</strong> <span class="param-type">String</span><br>
+Account name of teller in counter.
+<p>
+<span class="param-condition">Maximum length:</span> <code>50</code>
+</p></p></li>
 </ul>
 
 <p><h2 id="day">Day</h2></p>
@@ -1508,8 +2066,8 @@
     </span><span class="s2">"day"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-02-20T00:00:00.000Z"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"ranges"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
         </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"start_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-02-20T14:00:00.000Z"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"end_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-02-20T15:00:00.000Z"</span><span class="w">
+            </span><span class="s2">"startTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-02-20T14:00:00.000Z"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"endTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-02-20T15:00:00.000Z"</span><span class="w">
         </span><span class="p">}</span><span class="w">
     </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -1520,8 +2078,13 @@
 <h3 id="fields">Fields</h3>
 
 <ul>
-<li><strong>day</strong> <span class="param-type">Date</span> <br> Date with available ranges. <p><em>Standard</em>: <code><a href="https://en.wikipedia.org/wiki/ISO_8601">ISO 8601</a></code></p></li>
-<li><strong>ranges</strong> <span class="param-type">List&lt;<a href="#range">Range</a>&gt;</span> <br> List of available time ranges.</li>
+<li><p><strong>day</strong> <span class="param-type">Date</span><br>
+Date with available ranges.
+<p>
+<span class="param-condition">Standard:</span> <code><a href="https://en.wikipedia.org/wiki/ISO_8601">ISO 8601</a></code>
+</p></p></li>
+<li><p><strong>ranges</strong> <span class="param-type">List&lt;<a href="#range">Range</a>&gt;</span><br>
+List of available time ranges.</p></li>
 </ul>
 
 <p><h2 id="print-line">Print Line</h2></p>
@@ -1544,17 +2107,57 @@
 <h3 id="fields">Fields</h3>
 
 <ul>
-<li><strong>align</strong> <span class="param-type">Enum</span> <br>Aligned of the line. <p><em>Possible values</em>: <ul><li><code>LEFT</code></li><li><code>CENTER</code></li><li><code>RIGHT</code></li></ul></p></li>
-<li><strong>font</strong> <span class="param-type">Enum</span>  <br>Font of the line. <p><em>Possible values</em>: <ul><li><code>A_REGULAR</code></li><li><code>B_REGULAR</code></li><li><code>A_DOUBLE_HIGH</code></li><li><code>B_DOUBLE_HIGH</code></li><li><code>A_DOUBLE_WIDTH</code></li><li><code>B_DOUBLE_WIDTH</code></li><li><code>A_QUADRUPLE</code></li><li><code>B_QUADRUPLE</code></li><li><code>B_QUADRUPLE</code></li><li><code>C_DOUBLE_HIGH</code></li><li><code>C_DOUBLE_WIDTH</code></li><li><code>C_QUADRUPLE</code></li></ul></p></li>
-<li><strong>previous</strong> <span class="param-type">String</span> <br>Message to print before the content.<p><em>Maximum length</em>: <code>50</code></p></li>
-<li><strong>content</strong> <span class="param-type">String</span> <br>Message to print as content.<p><em>Maximum length</em>: <code>50</code></p></li>
-<li><strong>next</strong> <span class="param-type">String</span> <br>Message to print after the content.<p><em>Maximum length</em>: <code>50</code></p></li>
+<li><p><strong>align</strong> <span class="param-type">Enum</span><br>
+Aligned of the line.
+<p>
+<span class="param-condition">Possible values:</span>
+<ul>
+    <li><code>LEFT</code></li>
+    <li><code>CENTER</code></li>
+    <li><code>RIGHT</code></li>
 </ul>
+
+<p></p></p></li>
+<li><p><strong>font</strong> <span class="param-type">Enum</span><br>
+Font of the line.
+<p>
+<span class="param-condition">Possible values:</span>
+<ul>
+    <li><code>A_REGULAR</code></li>
+    <li><code>B_REGULAR</code></li>
+    <li><code>A_DOUBLE_HIGH</code></li>
+    <li><code>B_DOUBLE_HIGH</code></li>
+    <li><code>A_DOUBLE_WIDTH</code></li>
+    <li><code>B_DOUBLE_WIDTH</code></li>
+    <li><code>A_QUADRUPLE</code></li>
+    <li><code>B_QUADRUPLE</code></li>
+    <li><code>B_QUADRUPLE</code></li>
+    <li><code>C_DOUBLE_HIGH</code></li>
+    <li><code>C_DOUBLE_WIDTH</code></li>
+    <li><code>C_QUADRUPLE</code></li>
+</ul>
+</p></p></li>
+<li><p><strong>previous</strong> <span class="param-type">String</span><br>
+Message to print before the content.
+<p>
+<span class="param-condition">Maximum length:</span> <code>50</code>
+</p></p></li>
+<li><p><strong>content</strong> <span class="param-type">String</span><br>
+Message to print as content.
+<p>
+<span class="param-condition">Maximum length:</span> <code>50</code>
+</p></p></li>
+<li><p><strong>next</strong> <span class="param-type">String</span><br>
+Message to print after the content.
+<p>
+<span class="param-condition">Maximum length:</span> <code>50</code>
+</p></p></li>
+</ul></p>
 
 <p><h2 id="range">Range</h2></p>
 
 <blockquote>
-<p>Sample object</p>
+<p>Sample object:</p>
 </blockquote>
 
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
@@ -1568,8 +2171,16 @@
 <h3 id="fields">Fields</h3>
 
 <ul>
-<li><strong>startTime</strong> <span class="param-type">DateTime</span> <br> Start time of range. <p><em>Standard</em>: <code><a href="https://en.wikipedia.org/wiki/ISO_8601">ISO 8601</a></code></p> |</li>
-<li><strong>endTime</strong> <span class="param-type">DateTime</span> <br> End time of range.<p><em>Standard</em>: <code><a href="https://en.wikipedia.org/wiki/ISO_8601">ISO 8601</a></code></p>  |</li>
+<li><p><strong>startTime</strong> <span class="param-type">DateTime</span><br>
+Start time of range.
+<p>
+<span class="param-condition">Standard:</span> <code><a href="https://en.wikipedia.org/wiki/ISO_8601">ISO 8601</a></code>
+</p></p></li>
+<li><p><strong>endTime</strong> <span class="param-type">DateTime</span><br>
+End time of range.
+<p>
+<span class="param-condition">Standard:</span> <code><a href="https://en.wikipedia.org/wiki/ISO_8601">ISO 8601</a></code>
+</p></p></li>
 </ul>
 
 <p><h2 id="sector">Sector</h2></p>
@@ -1581,32 +2192,55 @@
 </blockquote>
 
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"m8"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"m9"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tower A"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"shortName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"A"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"OPEN"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"services"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"s9"</span><span class="p">,</span><span class="s2">"s10"</span><span class="p">,</span><span class="s2">"s30"</span><span class="p">]</span><span class="w">
+    </span><span class="s2">"services"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"s8"</span><span class="p">,</span><span class="w"> </span><span class="s2">"s9"</span><span class="p">,</span><span class="w"> </span><span class="s2">"s10"</span><span class="p">,</span><span class="w"> </span><span class="s2">"s30"</span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
 <h3 id="fields">Fields</h3>
 
 <ul>
-<li><strong>id</strong> <span class="param-type">String</span> <br>Sector unique identifier.</li>
-<li><strong>name</strong> <span class="param-type">String</span> <br>Complete name of the sector. <p><em>Maximum length</em>: <code>50</code></p></li>
-<li><strong>shortName</strong> <span class="param-type">String</span> <br>Name to display in small devices. <p><em>Maximum length</em>: <code>20</code></p></li>
-<li><strong>status</strong> <span class="param-type">Enum</span> <br>Current status of the sector. <p><em>Possible values</em>: <ul><li><code>ACTIVE</code></li><li><code>INACTIVE</code></li></ul></p></li>
-<li><strong>services</strong> <span class="param-type">List&lt;String&gt;</span> <br> List of ids of the services allowed at sector.<p><em>Unique items:</em> <code>true</code><br><em>Minimum items:</em> <code>1</code></p></li>
+<li><p><strong>id</strong> <span class="param-type">String</span><br>
+Sector unique identifier (Auto generated by Bmatic).</p></li>
+<li><p><strong>name</strong> <span class="param-type">String</span><br>
+Complete name of the sector.
+<p>
+<span class="param-condition">Maximum length:</span> <code>50</code>
+</p></p></li>
+<li><p><strong>shortName</strong> <span class="param-type">String</span> <br>
+Name to display in small devices.
+<p>
+<span class="param-condition">Maximum length:</span> <code>20</code>
+</p></p></li>
+<li><p><strong>status</strong> <span class="param-type">Enum</span><br>
+Current status of the sector.
+<p>
+<span class="param-condition">Possible values:</span>
+<ul>
+    <li><code>ACTIVE</code>: At least one counter in the sector is <code>ACTIVE</code> or <code>SUSPENDED</code></li>
+    <li><code>INACTIVE</code>: All counters in the sector are <code>INACTIVE</code></li>
 </ul>
+
+<p></p></p></li>
+<li><p><strong>services</strong> <span class="param-type">List&lt;String&gt;</span><br>
+List of ids of the services allowed at sector. By default all services are allowed in the sectors if not register a specific configuration for the sector.
+<p>
+<span class="param-condition">Unique items:</span> <code>true</code><br>
+<span class="param-condition">Minimum items:</span> <code>1</code>
+</p></p></li>
+</ul></p>
 
 <p><h2 id="service">Service</h2></p>
 
 <blockquote>
-<p>Sample model:</p>
+<p>Sample object:</p>
 </blockquote>
 
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"7b6"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"s8"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Plataforma"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"shortName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Plataforma"</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -1617,9 +2251,18 @@
 <h3 id="fields">Fields</h3>
 
 <ul>
-<li><strong>id</strong> <span class="param-type">String</span>  <br>Service unique identifier.</li>
-<li><strong>name</strong> <span class="param-type">String</span>  <br>Complete name of the service. <p><em>Maximum length</em>: <code>50</code></p></li>
-<li><strong>shortName</strong> <span class="param-type">String</span>  <br>Name to display in small devices. <p><em>Maximum length</em>: <code>20</code></p></li>
+<li><p><strong>id</strong> <span class="param-type">String</span><br>
+Service unique identifier (Auto generated by Bmatic).</p></li>
+<li><p><strong>name</strong> <span class="param-type">String</span><br>
+Complete name of the service.
+<p>
+<span class="param-condition">Maximum length:</span> <code>50</code>
+</p></p></li>
+<li><p><strong>shortName</strong> <span class="param-type">String</span><br>
+Name to display in small devices.
+<p>
+<span class="param-condition">Maximum length:</span> <code>20</code>
+</p></p></li>
 </ul>
 
 <p><h2 id="ticket">Ticket</h2></p>
@@ -1641,7 +2284,7 @@
         </span><span class="s2">"We have a promotion for you!"</span><span class="w">
     </span><span class="p">],</span><span class="w">
     </span><span class="s2">"channel"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"a10"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"c10"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Mobile"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"shortName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Mobile"</span><span class="w">
     </span><span class="p">},</span><span class="w">
@@ -1656,13 +2299,13 @@
         </span><span class="s2">"congestion"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MEDIUM"</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="s2">"sector"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"s8"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"m9"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tower A"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"shortName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"A"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACTIVE"</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="s2">"service"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"7b6"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"s8"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Plataforma"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"shortName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Plataforma"</span><span class="w">
     </span><span class="p">},</span><span class="w">
@@ -1688,30 +2331,68 @@
 <p>Model of ticket object.</p>
 
 <aside class="warning">
-<strong>Caution:</strong> The entities associated to ticket not provide all their fields for performance reasons. If you need more information, you can use others endpoints to get this information using the ids returned in the ticket. You can to see the default information provided in the sample object.
+<strong>Caution:</strong>
+The entities associated to ticket not provide all their fields for performance reasons. If you need more information, you can use others endpoints to get this information using the ids returned in the ticket. You can to see the default information provided in the sample object.<br><br>
+The <code>lowEstimatedTime</code> and <code>highEstimatedTime</code> are calculated using the configuration of the associated branch type. You need configure the next:
+<ul>
+    <li>Time range to consider to calculate the waiting time.</li>
+    <li>Desviation of waiting time.</li>
+</ul>
+If the branch associated is <code>INACTIVE</code> this fields are not returned.
 </aside>
 
 <h3 id="fields">Fields</h3>
 
 <ul>
-<li><strong>id</strong> <span class="param-type">String</span> <br>Ticket unique identifier.</li>
-<li><strong>queue</strong> <span class="param-type">String</span> <br>Id of queue assigned to ticket.</li>
-<li><strong>number</strong> <span class="param-type">Integer</span> <br>Number in queue assigned to ticket.</li>
-<li><strong>position</strong> <span class="param-type">Integer</span> <br>Position of ticket in queue.</li>
-<li><strong>status</strong> <span class="param-type">Enum</span> <br>Current status of the branch. <p><em>Possible values</em>: <ul><li><code>BLOCKED</code></li><li><code>ENABLED</code></li></ul></p></li>
-<li><strong>lowEstimatedTime</strong> <span class="param-type">Integer</span> <br> Lower bound of the estimated waiting time.</li>
-<li><strong>highEstimatedTime</strong> <span class="param-type">Integer</span> <br> Upper bound of the estimated waiting time.</li>
-<li><strong>phone</strong> <span class="param-type">String</span> <br>Customer phone for notifications.</li>
-<li><strong>messages</strong> <span class="param-type">List&lt;String&gt;</span> <br> Messages to print.</li>
-<li><strong>channel</strong> <span class="param-type"><a href="#channel">Channel</a></span> <br>Channel associated.</li>
-<li><strong>branch</strong> <span class="param-type"><a href="#branch">Branch</a></span> <br> Branch associated.</p></li>
-<li><strong>sector</strong> <span class="param-type"><a href="#sector">Sector</a></span> <br> Sector associated.</p></li>
-<li><strong>service</strong> <span class="param-type"><a href="#service">Service</a></span>  <br> Service associated.</p></li>
-<li><strong>counter</strong> <span class="param-type"><a href="#counter">Counter</a></span>  <br> Counter associated.</p></li>
-<li><strong>createdAt</strong> <span class="param-type">DateTime</span> <br> Datetime of ticket creation. <p><em>Standard</em>: <code><a href="https://en.wikipedia.org/wiki/ISO_8601">ISO 8601</a></code></p></li>
-<li><strong>updatedAt</strong> <span class="param-type">DateTime</span> <br> Datetime of the last update of ticket. <p><em>Standard</em>: <code><a href="https://en.wikipedia.org/wiki/ISO_8601">ISO 8601</a></code></p><br></li>
-<li><strong>print</strong> <span class="param-type">List&lt;<a href="#print-line">PrintLine</a>&gt;</span></li>
+<li><p><strong>id</strong> <span class="param-type">String</span><br>
+Ticket unique identifier (Auto generated by Bmatic).</p></li>
+<li><p><strong>queue</strong> <span class="param-type">String</span><br>
+Code of queue type assigned to the ticket.</p></li>
+<li><p><strong>number</strong> <span class="param-type">Integer</span><br>
+Number in queue assigned to the ticket.</p></li>
+<li><p><strong>position</strong> <span class="param-type">Integer</span><br>
+Ticket position in the queue.</p></li>
+<li><p><strong>status</strong> <span class="param-type">Enum</span><br>
+Current status of the ticket.
+<p>
+<span class="param-condition">Possible values:</span>
+<ul>
+    <li><code>BLOCKED</code>: When the counters cannot call the ticket.</li>
+    <li><code>ENABLED</code>: When the counters can call the ticket.</li>
 </ul>
+
+<p></p></p></li>
+<li><p><strong>lowEstimatedTime</strong> <span class="param-type">Integer</span><br>
+Lower bound of the estimated waiting time. It&rsquo;s equal to the average waiting time minus the configured desviation.</p></li>
+<li><p><strong>highEstimatedTime</strong> <span class="param-type">Integer</span><br>
+Upper bound of the estimated waiting time. It&rsquo;s equal to the average waiting time plus the configured desviation.</p></li>
+<li><p><strong>phone</strong> <span class="param-type">String</span><br>
+Customer phone for notifications associated to the ticket.</p></li>
+<li><p><strong>messages</strong> <span class="param-type">List&lt;String&gt;</span><br>
+Messages to print.</p></li>
+<li><p><strong>channel</strong> <span class="param-type"><a href="#channel">Channel</a></span><br>
+Channel where the ticket was created.</p></li>
+<li><p><strong>branch</strong> <span class="param-type"><a href="#branch">Branch</a></span><br>
+Branch where the ticket is valid.</p></li>
+<li><p><strong>sector</strong> <span class="param-type"><a href="#sector">Sector</a></span><br>
+Sector where the ticket is valid.</p></li>
+<li><p><strong>service</strong> <span class="param-type"><a href="#service">Service</a></span><br>
+Service requested by the customer.</p></li>
+<li><p><strong>counter</strong> <span class="param-type"><a href="#counter">Counter</a></span><br>
+Counter assigned.</p></li>
+<li><p><strong>createdAt</strong> <span class="param-type">DateTime</span><br>
+Datetime of ticket creation.
+<p>
+<span class="param-condition">Standard:</span> <code><a href="https://en.wikipedia.org/wiki/ISO_8601">ISO 8601</a></code>
+</p></p></li>
+<li><p><strong>updatedAt</strong> <span class="param-type">DateTime</span><br>
+Datetime of the last update of ticket.
+<p>
+<span class="param-condition">Standard:</span> <code><a href="https://en.wikipedia.org/wiki/ISO_8601">ISO 8601</a></code>
+</p></p></li>
+<li><p><strong>print</strong> <span class="param-type">List&lt;<a href="#print-line">PrintLine</a>&gt;</span>
+List of lines to print.</p></li>
+</ul></p>
 
 <style>
     ul.enum {
