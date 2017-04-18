@@ -26,11 +26,11 @@ Content-Type: application/json
     "highEstimatedTime": 14,
     "sectors": [
         {
-            "id": "m8",
+            "id": "m9",
             "name": "Tower A",
             "shortName": "A",
             "status": "ACTIVE",
-            "services": ["s9","s10","s30"]
+            "services": ["s8", "s9", "s10", "s30"]
         }
     ]
 }
@@ -45,14 +45,21 @@ Returns a specific branch requested by ID.
 
 ### Path Params
 
-* **branchId** <span class="param-type">String</span> <span class="required-param">required</span> <br>Unique identifier of branch.
+* **branchId** <span class="param-type">String</span> <span class="required-param">required</span><br>
+Branch unique identifier (Configured from Bmatic configuration panel).
 
 ### Query Params
 
-* **fields** <span class="param-type">List\<String\></span> <span class="recomended-param">recomended</span> <br> Entity fields that will return at response. For example: `fields=id,name,shortName`.
+* **fields** <span class="param-type">List\<String\></span> <span class="recomended-param">recomended</span><br>
+Entity fields that will return at response. For example: `fields=id,name,shortName`.
 
 ### Responses
 
-* **200** <span class="verb-description">Ok</span> *[Branch](#branch)* <br>A branch.
-* **404** <span class="verb-description">Not Found</span> *[Error](#error)* <br>The resource requested not found, returns a simple error message.
-* **500** <span class="verb-description">Internal Server Error</span> *[Error](#error)* <br>An unexpected error has occurred, returns a simple error message.
+* **200** <span class="verb-description">Ok</span> <span class="param-type">[Branch](#branch)</span><br>
+A branch.
+
+* **404** <span class="verb-description">Not Found</span> <span class="param-type">[Error](#error)</span><br>
+The resource requested not found, returns a simple error message.
+
+* **500** <span class="verb-description">Internal Server Error</span> <span class="param-type">[Error](#error)</span><br>
+An unexpected error has occurred, returns a simple error message.

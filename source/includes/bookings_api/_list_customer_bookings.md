@@ -34,7 +34,7 @@ Content-Type: application/json
             "status": "ACTIVE"
         },
         "service": {
-            "id": "7b6",
+            "id": "s8",
             "name": "Plataforma",
             "shortName": "Plataforma"
         },
@@ -49,13 +49,18 @@ Content-Type: application/json
 Returns all bookings created by a specific customer.
 
 <aside class="warning">
-<strong>Precaution:</strong> The booking is automatically deleted after the booking day and is not available anymore.
+<strong>Caution:</strong>
+You should consider the following:
+<ul>
+    <li>The bookings are not available anymore after the booking day.</li>
+    <li>An empty list is returned when not exist registered bookings with the <code>customerId</code> received.</li>
+<ul>
 </aside>
 
 <aside class="notice">
-<strong>Order:</strong> The bookings are sorted descendantly by the field : <code>createdAt</code>.
+<strong>Order:</strong>
+The bookings are sorted descendantly by the field: <code>createdAt</code>.
 </aside>
-
 
 ### Endpoint
 
@@ -63,13 +68,18 @@ Returns all bookings created by a specific customer.
 
 ### Path Params
 
-* **customerId** <span class="param-type">String</span> <span class="required-param">required</span> <br> Customer unique identifier.
+* **customerId** <span class="param-type">String</span> <span class="required-param">required</span><br>
+Customer unique identifier (Obtained it from the customers integration interface).
 
 ### Query Params
 
-* **fields** <span class="param-type">List\<String\></span> <span class="recomended-param">recomended</span> <br> Entity fields that will return at response. For example: `fields=id,code,status`.
+* **fields** <span class="param-type">List\<String\></span> <span class="recomended-param">recomended</span><br>
+Entity fields that will return at response. For example: `fields=id,code,status`.
 
 ### Responses
 
-* **200** <span class="verb-description">Ok</span> *List\<[Booking](#booking)\>* <br>A list of bookings.
-* **500** <span class="verb-description">Internal Server Error</span> *[Error](#error)* <br>An unexpected error has occurred, returns a simple error message.
+* **200** <span class="verb-description">Ok</span> <span class="param-type">List\<[Booking](#booking)\></span><br>
+A list of bookings.
+
+* **500** <span class="verb-description">Internal Server Error</span> <span class="param-type">[Error](#error)</span><br>
+An unexpected error has occurred, returns a simple error message.

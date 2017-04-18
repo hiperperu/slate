@@ -1,15 +1,10 @@
 
-## Update ticket
+## Cancel booking
 
 > Sample request:
 
 ```http
-PUT /v1/tickets/customer/c9mas9js/tickets/89m32b0 HTTP/1.1
-Content-Type: application/json
-
-{
-    "status": "ENABLED"
-}
+DELETE /v1/bookings/customer/c9mas9js/bookings/a90mos HTTP/1.1
 ```
 
 > Sample response:
@@ -18,42 +13,24 @@ Content-Type: application/json
 HTTP/1.1 204 No Content
 ```
 
-Update a customer ticket by ID.
+Cancel a customer booking by ID.
 
 ###Endpoint
 
-`PUT /v1/tickets/customer/{customerId}/tickets/{ticketId}`
+`DELETE /v1/bookings/customer/{customerId}/bookings/{bookingId}`
 
 ### Path Params
 
 * **customerId** <span class="param-type">String</span> <span class="required-param">required</span><br>
 Customer unique identifier (Obtained it from the customers integration interface).
 
-* **ticketId** <span class="param-type">String</span> <span class="required-param">required</span><br>
-Ticket unique identifier (Generated in the ticket creation).
-
-### Request
-
-* **status** <span class="param-type">Enum</span><br>
-New status for the ticket.
-<p>
-    <span class="param-condition">Possible values:</span>  
-    <ul>
-        <li><code>BLOCKED</code></li>
-        <li><code>ENABLED</code></li>
-    </ul>
-</p>
-
-* **phone** <span class="param-type">String</span><br>
-New customer phone for notifications.
-<p>
-    <span class="param-condition">Validation pattern:</span> `^+[1-9]{1}[0-9]{3,14}$`
-</p>
+* **bookingId** <span class="param-type">String</span> <span class="required-param">required</span><br>
+Booking unique identifier (Generated in the booking creation).
 
 ### Responses
 
 * **204** <span class="verb-description">No Content</span><br>
-Successful update.
+Successful cancelation.
 
 * **400** <span class="verb-description">Bad Request</span> <span class="param-type">List\<[ValidationError](#validation-error)\></span><br>
 One or more parameters are not valid, returns a description of validation failed.

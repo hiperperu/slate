@@ -14,7 +14,7 @@ tickets_api:
     - show_ticket_details
     - create_ticket
     - update_ticket
-    - delete_ticket
+    - cancel_ticket
 
 bookings_api:
     - list_available_services_for_bookings
@@ -23,7 +23,7 @@ bookings_api:
     - show_booking_details
     - create_booking
     - update_booking
-    - delete_booking
+    - cancel_booking
 
 error_messages:
     - bad_request
@@ -62,6 +62,7 @@ Improve your customers' experience!
 <%= partial "includes/branches_api" %>
 <%= partial "includes/tickets_api" %>
 <%= partial "includes/bookings_api" %>
+<%= partial "includes/error_messages" %>
 <%= partial "includes/common_object_definitions" %>
 
 <style>

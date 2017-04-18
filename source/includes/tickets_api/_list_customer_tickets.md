@@ -27,7 +27,7 @@ Content-Type: application/json
             "We have a promotion for you!"
         ],
         "channel": {
-            "id": "a10",
+            "id": "c10",
             "name": "Mobile",
             "shortName": "Mobile"
         },
@@ -42,13 +42,13 @@ Content-Type: application/json
             "congestion": "MEDIUM"
         },
         "sector": {
-            "id": "s8",
+            "id": "m9",
             "name": "Tower A",
             "shortName": "A",
             "status": "ACTIVE"
         },
         "service": {
-            "id": "7b6",
+            "id": "s8",
             "name": "Plataforma",
             "shortName": "Plataforma"
         },
@@ -75,11 +75,17 @@ Content-Type: application/json
 Returns all tickets created by a specific customer.
 
 <aside class="warning">
-<strong>Caution:</strong> When the ticket is called by the teller is automatically deleted and is not available anymore.
+<strong>Caution:</strong>
+You should consider the following:
+<ul>
+    <li>When the ticket is called by the teller is automatically deleted and is not available anymore.</li>
+    <li>An empty list is returned when not exist registered tickets with the <code>customerId</code> received.</li>
+<ul>
 </aside>
 
 <aside class="notice">
-<strong>Order:</strong> The tickets are sorted descendantly by the field : <code>created_at</code>.
+<strong>Order:</strong>
+The tickets are sorted descendantly by the field: <code>createdAt</code>.
 </aside>
 
 ### Endpoint
@@ -92,9 +98,13 @@ Returns all tickets created by a specific customer.
 
 ### Query Params
 
-* **fields** <span class="param-type">List\<String\></span> <span class="recomended-param">recomended</span> <br> Entity fields that will return at response. For example: `fields=id,queue,number`.
+* **fields** <span class="param-type">List\<String\></span> <span class="recomended-param">recomended</span><br>
+Entity fields that will return at response. For example: `fields=id,queue,number`.
 
 ### Responses
 
-* **200** <span class="verb-description">Ok</span> *List\<[Ticket](#ticket)\>* <br>A list of tickets.
-* **500** <span class="verb-description">Internal Server Error</span> *[Error](#error)* <br>An unexpected error has occurred, returns a simple error message.
+* **200** <span class="verb-description">Ok</span> <span class="param-type">List\<[Ticket](#ticket)\></span><br>
+A list of tickets.
+
+* **500** <span class="verb-description">Internal Server Error</span> <span class="param-type">[Error](#error)</span><br>
+An unexpected error has occurred, returns a simple error message.

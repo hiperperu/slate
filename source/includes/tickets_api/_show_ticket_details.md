@@ -26,7 +26,7 @@ Content-Type: application/json
         "We have a promotion for you!"
     ],
     "channel": {
-        "id": "a10",
+        "id": "c10",
         "name": "Mobile",
         "shortName": "Mobile"
     },
@@ -41,13 +41,13 @@ Content-Type: application/json
         "congestion": "MEDIUM"
     },
     "sector": {
-        "id": "s8",
+        "id": "m9",
         "name": "Tower A",
         "shortName": "A",
         "status": "ACTIVE"
     },
     "service": {
-        "id": "7b6",
+        "id": "s8",
         "name": "Plataforma",
         "shortName": "Plataforma"
     },
@@ -79,15 +79,24 @@ Returns a customer ticket by ID.
 
 ### Path Params
 
-* **customerId** <span class="param-type">String</span> <span class="required-param">required</span> <br> Customer unique identifier.
-* **ticketId** <span class="param-type">String</span> <span class="required-param">required</span> <br>Unique identifier of ticket.
+* **customerId** <span class="param-type">String</span> <span class="required-param">required</span><br>
+Customer unique identifier (Obtained it from the customers integration interface).
+
+* **ticketId** <span class="param-type">String</span> <span class="required-param">required</span><br>
+Ticket unique identifier (Generated in the ticket creation).
 
 ### Query Params
 
-* **fields** <span class="param-type">List\<String\></span> <span class="recomended-param">recomended</span> <br> Entity fields that will return at response. For example: `fields=id,queue,number`.
+* **fields** <span class="param-type">List\<String\></span> <span class="recomended-param">recomended</span><br>
+Entity fields that will return at response. For example: `fields=id,queue,number`.
 
 ### Responses
 
-* **200** <span class="verb-description">OK</span> *[Ticket](#ticket)* <br>A ticket.
-* **404** <span class="verb-description">Not Found</span> *[Error](#error)* <br>The resource requested not found, returns a simple error message.
-* **500** <span class="verb-description">Internal Server Error</span> *[Error](#error)* <br>An unexpected error has occurred, returns a simple error message.
+* **200** <span class="verb-description">OK</span> <span class="param-type">[Ticket](#ticket)</span><br>
+A ticket.
+
+* **404** <span class="verb-description">Not Found</span> <span class="param-type">[Error](#error)</span><br>
+The resource requested not found, returns a simple error message.
+
+* **500** <span class="verb-description">Internal Server Error</span> <span class="param-type">[Error](#error)</span><br>
+An unexpected error has occurred, returns a simple error message.

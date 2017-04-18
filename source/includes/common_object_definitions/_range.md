@@ -1,7 +1,7 @@
 
 ## Range
 
-> Sample object
+> Sample object:
 
 ```json
 {
@@ -14,5 +14,14 @@ Model of time range object.
 
 ### Fields
 
-* **startTime** <span class="param-type">DateTime</span> <br> Start time of range. <p>*Standard*: <code>[ISO 8601](https://en.wikipedia.org/wiki/ISO_8601)</code></p> |
-* **endTime** <span class="param-type">DateTime</span> <br> End time of range.<p>*Standard*: <code>[ISO 8601](https://en.wikipedia.org/wiki/ISO_8601)</code></p>  |
+* **startTime** <span class="param-type">DateTime</span><br>
+Start time of range.
+<p>
+    <span class="param-condition">Standard:</span> <code>[ISO 8601](https://en.wikipedia.org/wiki/ISO_8601)</code>
+</p>
+
+* **endTime** <span class="param-type">DateTime</span><br>
+End time of range.
+<p>
+    <span class="param-condition">Standard:</span> <code>[ISO 8601](https://en.wikipedia.org/wiki/ISO_8601)</code>
+</p>
