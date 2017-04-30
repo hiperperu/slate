@@ -29,8 +29,7 @@ Content-Type: application/json
             "id": "m9",
             "name": "Tower A",
             "shortName": "A",
-            "status": "ACTIVE",
-            "services": ["s8", "s9", "s10", "s30"]
+            "status": "ACTIVE"
         }
     ]
 }
@@ -51,7 +50,7 @@ Branch unique identifier (Configured from Bmatic configuration panel).
 ### Query Params
 
 * **fields** <span class="param-type">List\<String\></span> <span class="recomended-param">recomended</span><br>
-Entity fields that will return at response. For example: `fields=id,name,shortName`.
+Entity fields that will included in the response(See available fields in [the branch object definition](#branch)). For example: `fields=id,name,shortName`.
 
 ### Responses
 

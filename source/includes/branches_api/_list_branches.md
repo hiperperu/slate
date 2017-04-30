@@ -25,7 +25,7 @@ Content-Type: application/json
         "latitude": -12.049919,
         "longitude": -77.0845193,
         "status": "ACTIVE",
-        "congestion": "MEDIUM",
+        "congestion": "MEDIUM", 
         "lowEstimatedTime": 10,
         "highEstimatedTime": 14,
         "sectors": [
@@ -33,8 +33,7 @@ Content-Type: application/json
                 "id": "m9",
                 "name": "Tower A",
                 "shortName": "A",
-                "status": "ACTIVE",
-                "services": ["s8", "s9", "s10", "s30"]
+                "status": "ACTIVE"
             }
         ]
     }
@@ -88,11 +87,8 @@ Minimum longitude of the geographic area that has to contain the branches.
 * **maxLongitude** <span class="param-type">Float</span> <span class="recomended-param">recomended</span><br>
 Maximum longitude of the geographic area that has to contain the branches.
 
-* **serviceId** <span class="param-type">String</span><br>
-Unique identifier of service supported by the branch.
-
 * **fields** <span class="param-type">List\<String\></span> <span class="recomended-param">recomended</span><br>
-Entity fields that will included in the response. For example: `fields=id,name,shortName`.
+Entity fields that will included in the response(See available fields in [the branch object definition](#branch)). For example: `fields=id,name,shortName`.
 
 * **offset** <span class="param-type">Integer</span><br>
 Position in pagination.
