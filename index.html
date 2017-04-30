@@ -245,7 +245,7 @@
         </span><span class="s2">"latitude"</span><span class="p">:</span><span class="w"> </span><span class="mf">-12.049919</span><span class="p">,</span><span class="w">
         </span><span class="s2">"longitude"</span><span class="p">:</span><span class="w"> </span><span class="mf">-77.0845193</span><span class="p">,</span><span class="w">
         </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACTIVE"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"congestion"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MEDIUM"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"congestion"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MEDIUM"</span><span class="p">,</span><span class="w"> 
         </span><span class="s2">"lowEstimatedTime"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
         </span><span class="s2">"highEstimatedTime"</span><span class="p">:</span><span class="w"> </span><span class="mi">14</span><span class="p">,</span><span class="w">
         </span><span class="s2">"sectors"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
@@ -253,8 +253,7 @@
                 </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"m9"</span><span class="p">,</span><span class="w">
                 </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tower A"</span><span class="p">,</span><span class="w">
                 </span><span class="s2">"shortName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"A"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACTIVE"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"services"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"s8"</span><span class="p">,</span><span class="w"> </span><span class="s2">"s9"</span><span class="p">,</span><span class="w"> </span><span class="s2">"s10"</span><span class="p">,</span><span class="w"> </span><span class="s2">"s30"</span><span class="p">]</span><span class="w">
+                </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACTIVE"</span><span class="w">
             </span><span class="p">}</span><span class="w">
         </span><span class="p">]</span><span class="w">
     </span><span class="p">}</span><span class="w">
@@ -303,10 +302,8 @@ Maximum latitude of the geographic area that has to contain the branches.</p></l
 Minimum longitude of the geographic area that has to contain the branches.</p></li>
 <li><p><strong>maxLongitude</strong> <span class="param-type">Float</span> <span class="recomended-param">recomended</span><br>
 Maximum longitude of the geographic area that has to contain the branches.</p></li>
-<li><p><strong>serviceId</strong> <span class="param-type">String</span><br>
-Unique identifier of service supported by the branch.</p></li>
 <li><p><strong>fields</strong> <span class="param-type">List&lt;String&gt;</span> <span class="recomended-param">recomended</span><br>
-Entity fields that will included in the response. For example: <code class="prettyprint">fields=id,name,shortName</code>.</p></li>
+Entity fields that will included in the response(See available fields in <a href="#branch">the branch object definition</a>). For example: <code class="prettyprint">fields=id,name,shortName</code>.</p></li>
 <li><p><strong>offset</strong> <span class="param-type">Integer</span><br>
 Position in pagination.
 <p>
@@ -369,8 +366,7 @@ An unexpected error has occurred, returns a simple error message.</p></li>
             </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"m9"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tower A"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"shortName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"A"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACTIVE"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"services"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"s8"</span><span class="p">,</span><span class="w"> </span><span class="s2">"s9"</span><span class="p">,</span><span class="w"> </span><span class="s2">"s10"</span><span class="p">,</span><span class="w"> </span><span class="s2">"s30"</span><span class="p">]</span><span class="w">
+            </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACTIVE"</span><span class="w">
         </span><span class="p">}</span><span class="w">
     </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -393,7 +389,7 @@ Branch unique identifier (Configured from Bmatic configuration panel).</li>
 
 <ul>
 <li><strong>fields</strong> <span class="param-type">List&lt;String&gt;</span> <span class="recomended-param">recomended</span><br>
-Entity fields that will return at response. For example: <code class="prettyprint">fields=id,name,shortName</code>.</li>
+Entity fields that will included in the response(See available fields in <a href="#branch">the branch object definition</a>). For example: <code class="prettyprint">fields=id,name,shortName</code>.</li>
 </ul>
 
 <h3 id="responses">Responses</h3>
