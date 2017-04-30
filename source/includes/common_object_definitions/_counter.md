@@ -27,5 +27,5 @@ Name of the counter.
 * **teller** <span class="param-type">String</span><br>
 Account name of teller in counter.
 <p>
-    <span class="param-condition">Maximum length:</span> <code>50</code>
+    <span class="param-condition">Maximum length:</span> <code>30</code>
 </p>

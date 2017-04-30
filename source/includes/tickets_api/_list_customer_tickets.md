@@ -108,7 +108,7 @@ Entity fields that will included in the response(See available fields in [the ti
 * **200** <span class="verb-description">Ok</span> <span class="param-type">List\<[Ticket](#ticket)\></span><br>
 A list of tickets.
 
-* **400** <span class="verb-description">Bad Request</span> <span class="param-type">[ValidationError](#validation-error)</span><br>
+* **400** <span class="verb-description">Bad Request</span> <span class="param-type">[Error](#error)</span><br>
 One or more parameters are not valid, returns a description of validation failed.
 
 * **500** <span class="verb-description">Internal Server Error</span> <span class="param-type">[Error](#error)</span><br>

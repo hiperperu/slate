@@ -5,7 +5,8 @@
 
 ```json
 {
-    "message": "Resource not found",
+    "type": "ResourceNotFoundException",
+    "message": "Resource not found for the request GET /v2",
 }
 ```
 
@@ -13,5 +14,8 @@ Model of error object.
 
 ### Fields
 
-* **message** <span class="param-type">String</span> <span class="required-param">required</span><br>
+* **type** <span class="param-type">String</span> 
+Name of type error.
+
+* **message** <span class="param-type">String</span> 
 Simple description of the error.

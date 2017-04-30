@@ -55,7 +55,7 @@ New customer phone for notifications.
 * **204** <span class="verb-description">No Content</span><br>
 Successful update.
 
-* **400** <span class="verb-description">Bad Request</span> <span class="param-type">[ValidationError](#validation-error)</span><br>
+* **400** <span class="verb-description">Bad Request</span> <span class="param-type">[Error](#error)</span><br>
 One or more parameters are not valid, returns a description of validation failed.
 
 * **404** <span class="verb-description">Not Found</span> <span class="param-type">[Error](#error)</span><br>

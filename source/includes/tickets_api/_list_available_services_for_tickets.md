@@ -47,7 +47,7 @@ Unique identifier of the channel used. This value should be fixed in the client 
 * **200** <span class="verb-description">Ok</span> <span class="param-type">List\<[Service](#service)\></span><br>
 A list of services.
 
-* **400** <span class="verb-description">Bad Request</span> <span class="param-type">[ValidationError](#validation-error)</span><br>
+* **400** <span class="verb-description">Bad Request</span> <span class="param-type">[Error](#error)</span><br>
 One or more parameters are not valid, returns a description of validation failed.
 
 * **404** <span class="verb-description">Not Found</span> <span class="param-type">[Error](#error)</span><br>
