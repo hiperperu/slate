@@ -215,7 +215,7 @@
 
 <h1 id="branches-api">Branches API</h1>
 
-<p>Before you create tickets or bookings, you need a branch and sector provided by the endpoints of this section (The booking creation does not require a sector). You should consider to use the recommended parameters for a better application performance.</p>
+<p>Before you create tickets or bookings, you need a branch and sector provided by the endpoints of this section (The booking creation does not require a sector). You should consider using the recommended parameters for better performance.</p>
 
 <p><h2 id="list-branches">List branches</h2></p>
 
@@ -267,21 +267,21 @@
 <strong>Caution:</strong>
     You should consider the next:
     <ul>
-        <li>The branches to return should to be marked with the flag <code>expose by API</code> from the Bmatic configuration panel.</li>
+        <li>The branches to return should to be marked with the flag <code>exposed by the API</code> from Bmatic configuration panel.</li>
         <li>An empty collection is returned when no branch fulfill the filters.</li>
-        <li>For filter the branches by area it is necessary specified the parameters <code>minLatitude</code>, <code>maxLatitude</code>, <code>minLongitude</code> and <code>maxLongitude</code>. If any of these parameters is not sended then all will be ignored.</li>
-        <li>For order the branches by proximity to the client location it is necessary specified the parameters <code>latitude</code>, <code>longitude</code>. If any of these parameters is not sended then all will be ignored.</li>
+        <li>Filter branches by geolocalization it is necessary to specify <code>minLatitude</code>, <code>maxLatitude</code>, <code>minLongitude</code> and <code>maxLongitude</code>. If any of these parameters is not included then all will be ignored.</li>
+        <li>To order the branches by proximity to the client location it is necessary specify <code>latitude</code> and <code>longitude</code>. If any of these parameters is not included then all will be ignored.</li>
     </ul>
 </aside>
 
 <aside class="notice">
 <strong>Order:</strong>
-    The branches are sorted by the better distance to client location and their shortName.
+    Branches are sorted by the shorter distance to client location.
 </aside>
 
 <aside class="success">
 <strong>Remember:</strong>
-    The customers prefer to attend the nearest branches, for that it is recommendable ever use the parameters <code>longitude</code>, <code>latitude</code>, <code>minLatitude</code>, <code>maxLatitude</code>, <code>minLongitude</code> and <code>maxLongitude</code>.
+    Customers prefer to attend the nearest branches, for that it is recommendable ever use <code>longitude</code>, <code>latitude</code>, <code>minLatitude</code>, <code>maxLatitude</code>, <code>minLongitude</code> and <code>maxLongitude</code> parameters.
 </aside>
 
 <h3 id="endpoint">Endpoint</h3>
@@ -296,17 +296,17 @@ Latitude component of customer location.</p></li>
 <li><p><strong>longitude</strong> <span class="param-type">Float</span> <span class="recomended-param">recomended</span><br>
 Longitude component of customer location.</p></li>
 <li><p><strong>minLatitude</strong> <span class="param-type">Float</span> <span class="recomended-param">recomended</span><br>
-Minimum latitude of the area that has to contain the branches.</p></li>
+Minimum latitude of the geographic area that has to contain the branches.</p></li>
 <li><p><strong>maxLatitude</strong> <span class="param-type">Float</span> <span class="recomended-param">recomended</span><br>
-Maximum latitude of the area that has to contain the branches.</p></li>
+Maximum latitude of the geographic area that has to contain the branches.</p></li>
 <li><p><strong>minLongitude</strong> <span class="param-type">Float</span> <span class="recomended-param">recomended</span><br>
-Minimum longitude of the area that has to contain the branches.</p></li>
+Minimum longitude of the geographic area that has to contain the branches.</p></li>
 <li><p><strong>maxLongitude</strong> <span class="param-type">Float</span> <span class="recomended-param">recomended</span><br>
-Maximum longitude of the area that has to contain the branches.</p></li>
+Maximum longitude of the geographic area that has to contain the branches.</p></li>
 <li><p><strong>serviceId</strong> <span class="param-type">String</span><br>
 Unique identifier of service supported by the branch.</p></li>
 <li><p><strong>fields</strong> <span class="param-type">List&lt;String&gt;</span> <span class="recomended-param">recomended</span><br>
-Entity fields that will return at response. For example: <code class="prettyprint">fields=id,name,shortName</code>.</p></li>
+Entity fields that will included in the response. For example: <code class="prettyprint">fields=id,name,shortName</code>.</p></li>
 <li><p><strong>offset</strong> <span class="param-type">Integer</span><br>
 Position in pagination.
 <p>
@@ -331,7 +331,7 @@ A list of branches. Pagination headers are included:
 <li><strong>X-Pagination-Page:</strong> Number of current page.</li>
 <li><strong>X-Pagination-Limit:</strong> Limit of items per page.</li>
 </ul></p></li>
-<li><p><strong>400</strong> <span class="verb-description">Bad Request</span> <span class="param-type">List&lt;<a href="#validation-error">ValidationError</a>&gt;</span><br>
+<li><p><strong>400</strong> <span class="verb-description">Bad Request</span> <span class="param-type"><a href="#validation-error">ValidationError</a></span><br>
 One or more parameters are not valid, returns a description of validation failed.</p></li>
 <li><p><strong>500</strong> <span class="verb-description">Internal Server Error</span> <span class="param-type"><a href="#error">Error</a></span><br>
 An unexpected error has occurred, returns a simple error message.</p></li>
@@ -499,8 +499,7 @@ An unexpected error has occurred, returns a simple error message.</p></li>
         </span><span class="p">],</span><span class="w">
         </span><span class="s2">"channel"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
             </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"c10"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Mobile"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"shortName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Mobile"</span><span class="w">
+            </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Mobile"</span><span class="w">
         </span><span class="p">},</span><span class="w">
         </span><span class="s2">"branch"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
             </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"27b6"</span><span class="p">,</span><span class="w">
@@ -615,8 +614,7 @@ An unexpected error has occurred, returns a simple error message.</p></li>
     </span><span class="p">],</span><span class="w">
     </span><span class="s2">"channel"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"c10"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Mobile"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"shortName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Mobile"</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Mobile"</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="s2">"branch"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"27b6"</span><span class="p">,</span><span class="w">
@@ -735,7 +733,6 @@ An unexpected error has occurred, returns a simple error message.</p></li>
     </span><span class="s2">"channel"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"c10"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Mobile"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"shortName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Mobile"</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="s2">"branch"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"27b6"</span><span class="p">,</span><span class="w">
@@ -782,6 +779,7 @@ An unexpected error has occurred, returns a simple error message.</p></li>
 <aside class="warning">
 <strong>Caution:</strong>
 You should consider the following before create a ticket:
+Validar estados
 <ul>
     <li>The channel used should support the requested service.</li>
     <li>The requested branch should contain the requested sector.</li>
@@ -1200,8 +1198,7 @@ An unexpected error has occurred, returns a simple error message.</p></li>
         </span><span class="s2">"phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"+51987882567"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"channel"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
             </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"c10"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Mobile"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"shortName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Mobile"</span><span class="w">
+            </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Mobile"</span><span class="w">
         </span><span class="p">},</span><span class="w">
         </span><span class="s2">"branch"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
             </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"27b6"</span><span class="p">,</span><span class="w">
@@ -1291,8 +1288,7 @@ An unexpected error has occurred, returns a simple error message.</p></li>
     </span><span class="s2">"phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"+51987882567"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"channel"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"c10"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Mobile"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"shortName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Mobile"</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Mobile"</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="s2">"branch"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"27b6"</span><span class="p">,</span><span class="w">
@@ -1384,8 +1380,7 @@ An unexpected error has occurred, returns a simple error message.</p></li>
     </span><span class="s2">"phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"+51987882567"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"channel"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"c10"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Mobile"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"shortName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Mobile"</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Mobile"</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="s2">"branch"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"27b6"</span><span class="p">,</span><span class="w">
@@ -1658,7 +1653,7 @@ An unexpected error has occurred, returns a simple error message.</p></li>
 
 <span class="p">[</span><span class="w">
     </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">40003</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"40003"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Customer 'c9mas9js' has a ticket on hold"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"field"</span><span class="p">:</span><span class="s2">"customerId"</span><span class="w">
     </span><span class="p">}</span><span class="w">
@@ -1817,8 +1812,7 @@ If you obtain this type of error contact your support.
     </span><span class="s2">"phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"+51987882567"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"channel"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"c10"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Mobile"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"shortName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Mobile"</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Mobile"</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="s2">"branch"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"27b6"</span><span class="p">,</span><span class="w">
@@ -1884,12 +1878,12 @@ End time of booking.
 <span class="param-condition">Standard:</span> <code><a href="https://en.wikipedia.org/wiki/ISO_8601">ISO 8601</a></code>
 </p></p></li>
 <li><p><strong>createdAt</strong> <span class="param-type">DateTime</span><br>
-Datetime of ticket creation.
+Date of booking creation.
 <p>
 <span class="param-condition">Standard:</span> <code><a href="https://en.wikipedia.org/wiki/ISO_8601">ISO 8601</a></code>
 </p></p></li>
 <li><p><strong>updatedAt</strong> <span class="param-type">DateTime</span><br>
-Datetime of the last update of ticket.
+Date of the last update of booking.
 <p>
 <span class="param-condition">Standard:</span> <code><a href="https://en.wikipedia.org/wiki/ISO_8601">ISO 8601</a></code>
 </p></p></li>
@@ -2001,7 +1995,6 @@ List of the branch&rsquo;s sectors. A correct configuration include at least one
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"c10"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Mobile"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"shortName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Mobile"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
@@ -2014,11 +2007,6 @@ List of the branch&rsquo;s sectors. A correct configuration include at least one
 Channel unique identifier (Configured from Bmatic configuration panel).</p></li>
 <li><p><strong>name</strong> <span class="param-type">String</span><br>
 Complete name of the channel.
-<p>
-<span class="param-condition">Maximum length:</span> <code>50</code>
-</p></p></li>
-<li><p><strong>shortName</strong> <span class="param-type">String</span><br>
-Name to display in small devices.
 <p>
 <span class="param-condition">Maximum length:</span> <code>20</code>
 </p></p></li>
@@ -2047,7 +2035,7 @@ Counter unique identifier (Configured from Bmatic configuration panel).</p></li>
 <li><p><strong>name</strong> <span class="param-type">String</span><br>
 Name of the counter.
 <p>
-<span class="param-condition">Maximum length:</span> <code>50</code>
+<span class="param-condition">Maximum length:</span> <code>20</code>
 </p></p></li>
 <li><p><strong>teller</strong> <span class="param-type">String</span><br>
 Account name of teller in counter.
@@ -2087,6 +2075,26 @@ Date with available ranges.
 List of available time ranges.</p></li>
 </ul>
 
+<p><h2 id="error">Error</h2></p>
+
+<blockquote>
+<p>Sample object:</p>
+</blockquote>
+
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Resource not found"</span><span class="p">,</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>Model of error object.</p>
+
+<h3 id="fields">Fields</h3>
+
+<ul>
+<li><strong>message</strong> <span class="param-type">String</span> <span class="required-param">required</span><br>
+Simple description of the error.</li>
+</ul>
+
 <p><h2 id="print-line">Print Line</h2></p>
 
 <blockquote>
@@ -2108,7 +2116,7 @@ List of available time ranges.</p></li>
 
 <ul>
 <li><p><strong>align</strong> <span class="param-type">Enum</span><br>
-Aligned of the line.
+Alignment of the line.
 <p>
 <span class="param-condition">Possible values:</span>
 <ul>
@@ -2130,7 +2138,6 @@ Font of the line.
     <li><code>A_DOUBLE_WIDTH</code></li>
     <li><code>B_DOUBLE_WIDTH</code></li>
     <li><code>A_QUADRUPLE</code></li>
-    <li><code>B_QUADRUPLE</code></li>
     <li><code>B_QUADRUPLE</code></li>
     <li><code>C_DOUBLE_HIGH</code></li>
     <li><code>C_DOUBLE_WIDTH</code></li>
@@ -2285,8 +2292,7 @@ Name to display in small devices.
     </span><span class="p">],</span><span class="w">
     </span><span class="s2">"channel"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"c10"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Mobile"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"shortName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Mobile"</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Mobile"</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="s2">"branch"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"27b6"</span><span class="p">,</span><span class="w">
@@ -2381,18 +2387,44 @@ Service requested by the customer.</p></li>
 <li><p><strong>counter</strong> <span class="param-type"><a href="#counter">Counter</a></span><br>
 Counter assigned.</p></li>
 <li><p><strong>createdAt</strong> <span class="param-type">DateTime</span><br>
-Datetime of ticket creation.
+Date of ticket creation.
 <p>
 <span class="param-condition">Standard:</span> <code><a href="https://en.wikipedia.org/wiki/ISO_8601">ISO 8601</a></code>
 </p></p></li>
 <li><p><strong>updatedAt</strong> <span class="param-type">DateTime</span><br>
-Datetime of the last update of ticket.
+Date of the last update of ticket.
 <p>
 <span class="param-condition">Standard:</span> <code><a href="https://en.wikipedia.org/wiki/ISO_8601">ISO 8601</a></code>
 </p></p></li>
 <li><p><strong>print</strong> <span class="param-type">List&lt;<a href="#print-line">PrintLine</a>&gt;</span>
 List of lines to print.</p></li>
 </ul></p>
+
+<p><h2 id="validation-error">Validation Error</h2></p>
+
+<blockquote>
+<p>Sample object:</p>
+</blockquote>
+
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"40003"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Customer 'c9mas9js' has a ticket on hold"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"field"</span><span class="p">:</span><span class="s2">"customerId"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>Model of validation error object.</p>
+
+<h3 id="fields">Fields</h3>
+
+<ul>
+<li><p><strong>code</strong> <span class="param-type">String</span><br>
+Error code, used to identify the error.</p></li>
+<li><p><strong>message</strong> <span class="param-type">String</span> <span class="required-param">required</span><br>
+Simple description of the error.</p></li>
+<li><p><strong>field</strong> <span class="param-type">String</span> <span class="required-param">required</span><br>
+Field associated to the error.</p></li>
+</ul>
 
 <style>
     ul.enum {
