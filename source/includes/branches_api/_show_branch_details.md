@@ -57,6 +57,9 @@ Entity fields that will included in the response(See available fields in [the br
 * **200** <span class="verb-description">Ok</span> <span class="param-type">[Branch](#branch)</span><br>
 A branch.
 
+* **400** <span class="verb-description">Bad Request</span> <span class="param-type">[ValidationError](#validation-error)</span><br>
+One or more parameters are not valid, returns a description of validation failed.
+
 * **404** <span class="verb-description">Not Found</span> <span class="param-type">[Error](#error)</span><br>
 The resource requested not found, returns a simple error message.
 

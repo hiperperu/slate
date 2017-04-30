@@ -55,7 +55,7 @@ Returns all branches with their sectors that fulfill the filters.
 
 <aside class="notice">
 <strong>Order:</strong>
-    Branches are sorted by the shorter distance to client location.
+    Branches are sorted by the shorter distance to client location and their short name.
 </aside>
 
 <aside class="success">

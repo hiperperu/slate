@@ -14,14 +14,13 @@ HTTP/1.1 200 OK
 Content-Type: application/json
 
 {
-    "id": "89m32b0",
-    "queue": "T",
+    "id": "89m32b0",    
     "number": 2,
-    "position": 10,
     "status": "BLOCKED",
-    "lowEstimatedTime": "10",
-    "highEstimatedTime": "15",
     "phone": "+51987776576",
+    "position": 10,
+    "lowEstimatedTime": 10,
+    "highEstimatedTime": 15,
     "messages": [
         "We have a promotion for you!"
     ],
@@ -36,8 +35,7 @@ Content-Type: application/json
         "address": "Calle Beta 181 - 195, Callao",
         "latitude": -12.049919,
         "longitude": -77.0845193,
-        "status": "ACTIVE",
-        "congestion": "MEDIUM"
+        "status": "ACTIVE"
     },
     "sector": {
         "id": "m9",
@@ -49,6 +47,11 @@ Content-Type: application/json
         "id": "s8",
         "name": "Plataforma",
         "shortName": "Plataforma"
+    },
+    "queueType": {
+        "id": "R0009",
+        "code": "CC",
+        "name": "Comercial"
     },
     "counter": {
         "id": "v10",
@@ -79,7 +82,7 @@ Returns a customer ticket by ID.
 ### Path Params
 
 * **customerId** <span class="param-type">String</span> <span class="required-param">required</span><br>
-Customer unique identifier (Obtained it from the customers integration interface).
+Customer unique identifier.
 
 * **ticketId** <span class="param-type">String</span> <span class="required-param">required</span><br>
 Ticket unique identifier (Generated in the ticket creation).
@@ -87,12 +90,15 @@ Ticket unique identifier (Generated in the ticket creation).
 ### Query Params
 
 * **fields** <span class="param-type">List\<String\></span> <span class="recomended-param">recomended</span><br>
-Entity fields that will return at response. For example: `fields=id,queue,number`.
+Entity fields that will included in the response(See available fields in [the ticket object definition](#ticket)). For example: `fields=id,queueType,number`.
 
 ### Responses
 
 * **200** <span class="verb-description">OK</span> <span class="param-type">[Ticket](#ticket)</span><br>
 A ticket.
+
+* **400** <span class="verb-description">Bad Request</span> <span class="param-type">[ValidationError](#validation-error)</span><br>
+One or more parameters are not valid, returns a description of validation failed.
 
 * **404** <span class="verb-description">Not Found</span> <span class="param-type">[Error](#error)</span><br>
 The resource requested not found, returns a simple error message.
