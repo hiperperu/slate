@@ -33,8 +33,7 @@ Content-Type: application/json
     "phone": "+51987882567",
     "channel": {
         "id": "c10",
-        "name": "Mobile",
-        "shortName": "Mobile"
+        "name": "Mobile"
     },
     "branch": {
         "id": "27b6",

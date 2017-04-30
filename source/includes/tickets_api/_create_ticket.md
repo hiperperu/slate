@@ -41,7 +41,6 @@ Content-Type: application/json
     "channel": {
         "id": "c10",
         "name": "Mobile",
-        "shortName": "Mobile"
     },
     "branch": {
         "id": "27b6",
@@ -88,6 +87,7 @@ Create a new customer ticket and then returns it.
 <aside class="warning">
 <strong>Caution:</strong>
 You should consider the following before create a ticket:
+Validar estados
 <ul>
     <li>The channel used should support the requested service.</li>
     <li>The requested branch should contain the requested sector.</li>

@@ -9,7 +9,7 @@ Content-Type: application/json
 
 [
     {
-        "code": 40003,
+        "code": "40003",
         "message": "Customer 'c9mas9js' has a ticket on hold",
         "field":"customerId"
     }

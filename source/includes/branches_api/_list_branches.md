@@ -47,21 +47,21 @@ Returns all branches with their sectors that fulfill the filters.
 <strong>Caution:</strong>
     You should consider the next:
     <ul>
-        <li>The branches to return should to be marked with the flag <code>expose by API</code> from the Bmatic configuration panel.</li>
+        <li>The branches to return should to be marked with the flag <code>exposed by the API</code> from Bmatic configuration panel.</li>
         <li>An empty collection is returned when no branch fulfill the filters.</li>
-        <li>For filter the branches by area it is necessary specified the parameters <code>minLatitude</code>, <code>maxLatitude</code>, <code>minLongitude</code> and <code>maxLongitude</code>. If any of these parameters is not sended then all will be ignored.</li>
-        <li>For order the branches by proximity to the client location it is necessary specified the parameters <code>latitude</code>, <code>longitude</code>. If any of these parameters is not sended then all will be ignored.</li>
+        <li>Filter branches by geolocalization it is necessary to specify <code>minLatitude</code>, <code>maxLatitude</code>, <code>minLongitude</code> and <code>maxLongitude</code>. If any of these parameters is not included then all will be ignored.</li>
+        <li>To order the branches by proximity to the client location it is necessary specify <code>latitude</code> and <code>longitude</code>. If any of these parameters is not included then all will be ignored.</li>
     </ul>
 </aside>
 
 <aside class="notice">
 <strong>Order:</strong>
-    The branches are sorted by the better distance to client location and their shortName.
+    Branches are sorted by the shorter distance to client location.
 </aside>
 
 <aside class="success">
 <strong>Remember:</strong>
-    The customers prefer to attend the nearest branches, for that it is recommendable ever use the parameters <code>longitude</code>, <code>latitude</code>, <code>minLatitude</code>, <code>maxLatitude</code>, <code>minLongitude</code> and <code>maxLongitude</code>.
+    Customers prefer to attend the nearest branches, for that it is recommendable ever use <code>longitude</code>, <code>latitude</code>, <code>minLatitude</code>, <code>maxLatitude</code>, <code>minLongitude</code> and <code>maxLongitude</code> parameters.
 </aside>
 
 ### Endpoint
@@ -77,22 +77,22 @@ Latitude component of customer location.
 Longitude component of customer location.
 
 * **minLatitude** <span class="param-type">Float</span> <span class="recomended-param">recomended</span><br>
-Minimum latitude of the area that has to contain the branches.
+Minimum latitude of the geographic area that has to contain the branches.
 
 * **maxLatitude** <span class="param-type">Float</span> <span class="recomended-param">recomended</span><br>
-Maximum latitude of the area that has to contain the branches.
+Maximum latitude of the geographic area that has to contain the branches.
 
 * **minLongitude** <span class="param-type">Float</span> <span class="recomended-param">recomended</span><br>
-Minimum longitude of the area that has to contain the branches.
+Minimum longitude of the geographic area that has to contain the branches.
 
 * **maxLongitude** <span class="param-type">Float</span> <span class="recomended-param">recomended</span><br>
-Maximum longitude of the area that has to contain the branches.
+Maximum longitude of the geographic area that has to contain the branches.
 
 * **serviceId** <span class="param-type">String</span><br>
 Unique identifier of service supported by the branch.
 
 * **fields** <span class="param-type">List\<String\></span> <span class="recomended-param">recomended</span><br>
-Entity fields that will return at response. For example: `fields=id,name,shortName`.
+Entity fields that will included in the response. For example: `fields=id,name,shortName`.
 
 * **offset** <span class="param-type">Integer</span><br>
 Position in pagination.
@@ -118,7 +118,7 @@ A list of branches. Pagination headers are included:
     <li><strong>X-Pagination-Limit:</strong> Limit of items per page.</li>
 </ul>
 
-* **400** <span class="verb-description">Bad Request</span> <span class="param-type">List\<[ValidationError](#validation-error)\></span><br>
+* **400** <span class="verb-description">Bad Request</span> <span class="param-type">[ValidationError](#validation-error)</span><br>
 One or more parameters are not valid, returns a description of validation failed.
 
 * **500** <span class="verb-description">Internal Server Error</span> <span class="param-type">[Error](#error)</span><br>

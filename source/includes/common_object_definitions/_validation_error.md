@@ -5,7 +5,7 @@
 
 ```json
 {
-    "code": 40003,
+    "code": "40003",
     "message": "Customer 'c9mas9js' has a ticket on hold",
     "field":"customerId"
 }
@@ -15,7 +15,7 @@ Model of validation error object.
 
 ### Fields
 
-* **code** <span class="param-type">Integer</span><br>
+* **code** <span class="param-type">String</span><br>
 Error code, used to identify the error.
 
 * **message** <span class="param-type">String</span> <span class="required-param">required</span><br>

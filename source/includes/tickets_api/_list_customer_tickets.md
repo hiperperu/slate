@@ -28,8 +28,7 @@ Content-Type: application/json
         ],
         "channel": {
             "id": "c10",
-            "name": "Mobile",
-            "shortName": "Mobile"
+            "name": "Mobile"
         },
         "branch": {
             "id": "27b6",

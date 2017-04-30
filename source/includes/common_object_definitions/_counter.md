@@ -21,7 +21,7 @@ Counter unique identifier (Configured from Bmatic configuration panel).
 * **name** <span class="param-type">String</span><br>
 Name of the counter.
 <p>
-    <span class="param-condition">Maximum length:</span> <code>50</code>
+    <span class="param-condition">Maximum length:</span> <code>20</code>
 </p>
 
 * **teller** <span class="param-type">String</span><br>

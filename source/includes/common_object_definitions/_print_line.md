@@ -18,7 +18,7 @@ Model of print line object.
 ### Fields
 
 * **align** <span class="param-type">Enum</span><br>
-Aligned of the line.
+Alignment of the line.
 <p>
     <span class="param-condition">Possible values:</span>
     <ul>
@@ -40,7 +40,6 @@ Font of the line.
         <li><code>A_DOUBLE_WIDTH</code></li>
         <li><code>B_DOUBLE_WIDTH</code></li>
         <li><code>A_QUADRUPLE</code></li>
-        <li><code>B_QUADRUPLE</code></li>
         <li><code>B_QUADRUPLE</code></li>
         <li><code>C_DOUBLE_HIGH</code></li>
         <li><code>C_DOUBLE_WIDTH</code></li>

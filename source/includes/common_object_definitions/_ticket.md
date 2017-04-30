@@ -18,8 +18,7 @@
     ],
     "channel": {
         "id": "c10",
-        "name": "Mobile",
-        "shortName": "Mobile"
+        "name": "Mobile"
     },
     "branch": {
         "id": "27b6",
@@ -126,13 +125,13 @@ Service requested by the customer.
 Counter assigned.
 
 * **createdAt** <span class="param-type">DateTime</span><br>
-Datetime of ticket creation.
+Date of ticket creation.
 <p>
     <span class="param-condition">Standard:</span> <code>[ISO 8601](https://en.wikipedia.org/wiki/ISO_8601)</code>
 </p>
 
 * **updatedAt** <span class="param-type">DateTime</span><br>
-Datetime of the last update of ticket.
+Date of the last update of ticket.
 <p>
     <span class="param-condition">Standard:</span> <code>[ISO 8601](https://en.wikipedia.org/wiki/ISO_8601)</code>
 </p>
