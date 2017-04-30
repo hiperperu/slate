@@ -20,8 +20,7 @@
             "id": "m9",
             "name": "Tower A",
             "shortName": "A",
-            "status": "ACTIVE",
-            "services": ["s8", "s9", "s10", "s30"]
+            "status": "ACTIVE"
         }
     ]
 }
