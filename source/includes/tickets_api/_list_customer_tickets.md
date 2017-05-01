@@ -77,8 +77,8 @@ Content-Type: application/json
 Returns all tickets created by a specific customer.
 
 <aside class="warning">
-<strong>Caution:</strong>
-    You should consider the following:
+    <strong>Caution:</strong>
+    You must consider the following:
     <ul>
         <li>When the teller calls the ticket, it is automatically deleted and is not available anymore.</li>
         <li>An empty list is returned when no registered tickets with the <code>customerId</code> existed.</li>

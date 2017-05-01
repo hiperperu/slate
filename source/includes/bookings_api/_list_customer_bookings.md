@@ -49,7 +49,7 @@ Returns all bookings created by a specific customer.
 
 <aside class="warning">
     <strong>Caution:</strong>
-    You should consider the following:
+    You must consider the following:
     <ul>
         <li>The bookings are not available anymore after the booking day.</li>
         <li>An empty list is returned when there is no registered bookings with the <code>customerId</code> received.</li>

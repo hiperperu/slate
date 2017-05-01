@@ -59,11 +59,11 @@ Create a new customer booking and returns it.
 
 <aside class="warning">
     <strong>Caution: </strong>
-    You should consider the following before create a booking:
+    You must consider the following before create a booking:
     <ul>
-        <li>The referenced channel should support the requested service.</li>
-        <li>The referenced branch should support the requested service .</li>
-        <li>The referenced client should has no other booking in state <code>ACTIVE</code> or <code>PENDING</code> for the same requested service.</li>
+        <li>The referenced channel must support the requested service.</li>
+        <li>The referenced branch must support the requested service .</li>
+        <li>The referenced client must has no other booking in state <code>ACTIVE</code> or <code>PENDING</code> for the same requested service.</li>
         <li>The <code>startTime</code> and the <code>endTime</code> must be available.</li>
     <ul>
 </aside>

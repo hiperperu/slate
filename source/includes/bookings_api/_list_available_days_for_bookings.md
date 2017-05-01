@@ -33,7 +33,7 @@ Returns a list of days for book a service in a branch.
 
 <aside class="warning">
     <strong>Caution: </strong> 
-    You should consider the following:
+    You must consider the following:
     <ul>
         <li>An empty list is returned when there are no more bookings available or there is no availability setting for the requested service and branch.</li>
     <ul>

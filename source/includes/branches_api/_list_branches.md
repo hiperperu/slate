@@ -43,10 +43,10 @@ Content-Type: application/json
 Returns all branches with their sectors that fulfill the filters.
 
 <aside class="warning">
-<strong>Caution:</strong>
-    You should consider the next:
+    <strong>Caution:</strong>
+    You must consider the next:
     <ul>
-        <li>The branches to return should to be marked with the flag <code>exposed by the API</code> from Bmatic configuration panel.</li>
+        <li>The branches to return must be marked with the flag <code>exposed by the API</code> from Bmatic configuration panel.</li>
         <li>An empty collection is returned when no branch fulfill the filters.</li>
         <li>Filter branches by geolocalization it is necessary to specify <code>minLatitude</code>, <code>maxLatitude</code>, <code>minLongitude</code> and <code>maxLongitude</code>. If any of these parameters is not included then all will be ignored.</li>
         <li>To order the branches by proximity to the client location it is necessary specify <code>latitude</code> and <code>longitude</code>. If any of these parameters is not included then all will be ignored.</li>
@@ -54,12 +54,12 @@ Returns all branches with their sectors that fulfill the filters.
 </aside>
 
 <aside class="notice">
-<strong>Order:</strong>
+    <strong>Order:</strong>
     Branches are sorted by the shorter distance to client location and their short name.
 </aside>
 
 <aside class="success">
-<strong>Remember:</strong>
+    <strong>Remember:</strong>
     Customers prefer to attend the nearest branches, for that it is recommendable ever use <code>longitude</code>, <code>latitude</code>, <code>minLatitude</code>, <code>maxLatitude</code>, <code>minLongitude</code> and <code>maxLongitude</code> parameters.
 </aside>
 

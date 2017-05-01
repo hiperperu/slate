@@ -86,14 +86,14 @@ Content-Type: application/json
 Create a new customer ticket and returns it.
 
 <aside class="warning">
-<strong>Caution:</strong>
-    You should consider the following before create a ticket:
+    <strong>Caution:</strong>
+    You must consider the following before create a ticket:
     <ul>
-        <li>The used channel should support the requested service.</li>
-        <li>The requested branch should contain the requested sector.</li>
-        <li>The requested sector should support the requested service.</li>
-        <li>The customer should has no other ticket.</li>
-        <li>The customer category referenced by the <code>categoryId</code> should has a queue configured for the requested service and the channel used.</li>
+        <li>The referenced channel must support the requested service.</li>
+        <li>The referenced branch must contain the requested sector.</li>
+        <li>The referenced sector must support the requested service.</li>
+        <li>The customer must has no other ticket.</li>
+        <li>The customer category referenced by the <code>categoryId</code> must has a queue configured for the requested service and the channel used.</li>
     <ul>
 </aside>
 

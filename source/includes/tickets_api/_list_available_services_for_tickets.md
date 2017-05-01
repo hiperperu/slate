@@ -25,8 +25,8 @@ Content-Type: application/json
 Returns available services for the specified channel.
 
 <aside class="warning">
-<strong>Caution:</strong> 
-    You should consider the following:
+    <strong>Caution:</strong> 
+    You must consider the following:
     <ul>
         <li>This operation throw an error(404) when the referenced channel does not exist.</li>
         <li>An empty list is returned when not available services exist from the specified channel.</li>
