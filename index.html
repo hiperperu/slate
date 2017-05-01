@@ -1,0 +1,2192 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>API Reference | BMATIC API</title>
+    <link href="images/favicon.ico" rel="icon" type="image/ico" />
+    <style>
+      .highlight table td { padding: 5px; }
+.highlight table pre { margin: 0; }
+.highlight {
+  color: #faf6e4;
+  background-color: #122b3b;
+}
+.highlight .gl {
+  color: #dee5e7;
+  background-color: #4e5d62;
+}
+.highlight .c, .highlight .cd, .highlight .cm, .highlight .c1, .highlight .cs {
+  color: #6c8b9f;
+  font-style: italic;
+}
+.highlight .cp {
+  color: #b2fd6d;
+  font-weight: bold;
+  font-style: italic;
+}
+.highlight .err {
+  color: #fefeec;
+  background-color: #cc0000;
+}
+.highlight .gr {
+  color: #fefeec;
+  background-color: #cc0000;
+}
+.highlight .k, .highlight .kd, .highlight .kv {
+  color: #f6dd62;
+  font-weight: bold;
+}
+.highlight .o, .highlight .ow {
+  color: #4df4ff;
+}
+.highlight .p, .highlight .pi {
+  color: #4df4ff;
+}
+.highlight .gd {
+  color: #cc0000;
+}
+.highlight .gi {
+  color: #b2fd6d;
+}
+.highlight .ge {
+  font-style: italic;
+}
+.highlight .gs {
+  font-weight: bold;
+}
+.highlight .gt {
+  color: #dee5e7;
+  background-color: #4e5d62;
+}
+.highlight .kc {
+  color: #f696db;
+  font-weight: bold;
+}
+.highlight .kn {
+  color: #ffb000;
+  font-weight: bold;
+}
+.highlight .kp {
+  color: #ffb000;
+  font-weight: bold;
+}
+.highlight .kr {
+  color: #ffb000;
+  font-weight: bold;
+}
+.highlight .gh {
+  color: #ffb000;
+  font-weight: bold;
+}
+.highlight .gu {
+  color: #ffb000;
+  font-weight: bold;
+}
+.highlight .kt {
+  color: #b2fd6d;
+  font-weight: bold;
+}
+.highlight .no {
+  color: #b2fd6d;
+  font-weight: bold;
+}
+.highlight .nc {
+  color: #b2fd6d;
+  font-weight: bold;
+}
+.highlight .nd {
+  color: #b2fd6d;
+  font-weight: bold;
+}
+.highlight .nn {
+  color: #b2fd6d;
+  font-weight: bold;
+}
+.highlight .bp {
+  color: #b2fd6d;
+  font-weight: bold;
+}
+.highlight .ne {
+  color: #b2fd6d;
+  font-weight: bold;
+}
+.highlight .nl {
+  color: #ffb000;
+  font-weight: bold;
+}
+.highlight .nt {
+  color: #ffb000;
+  font-weight: bold;
+}
+.highlight .m, .highlight .mf, .highlight .mh, .highlight .mi, .highlight .il, .highlight .mo, .highlight .mb, .highlight .mx {
+  color: #f696db;
+  font-weight: bold;
+}
+.highlight .ld {
+  color: #f696db;
+  font-weight: bold;
+}
+.highlight .ss {
+  color: #f696db;
+  font-weight: bold;
+}
+.highlight .s, .highlight .sb, .highlight .sd, .highlight .s2, .highlight .sh, .highlight .sx, .highlight .sr, .highlight .s1 {
+  color: #fff0a6;
+  font-weight: bold;
+}
+.highlight .se {
+  color: #4df4ff;
+  font-weight: bold;
+}
+.highlight .sc {
+  color: #4df4ff;
+  font-weight: bold;
+}
+.highlight .si {
+  color: #4df4ff;
+  font-weight: bold;
+}
+.highlight .nb {
+  font-weight: bold;
+}
+.highlight .ni {
+  color: #999999;
+  font-weight: bold;
+}
+.highlight .w {
+  color: #BBBBBB;
+}
+.highlight .nf {
+  color: #a8e1fe;
+}
+.highlight .py {
+  color: #a8e1fe;
+}
+.highlight .na {
+  color: #a8e1fe;
+}
+.highlight .nv, .highlight .vc, .highlight .vg, .highlight .vi {
+  color: #a8e1fe;
+  font-weight: bold;
+}
+    </style>
+    <link href="stylesheets/screen.css" rel="stylesheet" media="screen" />
+    <link href="stylesheets/print.css" rel="stylesheet" media="print" />
+      <script src="javascripts/all.js"></script>
+  </head>
+
+  <body class="index" data-languages="[]">
+    <a href="#" id="nav-button">
+      <span>
+        NAV
+        <img src="images/navbar.png" alt="Navbar" />
+      </span>
+    </a>
+    <div class="tocify-wrapper">
+      <img src="images/logo.png" alt="Logo" />
+        <div class="search">
+          <input type="text" class="search" id="input-search" placeholder="Search">
+        </div>
+        <ul class="search-results"></ul>
+      <div id="toc">
+      </div>
+        <ul class="toc-footer">
+            <li><a href='http://www.hiper.com.pe'>Powered by HIPER S.A.</a></li>
+        </ul>
+    </div>
+    <div class="page-wrapper">
+      <div class="dark-box"></div>
+      <div class="content">
+        <h1 id="introduction">Introduction</h1>
+
+<p>Welcome to the Bmatic API! You can use our API to integrate your application with Bmatic System. Now, trought our endpoints you can access BMATIC branches services from any application.</p>
+
+<p>You can download our specification and generate your own client in your prefered language trought the <a href="http://swagger.io/">swagger</a> code generator and speed up your integration process.</p>
+
+<p>Improve your customers&rsquo; experience!</p>
+
+<p><strong>Schemes</strong>: <code class="prettyprint">http, https</code></p>
+
+<p><strong>Host</strong>: <code class="prettyprint">api.bmatic.com</code></p>
+
+<p><strong>Base path</strong>: <code class="prettyprint">/v1</code></p>
+
+<h1 id="branches-api">Branches API</h1>
+
+<p>Before you create tickets or bookings, you need a branch and sector provided by the endpoints of this section (The booking creation does not require a sector). You should consider using the recommended parameters for better performance.</p>
+
+<p><h2 id="list-branches">List branches</h2></p>
+
+<blockquote>
+<p>Sample request:</p>
+</blockquote>
+
+<pre class="highlight http tab-http"><code><span class="nf">GET</span> <span class="nn">/v1/branches/branch?offset=9&amp;limit=1</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+</code></pre>
+
+<blockquote>
+<p>Sample response:</p>
+</blockquote>
+
+<pre class="highlight http tab-http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">X-Pagination-Count</span><span class="p">:</span> <span class="s">32</span>
+<span class="na">X-Pagination-Page</span><span class="p">:</span> <span class="s">10</span>
+<span class="na">X-Pagination-Limit</span><span class="p">:</span> <span class="s">1</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+
+<span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"27b6"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Hiper Central"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"shortName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Hiper"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Calle Beta 181 - 195, Callao"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"latitude"</span><span class="p">:</span><span class="w"> </span><span class="mf">-12.049919</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"longitude"</span><span class="p">:</span><span class="w"> </span><span class="mf">-77.0845193</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACTIVE"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"congestion"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MEDIUM"</span><span class="p">,</span><span class="w"> 
+        </span><span class="s2">"lowEstimatedTime"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"highEstimatedTime"</span><span class="p">:</span><span class="w"> </span><span class="mi">14</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"sectors"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"m9"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tower A"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"shortName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"A"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACTIVE"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">]</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
+
+<p>Returns all branches with their sectors that fulfill the filters.</p>
+
+<aside class="warning">
+    <strong>Caution:</strong>
+    You must consider the next:
+    <ul>
+        <li>The branches to return must be marked with the flag <code>exposed by the API</code> from Bmatic configuration panel.</li>
+        <li>An empty collection is returned when no branch fulfill the filters.</li>
+        <li>Filter branches by geolocalization it is necessary to specify <code>minLatitude</code>, <code>maxLatitude</code>, <code>minLongitude</code> and <code>maxLongitude</code>. If any of these parameters is not included then all will be ignored.</li>
+        <li>To order the branches by proximity to the client location it is necessary specify <code>latitude</code> and <code>longitude</code>. If any of these parameters is not included then all will be ignored.</li>
+    </ul>
+</aside>
+
+<aside class="notice">
+    <strong>Order:</strong>
+    Branches are sorted by the shorter distance to client location and their short name.
+</aside>
+
+<aside class="success">
+    <strong>Remember:</strong>
+    Customers prefer to attend the nearest branches, for that it is recommendable ever use <code>longitude</code>, <code>latitude</code>, <code>minLatitude</code>, <code>maxLatitude</code>, <code>minLongitude</code> and <code>maxLongitude</code> parameters.
+</aside>
+
+<h3 id="endpoint">Endpoint</h3>
+
+<p><code class="prettyprint">GET /v1/branches/branch</code></p>
+
+<h3 id="query-params">Query Params</h3>
+
+<ul>
+<li><p><strong>latitude</strong> <span class="param-type">Float</span> <span class="recomended-param">recomended</span><br>
+Latitude component of customer location.</p></li>
+<li><p><strong>longitude</strong> <span class="param-type">Float</span> <span class="recomended-param">recomended</span><br>
+Longitude component of customer location.</p></li>
+<li><p><strong>minLatitude</strong> <span class="param-type">Float</span> <span class="recomended-param">recomended</span><br>
+Minimum latitude of the geographic area that has to contain the branches.</p></li>
+<li><p><strong>maxLatitude</strong> <span class="param-type">Float</span> <span class="recomended-param">recomended</span><br>
+Maximum latitude of the geographic area that has to contain the branches.</p></li>
+<li><p><strong>minLongitude</strong> <span class="param-type">Float</span> <span class="recomended-param">recomended</span><br>
+Minimum longitude of the geographic area that has to contain the branches.</p></li>
+<li><p><strong>maxLongitude</strong> <span class="param-type">Float</span> <span class="recomended-param">recomended</span><br>
+Maximum longitude of the geographic area that has to contain the branches.</p></li>
+<li><p><strong>fields</strong> <span class="param-type">List&lt;String&gt;</span> <span class="recomended-param">recomended</span><br>
+Entity fields that will included in the response(See available fields in <a href="#branch">the branch object definition</a>). For example: <code class="prettyprint">fields=id,name,shortName</code>.</p></li>
+<li><p><strong>offset</strong> <span class="param-type">Integer</span><br>
+Position in pagination.
+<p>
+<span class="param-condition">Default value:</span> <code>0</code><br>
+<span class="param-condition">Maximum value:</span> <code>9999</code>
+</p></p></li>
+<li><p><strong>limit</strong> <span class="param-type">Integer</span><br>
+Number of items to retrieve.
+<p>
+<span class="param-condition">Default value:</span> <code>10</code><br>
+<span class="param-condition">Maximum value:</span> <code>50</code>
+</p></p></li>
+</ul>
+
+<h3 id="responses">Responses</h3>
+
+<ul>
+<li><p><strong>200</strong> <span class="verb-description">Ok</span> <span class="param-type">List&lt;<a href="#branch">Branch</a>&gt;</span><br>
+A list of branches. Pagination headers are included:
+<ul>
+<li><strong>X-Pagination-Count:</strong> Total number of items.</li>
+<li><strong>X-Pagination-Page:</strong> Number of current page.</li>
+<li><strong>X-Pagination-Limit:</strong> Limit of items per page.</li>
+</ul></p></li>
+<li><p><strong>400</strong> <span class="verb-description">Bad Request</span> <span class="param-type"><a href="#error">Error</a></span><br>
+One or more parameters are not valid, returns a description of validation failed.</p></li>
+<li><p><strong>500</strong> <span class="verb-description">Internal Server Error</span> <span class="param-type"><a href="#error">Error</a></span><br>
+An unexpected error has occurred, returns a simple error message.</p></li>
+</ul>
+
+<p><h2 id="show-branch-details">Show branch details</h2></p>
+
+<blockquote>
+<p>Sample request:</p>
+</blockquote>
+
+<pre class="highlight http tab-http"><code><span class="nf">GET</span> <span class="nn">/v1/branches/branch/{branchId}</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+</code></pre>
+
+<blockquote>
+<p>Sample response:</p>
+</blockquote>
+
+<pre class="highlight http tab-http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+
+<span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"27b6"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Hiper Central"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"shortName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Hiper"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Calle Beta 181 - 195, Callao"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"latitude"</span><span class="p">:</span><span class="w"> </span><span class="mf">-12.049919</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"longitude"</span><span class="p">:</span><span class="w"> </span><span class="mf">-77.0845193</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACTIVE"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"congestion"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MEDIUM"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"lowEstimatedTime"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"highEstimatedTime"</span><span class="p">:</span><span class="w"> </span><span class="mi">14</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"sectors"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"m9"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tower A"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"shortName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"A"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACTIVE"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>Returns a specific branch requested by ID.</p>
+
+<h3 id="endpoint">Endpoint</h3>
+
+<p><code class="prettyprint">GET /v1/branches/branch/{branchId}</code></p>
+
+<h3 id="path-params">Path Params</h3>
+
+<ul>
+<li><strong>branchId</strong> <span class="param-type">String</span> <span class="required-param">required</span><br>
+Branch unique identifier (Configured from Bmatic configuration panel).</li>
+</ul>
+
+<h3 id="query-params">Query Params</h3>
+
+<ul>
+<li><strong>fields</strong> <span class="param-type">List&lt;String&gt;</span> <span class="recomended-param">recomended</span><br>
+Entity fields that will included in the response(See available fields in <a href="#branch">the branch object definition</a>). For example: <code class="prettyprint">fields=id,name,shortName</code>.</li>
+</ul>
+
+<h3 id="responses">Responses</h3>
+
+<ul>
+<li><p><strong>200</strong> <span class="verb-description">Ok</span> <span class="param-type"><a href="#branch">Branch</a></span><br>
+A branch.</p></li>
+<li><p><strong>400</strong> <span class="verb-description">Bad Request</span> <span class="param-type"><a href="#error">Error</a></span><br>
+One or more parameters are not valid, returns a description of validation failed.</p></li>
+<li><p><strong>404</strong> <span class="verb-description">Not Found</span> <span class="param-type"><a href="#error">Error</a></span><br>
+The resource requested not found, returns a simple error message.</p></li>
+<li><p><strong>500</strong> <span class="verb-description">Internal Server Error</span> <span class="param-type"><a href="#error">Error</a></span><br>
+An unexpected error has occurred, returns a simple error message.</p></li>
+</ul>
+
+<h1 id="tickets-api">Tickets API</h1>
+
+<p>Your customers don&rsquo;t need anymore to be at branch for create tickets. You can use the endpoints of this section to allow them create ticket from anywhere easily.</p>
+
+<p><h2 id="list-available-services-for-tickets">List available services for tickets</h2></p>
+
+<blockquote>
+<p>Sample request:</p>
+</blockquote>
+
+<pre class="highlight http tab-http"><code><span class="nf">GET</span> <span class="nn">/v1/tickets/channel/c10/services</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+</code></pre>
+
+<blockquote>
+<p>Sample response:</p>
+</blockquote>
+
+<pre class="highlight http tab-http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+
+<span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"s8"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Plataforma"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"shortName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Plataforma"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
+
+<p>Returns available services for the specified channel.</p>
+
+<aside class="warning">
+    <strong>Caution:</strong> 
+    You must consider the following:
+    <ul>
+        <li>This operation throw an error(404) when the referenced channel does not exist.</li>
+        <li>An empty list is returned when not available services exist from the specified channel.</li>
+    <ul>
+</aside>
+
+<h3 id="endpoint">Endpoint</h3>
+
+<p><code class="prettyprint">GET /v1/tickets/channel/{channelId}/services</code></p>
+
+<h3 id="path-params">Path Params</h3>
+
+<ul>
+<li><strong>channelId</strong> <span class="param-type">String</span> <span class="required-param">required</span><br>
+Unique identifier of the channel used. This value must be set in the client application.</li>
+</ul>
+
+<h3 id="responses">Responses</h3>
+
+<ul>
+<li><p><strong>200</strong> <span class="verb-description">Ok</span> <span class="param-type">List&lt;<a href="#service">Service</a>&gt;</span><br>
+A list of services.</p></li>
+<li><p><strong>400</strong> <span class="verb-description">Bad Request</span> <span class="param-type"><a href="#error">Error</a></span><br>
+One or more parameters are not valid, returns a description of validation failed.</p></li>
+<li><p><strong>404</strong> <span class="verb-description">Not Found</span> <span class="param-type"><a href="#error">Error</a></span><br>
+The resource requested not found, returns a simple error message.</p></li>
+<li><p><strong>500</strong> <span class="verb-description">Internal Server Error</span> <span class="param-type"><a href="#error">Error</a></span><br>
+An unexpected error has occurred, returns a simple error message.</p></li>
+</ul>
+
+<p><h2 id="list-customer-tickets">List customer tickets</h2></p>
+
+<blockquote>
+<p>Sample request:</p>
+</blockquote>
+
+<pre class="highlight http tab-http"><code><span class="nf">GET</span> <span class="nn">/v1/tickets/customer/c9mas9js/tickets</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+</code></pre>
+
+<blockquote>
+<p>Sample response:</p>
+</blockquote>
+
+<pre class="highlight http tab-http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+
+<span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"89m32b0"</span><span class="p">,</span><span class="w">    
+        </span><span class="s2">"number"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BLOCKED"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"+51987776576"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"position"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"lowEstimatedTime"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"highEstimatedTime"</span><span class="p">:</span><span class="w"> </span><span class="mi">15</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"messages"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="s2">"We have a promotion for you!"</span><span class="w">
+        </span><span class="p">],</span><span class="w">
+        </span><span class="s2">"channel"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"c10"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Mobile"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"branch"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"27b6"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Hiper Central"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"shortName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Hiper"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Calle Beta 181 - 195, Callao"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"latitude"</span><span class="p">:</span><span class="w"> </span><span class="mf">-12.049919</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"longitude"</span><span class="p">:</span><span class="w"> </span><span class="mf">-77.0845193</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACTIVE"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"sector"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"m9"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tower A"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"shortName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"A"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACTIVE"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"service"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"s8"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Plataforma"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"shortName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Plataforma"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"queueType"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"R0009"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CC"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Comercial"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"counter"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"v10"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"V10"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"teller"</span><span class="p">:</span><span class="w"> </span><span class="s2">"achavez"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"createdAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-02-20T10:00:00.000Z"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"updatedAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-02-20T10:00:00.000Z"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"print"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"align"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CENTER"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"font"</span><span class="p">:</span><span class="w"> </span><span class="s2">"A_REGULAR"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"previous"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Welcome to"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"content"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Hiper"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"next"</span><span class="p">:</span><span class="w"> </span><span class="s2">"!"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">]</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
+
+<p>Returns all tickets created by a specific customer.</p>
+
+<aside class="warning">
+    <strong>Caution:</strong>
+    You must consider the following:
+    <ul>
+        <li>When the teller calls the ticket, it is automatically deleted and is not available anymore.</li>
+        <li>An empty list is returned when no registered tickets with the <code>customerId</code> existed.</li>
+    <ul>
+</aside>
+
+<aside class="notice">
+    <strong>Order:</strong>
+    The tickets are sorted descendant by the field: <code>createdAt</code>.
+</aside>
+
+<h3 id="endpoint">Endpoint</h3>
+
+<p><code class="prettyprint">GET /v1/tickets/customer/{customerId}/tickets</code></p>
+
+<h3 id="path-params">Path Params</h3>
+
+<ul>
+<li><strong>customerId</strong> <span class="param-type">String</span> <span class="required-param">required</span> <br> Customer unique identifier.</li>
+</ul>
+
+<h3 id="query-params">Query Params</h3>
+
+<ul>
+<li><strong>fields</strong> <span class="param-type">List&lt;String&gt;</span> <span class="recomended-param">recomended</span><br>
+Entity fields that will included in the response(See available fields in <a href="#ticket">the ticket object definition</a>). For example: <code class="prettyprint">fields=id,queueType,number</code>.</li>
+</ul>
+
+<h3 id="responses">Responses</h3>
+
+<ul>
+<li><p><strong>200</strong> <span class="verb-description">Ok</span> <span class="param-type">List&lt;<a href="#ticket">Ticket</a>&gt;</span><br>
+A list of tickets.</p></li>
+<li><p><strong>400</strong> <span class="verb-description">Bad Request</span> <span class="param-type"><a href="#error">Error</a></span><br>
+One or more parameters are not valid, returns a description of validation failed.</p></li>
+<li><p><strong>500</strong> <span class="verb-description">Internal Server Error</span> <span class="param-type"><a href="#error">Error</a></span><br>
+An unexpected error has occurred, returns a simple error message.</p></li>
+</ul>
+
+<p><h2 id="show-ticket-details">Show ticket details</h2></p>
+
+<blockquote>
+<p>Sample request:</p>
+</blockquote>
+
+<pre class="highlight http tab-http"><code><span class="nf">GET</span> <span class="nn">/v1/tickets/customer/c9mas9js/tickets/89m32b0</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+</code></pre>
+
+<blockquote>
+<p>Sample response:</p>
+</blockquote>
+
+<pre class="highlight http tab-http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+
+<span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"89m32b0"</span><span class="p">,</span><span class="w">    
+    </span><span class="s2">"number"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BLOCKED"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"+51987776576"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"position"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"lowEstimatedTime"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"highEstimatedTime"</span><span class="p">:</span><span class="w"> </span><span class="mi">15</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"messages"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="s2">"We have a promotion for you!"</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="s2">"channel"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"c10"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Mobile"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"branch"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"27b6"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Hiper Central"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"shortName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Hiper"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Calle Beta 181 - 195, Callao"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"latitude"</span><span class="p">:</span><span class="w"> </span><span class="mf">-12.049919</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"longitude"</span><span class="p">:</span><span class="w"> </span><span class="mf">-77.0845193</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACTIVE"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"sector"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"m9"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tower A"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"shortName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"A"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACTIVE"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"service"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"s8"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Plataforma"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"shortName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Plataforma"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"queueType"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"R0009"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CC"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Comercial"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"counter"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"v10"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"V10"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"teller"</span><span class="p">:</span><span class="w"> </span><span class="s2">"achavez"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"createdAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-02-20T10:00:00.000Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"updatedAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-02-20T10:00:00.000Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"print"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"align"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CENTER"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"font"</span><span class="p">:</span><span class="w"> </span><span class="s2">"A_REGULAR"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"previous"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Welcome to"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"content"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Hiper"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"next"</span><span class="p">:</span><span class="w"> </span><span class="s2">"!"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>Returns a customer ticket by ID.</p>
+
+<h3 id="endpoint">Endpoint</h3>
+
+<p><code class="prettyprint">GET /v1/tickets/customer/{customerId}/tickets/{ticketId}</code></p>
+
+<h3 id="path-params">Path Params</h3>
+
+<ul>
+<li><p><strong>customerId</strong> <span class="param-type">String</span> <span class="required-param">required</span><br>
+Customer unique identifier.</p></li>
+<li><p><strong>ticketId</strong> <span class="param-type">String</span> <span class="required-param">required</span><br>
+Ticket unique identifier (Generated in the ticket creation).</p></li>
+</ul>
+
+<h3 id="query-params">Query Params</h3>
+
+<ul>
+<li><strong>fields</strong> <span class="param-type">List&lt;String&gt;</span> <span class="recomended-param">recomended</span><br>
+Entity fields that will included in the response(See available fields in <a href="#ticket">the ticket object definition</a>). For example: <code class="prettyprint">fields=id,queueType,number</code>.</li>
+</ul>
+
+<h3 id="responses">Responses</h3>
+
+<ul>
+<li><p><strong>200</strong> <span class="verb-description">OK</span> <span class="param-type"><a href="#ticket">Ticket</a></span><br>
+A ticket.</p></li>
+<li><p><strong>400</strong> <span class="verb-description">Bad Request</span> <span class="param-type"><a href="#error">Error</a></span><br>
+One or more parameters are not valid, returns a description of validation failed.</p></li>
+<li><p><strong>404</strong> <span class="verb-description">Not Found</span> <span class="param-type"><a href="#error">Error</a></span><br>
+The resource requested not found, returns a simple error message.</p></li>
+<li><p><strong>500</strong> <span class="verb-description">Internal Server Error</span> <span class="param-type"><a href="#error">Error</a></span><br>
+An unexpected error has occurred, returns a simple error message.</p></li>
+</ul>
+
+<p><h2 id="create-ticket">Create ticket</h2></p>
+
+<blockquote>
+<p>Sample request:</p>
+</blockquote>
+
+<pre class="highlight http tab-http"><code><span class="nf">POST</span> <span class="nn">/v1/tickets/customer/c9mas9js/tickets</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+
+<span class="p">{</span><span class="w">
+    </span><span class="s2">"channelId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"c10"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"branchId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"27b6"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"sectorId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"m9"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"serviceId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"s8"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"docType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"D"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"docNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"90452291"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"+51987882567"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<blockquote>
+<p>Sample response:</p>
+</blockquote>
+
+<pre class="highlight http tab-http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">201</span> <span class="ne">Created</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+
+<span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"89m32b0"</span><span class="p">,</span><span class="w">    
+    </span><span class="s2">"number"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BLOCKED"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"+51987776576"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"position"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"lowEstimatedTime"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"highEstimatedTime"</span><span class="p">:</span><span class="w"> </span><span class="mi">15</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"messages"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="s2">"We have a promotion for you!"</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="s2">"channel"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"c10"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Mobile"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"branch"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"27b6"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Hiper Central"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"shortName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Hiper"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Calle Beta 181 - 195, Callao"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"latitude"</span><span class="p">:</span><span class="w"> </span><span class="mf">-12.049919</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"longitude"</span><span class="p">:</span><span class="w"> </span><span class="mf">-77.0845193</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACTIVE"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"sector"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"m9"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tower A"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"shortName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"A"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACTIVE"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"service"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"s8"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Plataforma"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"shortName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Plataforma"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"queueType"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"R0009"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CC"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Comercial"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"counter"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"v10"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"V10"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"teller"</span><span class="p">:</span><span class="w"> </span><span class="s2">"achavez"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"createdAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-02-20T10:00:00.000Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"updatedAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-02-20T10:00:00.000Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"print"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"align"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CENTER"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"font"</span><span class="p">:</span><span class="w"> </span><span class="s2">"A_REGULAR"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"previous"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Welcome to"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"content"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Hiper"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"next"</span><span class="p">:</span><span class="w"> </span><span class="s2">"!"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>Create a new customer ticket and returns it.</p>
+
+<aside class="warning">
+    <strong>Caution:</strong>
+    You must consider the following before create a ticket:
+    <ul>
+        <li>The referenced channel must support the requested service.</li>
+        <li>The referenced branch must contain the requested sector.</li>
+        <li>The referenced sector must support the requested service.</li>
+        <li>The customer must has no other ticket.</li>
+        <li>The customer category referenced by the <code>categoryId</code> must has a queue configured for the requested service and the channel used.</li>
+    <ul>
+</aside>
+
+<h3 id="endpoint">Endpoint</h3>
+
+<p><code class="prettyprint">POST /v1/tickets/customer/{customerId}/tickets</code></p>
+
+<h3 id="path-params">Path Params</h3>
+
+<ul>
+<li><strong>customerId</strong> <span class="param-type">String</span><br>
+Customer unique identifier.</li>
+</ul>
+
+<h3 id="request">Request</h3>
+
+<ul>
+<li><p><strong>channelId</strong> <span class="param-type">String</span> <span class="required-param">required</span><br>
+Unique identifier of the channel used. This value must be set in the client application.</p></li>
+<li><p><strong>branchId</strong> <span class="param-type">String</span> <span class="required-param">required</span><br>
+Unique identifier of the requested branch.</p></li>
+<li><p><strong>sectorId</strong> <span class="param-type">String</span> <span class="required-param">required</span><br>
+Unique identifier of the requested sector.</p></li>
+<li><p><strong>serviceId</strong> <span class="param-type">String</span> <span class="required-param">required</span><br>
+Unique identifier of the requested service.</p></li>
+<li><p><strong>docType</strong> <span class="param-type">String</span><br>
+Type of document used to identify the client.
+<p>
+<span class="param-condition">Maximum length:</span> <code class="prettyprint">5</code>
+</p></p></li>
+<li><p><strong>docNumber</strong> <span class="param-type">String</span><br>
+Number of document used to identify the client.
+<p>
+<span class="param-condition">Maximum length:</span> <code class="prettyprint">20</code>
+</p></p></li>
+<li><p><strong>phone</strong> <span class="param-type">String</span><br>
+Customer phone for notifications associated to the ticket.
+<p>
+<span class="param-condition">Validation pattern:</span> <code class="prettyprint">^\+[1-9]{1}[0-9]{3,14}$</code>
+</p></p></li>
+</ul>
+
+<h3 id="responses">Responses</h3>
+
+<ul>
+<li><p><strong>201</strong> <span class="verb-description">Created</span> <span class="param-type"><a href="#ticket">Ticket</a></span><br>
+Successful creation, returns the new ticket.</p></li>
+<li><p><strong>400</strong> <span class="verb-description">Bad Request</span> <span class="param-type"><a href="#error">Error</a></span><br>
+One or more parameters are not valid, returns a description of validation failed.</p></li>
+<li><p><strong>500</strong> <span class="verb-description">Internal Server Error</span> <span class="param-type"><a href="#error">Error</a></span><br>
+An unexpected error has occurred, returns a simple error message.</p></li>
+</ul>
+
+<p><h2 id="update-ticket">Update ticket</h2></p>
+
+<blockquote>
+<p>Sample request:</p>
+</blockquote>
+
+<pre class="highlight http tab-http"><code><span class="nf">PUT</span> <span class="nn">/v1/tickets/customer/c9mas9js/tickets/89m32b0</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+
+<span class="p">{</span><span class="w">
+    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ENABLED"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<blockquote>
+<p>Sample response:</p>
+</blockquote>
+
+<pre class="highlight http tab-http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">204</span> <span class="ne">No Content</span>
+</code></pre>
+
+<p>Update a customer ticket by ID.</p>
+
+<h3 id="endpoint">Endpoint</h3>
+
+<p><code class="prettyprint">PUT /v1/tickets/customer/{customerId}/tickets/{ticketId}</code></p>
+
+<h3 id="path-params">Path Params</h3>
+
+<ul>
+<li><p><strong>customerId</strong> <span class="param-type">String</span> <span class="required-param">required</span><br>
+Customer unique identifier.</p></li>
+<li><p><strong>ticketId</strong> <span class="param-type">String</span> <span class="required-param">required</span><br>
+Ticket unique identifier (Generated in the ticket creation).</p></li>
+</ul>
+
+<h3 id="request">Request</h3>
+
+<ul>
+<li><p><strong>status</strong> <span class="param-type">Enum</span><br>
+New status for the ticket.
+<p>
+<span class="param-condition">Possible values:</span><br>
+<ul>
+    <li><code>BLOCKED</code></li>
+    <li><code>ENABLED</code></li>
+</ul>
+
+<p></p></p></li>
+<li><p><strong>phone</strong> <span class="param-type">String</span><br>
+New customer phone for notifications.
+<p>
+<span class="param-condition">Validation pattern:</span> <code class="prettyprint">^+[1-9]{1}[0-9]{3,14}$</code>
+</p></p></li>
+</ul></p>
+
+<h3 id="responses">Responses</h3>
+
+<ul>
+<li><p><strong>204</strong> <span class="verb-description">No Content</span><br>
+Successful update.</p></li>
+<li><p><strong>400</strong> <span class="verb-description">Bad Request</span> <span class="param-type"><a href="#error">Error</a></span><br>
+One or more parameters are not valid, returns a description of validation failed.</p></li>
+<li><p><strong>404</strong> <span class="verb-description">Not Found</span> <span class="param-type"><a href="#error">Error</a></span><br>
+The resource requested not found, returns a simple error message.</p></li>
+<li><p><strong>500</strong> <span class="verb-description">Internal Server Error</span> <span class="param-type"><a href="#error">Error</a></span><br>
+An unexpected error has occurred, returns a simple error message.</p></li>
+</ul>
+
+<p><h2 id="cancel-ticket">Cancel ticket</h2></p>
+
+<blockquote>
+<p>Sample request:</p>
+</blockquote>
+
+<pre class="highlight http tab-http"><code><span class="nf">DELETE</span> <span class="nn">/v1/tickets/customer/c9mas9js/tickets/89m32b0</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+</code></pre>
+
+<blockquote>
+<p>Sample response:</p>
+</blockquote>
+
+<pre class="highlight http tab-http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">204</span> <span class="ne">No Content</span>
+</code></pre>
+
+<p>Cancel a customer ticket by ID.</p>
+
+<h3 id="endpoint">Endpoint</h3>
+
+<p><code class="prettyprint">DELETE /v1/tickets/customer/{customerId}/tickets/{ticketId}</code></p>
+
+<h3 id="path-params">Path Params</h3>
+
+<ul>
+<li><p><strong>customerId</strong> <span class="param-type">String</span> <span class="required-param">required</span><br>
+Customer unique identifier.</p></li>
+<li><p><strong>ticketId</strong> <span class="param-type">String</span> <span class="required-param">required</span><br>
+Ticket unique identifier (Generated in the ticket creation).</p></li>
+</ul>
+
+<h3 id="responses">Responses</h3>
+
+<ul>
+<li><p><strong>204</strong> <span class="verb-description">No Content</span><br>
+Successful cancelation.</p></li>
+<li><p><strong>400</strong> <span class="verb-description">Bad Request</span> <span class="param-type"><a href="#error">Error</a></span><br>
+One or more parameters are not valid, returns a description of validation failed.</p></li>
+<li><p><strong>404</strong> <span class="verb-description">Not Found</span> <span class="param-type"><a href="#error">Error</a></span><br>
+The resource requested not found, returns a simple error message.</p></li>
+<li><p><strong>500</strong> <span class="verb-description">Internal Server Error</span> <span class="param-type"><a href="#error">Error</a></span><br>
+An unexpected error has occurred, returns a simple error message.</p></li>
+</ul>
+
+<h1 id="bookings-api">Bookings API</h1>
+
+<p>Allow to your customers reserve a scheduled attention for a better experience reducing the waiting time and reduce the congestion of your branches. The endpoints of this section allow the creation of bookings from your application.</p>
+
+<p><h2 id="list-available-services-for-booking">List available services for booking</h2></p>
+
+<blockquote>
+<p>Sample request:</p>
+</blockquote>
+
+<pre class="highlight http tab-http"><code><span class="nf">GET</span> <span class="nn">/v1/bookings/channel/c10/services</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+</code></pre>
+
+<blockquote>
+<p>Sample response:</p>
+</blockquote>
+
+<pre class="highlight http tab-http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+
+<span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"s8"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Plataforma"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"shortName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Plataforma"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
+
+<p>Returns available services to book for the specified channel.</p>
+
+<aside class="warning">
+    <strong>Caution:</strong>
+    You must consider the following:
+    <ul>
+        <li>This operation throw a error(404) when the referenced channel does not exist.</li>
+        <li>An empty list is returned when no bookable services exist from the specified channel.</li>
+    <ul>
+</aside>
+
+<h3 id="endpoint">Endpoint</h3>
+
+<p><code class="prettyprint">GET /v1/bookings/channel/{channelId}/services</code></p>
+
+<h3 id="path-params">Path Params</h3>
+
+<ul>
+<li><strong>channelId</strong> <span class="param-type">String</span> <span class="required-param">required</span><br>
+Unique identifier of the channel used. This value must be set in the client application.</li>
+</ul>
+
+<h3 id="responses">Responses</h3>
+
+<ul>
+<li><p><strong>200</strong> <span class="verb-description">Ok</span> <span class="param-type">List&lt;<a href="#service">Service</a>&gt;</span><br>
+A list of services.</p></li>
+<li><p><strong>400</strong> <span class="verb-description">Bad Request</span> <span class="param-type"><a href="#error">Error</a></span><br>
+One or more parameters are not valid, returns a description of validation failed.</p></li>
+<li><p><strong>404</strong> <span class="verb-description">Not Found</span> <span class="param-type"><a href="#error">Error</a></span><br>
+The resource requested not found, returns a simple error message.</p></li>
+<li><p><strong>500</strong> <span class="verb-description">Internal Server Error</span> <span class="param-type"><a href="#error">Error</a></span><br>
+An unexpected error has occurred, returns a simple error message.</p></li>
+</ul>
+
+<p><h2 id="list-available-days-for-booking">List available days for booking</h2></p>
+
+<blockquote>
+<p>Sample request:</p>
+</blockquote>
+
+<pre class="highlight http tab-http"><code><span class="nf">GET</span> <span class="nn">/v1/bookings/availability?serviceId=s8&amp;branchId=27b6</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+</code></pre>
+
+<blockquote>
+<p>Sample response:</p>
+</blockquote>
+
+<pre class="highlight http tab-http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">X-Pagination-Count</span><span class="p">:</span> <span class="s">7</span>
+<span class="na">X-Pagination-Page</span><span class="p">:</span> <span class="s">3</span>
+<span class="na">X-Pagination-Limit</span><span class="p">:</span> <span class="s">1</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+
+<span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"day"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-02-20T00:00:00.000Z"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"ranges"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"startTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-02-20T14:00:00.000Z"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"endTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-02-20T15:00:00.000Z"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">]</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
+
+<p>Returns a list of days for book a service in a branch.</p>
+
+<aside class="warning">
+    <strong>Caution: </strong> 
+    You must consider the following:
+    <ul>
+        <li>An empty list is returned when there are no more bookings available or there is no availability setting for the requested service and branch.</li>
+    <ul>
+</aside>
+
+<aside class="notice">
+    <strong>Order:</strong>
+    The booking days are sorted ascendantly by <code>day</code>.
+</aside>
+
+<h3 id="endpoint">Endpoint</h3>
+
+<p><code class="prettyprint">GET /v1/bookings/availability</code></p>
+
+<h3 id="query-params">Query Params</h3>
+
+<ul>
+<li><p><strong>serviceId</strong> <span class="param-type">String</span> <span title="required" class="required-param">required</span><br>
+Unique identifier of requested service.</p></li>
+<li><p><strong>branchId</strong> <span class="param-type">String</span> <span title="required" class="required-param">required</span><br>
+Unique identifier of requested branch.</p></li>
+<li><p><strong>offset</strong> <span class="param-type">Integer</span><br>
+Position in pagination.
+<p>
+<span class="param-condition">Default value:</span> <code>0</code><br>
+<span class="param-condition">Maximum value:</span> <code>9999</code>
+</p></p></li>
+<li><p><strong>limit</strong> <span class="param-type">Integer</span><br>
+Number of items to retrieve.
+<p>
+<span class="param-condition">Default value:</span> <code>10</code><br>
+<span class="param-condition">Maximum value:</span> <code>50</code>
+</p></p></li>
+</ul>
+
+<h3 id="responses">Responses</h3>
+
+<ul>
+<li><p><strong>200</strong> <span class="verb-description">Ok</span> <span class="param-type">List&lt;<a href="#day">Day</a>&gt;</span><br>
+A list of days. Pagination headers are included:
+<ul>
+<li><strong>X-Pagination-Count:</strong> Total number of items.</li>
+<li><strong>X-Pagination-Page:</strong> Number of current page.</li>
+<li><strong>X-Pagination-Limit:</strong> Limit of items per page.</li>
+</ul></p></li>
+<li><p><strong>400</strong> <span class="verb-description">Bad Request</span> <span class="param-type"><a href="#error">Error</a></span><br>
+One or more parameters are not valid, returns a description of validation failed.</p></li>
+<li><p><strong>500</strong> <span class="verb-description">Internal Server Error</span> <span class="param-type"><a href="#error">Error</a></span><br>
+An unexpected error has occurred, returns a simple error message.</p></li>
+</ul>
+
+<p><h2 id="list-customer-bookings">List customer bookings</h2></p>
+
+<blockquote>
+<p>Sample request:</p>
+</blockquote>
+
+<pre class="highlight http tab-http"><code><span class="nf">GET</span> <span class="nn">/v1/bookings/customer/c9mas9js/bookings</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+</code></pre>
+
+<blockquote>
+<p>Sample response:</p>
+</blockquote>
+
+<pre class="highlight http tab-http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+
+<span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"a90mos"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"UxMa01m"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACTIVE"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"+51987882567"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"channel"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"c10"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Mobile"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"branch"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"27b6"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Hiper Central"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"shortName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Hiper"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Calle Beta 181 - 195, Callao"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"latitude"</span><span class="p">:</span><span class="w"> </span><span class="mf">-12.049919</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"longitude"</span><span class="p">:</span><span class="w"> </span><span class="mf">-77.0845193</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACTIVE"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"service"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"s8"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Plataforma"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"shortName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Plataforma"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"startTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-02-20T14:00:00.000Z"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"endTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-02-20T15:00:00.000Z"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"createdAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-02-10T14:00:00.000Z"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"updatedAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-02-10T14:00:00.000Z"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
+
+<p>Returns all bookings created by a specific customer.</p>
+
+<aside class="warning">
+    <strong>Caution:</strong>
+    You must consider the following:
+    <ul>
+        <li>The bookings are not available anymore after the booking day.</li>
+        <li>An empty list is returned when there is no registered bookings with the <code>customerId</code> received.</li>
+    <ul>
+</aside>
+
+<aside class="notice">
+    <strong>Order:</strong>
+    The bookings are sorted descendantly by the field: <code>createdAt</code>.
+</aside>
+
+<h3 id="endpoint">Endpoint</h3>
+
+<p><code class="prettyprint">GET /v1/bookings/customer/{customerId}/bookings</code></p>
+
+<h3 id="path-params">Path Params</h3>
+
+<ul>
+<li><strong>customerId</strong> <span class="param-type">String</span> <span class="required-param">required</span><br>
+Customer unique identifier.</li>
+</ul>
+
+<h3 id="query-params">Query Params</h3>
+
+<ul>
+<li><strong>fields</strong> <span class="param-type">List&lt;String&gt;</span> <span class="recomended-param">recomended</span><br>
+Entity fields that will included in the response(See available fields in <a href="#booking">the booking object definition</a>). For example: <code class="prettyprint">fields=id,code,status</code>.</li>
+</ul>
+
+<h3 id="responses">Responses</h3>
+
+<ul>
+<li><p><strong>200</strong> <span class="verb-description">Ok</span> <span class="param-type">List&lt;<a href="#booking">Booking</a>&gt;</span><br>
+A list of bookings.</p></li>
+<li><p><strong>400</strong> <span class="verb-description">Bad Request</span> <span class="param-type"><a href="#error">Error</a></span><br>
+One or more parameters are not valid, returns a description of validation failed.</p></li>
+<li><p><strong>500</strong> <span class="verb-description">Internal Server Error</span> <span class="param-type"><a href="#error">Error</a></span><br>
+An unexpected error has occurred, returns a simple error message.</p></li>
+</ul>
+
+<p><h2 id="show-booking-details">Show booking details</h2></p>
+
+<blockquote>
+<p>Sample request:</p>
+</blockquote>
+
+<pre class="highlight http tab-http"><code><span class="nf">GET</span> <span class="nn">/v1/bookings/customer/c9mas9js/bookings/a90mos</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+</code></pre>
+
+<blockquote>
+<p>Sample response:</p>
+</blockquote>
+
+<pre class="highlight http tab-http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+
+<span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"a90mos"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"UxMa01m"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACTIVE"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"+51987882567"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"channel"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"c10"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Mobile"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"branch"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"27b6"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Hiper Central"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"shortName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Hiper"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Calle Beta 181 - 195, Callao"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"latitude"</span><span class="p">:</span><span class="w"> </span><span class="mf">-12.049919</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"longitude"</span><span class="p">:</span><span class="w"> </span><span class="mf">-77.0845193</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACTIVE"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"service"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"s8"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Plataforma"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"shortName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Plataforma"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"startTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-02-20T14:00:00.000Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"endTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-02-20T15:00:00.000Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"createdAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-02-10T14:00:00.000Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"updatedAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-02-10T14:00:00.000Z"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>Returns a customer booking by ID.</p>
+
+<h3 id="endpoint">Endpoint</h3>
+
+<p><code class="prettyprint">GET /v1/bookings/customer/{customerId}/bookings/{bookingId}</code></p>
+
+<h3 id="path-params">Path Params</h3>
+
+<ul>
+<li><p><strong>customerId</strong> <span class="param-type">String</span> <span class="required-param">required</span><br>
+Customer unique identifier.</p></li>
+<li><p><strong>bookingId</strong> <span class="param-type">String</span> <span class="required-param">required</span><br>
+Booking unique identifier (Generated in the booking creation).</p></li>
+</ul>
+
+<h3 id="query-params">Query Params</h3>
+
+<ul>
+<li><strong>fields</strong> <span class="param-type">List&lt;String&gt;</span> <span class="recomended-param">recomended</span><br>
+Entity fields that will included in the response(See available fields in <a href="#booking">the booking object definition</a>). For example: <code class="prettyprint">fields=id,code,status</code>.</li>
+</ul>
+
+<h3 id="responses">Responses</h3>
+
+<ul>
+<li><p><strong>200</strong> <span class="verb-description">OK</span> <span class="param-type"><a href="#booking">Booking</a></span><br>
+A booking.</p></li>
+<li><p><strong>400</strong> <span class="verb-description">Bad Request</span> <span class="param-type"><a href="#error">Error</a></span><br>
+One or more parameters are not valid, returns a description of validation failed.</p></li>
+<li><p><strong>404</strong> <span class="verb-description">Not Found</span> <span class="param-type"><a href="#error">Error</a></span><br>
+The resource requested not found, returns a simple error message.</p></li>
+<li><p><strong>500</strong> <span class="verb-description">Internal Server Error</span> <span class="param-type"><a href="#error">Error</a></span><br>
+An unexpected error has occurred, returns a simple error message.</p></li>
+</ul>
+
+<p><h2 id="create-booking">Create booking</h2></p>
+
+<blockquote>
+<p>Sample request:</p>
+</blockquote>
+
+<pre class="highlight http tab-http"><code><span class="nf">POST</span> <span class="nn">/v1/bookings/customer/c9mas9js/bookings</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+
+<span class="p">{</span><span class="w">
+    </span><span class="s2">"channelId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"c10"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"branchId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"27b6"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"serviceId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"s8"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"docType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"D"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"docNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"90452291"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"+51987882567"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"startTime"</span><span class="p">:</span><span class="s2">"2017-02-20T14:00:00.000Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"endTime"</span><span class="p">:</span><span class="s2">"2017-02-20T15:00:00.000Z"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<blockquote>
+<p>Sample response:</p>
+</blockquote>
+
+<pre class="highlight http tab-http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">201</span> <span class="ne">Created</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+
+<span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"a90mos"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"UxMa01m"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACTIVE"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"+51987882567"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"channel"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"c10"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Mobile"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"branch"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"27b6"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Hiper Central"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"shortName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Hiper"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Calle Beta 181 - 195, Callao"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"latitude"</span><span class="p">:</span><span class="w"> </span><span class="mf">-12.049919</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"longitude"</span><span class="p">:</span><span class="w"> </span><span class="mf">-77.0845193</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACTIVE"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"service"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"s8"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Plataforma"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"shortName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Plataforma"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"startTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-02-20T14:00:00.000Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"endTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-02-20T15:00:00.000Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"createdAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-02-10T14:00:00.000Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"updatedAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-02-10T14:00:00.000Z"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>Create a new customer booking and returns it.</p>
+
+<aside class="warning">
+    <strong>Caution: </strong>
+    You must consider the following before create a booking:
+    <ul>
+        <li>The referenced channel must support the requested service.</li>
+        <li>The referenced branch must support the requested service .</li>
+        <li>The referenced client must has no other booking in state <code>ACTIVE</code> or <code>PENDING</code> for the same requested service.</li>
+        <li>The <code>startTime</code> and the <code>endTime</code> must be available.</li>
+    <ul>
+</aside>
+
+<h3 id="endpoint">Endpoint</h3>
+
+<p><code class="prettyprint">POST /v1/bookings/customer/{customerId}/bookings</code></p>
+
+<h3 id="path-params">Path Params</h3>
+
+<ul>
+<li><strong>customerId</strong> <span class="param-type">String</span><br>
+Customer unique identifier.</li>
+</ul>
+
+<h3 id="request">Request</h3>
+
+<ul>
+<li><p><strong>channelId</strong> <span class="param-type">String</span> <span class="required-param">required</span><br>
+Unique identifier of the channel used. This value must be set in the client application.</p></li>
+<li><p><strong>branchId</strong> <span class="param-type">String</span> <span class="required-param">required</span><br>
+Unique identifier of the requested branch.</p></li>
+<li><p><strong>serviceId</strong> <span class="param-type">String</span> <span class="required-param">required</span><br>
+Unique identifier of the requested service.</p></li>
+<li><p><strong>name</strong> <span class="param-type">String</span><br>
+Name or alias of the client used for contact purpose.
+<p>
+<span class="param-condition">Maximum length:</span> <code class="prettyprint">50</code>
+</p></p></li>
+<li><p><strong>docType</strong> <span class="param-type">String</span><br>
+Type of document used to identify the client.
+<p>
+<span class="param-condition">Maximum length:</span> <code class="prettyprint">5</code>
+</p></p></li>
+<li><p><strong>docNumber</strong> <span class="param-type">String</span><br>
+Number of document used to identify the client.
+<p>
+<span class="param-condition">Maximum length:</span> <code class="prettyprint">20</code>
+</p></p></li>
+<li><p><strong>phone</strong> <span class="param-type">String</span><br>
+Customer phone for notifications associated to the booking.
+<p>
+<span class="param-condition">Validation pattern:</span> <code class="prettyprint">^\+[1-9]{1}[0-9]{3,14}$</code>
+</p></p></li>
+<li><p><strong>startTime</strong> <span class="param-type">DateTime</span> <span class="required-param">required</span><br>
+Start time of booking.
+<p>
+<span class="param-condition">Format:</span> <code><a href="https://en.wikipedia.org/wiki/ISO_8601">ISO 8601</a></code>
+</p></p></li>
+<li><p><strong>endTime</strong> <span class="param-type">DateTime</span> <span class="required-param">required</span><br>
+End time of booking.
+<p>
+<span class="param-condition">Format:</span> <code><a href="https://en.wikipedia.org/wiki/ISO_8601">ISO 8601</a></code>
+</p></p></li>
+</ul>
+
+<h3 id="responses">Responses</h3>
+
+<ul>
+<li><p><strong>201</strong> <span class="verb-description">Created</span> <span class="param-type"><a href="#booking">Booking</a></span><br>
+Successful creation, returns the new booking.</p></li>
+<li><p><strong>400</strong> <span class="verb-description">Bad Request</span> <span class="param-type"><a href="#error">Error</a></span><br>
+One or more parameters are not valid, returns a description of validation failed.</p></li>
+<li><p><strong>500</strong> <span class="verb-description">Internal Server Error</span> <span class="param-type"><a href="#error">Error</a></span><br>
+An unexpected error has occurred, returns a simple error message.</p></li>
+</ul>
+
+<p><h2 id="update-booking">Update booking</h2></p>
+
+<blockquote>
+<p>Sample request:</p>
+</blockquote>
+
+<pre class="highlight http tab-http"><code><span class="nf">PUT</span> <span class="nn">/v1/bookings/customer/c9mas9js/bookings/a90mos</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+
+<span class="p">{</span><span class="w">
+    </span><span class="s2">"phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"+51908999189"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<blockquote>
+<p>Sample response:</p>
+</blockquote>
+
+<pre class="highlight http tab-http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">204</span> <span class="ne">No Content</span>
+</code></pre>
+
+<p>Update a customer booking by ID.</p>
+
+<h3 id="endpoint">Endpoint</h3>
+
+<p><code class="prettyprint">PUT /v1/bookings/customer/{customerId}/bookings/{bookingId}</code></p>
+
+<h3 id="path-params">Path Params</h3>
+
+<ul>
+<li><p><strong>customerId</strong> <span class="param-type">String</span> <span class="required-param">required</span><br>
+Customer unique identifier.</p></li>
+<li><p><strong>bookingId</strong> <span class="param-type">String</span> <span class="required-param">required</span><br>
+Booking unique identifier (Generated in the booking creation).</p></li>
+</ul>
+
+<h3 id="request">Request</h3>
+
+<ul>
+<li><strong>phone</strong> <span class="param-type">String</span><br>
+New customer phone for notifications.
+<p>
+<span class="param-condition">Validation pattern:</span> <code class="prettyprint">^\+[1-9]{1}[0-9]{3,14}$</code>
+</p></li>
+</ul>
+
+<h3 id="responses">Responses</h3>
+
+<ul>
+<li><p><strong>204</strong> <span class="verb-description">No Content</span><br>
+Successful update.</p></li>
+<li><p><strong>400</strong> <span class="verb-description">Bad Request</span> <span class="param-type"><a href="#error">Error</a></span><br>
+One or more parameters are not valid, returns a description of validation failed.</p></li>
+<li><p><strong>404</strong> <span class="verb-description">Not Found</span> <span class="param-type"><a href="#error">Error</a></span><br>
+The resource requested not found, returns a simple error message.</p></li>
+<li><p><strong>500</strong> <span class="verb-description">Internal Server Error</span> <span class="param-type"><a href="#error">Error</a></span><br>
+An unexpected error has occurred, returns a simple error message.</p></li>
+</ul>
+
+<p><h2 id="cancel-booking">Cancel booking</h2></p>
+
+<blockquote>
+<p>Sample request:</p>
+</blockquote>
+
+<pre class="highlight http tab-http"><code><span class="nf">DELETE</span> <span class="nn">/v1/bookings/customer/c9mas9js/bookings/a90mos</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+</code></pre>
+
+<blockquote>
+<p>Sample response:</p>
+</blockquote>
+
+<pre class="highlight http tab-http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">204</span> <span class="ne">No Content</span>
+</code></pre>
+
+<p>Cancel a customer booking by ID.</p>
+
+<h3 id="endpoint">Endpoint</h3>
+
+<p><code class="prettyprint">DELETE /v1/bookings/customer/{customerId}/bookings/{bookingId}</code></p>
+
+<h3 id="path-params">Path Params</h3>
+
+<ul>
+<li><p><strong>customerId</strong> <span class="param-type">String</span> <span class="required-param">required</span><br>
+Customer unique identifier.</p></li>
+<li><p><strong>bookingId</strong> <span class="param-type">String</span> <span class="required-param">required</span><br>
+Booking unique identifier (Generated in the booking creation).</p></li>
+</ul>
+
+<h3 id="responses">Responses</h3>
+
+<ul>
+<li><p><strong>204</strong> <span class="verb-description">No Content</span><br>
+Successful cancelation.</p></li>
+<li><p><strong>400</strong> <span class="verb-description">Bad Request</span> <span class="param-type"><a href="#error">Error</a></span><br>
+One or more parameters are not valid, returns a description of validation failed.</p></li>
+<li><p><strong>404</strong> <span class="verb-description">Not Found</span> <span class="param-type"><a href="#error">Error</a></span><br>
+The resource requested not found, returns a simple error message.</p></li>
+<li><p><strong>500</strong> <span class="verb-description">Internal Server Error</span> <span class="param-type"><a href="#error">Error</a></span><br>
+An unexpected error has occurred, returns a simple error message.</p></li>
+</ul>
+
+<h1 id="common-object-definitions">Common Object Definitions</h1>
+
+<p>Collection of common objects used by the API.</p>
+
+<p><h2 id="booking">Booking</h2></p>
+
+<blockquote>
+<p>Sample object:</p>
+</blockquote>
+
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"a90mos"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"UxMa01m"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACTIVE"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"+51987882567"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"channel"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"c10"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Mobile"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"branch"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"27b6"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Hiper Central"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"shortName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Hiper"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Calle Beta 181 - 195, Callao"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"latitude"</span><span class="p">:</span><span class="w"> </span><span class="mf">-12.049919</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"longitude"</span><span class="p">:</span><span class="w"> </span><span class="mf">-77.0845193</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACTIVE"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"service"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"s8"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Plataforma"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"shortName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Plataforma"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"startTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-02-20T14:00:00.000Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"endTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-02-20T15:00:00.000Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"createdAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-02-10T14:00:00.000Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"updatedAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-02-10T14:00:00.000Z"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>Model of booking object.</p>
+
+<aside class="warning">
+<strong>Caution:</strong> The entities associated to ticket not provide all their fields for performance reasons. If you need more information, you can use others endpoints to get this information using the ids returned in the ticket. You can to see the default information provided in the sample object.
+</aside>
+
+<h3 id="fields">Fields</h3>
+
+<ul>
+<li><p><strong>id</strong> <span class="param-type">String</span><br>
+Booking unique identifier (Auto generated by Bmatic).</p></li>
+<li><p><strong>code</strong> <span class="param-type">String</span><br>
+Booking code to display it to customer (Auto generated by Bmatic).</p></li>
+<li><p><strong>status</strong> <span class="param-type">Enum</span><br>
+Current status of the booking.
+<p>
+<span class="param-condition">Possible values:</span>
+<ul>
+    <li><code>ACTIVE</code>: When the current time is between the booking start time minus the configured tolerance and the end time plus the configured tolerance.</li>
+    <li><code>INACTIVE</code>: When the current time is lower to the booking start time minus the configured tolerance.</li>
+    <li><code>DEFEATED</code>: When the current time is upper to the booking end time plus the configured tolerance.</li>
+</ul>
+
+<p></p></p></li>
+<li><p><strong>phone</strong> <span class="param-type">String</span><br>
+Customer phone for notifications associated to the booking.</p></li>
+<li><p><strong>channel</strong> <span class="param-type"><a href="#channel">Channel</a></span><br>
+Channel where the booking was created.</p></li>
+<li><p><strong>branch</strong> <span class="param-type"><a href="#branch">Branch</a></span><br>
+Branch where the booking is valid.</p></li>
+<li><p><strong>service</strong> <span class="param-type"><a href="#service">Service</a></span><br>
+Service booked.</p></li>
+<li><p><strong>startTime</strong> <span class="param-type">DateTime</span><br>
+Start time of booking.
+<p>
+<span class="param-condition">Standard:</span> <code><a href="https://en.wikipedia.org/wiki/ISO_8601">ISO 8601</a></code>
+</p></p></li>
+<li><p><strong>endTime</strong> <span class="param-type">DateTime</span><br>
+End time of booking.
+<p>
+<span class="param-condition">Standard:</span> <code><a href="https://en.wikipedia.org/wiki/ISO_8601">ISO 8601</a></code>
+</p></p></li>
+<li><p><strong>createdAt</strong> <span class="param-type">DateTime</span><br>
+Date of booking creation.
+<p>
+<span class="param-condition">Standard:</span> <code><a href="https://en.wikipedia.org/wiki/ISO_8601">ISO 8601</a></code>
+</p></p></li>
+<li><p><strong>updatedAt</strong> <span class="param-type">DateTime</span><br>
+Date of the last update of booking.
+<p>
+<span class="param-condition">Standard:</span> <code><a href="https://en.wikipedia.org/wiki/ISO_8601">ISO 8601</a></code>
+</p></p></li>
+</ul></p>
+
+<p><h2 id="branch">Branch</h2></p>
+
+<blockquote>
+<p>Sample object:</p>
+</blockquote>
+
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"27b6"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Hiper Central"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"shortName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Hiper"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Calle Beta 181 - 195, Callao"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"latitude"</span><span class="p">:</span><span class="w"> </span><span class="mf">-12.049919</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"longitude"</span><span class="p">:</span><span class="w"> </span><span class="mf">-77.0845193</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACTIVE"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"congestion"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MEDIUM"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"lowEstimatedTime"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"highEstimatedTime"</span><span class="p">:</span><span class="w"> </span><span class="mi">14</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"sectors"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"m9"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tower A"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"shortName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"A"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACTIVE"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>Model of branch object.</p>
+
+<aside class="warning">
+    <strong>Caution:</strong> The <code>congestion</code>, <code>lowEstimatedTime</code> and <code>highEstimatedTime</code> are calculated using the configuration of the associated branch type. You need configure the next:
+    <ul>
+        <li>Time range to consider to calculate the waiting time.</li>
+        <li>Desviation of waiting time.</li>
+        <li>Minimal waiting time of medium congestion.</li>
+        <li>Minimal waiting time of high congestion.</li>
+    </ul>
+    If the branch is <code>INACTIVE</code> this fields are not returned.
+</aside>
+
+<h3 id="fields">Fields</h3>
+
+<ul>
+<li><p><strong>id</strong> <span class="param-type">String</span><br>
+Branch unique identifier (Configured from Bmatic configuration panel).</p></li>
+<li><p><strong>name</strong> <span class="param-type">String</span><br>
+Complete name of the branch.
+<p>
+<span class="param-condition">Maximum length:</span> <code>50</code>
+</p></p></li>
+<li><p><strong>shortName</strong> <span class="param-type">String</span><br>
+Name to display in small devices.
+<p>
+<span class="param-condition">Maximum length:</span> <code>20</code>
+</p></p></li>
+<li><p><strong>address</strong> <span class="param-type">String</span><br>
+Branch address.
+<p>
+<span class="param-condition">Maximum length:</span> <code>100</code>
+</p></p></li>
+<li><p><strong>latitude</strong> <span class="param-type">Float</span><br>
+Latitude component of branch location.</p></li>
+<li><p><strong>longitude</strong> <span class="param-type">Float</span><br>
+Longitude component of branch location.</p></li>
+<li><p><strong>status</strong> <span class="param-type">Enum</span><br>
+Current status of the branch.
+<p>
+<span class="param-condition">Possible values:</span>
+    <ul>
+        <li><code>ACTIVE</code>: At least one sector is <code>ACTIVE</code></li>
+        <li><code>INACTIVE</code>: All sectors are <code>INACTIVE</code></li>
+    </ul>
+</p></p></li>
+<li><p><strong>congestion</strong> <span class="param-type">String</span><br>
+Flag of branch congestion.
+<p>
+<span class="param-condition">Possible values:</span>
+    <ul>
+        <li><code>LOW</code>: The average waiting time is lower to the minimal waiting time of medium congestion.</li>
+        <li><code>MEDIUM</code>: The average waiting time is lower to the minimal waiting time of high congestion but equal or upper to the minimal waiting time of medium congestion.</li>
+        <li><code>HIGH</code>: The average waiting time is equal or upper to the minimal waiting time of high congestion</li>
+    </ul>
+</p></p></li>
+<li><p><strong>lowEstimatedTime</strong> <span class="param-type">Integer</span><br>
+Lower bound of the estimated waiting time. It&rsquo;s equal to the average waiting time minus the configured desviation.</p></li>
+<li><p><strong>highEstimatedTime</strong> <span class="param-type">Integer</span><br>
+Upper bound of the estimated waiting time. It&rsquo;s equal to the average waiting time plus the configured desviation.</p></li>
+<li><p><strong>sectors</strong> <span class="param-type">List&lt;<a href="#sector">Sector</a>&gt;</span><br>
+List of the branch&rsquo;s sectors. A correct configuration include at least one sector per branch.
+<p>
+<span class="param-condition">Unique items:</span> <code>true</code><br>
+<span class="param-condition">Minimum items:</span> <code>1</code>
+</p></p></li>
+</ul>
+
+<p><h2 id="channel">Channel</h2></p>
+
+<blockquote>
+<p>Sample object:</p>
+</blockquote>
+
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"c10"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Mobile"</span><span class="p">,</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>Model of channel object.</p>
+
+<h3 id="fields">Fields</h3>
+
+<ul>
+<li><p><strong>id</strong> <span class="param-type">String</span><br>
+Channel unique identifier (Configured from Bmatic configuration panel).</p></li>
+<li><p><strong>name</strong> <span class="param-type">String</span><br>
+Complete name of the channel.
+<p>
+<span class="param-condition">Maximum length:</span> <code>20</code>
+</p></p></li>
+</ul>
+
+<p><h2 id="counter">Counter</h2></p>
+
+<blockquote>
+<p>Sample object:</p>
+</blockquote>
+
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"v10"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"V10"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"teller"</span><span class="p">:</span><span class="w"> </span><span class="s2">"achavez"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>Model of counter object.</p>
+
+<h3 id="fields">Fields</h3>
+
+<ul>
+<li><p><strong>id</strong> <span class="param-type">String</span><br>
+Counter unique identifier (Configured from Bmatic configuration panel).</p></li>
+<li><p><strong>name</strong> <span class="param-type">String</span><br>
+Name of the counter.
+<p>
+<span class="param-condition">Maximum length:</span> <code>20</code>
+</p></p></li>
+<li><p><strong>teller</strong> <span class="param-type">String</span><br>
+Account name of teller in counter.
+<p>
+<span class="param-condition">Maximum length:</span> <code>30</code>
+</p></p></li>
+</ul>
+
+<p><h2 id="day">Day</h2></p>
+
+<blockquote>
+<p>Sample object:</p>
+</blockquote>
+
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"day"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-02-20T00:00:00.000Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"ranges"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"startTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-02-20T14:00:00.000Z"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"endTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-02-20T15:00:00.000Z"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>Model of day object.</p>
+
+<h3 id="fields">Fields</h3>
+
+<ul>
+<li><p><strong>day</strong> <span class="param-type">Date</span><br>
+Date with available ranges.
+<p>
+<span class="param-condition">Standard:</span> <code><a href="https://en.wikipedia.org/wiki/ISO_8601">ISO 8601</a></code>
+</p></p></li>
+<li><p><strong>ranges</strong> <span class="param-type">List&lt;<a href="#range">Range</a>&gt;</span><br>
+List of available time ranges.</p></li>
+</ul>
+
+<p><h2 id="error">Error</h2></p>
+
+<blockquote>
+<p>Sample object:</p>
+</blockquote>
+
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ResourceNotFoundException"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Resource not found for the request GET /v2"</span><span class="p">,</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>Model of error object.</p>
+
+<h3 id="fields">Fields</h3>
+
+<ul>
+<li><p><strong>type</strong> <span class="param-type">String</span> 
+Name of type error.</p></li>
+<li><p><strong>message</strong> <span class="param-type">String</span> 
+Simple description of the error.</p></li>
+</ul>
+
+<p><h2 id="print-line">Print Line</h2></p>
+
+<blockquote>
+<p>Sample object:</p>
+</blockquote>
+
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"align"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CENTER"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"font"</span><span class="p">:</span><span class="w"> </span><span class="s2">"A_REGULAR"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"previous"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Welcome to"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"content"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Hiper"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"next"</span><span class="p">:</span><span class="w"> </span><span class="s2">"!"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>Model of print line object.</p>
+
+<h3 id="fields">Fields</h3>
+
+<ul>
+<li><p><strong>align</strong> <span class="param-type">Enum</span><br>
+Alignment of the line.
+<p>
+<span class="param-condition">Possible values:</span>
+<ul>
+    <li><code>LEFT</code></li>
+    <li><code>CENTER</code></li>
+    <li><code>RIGHT</code></li>
+</ul>
+
+<p></p></p></li>
+<li><p><strong>font</strong> <span class="param-type">Enum</span><br>
+Font of the line.
+<p>
+<span class="param-condition">Possible values:</span>
+<ul>
+    <li><code>A_REGULAR</code></li>
+    <li><code>B_REGULAR</code></li>
+    <li><code>A_DOUBLE_HIGH</code></li>
+    <li><code>B_DOUBLE_HIGH</code></li>
+    <li><code>A_DOUBLE_WIDTH</code></li>
+    <li><code>B_DOUBLE_WIDTH</code></li>
+    <li><code>A_QUADRUPLE</code></li>
+    <li><code>B_QUADRUPLE</code></li>
+    <li><code>C_DOUBLE_HIGH</code></li>
+    <li><code>C_DOUBLE_WIDTH</code></li>
+    <li><code>C_QUADRUPLE</code></li>
+</ul>
+</p></p></li>
+<li><p><strong>previous</strong> <span class="param-type">String</span><br>
+Message to print before the content.
+<p>
+<span class="param-condition">Maximum length:</span> <code>50</code>
+</p></p></li>
+<li><p><strong>content</strong> <span class="param-type">String</span><br>
+Message to print as content.
+<p>
+<span class="param-condition">Maximum length:</span> <code>50</code>
+</p></p></li>
+<li><p><strong>next</strong> <span class="param-type">String</span><br>
+Message to print after the content.
+<p>
+<span class="param-condition">Maximum length:</span> <code>50</code>
+</p></p></li>
+</ul></p>
+
+<p><h2 id="queue-type">Queue Type</h2></p>
+
+<blockquote>
+<p>Sample object:</p>
+</blockquote>
+
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"R0009"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CC"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Comercial"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>Model of queue type object.</p>
+
+<h3 id="fields">Fields</h3>
+
+<ul>
+<li><p><strong>id</strong> <span class="param-type">String</span><br>
+Unique identifier of the queue type(Auto generated by Bmatic).</p></li>
+<li><p><strong>code</strong> <span class="param-type">String</span><br>
+Code of the queue type.
+<p>
+<span class="param-condition">Maximum length:</span> <code>5</code>
+</p></p></li>
+<li><p><strong>name</strong> <span class="param-type">String</span><br>
+Complete name of the queue type.
+<p>
+<span class="param-condition">Maximum length:</span> <code>50</code>
+</p></p></li>
+</ul>
+
+<p><h2 id="range">Range</h2></p>
+
+<blockquote>
+<p>Sample object:</p>
+</blockquote>
+
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"startTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-02-20T14:00:00.000Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"endTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-02-20T15:00:00.000Z"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>Model of time range object.</p>
+
+<h3 id="fields">Fields</h3>
+
+<ul>
+<li><p><strong>startTime</strong> <span class="param-type">DateTime</span><br>
+Start time of range.
+<p>
+<span class="param-condition">Standard:</span> <code><a href="https://en.wikipedia.org/wiki/ISO_8601">ISO 8601</a></code>
+</p></p></li>
+<li><p><strong>endTime</strong> <span class="param-type">DateTime</span><br>
+End time of range.
+<p>
+<span class="param-condition">Standard:</span> <code><a href="https://en.wikipedia.org/wiki/ISO_8601">ISO 8601</a></code>
+</p></p></li>
+</ul>
+
+<p><h2 id="sector">Sector</h2></p>
+
+<p>Model of sector object.</p>
+
+<blockquote>
+<p>Sample object:</p>
+</blockquote>
+
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"m9"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tower A"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"shortName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"A"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"OPEN"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<h3 id="fields">Fields</h3>
+
+<ul>
+<li><p><strong>id</strong> <span class="param-type">String</span><br>
+Sector unique identifier (Auto generated by Bmatic).</p></li>
+<li><p><strong>name</strong> <span class="param-type">String</span><br>
+Complete name of the sector.
+<p>
+<span class="param-condition">Maximum length:</span> <code>50</code>
+</p></p></li>
+<li><p><strong>shortName</strong> <span class="param-type">String</span> <br>
+Name to display in small devices.
+<p>
+<span class="param-condition">Maximum length:</span> <code>20</code>
+</p></p></li>
+<li><p><strong>status</strong> <span class="param-type">Enum</span><br>
+Current status of the sector.
+<p>
+<span class="param-condition">Possible values:</span>
+<ul>
+    <li><code>ACTIVE</code>: At least one counter in the sector is <code>ACTIVE</code> or <code>SUSPENDED</code></li>
+    <li><code>INACTIVE</code>: All counters in the sector are <code>INACTIVE</code></li>
+</ul>
+
+<p></p></p></li>
+<li><p><strong>services</strong> <span class="param-type">List&lt;String&gt;</span><br>
+List of ids of the services allowed at sector. By default all services are allowed in the sectors if not register a specific configuration for the sector.
+<p>
+<span class="param-condition">Unique items:</span> <code>true</code><br>
+<span class="param-condition">Minimum items:</span> <code>1</code>
+</p></p></li>
+</ul></p>
+
+<p><h2 id="service">Service</h2></p>
+
+<blockquote>
+<p>Sample object:</p>
+</blockquote>
+
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"s8"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Plataforma"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"shortName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Plataforma"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>Model of service object.</p>
+
+<h3 id="fields">Fields</h3>
+
+<ul>
+<li><p><strong>id</strong> <span class="param-type">String</span><br>
+Service unique identifier (Auto generated by Bmatic).</p></li>
+<li><p><strong>name</strong> <span class="param-type">String</span><br>
+Complete name of the service.
+<p>
+<span class="param-condition">Maximum length:</span> <code>50</code>
+</p></p></li>
+<li><p><strong>shortName</strong> <span class="param-type">String</span><br>
+Name to display in small devices.
+<p>
+<span class="param-condition">Maximum length:</span> <code>20</code>
+</p></p></li>
+</ul>
+
+<p><h2 id="ticket">Ticket</h2></p>
+
+<blockquote>
+<p>Sample object:</p>
+</blockquote>
+
+<pre class="highlight json tab-json"><code><span class="w">
+</span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"89m32b0"</span><span class="p">,</span><span class="w">    
+    </span><span class="s2">"number"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BLOCKED"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"+51987776576"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"position"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"lowEstimatedTime"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"highEstimatedTime"</span><span class="p">:</span><span class="w"> </span><span class="mi">15</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"messages"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="s2">"We have a promotion for you!"</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="s2">"channel"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"c10"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Mobile"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"branch"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"27b6"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Hiper Central"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"shortName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Hiper"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Calle Beta 181 - 195, Callao"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"latitude"</span><span class="p">:</span><span class="w"> </span><span class="mf">-12.049919</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"longitude"</span><span class="p">:</span><span class="w"> </span><span class="mf">-77.0845193</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACTIVE"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"sector"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"m9"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tower A"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"shortName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"A"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACTIVE"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"service"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"s8"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Plataforma"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"shortName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Plataforma"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"queueType"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"R0009"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CC"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Comercial"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"counter"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"v10"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"V10"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"teller"</span><span class="p">:</span><span class="w"> </span><span class="s2">"achavez"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"createdAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-02-20T10:00:00.000Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"updatedAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-02-20T10:00:00.000Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"print"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"align"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CENTER"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"font"</span><span class="p">:</span><span class="w"> </span><span class="s2">"A_REGULAR"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"previous"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Welcome to"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"content"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Hiper"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"next"</span><span class="p">:</span><span class="w"> </span><span class="s2">"!"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>Model of ticket object.</p>
+
+<aside class="warning">
+<strong>Caution:</strong>
+The entities associated to ticket not provide all their fields for performance reasons. If you need more information, you can use others endpoints to get this information using the ids returned in the ticket. You can to see the default information provided in the sample object.<br><br>
+The <code>lowEstimatedTime</code> and <code>highEstimatedTime</code> are calculated using the configuration of the associated branch type. You need configure the next:
+<ul>
+    <li>Time range to consider to calculate the waiting time.</li>
+    <li>Desviation of waiting time.</li>
+</ul>
+If the branch associated is <code>INACTIVE</code> this fields are not returned.
+</aside>
+
+<h3 id="fields">Fields</h3>
+
+<ul>
+<li><p><strong>id</strong> <span class="param-type">String</span><br>
+Ticket unique identifier (Auto generated by Bmatic).</p></li>
+<li><p><strong>number</strong> <span class="param-type">Integer</span><br>
+Number in queue assigned to the ticket.</p></li>
+<li><p><strong>status</strong> <span class="param-type">Enum</span><br>
+Current status of the ticket.
+<p>
+<span class="param-condition">Possible values:</span>
+<ul>
+    <li><code>BLOCKED</code>: When the counters cannot call the ticket.</li>
+    <li><code>ENABLED</code>: When the counters can call the ticket.</li>
+</ul>
+
+<p></p></p></li>
+<li><p><strong>phone</strong> <span class="param-type">String</span><br>
+Customer phone for notifications associated to the ticket.</p></li>
+<li><p><strong>position</strong> <span class="param-type">Integer</span><br>
+Ticket position in the queue.</p></li>
+<li><p><strong>lowEstimatedTime</strong> <span class="param-type">Integer</span><br>
+Lower bound of the estimated waiting time. It&rsquo;s equal to the average waiting time minus the configured desviation.</p></li>
+<li><p><strong>highEstimatedTime</strong> <span class="param-type">Integer</span><br>
+Upper bound of the estimated waiting time. It&rsquo;s equal to the average waiting time plus the configured desviation.</p></li>
+<li><p><strong>messages</strong> <span class="param-type">List&lt;String&gt;</span><br>
+Messages to print.</p></li>
+<li><p><strong>channel</strong> <span class="param-type"><a href="#channel">Channel</a></span><br>
+Channel where the ticket was created.</p></li>
+<li><p><strong>branch</strong> <span class="param-type"><a href="#branch">Branch</a></span><br>
+Branch where the ticket is valid.</p></li>
+<li><p><strong>sector</strong> <span class="param-type"><a href="#sector">Sector</a></span><br>
+Sector where the ticket is valid.</p></li>
+<li><p><strong>service</strong> <span class="param-type"><a href="#service">Service</a></span><br>
+Service requested by the customer.</p></li>
+<li><p><strong>queueType</strong> <span class="param-type"><a href="#queue-type">QueueType</a></span><br>
+Assigned queue type.</p></li>
+<li><p><strong>counter</strong> <span class="param-type"><a href="#counter">Counter</a></span><br>
+Assigned counter.</p></li>
+<li><p><strong>createdAt</strong> <span class="param-type">DateTime</span><br>
+Date of ticket creation.
+<p>
+<span class="param-condition">Standard:</span> <code><a href="https://en.wikipedia.org/wiki/ISO_8601">ISO 8601</a></code>
+</p></p></li>
+<li><p><strong>updatedAt</strong> <span class="param-type">DateTime</span><br>
+Date of the last update of ticket.
+<p>
+<span class="param-condition">Standard:</span> <code><a href="https://en.wikipedia.org/wiki/ISO_8601">ISO 8601</a></code>
+</p></p></li>
+<li><p><strong>print</strong> <span class="param-type">List&lt;<a href="#print-line">PrintLine</a>&gt;</span>
+List of lines to print.</p></li>
+</ul></p>
+
+<style>
+    ul.enum {
+        margin: 0;
+        padding: 0 0 0 2px;
+        list-style-position: inside;
+    }
+    .required {
+        color: red;
+        font-weight: bold;
+    }
+    a.pseudo {
+        border-bottom:1px dashed;
+        text-decoration: none;
+    }
+</style>
+
+      </div>
+      <div class="dark-box">
+      </div>
+    </div>
+  </body>
+</html>
