@@ -89,7 +89,7 @@ Create a new customer ticket and returns it.
 <strong>Caution:</strong>
     You should consider the following before create a ticket:
     <ul>
-        <li>The channel used should support the requested service.</li>
+        <li>The used channel should support the requested service.</li>
         <li>The requested branch should contain the requested sector.</li>
         <li>The requested sector should support the requested service.</li>
         <li>The customer should has no other ticket.</li>
@@ -109,7 +109,7 @@ Customer unique identifier.
 ### Request
 
 * **channelId** <span class="param-type">String</span> <span class="required-param">required</span><br>
-Unique identifier of the channel used. This value should be fixed in the client application.
+Unique identifier of the channel used. This value must be set in the client application.
 
 * **branchId** <span class="param-type">String</span> <span class="required-param">required</span><br>
 Unique identifier of the requested branch.

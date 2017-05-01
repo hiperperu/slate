@@ -22,15 +22,15 @@ Content-Type: application/json
 ]
 ```
 
-Returns available services to book from the channel used.
+Returns available services to book for the specified channel.
 
 <aside class="warning">
-<strong>Caution:</strong>
-You should consider the following:
-<ul>
-    <li>This operation throw a error(404) when the channel referenced not exists.</li>
-    <li>An empty list is returned when not exist bookable services from the channel used</li>
-<ul>
+    <strong>Caution:</strong>
+    You should consider the following:
+    <ul>
+        <li>This operation throw a error(404) when the referenced channel does not exist.</li>
+        <li>An empty list is returned when no bookable services exist from the specified channel.</li>
+    <ul>
 </aside>
 
 ### Endpoint
@@ -40,12 +40,15 @@ You should consider the following:
 ### Path Params
 
 * **channelId** <span class="param-type">String</span> <span class="required-param">required</span><br>
-Unique identifier of the channel used. This value should to be fixed in the client application.
+Unique identifier of the channel used. This value must be set in the client application.
 
 ### Responses
 
 * **200** <span class="verb-description">Ok</span> <span class="param-type">List\<[Service](#service)\></span><br>
 A list of services.
+
+* **400** <span class="verb-description">Bad Request</span> <span class="param-type">[Error](#error)</span><br>
+One or more parameters are not valid, returns a description of validation failed.
 
 * **404** <span class="verb-description">Not Found</span> <span class="param-type">[Error](#error)</span><br>
 The resource requested not found, returns a simple error message.

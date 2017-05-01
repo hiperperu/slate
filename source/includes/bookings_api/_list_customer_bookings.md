@@ -48,17 +48,17 @@ Content-Type: application/json
 Returns all bookings created by a specific customer.
 
 <aside class="warning">
-<strong>Caution:</strong>
-You should consider the following:
-<ul>
-    <li>The bookings are not available anymore after the booking day.</li>
-    <li>An empty list is returned when not exist registered bookings with the <code>customerId</code> received.</li>
-<ul>
+    <strong>Caution:</strong>
+    You should consider the following:
+    <ul>
+        <li>The bookings are not available anymore after the booking day.</li>
+        <li>An empty list is returned when there is no registered bookings with the <code>customerId</code> received.</li>
+    <ul>
 </aside>
 
 <aside class="notice">
-<strong>Order:</strong>
-The bookings are sorted descendantly by the field: <code>createdAt</code>.
+    <strong>Order:</strong>
+    The bookings are sorted descendantly by the field: <code>createdAt</code>.
 </aside>
 
 ### Endpoint
@@ -68,17 +68,20 @@ The bookings are sorted descendantly by the field: <code>createdAt</code>.
 ### Path Params
 
 * **customerId** <span class="param-type">String</span> <span class="required-param">required</span><br>
-Customer unique identifier (Obtained it from the customers integration interface).
+Customer unique identifier.
 
 ### Query Params
 
 * **fields** <span class="param-type">List\<String\></span> <span class="recomended-param">recomended</span><br>
-Entity fields that will return at response. For example: `fields=id,code,status`.
+Entity fields that will included in the response(See available fields in [the booking object definition](#booking)). For example: `fields=id,code,status`.
 
 ### Responses
 
 * **200** <span class="verb-description">Ok</span> <span class="param-type">List\<[Booking](#booking)\></span><br>
 A list of bookings.
+
+* **400** <span class="verb-description">Bad Request</span> <span class="param-type">[Error](#error)</span><br>
+One or more parameters are not valid, returns a description of validation failed.
 
 * **500** <span class="verb-description">Internal Server Error</span> <span class="param-type">[Error](#error)</span><br>
 An unexpected error has occurred, returns a simple error message.

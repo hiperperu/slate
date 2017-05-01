@@ -11,7 +11,6 @@ Content-Type: application/json
     "channelId": "c10",
     "branchId": "27b6",
     "serviceId": "s8",
-    "name": "Mr. Smith",
     "docType": "D",
     "docNumber": "90452291",
     "phone": "+51987882567",
@@ -56,32 +55,18 @@ Content-Type: application/json
 }
 ```
 
-Create a new customer booking and then it returns it.
+Create a new customer booking and returns it.
 
 <aside class="warning">
-<strong>Caution: </strong>
-You should consider the following before create a booking:
-<ul>
-    <li>The channel referenced should support the service requested.</li>
-    <li>The branch referenced should support the service requested.</li>
-    <li>The client referenced should has no other booking in state <code>ACTIVE</code> or <code>PENDING</code> for the same requested service.</li>
-    <li>The <code>startTime</code> and the <code>endTime</code> should to be available.</li>
-<ul>
+    <strong>Caution: </strong>
+    You should consider the following before create a booking:
+    <ul>
+        <li>The referenced channel should support the requested service.</li>
+        <li>The referenced branch should support the requested service .</li>
+        <li>The referenced client should has no other booking in state <code>ACTIVE</code> or <code>PENDING</code> for the same requested service.</li>
+        <li>The <code>startTime</code> and the <code>endTime</code> must be available.</li>
+    <ul>
 </aside>
-
-This operation can throw the next validation errors:
-
-Code| Field |Message
----|---|---
-40001|channelId|Channel not exists.
-40002|serviceId|Service not exists.
-40003|branchId|Branch not exists.
-40006|serviceId|Service not supported by the channel.
-40007|serviceId|Service not supported by the branch.
-40012|customerId|Customer has another valid booking for the same service.
-40013|startTime|Booking start time not valid.
-40014|endTime|Booking end time not valid.
-40015|serviceId|Service not available in the requested time.
 
 ### Endpoint
 
@@ -90,12 +75,12 @@ Code| Field |Message
 ### Path Params
 
 * **customerId** <span class="param-type">String</span><br>
-Customer unique identifier (Obtained it from the customers integration interface).
+Customer unique identifier.
 
 ### Request
 
 * **channelId** <span class="param-type">String</span> <span class="required-param">required</span><br>
-Unique identifier of the channel used. This value should to be fixed in the client application.
+Unique identifier of the channel used. This value must be set in the client application.
 
 * **branchId** <span class="param-type">String</span> <span class="required-param">required</span><br>
 Unique identifier of the requested branch.
@@ -124,7 +109,7 @@ Number of document used to identify the client.
 * **phone** <span class="param-type">String</span><br>
 Customer phone for notifications associated to the booking.
 <p>
-    <span class="param-condition">Validation pattern:</span> `^+[1-9]{1}[0-9]{3,14}$`
+    <span class="param-condition">Validation pattern:</span> `^\+[1-9]{1}[0-9]{3,14}$`
 </p>
 
 * **startTime** <span class="param-type">DateTime</span> <span class="required-param">required</span><br>
@@ -144,7 +129,7 @@ End time of booking.
 * **201** <span class="verb-description">Created</span> <span class="param-type">[Booking](#booking)</span><br>
 Successful creation, returns the new booking.
 
-* **400** <span class="verb-description">Bad Request</span> <span class="param-type">List\<[ValidationError](#validation-error)\></span><br>
+* **400** <span class="verb-description">Bad Request</span> <span class="param-type">[Error](#error)</span><br>
 One or more parameters are not valid, returns a description of validation failed.
 
 * **500** <span class="verb-description">Internal Server Error</span> <span class="param-type">[Error](#error)</span><br>

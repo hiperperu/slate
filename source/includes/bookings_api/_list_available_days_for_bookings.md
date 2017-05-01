@@ -32,16 +32,16 @@ Content-Type: application/json
 Returns a list of days for book a service in a branch.
 
 <aside class="warning">
-<strong>Caution: </strong> 
-You should consider the following:
-<ul>
-    <li>An empty list is returned when not exist more available bookings  or not exists availability configuration for the service and branch requested.</li>
-<ul>
+    <strong>Caution: </strong> 
+    You should consider the following:
+    <ul>
+        <li>An empty list is returned when there are no more bookings available or there is no availability setting for the requested service and branch.</li>
+    <ul>
 </aside>
 
 <aside class="notice">
-<strong>Order:</strong>
-The booking days are sorted ascendantly by <code>day</code>.
+    <strong>Order:</strong>
+    The booking days are sorted ascendantly by <code>day</code>.
 </aside>
 
 ### Endpoint
@@ -80,7 +80,7 @@ A list of days. Pagination headers are included:
     <li><strong>X-Pagination-Limit:</strong> Limit of items per page.</li>
 </ul>
 
-* **400** <span class="verb-description">Bad Request</span> <span class="param-type">List\<[ValidationError](#validation-error)\></span><br>
+* **400** <span class="verb-description">Bad Request</span> <span class="param-type">[Error](#error)</span><br>
 One or more parameters are not valid, returns a description of validation failed.
 
 * **500** <span class="verb-description">Internal Server Error</span> <span class="param-type">[Error](#error)</span><br>

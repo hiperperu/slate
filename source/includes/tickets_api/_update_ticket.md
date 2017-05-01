@@ -47,7 +47,7 @@ New status for the ticket.
 * **phone** <span class="param-type">String</span><br>
 New customer phone for notifications.
 <p>
-    <span class="param-condition">Validation pattern:</span> `^+[1-9]{1}[0-9]{3,14}$`
+    <span class="param-condition">Validation pattern:</span> `^\+[1-9]{1}[0-9]{3,14}$`
 </p>
 
 ### Responses

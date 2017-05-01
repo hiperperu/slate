@@ -52,7 +52,7 @@ Returns a customer booking by ID.
 ### Path Params
 
 * **customerId** <span class="param-type">String</span> <span class="required-param">required</span><br>
-Customer unique identifier (Obtained it from the customers integration interface).
+Customer unique identifier.
 
 * **bookingId** <span class="param-type">String</span> <span class="required-param">required</span><br>
 Booking unique identifier (Generated in the booking creation).
@@ -60,12 +60,15 @@ Booking unique identifier (Generated in the booking creation).
 ### Query Params
 
 * **fields** <span class="param-type">List\<String\></span> <span class="recomended-param">recomended</span><br>
-Entity fields that will return at response. For example: `fields=id,code,status`.
+Entity fields that will included in the response(See available fields in [the booking object definition](#booking)). For example: `fields=id,code,status`.
 
 ### Responses
 
 * **200** <span class="verb-description">OK</span> <span class="param-type">[Booking](#booking)</span><br>
 A booking.
+
+* **400** <span class="verb-description">Bad Request</span> <span class="param-type">[Error](#error)</span><br>
+One or more parameters are not valid, returns a description of validation failed.
 
 * **404** <span class="verb-description">Not Found</span> <span class="param-type">[Error](#error)</span><br>
 The resource requested not found, returns a simple error message.

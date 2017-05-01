@@ -40,7 +40,7 @@ Returns available services for the specified channel.
 ### Path Params
 
 * **channelId** <span class="param-type">String</span> <span class="required-param">required</span><br>
-Unique identifier of the channel used. This value should be fixed in the client application.
+Unique identifier of the channel used. This value must be set in the client application.
 
 ### Responses
 
