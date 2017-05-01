@@ -328,7 +328,7 @@ A list of branches. Pagination headers are included:
 <li><strong>X-Pagination-Page:</strong> Number of current page.</li>
 <li><strong>X-Pagination-Limit:</strong> Limit of items per page.</li>
 </ul></p></li>
-<li><p><strong>400</strong> <span class="verb-description">Bad Request</span> <span class="param-type"><a href="#validation-error">ValidationError</a></span><br>
+<li><p><strong>400</strong> <span class="verb-description">Bad Request</span> <span class="param-type"><a href="#error">Error</a></span><br>
 One or more parameters are not valid, returns a description of validation failed.</p></li>
 <li><p><strong>500</strong> <span class="verb-description">Internal Server Error</span> <span class="param-type"><a href="#error">Error</a></span><br>
 An unexpected error has occurred, returns a simple error message.</p></li>
@@ -397,7 +397,7 @@ Entity fields that will included in the response(See available fields in <a href
 <ul>
 <li><p><strong>200</strong> <span class="verb-description">Ok</span> <span class="param-type"><a href="#branch">Branch</a></span><br>
 A branch.</p></li>
-<li><p><strong>400</strong> <span class="verb-description">Bad Request</span> <span class="param-type"><a href="#validation-error">ValidationError</a></span><br>
+<li><p><strong>400</strong> <span class="verb-description">Bad Request</span> <span class="param-type"><a href="#error">Error</a></span><br>
 One or more parameters are not valid, returns a description of validation failed.</p></li>
 <li><p><strong>404</strong> <span class="verb-description">Not Found</span> <span class="param-type"><a href="#error">Error</a></span><br>
 The resource requested not found, returns a simple error message.</p></li>
@@ -453,7 +453,7 @@ An unexpected error has occurred, returns a simple error message.</p></li>
 
 <ul>
 <li><strong>channelId</strong> <span class="param-type">String</span> <span class="required-param">required</span><br>
-Unique identifier of the channel used. This value should be fixed in the client application.</li>
+Unique identifier of the channel used. This value must be set in the client application.</li>
 </ul>
 
 <h3 id="responses">Responses</h3>
@@ -461,7 +461,7 @@ Unique identifier of the channel used. This value should be fixed in the client 
 <ul>
 <li><p><strong>200</strong> <span class="verb-description">Ok</span> <span class="param-type">List&lt;<a href="#service">Service</a>&gt;</span><br>
 A list of services.</p></li>
-<li><p><strong>400</strong> <span class="verb-description">Bad Request</span> <span class="param-type"><a href="#validation-error">ValidationError</a></span><br>
+<li><p><strong>400</strong> <span class="verb-description">Bad Request</span> <span class="param-type"><a href="#error">Error</a></span><br>
 One or more parameters are not valid, returns a description of validation failed.</p></li>
 <li><p><strong>404</strong> <span class="verb-description">Not Found</span> <span class="param-type"><a href="#error">Error</a></span><br>
 The resource requested not found, returns a simple error message.</p></li>
@@ -584,7 +584,7 @@ Entity fields that will included in the response(See available fields in <a href
 <ul>
 <li><p><strong>200</strong> <span class="verb-description">Ok</span> <span class="param-type">List&lt;<a href="#ticket">Ticket</a>&gt;</span><br>
 A list of tickets.</p></li>
-<li><p><strong>400</strong> <span class="verb-description">Bad Request</span> <span class="param-type"><a href="#validation-error">ValidationError</a></span><br>
+<li><p><strong>400</strong> <span class="verb-description">Bad Request</span> <span class="param-type"><a href="#error">Error</a></span><br>
 One or more parameters are not valid, returns a description of validation failed.</p></li>
 <li><p><strong>500</strong> <span class="verb-description">Internal Server Error</span> <span class="param-type"><a href="#error">Error</a></span><br>
 An unexpected error has occurred, returns a simple error message.</p></li>
@@ -692,7 +692,7 @@ Entity fields that will included in the response(See available fields in <a href
 <ul>
 <li><p><strong>200</strong> <span class="verb-description">OK</span> <span class="param-type"><a href="#ticket">Ticket</a></span><br>
 A ticket.</p></li>
-<li><p><strong>400</strong> <span class="verb-description">Bad Request</span> <span class="param-type"><a href="#validation-error">ValidationError</a></span><br>
+<li><p><strong>400</strong> <span class="verb-description">Bad Request</span> <span class="param-type"><a href="#error">Error</a></span><br>
 One or more parameters are not valid, returns a description of validation failed.</p></li>
 <li><p><strong>404</strong> <span class="verb-description">Not Found</span> <span class="param-type"><a href="#error">Error</a></span><br>
 The resource requested not found, returns a simple error message.</p></li>
@@ -792,7 +792,7 @@ An unexpected error has occurred, returns a simple error message.</p></li>
 <strong>Caution:</strong>
     You should consider the following before create a ticket:
     <ul>
-        <li>The channel used should support the requested service.</li>
+        <li>The used channel should support the requested service.</li>
         <li>The requested branch should contain the requested sector.</li>
         <li>The requested sector should support the requested service.</li>
         <li>The customer should has no other ticket.</li>
@@ -815,7 +815,7 @@ Customer unique identifier.</li>
 
 <ul>
 <li><p><strong>channelId</strong> <span class="param-type">String</span> <span class="required-param">required</span><br>
-Unique identifier of the channel used. This value should be fixed in the client application.</p></li>
+Unique identifier of the channel used. This value must be set in the client application.</p></li>
 <li><p><strong>branchId</strong> <span class="param-type">String</span> <span class="required-param">required</span><br>
 Unique identifier of the requested branch.</p></li>
 <li><p><strong>sectorId</strong> <span class="param-type">String</span> <span class="required-param">required</span><br>
@@ -844,7 +844,7 @@ Customer phone for notifications associated to the ticket.
 <ul>
 <li><p><strong>201</strong> <span class="verb-description">Created</span> <span class="param-type"><a href="#ticket">Ticket</a></span><br>
 Successful creation, returns the new ticket.</p></li>
-<li><p><strong>400</strong> <span class="verb-description">Bad Request</span> <span class="param-type"><a href="#validation-error">ValidationError</a></span><br>
+<li><p><strong>400</strong> <span class="verb-description">Bad Request</span> <span class="param-type"><a href="#error">Error</a></span><br>
 One or more parameters are not valid, returns a description of validation failed.</p></li>
 <li><p><strong>500</strong> <span class="verb-description">Internal Server Error</span> <span class="param-type"><a href="#error">Error</a></span><br>
 An unexpected error has occurred, returns a simple error message.</p></li>
@@ -911,7 +911,7 @@ New customer phone for notifications.
 <ul>
 <li><p><strong>204</strong> <span class="verb-description">No Content</span><br>
 Successful update.</p></li>
-<li><p><strong>400</strong> <span class="verb-description">Bad Request</span> <span class="param-type"><a href="#validation-error">ValidationError</a></span><br>
+<li><p><strong>400</strong> <span class="verb-description">Bad Request</span> <span class="param-type"><a href="#error">Error</a></span><br>
 One or more parameters are not valid, returns a description of validation failed.</p></li>
 <li><p><strong>404</strong> <span class="verb-description">Not Found</span> <span class="param-type"><a href="#error">Error</a></span><br>
 The resource requested not found, returns a simple error message.</p></li>
@@ -955,7 +955,7 @@ Ticket unique identifier (Generated in the ticket creation).</p></li>
 <ul>
 <li><p><strong>204</strong> <span class="verb-description">No Content</span><br>
 Successful cancelation.</p></li>
-<li><p><strong>400</strong> <span class="verb-description">Bad Request</span> <span class="param-type"><a href="#validation-error">ValidationError</a></span><br>
+<li><p><strong>400</strong> <span class="verb-description">Bad Request</span> <span class="param-type"><a href="#error">Error</a></span><br>
 One or more parameters are not valid, returns a description of validation failed.</p></li>
 <li><p><strong>404</strong> <span class="verb-description">Not Found</span> <span class="param-type"><a href="#error">Error</a></span><br>
 The resource requested not found, returns a simple error message.</p></li>
@@ -965,7 +965,7 @@ An unexpected error has occurred, returns a simple error message.</p></li>
 
 <h1 id="bookings-api">Bookings API</h1>
 
-<p>Allow to your customers reserve a attention schedule for a better experience reducing the waiting time and improve the congestion of your branches. The endpoints of this section allow the creation of bookings from your application.</p>
+<p>Allow to your customers reserve a scheduled attention for a better experience reducing the waiting time and reduce the congestion of your branches. The endpoints of this section allow the creation of bookings from your application.</p>
 
 <p><h2 id="list-available-services-for-booking">List available services for booking</h2></p>
 
@@ -992,15 +992,15 @@ An unexpected error has occurred, returns a simple error message.</p></li>
 </span><span class="p">]</span><span class="w">
 </span></code></pre>
 
-<p>Returns available services to book from the channel used.</p>
+<p>Returns available services to book for the specified channel.</p>
 
 <aside class="warning">
-<strong>Caution:</strong>
-You should consider the following:
-<ul>
-    <li>This operation throw a error(404) when the channel referenced not exists.</li>
-    <li>An empty list is returned when not exist bookable services from the channel used</li>
-<ul>
+    <strong>Caution:</strong>
+    You should consider the following:
+    <ul>
+        <li>This operation throw a error(404) when the referenced channel does not exist.</li>
+        <li>An empty list is returned when no bookable services exist from the specified channel.</li>
+    <ul>
 </aside>
 
 <h3 id="endpoint">Endpoint</h3>
@@ -1011,7 +1011,7 @@ You should consider the following:
 
 <ul>
 <li><strong>channelId</strong> <span class="param-type">String</span> <span class="required-param">required</span><br>
-Unique identifier of the channel used. This value should to be fixed in the client application.</li>
+Unique identifier of the channel used. This value must be set in the client application.</li>
 </ul>
 
 <h3 id="responses">Responses</h3>
@@ -1019,6 +1019,8 @@ Unique identifier of the channel used. This value should to be fixed in the clie
 <ul>
 <li><p><strong>200</strong> <span class="verb-description">Ok</span> <span class="param-type">List&lt;<a href="#service">Service</a>&gt;</span><br>
 A list of services.</p></li>
+<li><p><strong>400</strong> <span class="verb-description">Bad Request</span> <span class="param-type"><a href="#error">Error</a></span><br>
+One or more parameters are not valid, returns a description of validation failed.</p></li>
 <li><p><strong>404</strong> <span class="verb-description">Not Found</span> <span class="param-type"><a href="#error">Error</a></span><br>
 The resource requested not found, returns a simple error message.</p></li>
 <li><p><strong>500</strong> <span class="verb-description">Internal Server Error</span> <span class="param-type"><a href="#error">Error</a></span><br>
@@ -1060,16 +1062,16 @@ An unexpected error has occurred, returns a simple error message.</p></li>
 <p>Returns a list of days for book a service in a branch.</p>
 
 <aside class="warning">
-<strong>Caution: </strong> 
-You should consider the following:
-<ul>
-    <li>An empty list is returned when not exist more available bookings  or not exists availability configuration for the service and branch requested.</li>
-<ul>
+    <strong>Caution: </strong> 
+    You should consider the following:
+    <ul>
+        <li>An empty list is returned when there are no more bookings available or there is no availability setting for the requested service and branch.</li>
+    <ul>
 </aside>
 
 <aside class="notice">
-<strong>Order:</strong>
-The booking days are sorted ascendantly by <code>day</code>.
+    <strong>Order:</strong>
+    The booking days are sorted ascendantly by <code>day</code>.
 </aside>
 
 <h3 id="endpoint">Endpoint</h3>
@@ -1107,7 +1109,7 @@ A list of days. Pagination headers are included:
 <li><strong>X-Pagination-Page:</strong> Number of current page.</li>
 <li><strong>X-Pagination-Limit:</strong> Limit of items per page.</li>
 </ul></p></li>
-<li><p><strong>400</strong> <span class="verb-description">Bad Request</span> <span class="param-type">List&lt;<a href="#validation-error">ValidationError</a>&gt;</span><br>
+<li><p><strong>400</strong> <span class="verb-description">Bad Request</span> <span class="param-type"><a href="#error">Error</a></span><br>
 One or more parameters are not valid, returns a description of validation failed.</p></li>
 <li><p><strong>500</strong> <span class="verb-description">Internal Server Error</span> <span class="param-type"><a href="#error">Error</a></span><br>
 An unexpected error has occurred, returns a simple error message.</p></li>
@@ -1164,17 +1166,17 @@ An unexpected error has occurred, returns a simple error message.</p></li>
 <p>Returns all bookings created by a specific customer.</p>
 
 <aside class="warning">
-<strong>Caution:</strong>
-You should consider the following:
-<ul>
-    <li>The bookings are not available anymore after the booking day.</li>
-    <li>An empty list is returned when not exist registered bookings with the <code>customerId</code> received.</li>
-<ul>
+    <strong>Caution:</strong>
+    You should consider the following:
+    <ul>
+        <li>The bookings are not available anymore after the booking day.</li>
+        <li>An empty list is returned when there is no registered bookings with the <code>customerId</code> received.</li>
+    <ul>
 </aside>
 
 <aside class="notice">
-<strong>Order:</strong>
-The bookings are sorted descendantly by the field: <code>createdAt</code>.
+    <strong>Order:</strong>
+    The bookings are sorted descendantly by the field: <code>createdAt</code>.
 </aside>
 
 <h3 id="endpoint">Endpoint</h3>
@@ -1185,14 +1187,14 @@ The bookings are sorted descendantly by the field: <code>createdAt</code>.
 
 <ul>
 <li><strong>customerId</strong> <span class="param-type">String</span> <span class="required-param">required</span><br>
-Customer unique identifier (Obtained it from the customers integration interface).</li>
+Customer unique identifier.</li>
 </ul>
 
 <h3 id="query-params">Query Params</h3>
 
 <ul>
 <li><strong>fields</strong> <span class="param-type">List&lt;String&gt;</span> <span class="recomended-param">recomended</span><br>
-Entity fields that will return at response. For example: <code class="prettyprint">fields=id,code,status</code>.</li>
+Entity fields that will included in the response(See available fields in <a href="#booking">the booking object definition</a>). For example: <code class="prettyprint">fields=id,code,status</code>.</li>
 </ul>
 
 <h3 id="responses">Responses</h3>
@@ -1200,6 +1202,8 @@ Entity fields that will return at response. For example: <code class="prettyprin
 <ul>
 <li><p><strong>200</strong> <span class="verb-description">Ok</span> <span class="param-type">List&lt;<a href="#booking">Booking</a>&gt;</span><br>
 A list of bookings.</p></li>
+<li><p><strong>400</strong> <span class="verb-description">Bad Request</span> <span class="param-type"><a href="#error">Error</a></span><br>
+One or more parameters are not valid, returns a description of validation failed.</p></li>
 <li><p><strong>500</strong> <span class="verb-description">Internal Server Error</span> <span class="param-type"><a href="#error">Error</a></span><br>
 An unexpected error has occurred, returns a simple error message.</p></li>
 </ul>
@@ -1260,7 +1264,7 @@ An unexpected error has occurred, returns a simple error message.</p></li>
 
 <ul>
 <li><p><strong>customerId</strong> <span class="param-type">String</span> <span class="required-param">required</span><br>
-Customer unique identifier (Obtained it from the customers integration interface).</p></li>
+Customer unique identifier.</p></li>
 <li><p><strong>bookingId</strong> <span class="param-type">String</span> <span class="required-param">required</span><br>
 Booking unique identifier (Generated in the booking creation).</p></li>
 </ul>
@@ -1269,7 +1273,7 @@ Booking unique identifier (Generated in the booking creation).</p></li>
 
 <ul>
 <li><strong>fields</strong> <span class="param-type">List&lt;String&gt;</span> <span class="recomended-param">recomended</span><br>
-Entity fields that will return at response. For example: <code class="prettyprint">fields=id,code,status</code>.</li>
+Entity fields that will included in the response(See available fields in <a href="#booking">the booking object definition</a>). For example: <code class="prettyprint">fields=id,code,status</code>.</li>
 </ul>
 
 <h3 id="responses">Responses</h3>
@@ -1277,6 +1281,8 @@ Entity fields that will return at response. For example: <code class="prettyprin
 <ul>
 <li><p><strong>200</strong> <span class="verb-description">OK</span> <span class="param-type"><a href="#booking">Booking</a></span><br>
 A booking.</p></li>
+<li><p><strong>400</strong> <span class="verb-description">Bad Request</span> <span class="param-type"><a href="#error">Error</a></span><br>
+One or more parameters are not valid, returns a description of validation failed.</p></li>
 <li><p><strong>404</strong> <span class="verb-description">Not Found</span> <span class="param-type"><a href="#error">Error</a></span><br>
 The resource requested not found, returns a simple error message.</p></li>
 <li><p><strong>500</strong> <span class="verb-description">Internal Server Error</span> <span class="param-type"><a href="#error">Error</a></span><br>
@@ -1296,7 +1302,6 @@ An unexpected error has occurred, returns a simple error message.</p></li>
     </span><span class="s2">"channelId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"c10"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"branchId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"27b6"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"serviceId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"s8"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Mr. Smith"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"docType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"D"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"docNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"90452291"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"+51987882567"</span><span class="p">,</span><span class="w">
@@ -1342,74 +1347,18 @@ An unexpected error has occurred, returns a simple error message.</p></li>
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<p>Create a new customer booking and then it returns it.</p>
+<p>Create a new customer booking and returns it.</p>
 
 <aside class="warning">
-<strong>Caution: </strong>
-You should consider the following before create a booking:
-<ul>
-    <li>The channel referenced should support the service requested.</li>
-    <li>The branch referenced should support the service requested.</li>
-    <li>The client referenced should has no other booking in state <code>ACTIVE</code> or <code>PENDING</code> for the same requested service.</li>
-    <li>The <code>startTime</code> and the <code>endTime</code> should to be available.</li>
-<ul>
+    <strong>Caution: </strong>
+    You should consider the following before create a booking:
+    <ul>
+        <li>The referenced channel should support the requested service.</li>
+        <li>The referenced branch should support the requested service .</li>
+        <li>The referenced client should has no other booking in state <code>ACTIVE</code> or <code>PENDING</code> for the same requested service.</li>
+        <li>The <code>startTime</code> and the <code>endTime</code> must be available.</li>
+    <ul>
 </aside>
-
-<p>This operation can throw the next validation errors:</p>
-
-<table><thead>
-<tr>
-<th>Code</th>
-<th>Field</th>
-<th>Message</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>40001</td>
-<td>channelId</td>
-<td>Channel not exists.</td>
-</tr>
-<tr>
-<td>40002</td>
-<td>serviceId</td>
-<td>Service not exists.</td>
-</tr>
-<tr>
-<td>40003</td>
-<td>branchId</td>
-<td>Branch not exists.</td>
-</tr>
-<tr>
-<td>40006</td>
-<td>serviceId</td>
-<td>Service not supported by the channel.</td>
-</tr>
-<tr>
-<td>40007</td>
-<td>serviceId</td>
-<td>Service not supported by the branch.</td>
-</tr>
-<tr>
-<td>40012</td>
-<td>customerId</td>
-<td>Customer has another valid booking for the same service.</td>
-</tr>
-<tr>
-<td>40013</td>
-<td>startTime</td>
-<td>Booking start time not valid.</td>
-</tr>
-<tr>
-<td>40014</td>
-<td>endTime</td>
-<td>Booking end time not valid.</td>
-</tr>
-<tr>
-<td>40015</td>
-<td>serviceId</td>
-<td>Service not available in the requested time.</td>
-</tr>
-</tbody></table>
 
 <h3 id="endpoint">Endpoint</h3>
 
@@ -1419,14 +1368,14 @@ You should consider the following before create a booking:
 
 <ul>
 <li><strong>customerId</strong> <span class="param-type">String</span><br>
-Customer unique identifier (Obtained it from the customers integration interface).</li>
+Customer unique identifier.</li>
 </ul>
 
 <h3 id="request">Request</h3>
 
 <ul>
 <li><p><strong>channelId</strong> <span class="param-type">String</span> <span class="required-param">required</span><br>
-Unique identifier of the channel used. This value should to be fixed in the client application.</p></li>
+Unique identifier of the channel used. This value must be set in the client application.</p></li>
 <li><p><strong>branchId</strong> <span class="param-type">String</span> <span class="required-param">required</span><br>
 Unique identifier of the requested branch.</p></li>
 <li><p><strong>serviceId</strong> <span class="param-type">String</span> <span class="required-param">required</span><br>
@@ -1449,7 +1398,7 @@ Number of document used to identify the client.
 <li><p><strong>phone</strong> <span class="param-type">String</span><br>
 Customer phone for notifications associated to the booking.
 <p>
-<span class="param-condition">Validation pattern:</span> <code class="prettyprint">^+[1-9]{1}[0-9]{3,14}$</code>
+<span class="param-condition">Validation pattern:</span> <code class="prettyprint">^\+[1-9]{1}[0-9]{3,14}$</code>
 </p></p></li>
 <li><p><strong>startTime</strong> <span class="param-type">DateTime</span> <span class="required-param">required</span><br>
 Start time of booking.
@@ -1468,7 +1417,7 @@ End time of booking.
 <ul>
 <li><p><strong>201</strong> <span class="verb-description">Created</span> <span class="param-type"><a href="#booking">Booking</a></span><br>
 Successful creation, returns the new booking.</p></li>
-<li><p><strong>400</strong> <span class="verb-description">Bad Request</span> <span class="param-type">List&lt;<a href="#validation-error">ValidationError</a>&gt;</span><br>
+<li><p><strong>400</strong> <span class="verb-description">Bad Request</span> <span class="param-type"><a href="#error">Error</a></span><br>
 One or more parameters are not valid, returns a description of validation failed.</p></li>
 <li><p><strong>500</strong> <span class="verb-description">Internal Server Error</span> <span class="param-type"><a href="#error">Error</a></span><br>
 An unexpected error has occurred, returns a simple error message.</p></li>
@@ -1505,7 +1454,7 @@ An unexpected error has occurred, returns a simple error message.</p></li>
 
 <ul>
 <li><p><strong>customerId</strong> <span class="param-type">String</span> <span class="required-param">required</span><br>
-Customer unique identifier (Obtained it from the customers integration interface).</p></li>
+Customer unique identifier.</p></li>
 <li><p><strong>bookingId</strong> <span class="param-type">String</span> <span class="required-param">required</span><br>
 Booking unique identifier (Generated in the booking creation).</p></li>
 </ul>
@@ -1516,7 +1465,7 @@ Booking unique identifier (Generated in the booking creation).</p></li>
 <li><strong>phone</strong> <span class="param-type">String</span><br>
 New customer phone for notifications.
 <p>
-<span class="param-condition">Validation pattern:</span> <code class="prettyprint">^+[1-9]{1}[0-9]{3,14}$</code>
+<span class="param-condition">Validation pattern:</span> <code class="prettyprint">^\+[1-9]{1}[0-9]{3,14}$</code>
 </p></li>
 </ul>
 
@@ -1525,7 +1474,7 @@ New customer phone for notifications.
 <ul>
 <li><p><strong>204</strong> <span class="verb-description">No Content</span><br>
 Successful update.</p></li>
-<li><p><strong>400</strong> <span class="verb-description">Bad Request</span> <span class="param-type">List&lt;<a href="#validation-error">ValidationError</a>&gt;</span><br>
+<li><p><strong>400</strong> <span class="verb-description">Bad Request</span> <span class="param-type"><a href="#error">Error</a></span><br>
 One or more parameters are not valid, returns a description of validation failed.</p></li>
 <li><p><strong>404</strong> <span class="verb-description">Not Found</span> <span class="param-type"><a href="#error">Error</a></span><br>
 The resource requested not found, returns a simple error message.</p></li>
@@ -1559,7 +1508,7 @@ An unexpected error has occurred, returns a simple error message.</p></li>
 
 <ul>
 <li><p><strong>customerId</strong> <span class="param-type">String</span> <span class="required-param">required</span><br>
-Customer unique identifier (Obtained it from the customers integration interface).</p></li>
+Customer unique identifier.</p></li>
 <li><p><strong>bookingId</strong> <span class="param-type">String</span> <span class="required-param">required</span><br>
 Booking unique identifier (Generated in the booking creation).</p></li>
 </ul>
@@ -1569,7 +1518,7 @@ Booking unique identifier (Generated in the booking creation).</p></li>
 <ul>
 <li><p><strong>204</strong> <span class="verb-description">No Content</span><br>
 Successful cancelation.</p></li>
-<li><p><strong>400</strong> <span class="verb-description">Bad Request</span> <span class="param-type">List&lt;<a href="#validation-error">ValidationError</a>&gt;</span><br>
+<li><p><strong>400</strong> <span class="verb-description">Bad Request</span> <span class="param-type"><a href="#error">Error</a></span><br>
 One or more parameters are not valid, returns a description of validation failed.</p></li>
 <li><p><strong>404</strong> <span class="verb-description">Not Found</span> <span class="param-type"><a href="#error">Error</a></span><br>
 The resource requested not found, returns a simple error message.</p></li>
@@ -1978,7 +1927,7 @@ Name of the counter.
 <li><p><strong>teller</strong> <span class="param-type">String</span><br>
 Account name of teller in counter.
 <p>
-<span class="param-condition">Maximum length:</span> <code>50</code>
+<span class="param-condition">Maximum length:</span> <code>30</code>
 </p></p></li>
 </ul>
 
@@ -2020,7 +1969,8 @@ List of available time ranges.</p></li>
 </blockquote>
 
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-    </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Resource not found"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ResourceNotFoundException"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Resource not found for the request GET /v2"</span><span class="p">,</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
@@ -2029,8 +1979,10 @@ List of available time ranges.</p></li>
 <h3 id="fields">Fields</h3>
 
 <ul>
-<li><strong>message</strong> <span class="param-type">String</span> <span class="required-param">required</span><br>
-Simple description of the error.</li>
+<li><p><strong>type</strong> <span class="param-type">String</span> 
+Name of type error.</p></li>
+<li><p><strong>message</strong> <span class="param-type">String</span> 
+Simple description of the error.</p></li>
 </ul>
 
 <p><h2 id="print-line">Print Line</h2></p>
@@ -2098,6 +2050,38 @@ Message to print after the content.
 <span class="param-condition">Maximum length:</span> <code>50</code>
 </p></p></li>
 </ul></p>
+
+<p><h2 id="queue-type">Queue Type</h2></p>
+
+<blockquote>
+<p>Sample object:</p>
+</blockquote>
+
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"R0009"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CC"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Comercial"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>Model of queue type object.</p>
+
+<h3 id="fields">Fields</h3>
+
+<ul>
+<li><p><strong>id</strong> <span class="param-type">String</span><br>
+Unique identifier of the queue type(Auto generated by Bmatic).</p></li>
+<li><p><strong>code</strong> <span class="param-type">String</span><br>
+Code of the queue type.
+<p>
+<span class="param-condition">Maximum length:</span> <code>5</code>
+</p></p></li>
+<li><p><strong>name</strong> <span class="param-type">String</span><br>
+Complete name of the queue type.
+<p>
+<span class="param-condition">Maximum length:</span> <code>50</code>
+</p></p></li>
+</ul>
 
 <p><h2 id="range">Range</h2></p>
 
@@ -2215,15 +2199,15 @@ Name to display in small devices.
 <p>Sample object:</p>
 </blockquote>
 
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"89m32b0"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"queue"</span><span class="p">:</span><span class="w"> </span><span class="s2">"T"</span><span class="p">,</span><span class="w">
+<pre class="highlight json tab-json"><code><span class="w">
+</span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"89m32b0"</span><span class="p">,</span><span class="w">    
     </span><span class="s2">"number"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"position"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
     </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BLOCKED"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"lowEstimatedTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"highEstimatedTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"15"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"+51987776576"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"position"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"lowEstimatedTime"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"highEstimatedTime"</span><span class="p">:</span><span class="w"> </span><span class="mi">15</span><span class="p">,</span><span class="w">
     </span><span class="s2">"messages"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
         </span><span class="s2">"We have a promotion for you!"</span><span class="w">
     </span><span class="p">],</span><span class="w">
@@ -2238,8 +2222,7 @@ Name to display in small devices.
         </span><span class="s2">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Calle Beta 181 - 195, Callao"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"latitude"</span><span class="p">:</span><span class="w"> </span><span class="mf">-12.049919</span><span class="p">,</span><span class="w">
         </span><span class="s2">"longitude"</span><span class="p">:</span><span class="w"> </span><span class="mf">-77.0845193</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACTIVE"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"congestion"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MEDIUM"</span><span class="w">
+        </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACTIVE"</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="s2">"sector"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"m9"</span><span class="p">,</span><span class="w">
@@ -2251,6 +2234,11 @@ Name to display in small devices.
         </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"s8"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Plataforma"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"shortName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Plataforma"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"queueType"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"R0009"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CC"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Comercial"</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="s2">"counter"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"v10"</span><span class="p">,</span><span class="w">
@@ -2289,12 +2277,8 @@ If the branch associated is <code>INACTIVE</code> this fields are not returned.
 <ul>
 <li><p><strong>id</strong> <span class="param-type">String</span><br>
 Ticket unique identifier (Auto generated by Bmatic).</p></li>
-<li><p><strong>queue</strong> <span class="param-type">String</span><br>
-Code of queue type assigned to the ticket.</p></li>
 <li><p><strong>number</strong> <span class="param-type">Integer</span><br>
 Number in queue assigned to the ticket.</p></li>
-<li><p><strong>position</strong> <span class="param-type">Integer</span><br>
-Ticket position in the queue.</p></li>
 <li><p><strong>status</strong> <span class="param-type">Enum</span><br>
 Current status of the ticket.
 <p>
@@ -2305,12 +2289,14 @@ Current status of the ticket.
 </ul>
 
 <p></p></p></li>
+<li><p><strong>phone</strong> <span class="param-type">String</span><br>
+Customer phone for notifications associated to the ticket.</p></li>
+<li><p><strong>position</strong> <span class="param-type">Integer</span><br>
+Ticket position in the queue.</p></li>
 <li><p><strong>lowEstimatedTime</strong> <span class="param-type">Integer</span><br>
 Lower bound of the estimated waiting time. It&rsquo;s equal to the average waiting time minus the configured desviation.</p></li>
 <li><p><strong>highEstimatedTime</strong> <span class="param-type">Integer</span><br>
 Upper bound of the estimated waiting time. It&rsquo;s equal to the average waiting time plus the configured desviation.</p></li>
-<li><p><strong>phone</strong> <span class="param-type">String</span><br>
-Customer phone for notifications associated to the ticket.</p></li>
 <li><p><strong>messages</strong> <span class="param-type">List&lt;String&gt;</span><br>
 Messages to print.</p></li>
 <li><p><strong>channel</strong> <span class="param-type"><a href="#channel">Channel</a></span><br>
@@ -2321,8 +2307,10 @@ Branch where the ticket is valid.</p></li>
 Sector where the ticket is valid.</p></li>
 <li><p><strong>service</strong> <span class="param-type"><a href="#service">Service</a></span><br>
 Service requested by the customer.</p></li>
+<li><p><strong>queueType</strong> <span class="param-type"><a href="#queue-type">QueueType</a></span><br>
+Assigned queue type.</p></li>
 <li><p><strong>counter</strong> <span class="param-type"><a href="#counter">Counter</a></span><br>
-Counter assigned.</p></li>
+Assigned counter.</p></li>
 <li><p><strong>createdAt</strong> <span class="param-type">DateTime</span><br>
 Date of ticket creation.
 <p>
@@ -2336,32 +2324,6 @@ Date of the last update of ticket.
 <li><p><strong>print</strong> <span class="param-type">List&lt;<a href="#print-line">PrintLine</a>&gt;</span>
 List of lines to print.</p></li>
 </ul></p>
-
-<p><h2 id="validation-error">Validation Error</h2></p>
-
-<blockquote>
-<p>Sample object:</p>
-</blockquote>
-
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-    </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"40003"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Customer 'c9mas9js' has a ticket on hold"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"field"</span><span class="p">:</span><span class="s2">"customerId"</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-
-<p>Model of validation error object.</p>
-
-<h3 id="fields">Fields</h3>
-
-<ul>
-<li><p><strong>code</strong> <span class="param-type">String</span><br>
-Error code, used to identify the error.</p></li>
-<li><p><strong>message</strong> <span class="param-type">String</span> <span class="required-param">required</span><br>
-Simple description of the error.</p></li>
-<li><p><strong>field</strong> <span class="param-type">String</span> <span class="required-param">required</span><br>
-Field associated to the error.</p></li>
-</ul>
 
 <style>
     ul.enum {
