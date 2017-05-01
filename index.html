@@ -201,9 +201,9 @@
       <div class="content">
         <h1 id="introduction">Introduction</h1>
 
-<p>Welcome to the Bmatic API! You can use our API to integrate your application with us. Now, trought our endpoints you can access to services of BMATIC&rsquo;s branches from any application.</p>
+<p>Welcome to the Bmatic API! You can use our API to integrate your application with Bmatic System. Now, trought our endpoints you can access BMATIC branches services from any application.</p>
 
-<p>You can download <a href="swagger.json">our specification</a> and generate your own client in your preference language trought the code generator of <a href="http://swagger.io/">swagger</a> and  speed up your integration with us.</p>
+<p>You can download our specification and generate your own client in your prefered language trought the <a href="http://swagger.io/">swagger</a> code generator and speed up your integration process.</p>
 
 <p>Improve your customers&rsquo; experience!</p>
 
@@ -263,10 +263,10 @@
 <p>Returns all branches with their sectors that fulfill the filters.</p>
 
 <aside class="warning">
-<strong>Caution:</strong>
-    You should consider the next:
+    <strong>Caution:</strong>
+    You must consider the next:
     <ul>
-        <li>The branches to return should to be marked with the flag <code>exposed by the API</code> from Bmatic configuration panel.</li>
+        <li>The branches to return must be marked with the flag <code>exposed by the API</code> from Bmatic configuration panel.</li>
         <li>An empty collection is returned when no branch fulfill the filters.</li>
         <li>Filter branches by geolocalization it is necessary to specify <code>minLatitude</code>, <code>maxLatitude</code>, <code>minLongitude</code> and <code>maxLongitude</code>. If any of these parameters is not included then all will be ignored.</li>
         <li>To order the branches by proximity to the client location it is necessary specify <code>latitude</code> and <code>longitude</code>. If any of these parameters is not included then all will be ignored.</li>
@@ -274,12 +274,12 @@
 </aside>
 
 <aside class="notice">
-<strong>Order:</strong>
+    <strong>Order:</strong>
     Branches are sorted by the shorter distance to client location and their short name.
 </aside>
 
 <aside class="success">
-<strong>Remember:</strong>
+    <strong>Remember:</strong>
     Customers prefer to attend the nearest branches, for that it is recommendable ever use <code>longitude</code>, <code>latitude</code>, <code>minLatitude</code>, <code>maxLatitude</code>, <code>minLongitude</code> and <code>maxLongitude</code> parameters.
 </aside>
 
@@ -437,8 +437,8 @@ An unexpected error has occurred, returns a simple error message.</p></li>
 <p>Returns available services for the specified channel.</p>
 
 <aside class="warning">
-<strong>Caution:</strong> 
-    You should consider the following:
+    <strong>Caution:</strong> 
+    You must consider the following:
     <ul>
         <li>This operation throw an error(404) when the referenced channel does not exist.</li>
         <li>An empty list is returned when not available services exist from the specified channel.</li>
@@ -549,8 +549,8 @@ An unexpected error has occurred, returns a simple error message.</p></li>
 <p>Returns all tickets created by a specific customer.</p>
 
 <aside class="warning">
-<strong>Caution:</strong>
-    You should consider the following:
+    <strong>Caution:</strong>
+    You must consider the following:
     <ul>
         <li>When the teller calls the ticket, it is automatically deleted and is not available anymore.</li>
         <li>An empty list is returned when no registered tickets with the <code>customerId</code> existed.</li>
@@ -789,14 +789,14 @@ An unexpected error has occurred, returns a simple error message.</p></li>
 <p>Create a new customer ticket and returns it.</p>
 
 <aside class="warning">
-<strong>Caution:</strong>
-    You should consider the following before create a ticket:
+    <strong>Caution:</strong>
+    You must consider the following before create a ticket:
     <ul>
-        <li>The used channel should support the requested service.</li>
-        <li>The requested branch should contain the requested sector.</li>
-        <li>The requested sector should support the requested service.</li>
-        <li>The customer should has no other ticket.</li>
-        <li>The customer category referenced by the <code>categoryId</code> should has a queue configured for the requested service and the channel used.</li>
+        <li>The referenced channel must support the requested service.</li>
+        <li>The referenced branch must contain the requested sector.</li>
+        <li>The referenced sector must support the requested service.</li>
+        <li>The customer must has no other ticket.</li>
+        <li>The customer category referenced by the <code>categoryId</code> must has a queue configured for the requested service and the channel used.</li>
     <ul>
 </aside>
 
@@ -996,7 +996,7 @@ An unexpected error has occurred, returns a simple error message.</p></li>
 
 <aside class="warning">
     <strong>Caution:</strong>
-    You should consider the following:
+    You must consider the following:
     <ul>
         <li>This operation throw a error(404) when the referenced channel does not exist.</li>
         <li>An empty list is returned when no bookable services exist from the specified channel.</li>
@@ -1063,7 +1063,7 @@ An unexpected error has occurred, returns a simple error message.</p></li>
 
 <aside class="warning">
     <strong>Caution: </strong> 
-    You should consider the following:
+    You must consider the following:
     <ul>
         <li>An empty list is returned when there are no more bookings available or there is no availability setting for the requested service and branch.</li>
     <ul>
@@ -1167,7 +1167,7 @@ An unexpected error has occurred, returns a simple error message.</p></li>
 
 <aside class="warning">
     <strong>Caution:</strong>
-    You should consider the following:
+    You must consider the following:
     <ul>
         <li>The bookings are not available anymore after the booking day.</li>
         <li>An empty list is returned when there is no registered bookings with the <code>customerId</code> received.</li>
@@ -1351,11 +1351,11 @@ An unexpected error has occurred, returns a simple error message.</p></li>
 
 <aside class="warning">
     <strong>Caution: </strong>
-    You should consider the following before create a booking:
+    You must consider the following before create a booking:
     <ul>
-        <li>The referenced channel should support the requested service.</li>
-        <li>The referenced branch should support the requested service .</li>
-        <li>The referenced client should has no other booking in state <code>ACTIVE</code> or <code>PENDING</code> for the same requested service.</li>
+        <li>The referenced channel must support the requested service.</li>
+        <li>The referenced branch must support the requested service .</li>
+        <li>The referenced client must has no other booking in state <code>ACTIVE</code> or <code>PENDING</code> for the same requested service.</li>
         <li>The <code>startTime</code> and the <code>endTime</code> must be available.</li>
     <ul>
 </aside>
@@ -1525,163 +1525,6 @@ The resource requested not found, returns a simple error message.</p></li>
 <li><p><strong>500</strong> <span class="verb-description">Internal Server Error</span> <span class="param-type"><a href="#error">Error</a></span><br>
 An unexpected error has occurred, returns a simple error message.</p></li>
 </ul>
-
-<h1 id="error-messages">Error Messages</h1>
-
-<p>Collection of error messages generated from the API endpoints.</p>
-
-<p><h2 id="bad-request">Bad Request</h2></p>
-
-<blockquote>
-<p>Sample response:</p>
-</blockquote>
-
-<pre class="highlight http tab-http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">400</span> <span class="ne">Bad Request</span>
-<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
-
-<span class="p">[</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"40003"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Customer 'c9mas9js' has a ticket on hold"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"field"</span><span class="p">:</span><span class="s2">"customerId"</span><span class="w">
-    </span><span class="p">}</span><span class="w">
-</span><span class="p">]</span><span class="w">
-</span></code></pre>
-
-<p>HTTP response when an validation error occurred. The field <code>code</code> is not returned when the error is originated by validation of contract.</p>
-
-<aside class="success">
-<strong>Remember:</strong>
-All operations that return a error with code assigned contain the list of possible errors in their documentation.
-</aside>
-
-<p>The errors with a code assigned are the next:</p>
-
-<table><thead>
-<tr>
-<th>Code</th>
-<th>Field</th>
-<th>Message</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>40001</td>
-<td>channelId</td>
-<td>Channel not exists.</td>
-</tr>
-<tr>
-<td>40002</td>
-<td>serviceId</td>
-<td>Service not exists.</td>
-</tr>
-<tr>
-<td>40003</td>
-<td>branchId</td>
-<td>Branch not exists.</td>
-</tr>
-<tr>
-<td>40004</td>
-<td>sectorId</td>
-<td>Sector not exists.</td>
-</tr>
-<tr>
-<td>40005</td>
-<td>categoryId</td>
-<td>Customer category not exists.</td>
-</tr>
-<tr>
-<td>40006</td>
-<td>serviceId</td>
-<td>Service not supported by the channel.</td>
-</tr>
-<tr>
-<td>40007</td>
-<td>serviceId</td>
-<td>Service not supported by the branch.</td>
-</tr>
-<tr>
-<td>40008</td>
-<td>serviceId</td>
-<td>Service not supported by the sector.</td>
-</tr>
-<tr>
-<td>40009</td>
-<td>branchId</td>
-<td>Branch is not the sector owner.</td>
-</tr>
-<tr>
-<td>40010</td>
-<td>customerId</td>
-<td>Customer has another ticket.</td>
-</tr>
-<tr>
-<td>40011</td>
-<td>categoryId</td>
-<td>Customer category has no configured queue type for the service and  channel.</td>
-</tr>
-<tr>
-<td>40012</td>
-<td>customerId</td>
-<td>Customer has another valid booking for the same service.</td>
-</tr>
-<tr>
-<td>40013</td>
-<td>startTime</td>
-<td>Booking start time not valid.</td>
-</tr>
-<tr>
-<td>40014</td>
-<td>endTime</td>
-<td>Booking end time not valid.</td>
-</tr>
-<tr>
-<td>40015</td>
-<td>serviceId</td>
-<td>Service not available in the requested time.</td>
-</tr>
-</tbody></table>
-
-<p><h2 id="not-found">Not Found</h2></p>
-
-<blockquote>
-<p>Sample response:</p>
-</blockquote>
-
-<pre class="highlight http tab-http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">404</span> <span class="ne">Not Found</span>
-<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
-
-<span class="p">{</span><span class="w">
-    </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Resource not found."</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-
-<p>When a requested resource not found, a generic error message is returned.</p>
-
-<aside class="warning">
-<strong>Caution:</strong>
-If you obtain this type of error maybe you are request an invalid endpoint or the requested resource is not available anymore, please review the documentation of the operation invoked.
-</aside>
-
-<p><h2 id="internal-server-error">Internal Server Error</h2></p>
-
-<blockquote>
-<p>Sample response:</p>
-</blockquote>
-
-<pre class="highlight http tab-http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">500</span> <span class="ne">Internal Server Error</span>
-<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
-
-<span class="p">{</span><span class="w">
-    </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"An unexpected error has occurred."</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-
-<p>When an unexpected error occur, a generic error message is returned and the error detail is saved in API log.</p>
-
-<aside class="warning"> 
-<strong>Caution:</strong>
-If you obtain this type of error contact your support.
-</aside>
 
 <h1 id="common-object-definitions">Common Object Definitions</h1>
 
