@@ -1,0 +1,295 @@
+@charset "utf-8";
+@import 'normalize';
+@import 'variables';
+@import 'icon-font';
+
+/*
+Copyright 2008-2013 Concur Technologies, Inc.
+
+Licensed under the Apache License, Version 2.0 (the "License"); you may
+not use this file except in compliance with the License. You may obtain
+a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+License for the specific language governing permissions and limitations
+under the License.
+*/
+
+$print-color: #999;
+$print-color-light: #ccc;
+$print-font-size: 12px;
+
+body {
+  @extend %default-font;
+}
+
+.tocify, .toc-footer, .lang-selector, .search, #nav-button {
+  display: none;
+}
+
+.tocify-wrapper>img {
+  margin: 0 auto;
+  display: block;
+}
+
+.content {
+  font-size: 12px;
+
+  pre, code {
+    @extend %code-font;
+    @extend %break-words;
+    border: 1px solid $print-color;
+    border-radius: 5px;
+    font-size: 0.8em;
+  }
+
+  pre {
+    code {
+      border: 0;
+    }
+  }
+
+  pre {
+    padding: 1.3em;
+  }
+
+  code {
+    padding: 0.2em;
+  }
+
+  table {
+
+    td,th {
+      border: 1px solid $print-color-light;
+      margin-top: 1.5em;
+      margin-bottom: 1.5em;
+      padding: 0.7em;
+    }
+  }
+
+  p {
+    line-height: 1.5;
+  }
+
+  a {
+    text-decoration: none;
+    color: #000;
+  }
+
+  .required-param {
+    color: $white;
+    background-color: $tg-red;
+    border-radius: $border-radius;
+    padding: 1px $nav-v-padding;
+
+    @extend %label-font;
+      border-radius: 3px;
+  }
+
+
+  .recomended-param {
+    color: $white;
+    background-color: $tg-green;
+    border-radius: $border-radius;
+    padding: 1px $nav-v-padding;
+
+    @extend %label-font;
+      border-radius: 3px;
+  }
+
+  h1 {
+    @extend %header-font;
+    font-size: 2.5em;
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+    margin-top: 1em;
+    margin-bottom: $h1-margin-bottom;
+    border: 2px solid $print-color-light;
+    border-width: 2px 0;
+    text-align: center;
+  }
+
+  h2 {
+    @extend %header-font;
+    font-size: 1.8em;
+    margin-top: 2em;
+    border-top: 2px solid $print-color-light;
+    padding-top: 0.8em;
+  }
+
+  h1+h2, h1+div+h2 {
+    border-top: none;
+    padding-top: 0;
+    margin-top: 0;
+  }
+
+  h3, h4 {
+    @extend %header-font;
+    font-size: 0.8em;
+    margin-top: 1.5em;
+    margin-bottom: 0.8em;
+    text-transform: uppercase;
+  }
+
+  h5, h6 {
+    text-transform: uppercase;
+  }
+
+  aside {
+    padding: 1em;
+    border: 1px solid $print-color-light;
+    border-radius: 5px;
+    margin-top: 1.5em;
+    margin-bottom: 1.5em;
+    line-height: 1.6;
+    ul {
+      list-style-type: square;
+      background-color: none;
+      line-height: 1.0;
+    }
+
+    ul>li {
+      background-color: inherit;
+      border: none;
+      padding: 0px;
+    }
+
+    ul>li:nth-child(odd)  {
+      background-color: inherit;
+    }
+
+    ul>li:nth-child(even)  {
+      background-color: inherit;
+    }
+
+    ul>li:first-line  {
+      line-height: inherit;
+      word-spacing: inherit;
+    }
+
+    ul> :first-child {
+      border: none;
+    }
+
+  }
+
+  aside:before {
+    vertical-align: middle;
+    padding-right: 0.5em;
+    font-size: 14px;
+  }
+
+  aside.notice:before {
+    @extend %icon-info-sign;
+  }
+
+  aside.warning:before {
+    @extend %icon-exclamation-sign;
+  }
+
+  aside.success:before {
+    @extend %icon-ok-sign;
+  }
+
+
+
+  ul {
+    list-style: none;
+    line-height:1.6;
+    padding-left: 28px;
+  }
+
+  li>ul {
+    list-style-type: square;
+    background-color: none;
+    line-height: 1.0;
+  }
+
+  li>ul>li {
+    background-color: inherit;
+    border: none;
+    padding: 0px;
+  }
+
+  li>ul>li:nth-child(odd)  {
+    background-color: inherit;
+  }
+
+  li>ul>li:nth-child(even)  {
+    background-color: inherit;
+  }
+
+  li>ul>li:first-line  {
+    line-height: inherit;
+    word-spacing: inherit;
+  }
+
+  li>ul> :first-child {
+    border: none;
+  }
+
+  ul > :first-child {
+    border-top: $solid-border;
+  }
+
+  li:nth-child(odd) {
+    background-color: lighten($main-bg,3.2%);
+  }
+
+  li:nth-child(even) {
+    background-color: darken($main-bg,.5%);
+  }
+
+  li {
+    padding: 5px;
+    padding-top: 0px;
+    border-bottom: $solid-border;
+  }
+
+  li:first-line {
+    line-height: 3.2;
+    word-spacing: 8px;
+  }
+
+  .required-param {
+    color: $white;
+    background-color: $tg-red;
+    border-radius: $border-radius;
+    padding: 1px $nav-v-padding;
+
+    @extend %label-font;
+      border-radius: 3px;
+  }
+
+
+  .recomended-param {
+    color: $white;
+    background-color: $tg-green;
+    border-radius: $border-radius;
+    padding: 1px $nav-v-padding;
+
+    @extend %label-font;
+      border-radius: 3px;
+  }
+
+  .param-type {
+      word-spacing: 0px;
+      color: $tg-grey;
+      font-style: italic;
+  }
+
+  .param-condition {
+      color: $tg-grey;
+      font-style: italic;
+  }
+
+  .verb-description {
+      word-spacing: 0px;
+      color: $tg-grey;
+      font-style: italic;
+  }
+}

@@ -1,0 +1,8 @@
+
+# Branches API
+
+Before you create tickets or bookings, you need a branch and sector provided by the endpoints of this section (The booking creation does not require a sector). You should consider using the recommended parameters for better performance.
+
+<% current_page.data.branches_api && current_page.data.branches_api.each do |resource| %>
+  <%= partial "includes/branches_api/#{resource}" %>
+<% end %>

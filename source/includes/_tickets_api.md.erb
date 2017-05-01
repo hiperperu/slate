@@ -1,0 +1,8 @@
+
+# Tickets API
+
+Your customers don't need anymore to be at branch for create tickets. You can use the endpoints of this section to allow them create ticket from anywhere easily.
+
+<% current_page.data.tickets_api && current_page.data.tickets_api.each do |resource| %>
+  <%= partial "includes/tickets_api/#{resource}" %>
+<% end %>

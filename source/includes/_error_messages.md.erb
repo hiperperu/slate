@@ -1,0 +1,8 @@
+
+# Error Messages
+
+Collection of error messages generated from the API endpoints.
+
+<% current_page.data.error_messages && current_page.data.error_messages.each do |resource| %>
+  <%= partial "includes/error_messages/#{resource}" %>
+<% end %>

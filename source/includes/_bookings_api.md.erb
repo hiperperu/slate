@@ -1,0 +1,8 @@
+
+# Bookings API
+
+Allow to your customers reserve a scheduled attention for a better experience reducing the waiting time and reduce the congestion of your branches. The endpoints of this section allow the creation of bookings from your application.
+
+<% current_page.data.bookings_api && current_page.data.bookings_api.each do |resource| %>
+  <%= partial "includes/bookings_api/#{resource}" %>
+<% end %>
