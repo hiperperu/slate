@@ -223,7 +223,7 @@
 <p>Sample request:</p>
 </blockquote>
 
-<pre class="highlight http tab-http"><code><span class="nf">GET</span> <span class="nn">/v1/branches/branch?offset=9&amp;limit=1</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<pre class="highlight http tab-http"><code><span class="nf">GET</span> <span class="nn">/v1/branches?offset=9&amp;limit=1</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 </code></pre>
 
 <blockquote>
@@ -240,19 +240,19 @@
     </span><span class="p">{</span><span class="w">
         </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"27b6"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Hiper Central"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"shortName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Hiper"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"short_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Hiper"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Calle Beta 181 - 195, Callao"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"latitude"</span><span class="p">:</span><span class="w"> </span><span class="mf">-12.049919</span><span class="p">,</span><span class="w">
         </span><span class="s2">"longitude"</span><span class="p">:</span><span class="w"> </span><span class="mf">-77.0845193</span><span class="p">,</span><span class="w">
         </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACTIVE"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"congestion"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MEDIUM"</span><span class="p">,</span><span class="w"> 
-        </span><span class="s2">"lowEstimatedTime"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"highEstimatedTime"</span><span class="p">:</span><span class="w"> </span><span class="mi">14</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"low_estimated_time"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"high_estimated_time"</span><span class="p">:</span><span class="w"> </span><span class="mi">14</span><span class="p">,</span><span class="w">
         </span><span class="s2">"sectors"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
             </span><span class="p">{</span><span class="w">
                 </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"m9"</span><span class="p">,</span><span class="w">
                 </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tower A"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"shortName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"A"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"short_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"A"</span><span class="p">,</span><span class="w">
                 </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACTIVE"</span><span class="w">
             </span><span class="p">}</span><span class="w">
         </span><span class="p">]</span><span class="w">
@@ -266,10 +266,9 @@
     <strong>Caution:</strong>
     You must consider the next:
     <ul>
-        <li>The branches to return must be marked with the flag <code>exposed by the API</code> from Bmatic configuration panel.</li>
         <li>An empty collection is returned when no branch fulfill the filters.</li>
-        <li>Filter branches by geolocalization it is necessary to specify <code>minLatitude</code>, <code>maxLatitude</code>, <code>minLongitude</code> and <code>maxLongitude</code>. If any of these parameters is not included then all will be ignored.</li>
-        <li>To order the branches by proximity to the client location it is necessary specify <code>latitude</code> and <code>longitude</code>. If any of these parameters is not included then all will be ignored.</li>
+        <li>To filter branches by geolocalization it is necessary to specify <code>min_latitude</code>, <code>max_latitude</code>, <code>min_longitude</code> and <code>max_longitude</code>. If any of these parameters is not included then all will be ignored.</li>
+        <li>To sort branches by proximity to the client location it is necessary specify <code>latitude</code> and <code>longitude</code>. If any of these parameters is not included then all will be ignored.</li>
     </ul>
 </aside>
 
@@ -280,12 +279,12 @@
 
 <aside class="success">
     <strong>Remember:</strong>
-    Customers prefer to attend the nearest branches, for that it is recommendable ever use <code>longitude</code>, <code>latitude</code>, <code>minLatitude</code>, <code>maxLatitude</code>, <code>minLongitude</code> and <code>maxLongitude</code> parameters.
+    Customers prefer to attend the nearest branches, so it is recommendable to use <code>longitude</code>, <code>latitude</code>, <code>min_latitude</code>, <code>max_latitude</code>, <code>min_longitude</code> and <code>max_longitude</code> parameters.
 </aside>
 
 <h3 id="endpoint">Endpoint</h3>
 
-<p><code class="prettyprint">GET /v1/branches/branch</code></p>
+<p><code class="prettyprint">GET /v1/branches</code></p>
 
 <h3 id="query-params">Query Params</h3>
 
@@ -294,13 +293,13 @@
 Latitude component of customer location.</p></li>
 <li><p><strong>longitude</strong> <span class="param-type">Float</span> <span class="recomended-param">recomended</span><br>
 Longitude component of customer location.</p></li>
-<li><p><strong>minLatitude</strong> <span class="param-type">Float</span> <span class="recomended-param">recomended</span><br>
+<li><p><strong>min_latitude</strong> <span class="param-type">Float</span> <span class="recomended-param">recomended</span><br>
 Minimum latitude of the geographic area that has to contain the branches.</p></li>
-<li><p><strong>maxLatitude</strong> <span class="param-type">Float</span> <span class="recomended-param">recomended</span><br>
+<li><p><strong>max_latitude</strong> <span class="param-type">Float</span> <span class="recomended-param">recomended</span><br>
 Maximum latitude of the geographic area that has to contain the branches.</p></li>
-<li><p><strong>minLongitude</strong> <span class="param-type">Float</span> <span class="recomended-param">recomended</span><br>
+<li><p><strong>min_longitude</strong> <span class="param-type">Float</span> <span class="recomended-param">recomended</span><br>
 Minimum longitude of the geographic area that has to contain the branches.</p></li>
-<li><p><strong>maxLongitude</strong> <span class="param-type">Float</span> <span class="recomended-param">recomended</span><br>
+<li><p><strong>max_longitude</strong> <span class="param-type">Float</span> <span class="recomended-param">recomended</span><br>
 Maximum longitude of the geographic area that has to contain the branches.</p></li>
 <li><p><strong>fields</strong> <span class="param-type">List&lt;String&gt;</span> <span class="recomended-param">recomended</span><br>
 Entity fields that will included in the response(See available fields in <a href="#branch">the branch object definition</a>). For example: <code class="prettyprint">fields=id,name,shortName</code>.</p></li>
@@ -340,7 +339,7 @@ An unexpected error has occurred, returns a simple error message.</p></li>
 <p>Sample request:</p>
 </blockquote>
 
-<pre class="highlight http tab-http"><code><span class="nf">GET</span> <span class="nn">/v1/branches/branch/{branchId}</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<pre class="highlight http tab-http"><code><span class="nf">GET</span> <span class="nn">/v1/branches/{branch_id}</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 </code></pre>
 
 <blockquote>
@@ -353,19 +352,19 @@ An unexpected error has occurred, returns a simple error message.</p></li>
 <span class="p">{</span><span class="w">
     </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"27b6"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Hiper Central"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"shortName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Hiper"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"short_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Hiper"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Calle Beta 181 - 195, Callao"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"latitude"</span><span class="p">:</span><span class="w"> </span><span class="mf">-12.049919</span><span class="p">,</span><span class="w">
     </span><span class="s2">"longitude"</span><span class="p">:</span><span class="w"> </span><span class="mf">-77.0845193</span><span class="p">,</span><span class="w">
     </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACTIVE"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"congestion"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MEDIUM"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"lowEstimatedTime"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"highEstimatedTime"</span><span class="p">:</span><span class="w"> </span><span class="mi">14</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"low_estimated_time"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"high_estimated_time"</span><span class="p">:</span><span class="w"> </span><span class="mi">14</span><span class="p">,</span><span class="w">
     </span><span class="s2">"sectors"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
         </span><span class="p">{</span><span class="w">
             </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"m9"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tower A"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"shortName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"A"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"short_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"A"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACTIVE"</span><span class="w">
         </span><span class="p">}</span><span class="w">
     </span><span class="p">]</span><span class="w">
@@ -376,12 +375,12 @@ An unexpected error has occurred, returns a simple error message.</p></li>
 
 <h3 id="endpoint">Endpoint</h3>
 
-<p><code class="prettyprint">GET /v1/branches/branch/{branchId}</code></p>
+<p><code class="prettyprint">GET /v1/branches/{branch_id}</code></p>
 
 <h3 id="path-params">Path Params</h3>
 
 <ul>
-<li><strong>branchId</strong> <span class="param-type">String</span> <span class="required-param">required</span><br>
+<li><strong>branch_id</strong> <span class="param-type">String</span> <span class="required-param">required</span><br>
 Branch unique identifier (Configured from Bmatic configuration panel).</li>
 </ul>
 
@@ -415,7 +414,7 @@ An unexpected error has occurred, returns a simple error message.</p></li>
 <p>Sample request:</p>
 </blockquote>
 
-<pre class="highlight http tab-http"><code><span class="nf">GET</span> <span class="nn">/v1/tickets/channel/c10/services</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<pre class="highlight http tab-http"><code><span class="nf">GET</span> <span class="nn">/v1/tickets/services</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 </code></pre>
 
 <blockquote>
@@ -429,7 +428,7 @@ An unexpected error has occurred, returns a simple error message.</p></li>
     </span><span class="p">{</span><span class="w">
         </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"s8"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Plataforma"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"shortName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Plataforma"</span><span class="w">
+        </span><span class="s2">"short_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Plataforma"</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">]</span><span class="w">
 </span></code></pre>
@@ -447,12 +446,12 @@ An unexpected error has occurred, returns a simple error message.</p></li>
 
 <h3 id="endpoint">Endpoint</h3>
 
-<p><code class="prettyprint">GET /v1/tickets/channel/{channelId}/services</code></p>
+<p><code class="prettyprint">GET /v1/tickets/services</code></p>
 
-<h3 id="path-params">Path Params</h3>
+<h3 id="query-params">Query Params</h3>
 
 <ul>
-<li><strong>channelId</strong> <span class="param-type">String</span> <span class="required-param">required</span><br>
+<li><strong>channel_id</strong> <span class="param-type">String</span> <span class="required-param">required</span><br>
 Unique identifier of the channel used. This value must be set in the client application.</li>
 </ul>
 
@@ -475,7 +474,7 @@ An unexpected error has occurred, returns a simple error message.</p></li>
 <p>Sample request:</p>
 </blockquote>
 
-<pre class="highlight http tab-http"><code><span class="nf">GET</span> <span class="nn">/v1/tickets/customer/c9mas9js/tickets</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<pre class="highlight http tab-http"><code><span class="nf">GET</span> <span class="nn">/v1/tickets?customer_id=c9mas9js</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 </code></pre>
 
 <blockquote>
@@ -492,8 +491,8 @@ An unexpected error has occurred, returns a simple error message.</p></li>
         </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BLOCKED"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"+51987776576"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"position"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"lowEstimatedTime"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"highEstimatedTime"</span><span class="p">:</span><span class="w"> </span><span class="mi">15</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"low_estimated_time"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"high_estimated_time"</span><span class="p">:</span><span class="w"> </span><span class="mi">15</span><span class="p">,</span><span class="w">
         </span><span class="s2">"messages"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
             </span><span class="s2">"We have a promotion for you!"</span><span class="w">
         </span><span class="p">],</span><span class="w">
@@ -504,7 +503,7 @@ An unexpected error has occurred, returns a simple error message.</p></li>
         </span><span class="s2">"branch"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
             </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"27b6"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Hiper Central"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"shortName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Hiper"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"short_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Hiper"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Calle Beta 181 - 195, Callao"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"latitude"</span><span class="p">:</span><span class="w"> </span><span class="mf">-12.049919</span><span class="p">,</span><span class="w">
             </span><span class="s2">"longitude"</span><span class="p">:</span><span class="w"> </span><span class="mf">-77.0845193</span><span class="p">,</span><span class="w">
@@ -513,13 +512,13 @@ An unexpected error has occurred, returns a simple error message.</p></li>
         </span><span class="s2">"sector"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
             </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"m9"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tower A"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"shortName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"A"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"short_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"A"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACTIVE"</span><span class="w">
         </span><span class="p">},</span><span class="w">
         </span><span class="s2">"service"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
             </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"s8"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Plataforma"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"shortName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Plataforma"</span><span class="w">
+            </span><span class="s2">"short_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Plataforma"</span><span class="w">
         </span><span class="p">},</span><span class="w">
         </span><span class="s2">"queueType"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
             </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"R0009"</span><span class="p">,</span><span class="w">
@@ -531,8 +530,8 @@ An unexpected error has occurred, returns a simple error message.</p></li>
             </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"V10"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"teller"</span><span class="p">:</span><span class="w"> </span><span class="s2">"achavez"</span><span class="w">
         </span><span class="p">},</span><span class="w">
-        </span><span class="s2">"createdAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-02-20T10:00:00.000Z"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"updatedAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-02-20T10:00:00.000Z"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-02-20T10:00:00.000Z"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-02-20T10:00:00.000Z"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"print"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
             </span><span class="p">{</span><span class="w">
                 </span><span class="s2">"align"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CENTER"</span><span class="p">,</span><span class="w">
@@ -553,30 +552,25 @@ An unexpected error has occurred, returns a simple error message.</p></li>
     You must consider the following:
     <ul>
         <li>When the teller calls the ticket, it is automatically deleted and is not available anymore.</li>
-        <li>An empty list is returned when no registered tickets with the <code>customerId</code> existed.</li>
+        <li>An empty list is returned when no registered tickets with the <code>customer_id</code> existed.</li>
     <ul>
 </aside>
 
 <aside class="notice">
     <strong>Order:</strong>
-    The tickets are sorted descendant by the field: <code>createdAt</code>.
+    The tickets are sorted descendant by the field: <code>created_at</code>.
 </aside>
 
 <h3 id="endpoint">Endpoint</h3>
 
-<p><code class="prettyprint">GET /v1/tickets/customer/{customerId}/tickets</code></p>
-
-<h3 id="path-params">Path Params</h3>
-
-<ul>
-<li><strong>customerId</strong> <span class="param-type">String</span> <span class="required-param">required</span> <br> Customer unique identifier.</li>
-</ul>
+<p><code class="prettyprint">GET /v1/tickets</code></p>
 
 <h3 id="query-params">Query Params</h3>
 
 <ul>
-<li><strong>fields</strong> <span class="param-type">List&lt;String&gt;</span> <span class="recomended-param">recomended</span><br>
-Entity fields that will included in the response(See available fields in <a href="#ticket">the ticket object definition</a>). For example: <code class="prettyprint">fields=id,queueType,number</code>.</li>
+<li><p><strong>customer_id</strong> <span class="param-type">String</span> <span class="required-param">required</span> <br> Customer unique identifier.</p></li>
+<li><p><strong>fields</strong> <span class="param-type">List&lt;String&gt;</span> <span class="recomended-param">recomended</span><br>
+Entity fields that will included in the response(See available fields in <a href="#ticket">the ticket object definition</a>). For example: <code class="prettyprint">fields=id,queueType,number</code>.</p></li>
 </ul>
 
 <h3 id="responses">Responses</h3>
@@ -596,7 +590,7 @@ An unexpected error has occurred, returns a simple error message.</p></li>
 <p>Sample request:</p>
 </blockquote>
 
-<pre class="highlight http tab-http"><code><span class="nf">GET</span> <span class="nn">/v1/tickets/customer/c9mas9js/tickets/89m32b0</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<pre class="highlight http tab-http"><code><span class="nf">GET</span> <span class="nn">/v1/tickets/89m32b0</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 </code></pre>
 
 <blockquote>
@@ -612,8 +606,8 @@ An unexpected error has occurred, returns a simple error message.</p></li>
     </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BLOCKED"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"+51987776576"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"position"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"lowEstimatedTime"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"highEstimatedTime"</span><span class="p">:</span><span class="w"> </span><span class="mi">15</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"low_estimated_time"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"high_estimated_time"</span><span class="p">:</span><span class="w"> </span><span class="mi">15</span><span class="p">,</span><span class="w">
     </span><span class="s2">"messages"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
         </span><span class="s2">"We have a promotion for you!"</span><span class="w">
     </span><span class="p">],</span><span class="w">
@@ -624,7 +618,7 @@ An unexpected error has occurred, returns a simple error message.</p></li>
     </span><span class="s2">"branch"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"27b6"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Hiper Central"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"shortName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Hiper"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"short_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Hiper"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Calle Beta 181 - 195, Callao"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"latitude"</span><span class="p">:</span><span class="w"> </span><span class="mf">-12.049919</span><span class="p">,</span><span class="w">
         </span><span class="s2">"longitude"</span><span class="p">:</span><span class="w"> </span><span class="mf">-77.0845193</span><span class="p">,</span><span class="w">
@@ -633,15 +627,15 @@ An unexpected error has occurred, returns a simple error message.</p></li>
     </span><span class="s2">"sector"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"m9"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tower A"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"shortName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"A"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"short_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"A"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACTIVE"</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="s2">"service"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"s8"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Plataforma"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"shortName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Plataforma"</span><span class="w">
+        </span><span class="s2">"short_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Plataforma"</span><span class="w">
     </span><span class="p">},</span><span class="w">
-    </span><span class="s2">"queueType"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"queue_type"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"R0009"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CC"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Comercial"</span><span class="w">
@@ -651,8 +645,8 @@ An unexpected error has occurred, returns a simple error message.</p></li>
         </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"V10"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"teller"</span><span class="p">:</span><span class="w"> </span><span class="s2">"achavez"</span><span class="w">
     </span><span class="p">},</span><span class="w">
-    </span><span class="s2">"createdAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-02-20T10:00:00.000Z"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"updatedAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-02-20T10:00:00.000Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-02-20T10:00:00.000Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-02-20T10:00:00.000Z"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"print"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
         </span><span class="p">{</span><span class="w">
             </span><span class="s2">"align"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CENTER"</span><span class="p">,</span><span class="w">
@@ -669,22 +663,20 @@ An unexpected error has occurred, returns a simple error message.</p></li>
 
 <h3 id="endpoint">Endpoint</h3>
 
-<p><code class="prettyprint">GET /v1/tickets/customer/{customerId}/tickets/{ticketId}</code></p>
+<p><code class="prettyprint">GET /v1/tickets/{ticket_id}</code></p>
 
 <h3 id="path-params">Path Params</h3>
 
 <ul>
-<li><p><strong>customerId</strong> <span class="param-type">String</span> <span class="required-param">required</span><br>
-Customer unique identifier.</p></li>
-<li><p><strong>ticketId</strong> <span class="param-type">String</span> <span class="required-param">required</span><br>
-Ticket unique identifier (Generated in the ticket creation).</p></li>
+<li><strong>ticket_id</strong> <span class="param-type">String</span> <span class="required-param">required</span><br>
+Ticket unique identifier (Generated in the ticket creation).</li>
 </ul>
 
 <h3 id="query-params">Query Params</h3>
 
 <ul>
 <li><strong>fields</strong> <span class="param-type">List&lt;String&gt;</span> <span class="recomended-param">recomended</span><br>
-Entity fields that will included in the response(See available fields in <a href="#ticket">the ticket object definition</a>). For example: <code class="prettyprint">fields=id,queueType,number</code>.</li>
+Entity fields that will included in the response(See available fields in <a href="#ticket">the ticket object definition</a>). For example: <code class="prettyprint">fields=id,queue_type,number</code>.</li>
 </ul>
 
 <h3 id="responses">Responses</h3>
@@ -706,16 +698,18 @@ An unexpected error has occurred, returns a simple error message.</p></li>
 <p>Sample request:</p>
 </blockquote>
 
-<pre class="highlight http tab-http"><code><span class="nf">POST</span> <span class="nn">/v1/tickets/customer/c9mas9js/tickets</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<pre class="highlight http tab-http"><code><span class="nf">POST</span> <span class="nn">/v1/tickets</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 <span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
 
 <span class="p">{</span><span class="w">
-    </span><span class="s2">"channelId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"c10"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"branchId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"27b6"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"sectorId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"m9"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"serviceId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"s8"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"docType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"D"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"docNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"90452291"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"channel_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"c10"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"branch_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"27b6"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"sector_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"m9"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"service_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"s8"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BLOCKED"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"customer_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"c9mas9js"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"doc_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"D"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"doc_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"90452291"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"+51987882567"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
@@ -733,8 +727,8 @@ An unexpected error has occurred, returns a simple error message.</p></li>
     </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BLOCKED"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"+51987776576"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"position"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"lowEstimatedTime"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"highEstimatedTime"</span><span class="p">:</span><span class="w"> </span><span class="mi">15</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"low_estimated_time"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"high_estimated_time"</span><span class="p">:</span><span class="w"> </span><span class="mi">15</span><span class="p">,</span><span class="w">
     </span><span class="s2">"messages"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
         </span><span class="s2">"We have a promotion for you!"</span><span class="w">
     </span><span class="p">],</span><span class="w">
@@ -745,7 +739,7 @@ An unexpected error has occurred, returns a simple error message.</p></li>
     </span><span class="s2">"branch"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"27b6"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Hiper Central"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"shortName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Hiper"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"short_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Hiper"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Calle Beta 181 - 195, Callao"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"latitude"</span><span class="p">:</span><span class="w"> </span><span class="mf">-12.049919</span><span class="p">,</span><span class="w">
         </span><span class="s2">"longitude"</span><span class="p">:</span><span class="w"> </span><span class="mf">-77.0845193</span><span class="p">,</span><span class="w">
@@ -754,15 +748,15 @@ An unexpected error has occurred, returns a simple error message.</p></li>
     </span><span class="s2">"sector"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"m9"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tower A"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"shortName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"A"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"short_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"A"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACTIVE"</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="s2">"service"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"s8"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Plataforma"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"shortName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Plataforma"</span><span class="w">
+        </span><span class="s2">"short_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Plataforma"</span><span class="w">
     </span><span class="p">},</span><span class="w">
-    </span><span class="s2">"queueType"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"queue_type"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"R0009"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CC"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Comercial"</span><span class="w">
@@ -772,8 +766,8 @@ An unexpected error has occurred, returns a simple error message.</p></li>
         </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"V10"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"teller"</span><span class="p">:</span><span class="w"> </span><span class="s2">"achavez"</span><span class="w">
     </span><span class="p">},</span><span class="w">
-    </span><span class="s2">"createdAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-02-20T10:00:00.000Z"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"updatedAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-02-20T10:00:00.000Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-02-20T10:00:00.000Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-02-20T10:00:00.000Z"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"print"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
         </span><span class="p">{</span><span class="w">
             </span><span class="s2">"align"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CENTER"</span><span class="p">,</span><span class="w">
@@ -795,39 +789,43 @@ An unexpected error has occurred, returns a simple error message.</p></li>
         <li>The referenced channel must support the requested service.</li>
         <li>The referenced branch must contain the requested sector.</li>
         <li>The referenced sector must support the requested service.</li>
-        <li>The customer must has no other ticket.</li>
-        <li>The customer category referenced by the <code>categoryId</code> must has a queue configured for the requested service and the channel used.</li>
+        <li>The customer must has no other ticket for the same service.</li>
     <ul>
 </aside>
 
 <h3 id="endpoint">Endpoint</h3>
 
-<p><code class="prettyprint">POST /v1/tickets/customer/{customerId}/tickets</code></p>
-
-<h3 id="path-params">Path Params</h3>
-
-<ul>
-<li><strong>customerId</strong> <span class="param-type">String</span><br>
-Customer unique identifier.</li>
-</ul>
+<p><code class="prettyprint">POST /v1/tickets</code></p>
 
 <h3 id="request">Request</h3>
 
 <ul>
-<li><p><strong>channelId</strong> <span class="param-type">String</span> <span class="required-param">required</span><br>
+<li><p><strong>channel_id</strong> <span class="param-type">String</span> <span class="required-param">required</span><br>
 Unique identifier of the channel used. This value must be set in the client application.</p></li>
-<li><p><strong>branchId</strong> <span class="param-type">String</span> <span class="required-param">required</span><br>
+<li><p><strong>branch_id</strong> <span class="param-type">String</span> <span class="required-param">required</span><br>
 Unique identifier of the requested branch.</p></li>
-<li><p><strong>sectorId</strong> <span class="param-type">String</span> <span class="required-param">required</span><br>
+<li><p><strong>sector_id</strong> <span class="param-type">String</span> <span class="required-param">required</span><br>
 Unique identifier of the requested sector.</p></li>
-<li><p><strong>serviceId</strong> <span class="param-type">String</span> <span class="required-param">required</span><br>
+<li><p><strong>service_id</strong> <span class="param-type">String</span> <span class="required-param">required</span><br>
 Unique identifier of the requested service.</p></li>
-<li><p><strong>docType</strong> <span class="param-type">String</span><br>
+<li><p><strong>status</strong> <span class="param-type">Enum</span><br>
+Status of the ticket.
+<p>
+<span class="param-condition">Possible values:</span>
+<ul>
+    <li><code>BLOCKED</code>: When the ticket shouldn&rsquo;t called by teller.</li>
+    <li><code>ENABLED</code>: When the can to be called by the teller.</li>
+</ul>
+
+<p></p></p></li>
+<li><p><strong>customer_id</strong> <span class="param-type">String</span><br>
+Customer unique identifier.</p></li>
+<li><p><strong>doc_type</strong> <span class="param-type">String</span><br>
 Type of document used to identify the client.
 <p>
 <span class="param-condition">Maximum length:</span> <code class="prettyprint">5</code>
 </p></p></li>
-<li><p><strong>docNumber</strong> <span class="param-type">String</span><br>
+<li><p><strong>doc_number</strong> <span class="param-type">String</span><br>
 Number of document used to identify the client.
 <p>
 <span class="param-condition">Maximum length:</span> <code class="prettyprint">20</code>
@@ -835,9 +833,9 @@ Number of document used to identify the client.
 <li><p><strong>phone</strong> <span class="param-type">String</span><br>
 Customer phone for notifications associated to the ticket.
 <p>
-<span class="param-condition">Validation pattern:</span> <code class="prettyprint">^\+[1-9]{1}[0-9]{3,14}$</code>
+<span class="param-condition">Validation pattern:</span> <code class="prettyprint">^+[1-9]{1}[0-9]{3,14}$</code>
 </p></p></li>
-</ul>
+</ul></p>
 
 <h3 id="responses">Responses</h3>
 
@@ -856,7 +854,7 @@ An unexpected error has occurred, returns a simple error message.</p></li>
 <p>Sample request:</p>
 </blockquote>
 
-<pre class="highlight http tab-http"><code><span class="nf">PUT</span> <span class="nn">/v1/tickets/customer/c9mas9js/tickets/89m32b0</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<pre class="highlight http tab-http"><code><span class="nf">PUT</span> <span class="nn">/v1/tickets/89m32b0</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 <span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
 
 <span class="p">{</span><span class="w">
@@ -875,21 +873,19 @@ An unexpected error has occurred, returns a simple error message.</p></li>
 
 <h3 id="endpoint">Endpoint</h3>
 
-<p><code class="prettyprint">PUT /v1/tickets/customer/{customerId}/tickets/{ticketId}</code></p>
+<p><code class="prettyprint">PUT /v1/tickets/{ticket_id}</code></p>
 
 <h3 id="path-params">Path Params</h3>
 
 <ul>
-<li><p><strong>customerId</strong> <span class="param-type">String</span> <span class="required-param">required</span><br>
-Customer unique identifier.</p></li>
-<li><p><strong>ticketId</strong> <span class="param-type">String</span> <span class="required-param">required</span><br>
-Ticket unique identifier (Generated in the ticket creation).</p></li>
+<li><strong>ticket_id</strong> <span class="param-type">String</span> <span class="required-param">required</span><br>
+Ticket unique identifier (Generated in the ticket creation).</li>
 </ul>
 
 <h3 id="request">Request</h3>
 
 <ul>
-<li><p><strong>status</strong> <span class="param-type">Enum</span><br>
+<li><strong>status</strong> <span class="param-type">Enum</span><br>
 New status for the ticket.
 <p>
 <span class="param-condition">Possible values:</span><br>
@@ -898,12 +894,7 @@ New status for the ticket.
     <li><code>ENABLED</code></li>
 </ul>
 
-<p></p></p></li>
-<li><p><strong>phone</strong> <span class="param-type">String</span><br>
-New customer phone for notifications.
-<p>
-<span class="param-condition">Validation pattern:</span> <code class="prettyprint">^+[1-9]{1}[0-9]{3,14}$</code>
-</p></p></li>
+<p></p></li>
 </ul></p>
 
 <h3 id="responses">Responses</h3>
@@ -925,7 +916,7 @@ An unexpected error has occurred, returns a simple error message.</p></li>
 <p>Sample request:</p>
 </blockquote>
 
-<pre class="highlight http tab-http"><code><span class="nf">DELETE</span> <span class="nn">/v1/tickets/customer/c9mas9js/tickets/89m32b0</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<pre class="highlight http tab-http"><code><span class="nf">DELETE</span> <span class="nn">/v1/tickets/89m32b0</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 </code></pre>
 
 <blockquote>
@@ -939,15 +930,13 @@ An unexpected error has occurred, returns a simple error message.</p></li>
 
 <h3 id="endpoint">Endpoint</h3>
 
-<p><code class="prettyprint">DELETE /v1/tickets/customer/{customerId}/tickets/{ticketId}</code></p>
+<p><code class="prettyprint">DELETE /v1/tickets/{ticket_id}</code></p>
 
 <h3 id="path-params">Path Params</h3>
 
 <ul>
-<li><p><strong>customerId</strong> <span class="param-type">String</span> <span class="required-param">required</span><br>
-Customer unique identifier.</p></li>
-<li><p><strong>ticketId</strong> <span class="param-type">String</span> <span class="required-param">required</span><br>
-Ticket unique identifier (Generated in the ticket creation).</p></li>
+<li><strong>ticket_id</strong> <span class="param-type">String</span> <span class="required-param">required</span><br>
+Ticket unique identifier (Generated in the ticket creation).</li>
 </ul>
 
 <h3 id="responses">Responses</h3>
@@ -973,7 +962,7 @@ An unexpected error has occurred, returns a simple error message.</p></li>
 <p>Sample request:</p>
 </blockquote>
 
-<pre class="highlight http tab-http"><code><span class="nf">GET</span> <span class="nn">/v1/bookings/channel/c10/services</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<pre class="highlight http tab-http"><code><span class="nf">GET</span> <span class="nn">/v1/bookings/services</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 </code></pre>
 
 <blockquote>
@@ -987,7 +976,7 @@ An unexpected error has occurred, returns a simple error message.</p></li>
     </span><span class="p">{</span><span class="w">
         </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"s8"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Plataforma"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"shortName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Plataforma"</span><span class="w">
+        </span><span class="s2">"short_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Plataforma"</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">]</span><span class="w">
 </span></code></pre>
@@ -1005,12 +994,12 @@ An unexpected error has occurred, returns a simple error message.</p></li>
 
 <h3 id="endpoint">Endpoint</h3>
 
-<p><code class="prettyprint">GET /v1/bookings/channel/{channelId}/services</code></p>
+<p><code class="prettyprint">GET /v1/bookings/services</code></p>
 
-<h3 id="path-params">Path Params</h3>
+<h3 id="query-params">Query Params</h3>
 
 <ul>
-<li><strong>channelId</strong> <span class="param-type">String</span> <span class="required-param">required</span><br>
+<li><strong>channel_id</strong> <span class="param-type">String</span> <span class="required-param">required</span><br>
 Unique identifier of the channel used. This value must be set in the client application.</li>
 </ul>
 
@@ -1021,8 +1010,6 @@ Unique identifier of the channel used. This value must be set in the client appl
 A list of services.</p></li>
 <li><p><strong>400</strong> <span class="verb-description">Bad Request</span> <span class="param-type"><a href="#error">Error</a></span><br>
 One or more parameters are not valid, returns a description of validation failed.</p></li>
-<li><p><strong>404</strong> <span class="verb-description">Not Found</span> <span class="param-type"><a href="#error">Error</a></span><br>
-The resource requested not found, returns a simple error message.</p></li>
 <li><p><strong>500</strong> <span class="verb-description">Internal Server Error</span> <span class="param-type"><a href="#error">Error</a></span><br>
 An unexpected error has occurred, returns a simple error message.</p></li>
 </ul>
@@ -1033,7 +1020,7 @@ An unexpected error has occurred, returns a simple error message.</p></li>
 <p>Sample request:</p>
 </blockquote>
 
-<pre class="highlight http tab-http"><code><span class="nf">GET</span> <span class="nn">/v1/bookings/availability?serviceId=s8&amp;branchId=27b6</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<pre class="highlight http tab-http"><code><span class="nf">GET</span> <span class="nn">/v1/bookings/days?service_id=s8&amp;branch_id=27b6</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 </code></pre>
 
 <blockquote>
@@ -1051,8 +1038,8 @@ An unexpected error has occurred, returns a simple error message.</p></li>
         </span><span class="s2">"day"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-02-20T00:00:00.000Z"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"ranges"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
             </span><span class="p">{</span><span class="w">
-                </span><span class="s2">"startTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-02-20T14:00:00.000Z"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"endTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-02-20T15:00:00.000Z"</span><span class="w">
+                </span><span class="s2">"start_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-02-20T14:00:00.000Z"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"end_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-02-20T15:00:00.000Z"</span><span class="w">
             </span><span class="p">}</span><span class="w">
         </span><span class="p">]</span><span class="w">
     </span><span class="p">}</span><span class="w">
@@ -1076,14 +1063,14 @@ An unexpected error has occurred, returns a simple error message.</p></li>
 
 <h3 id="endpoint">Endpoint</h3>
 
-<p><code class="prettyprint">GET /v1/bookings/availability</code></p>
+<p><code class="prettyprint">GET /v1/bookings/days</code></p>
 
 <h3 id="query-params">Query Params</h3>
 
 <ul>
-<li><p><strong>serviceId</strong> <span class="param-type">String</span> <span title="required" class="required-param">required</span><br>
+<li><p><strong>service_id</strong> <span class="param-type">String</span> <span title="required" class="required-param">required</span><br>
 Unique identifier of requested service.</p></li>
-<li><p><strong>branchId</strong> <span class="param-type">String</span> <span title="required" class="required-param">required</span><br>
+<li><p><strong>branch_id</strong> <span class="param-type">String</span> <span title="required" class="required-param">required</span><br>
 Unique identifier of requested branch.</p></li>
 <li><p><strong>offset</strong> <span class="param-type">Integer</span><br>
 Position in pagination.
@@ -1121,7 +1108,7 @@ An unexpected error has occurred, returns a simple error message.</p></li>
 <p>Sample request:</p>
 </blockquote>
 
-<pre class="highlight http tab-http"><code><span class="nf">GET</span> <span class="nn">/v1/bookings/customer/c9mas9js/bookings</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<pre class="highlight http tab-http"><code><span class="nf">GET</span> <span class="nn">/v1/bookings?customer_id=c9mas9js</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 </code></pre>
 
 <blockquote>
@@ -1144,7 +1131,7 @@ An unexpected error has occurred, returns a simple error message.</p></li>
         </span><span class="s2">"branch"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
             </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"27b6"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Hiper Central"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"shortName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Hiper"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"short_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Hiper"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Calle Beta 181 - 195, Callao"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"latitude"</span><span class="p">:</span><span class="w"> </span><span class="mf">-12.049919</span><span class="p">,</span><span class="w">
             </span><span class="s2">"longitude"</span><span class="p">:</span><span class="w"> </span><span class="mf">-77.0845193</span><span class="p">,</span><span class="w">
@@ -1153,12 +1140,12 @@ An unexpected error has occurred, returns a simple error message.</p></li>
         </span><span class="s2">"service"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
             </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"s8"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Plataforma"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"shortName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Plataforma"</span><span class="w">
+            </span><span class="s2">"short_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Plataforma"</span><span class="w">
         </span><span class="p">},</span><span class="w">
-        </span><span class="s2">"startTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-02-20T14:00:00.000Z"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"endTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-02-20T15:00:00.000Z"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"createdAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-02-10T14:00:00.000Z"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"updatedAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-02-10T14:00:00.000Z"</span><span class="w">
+        </span><span class="s2">"start_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-02-20T14:00:00.000Z"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"end_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-02-20T15:00:00.000Z"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-02-10T14:00:00.000Z"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-02-10T14:00:00.000Z"</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">]</span><span class="w">
 </span></code></pre>
@@ -1170,31 +1157,26 @@ An unexpected error has occurred, returns a simple error message.</p></li>
     You must consider the following:
     <ul>
         <li>The bookings are not available anymore after the booking day.</li>
-        <li>An empty list is returned when there is no registered bookings with the <code>customerId</code> received.</li>
+        <li>An empty list is returned when there is no registered bookings with the <code>customer_id</code> received.</li>
     <ul>
 </aside>
 
 <aside class="notice">
     <strong>Order:</strong>
-    The bookings are sorted descendantly by the field: <code>createdAt</code>.
+    The bookings are sorted descendantly by the field: <code>created_at</code>.
 </aside>
 
 <h3 id="endpoint">Endpoint</h3>
 
-<p><code class="prettyprint">GET /v1/bookings/customer/{customerId}/bookings</code></p>
-
-<h3 id="path-params">Path Params</h3>
-
-<ul>
-<li><strong>customerId</strong> <span class="param-type">String</span> <span class="required-param">required</span><br>
-Customer unique identifier.</li>
-</ul>
+<p><code class="prettyprint">GET /v1/bookings</code></p>
 
 <h3 id="query-params">Query Params</h3>
 
 <ul>
-<li><strong>fields</strong> <span class="param-type">List&lt;String&gt;</span> <span class="recomended-param">recomended</span><br>
-Entity fields that will included in the response(See available fields in <a href="#booking">the booking object definition</a>). For example: <code class="prettyprint">fields=id,code,status</code>.</li>
+<li><p><strong>customer_id</strong> <span class="param-type">String</span> <span class="required-param">required</span><br>
+Customer unique identifier.</p></li>
+<li><p><strong>fields</strong> <span class="param-type">List&lt;String&gt;</span> <span class="recomended-param">recomended</span><br>
+Entity fields that will included in the response(See available fields in <a href="#booking">the booking object definition</a>). For example: <code class="prettyprint">fields=id,code,status</code>.</p></li>
 </ul>
 
 <h3 id="responses">Responses</h3>
@@ -1214,7 +1196,7 @@ An unexpected error has occurred, returns a simple error message.</p></li>
 <p>Sample request:</p>
 </blockquote>
 
-<pre class="highlight http tab-http"><code><span class="nf">GET</span> <span class="nn">/v1/bookings/customer/c9mas9js/bookings/a90mos</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<pre class="highlight http tab-http"><code><span class="nf">GET</span> <span class="nn">/v1/bookings/a90mos</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 </code></pre>
 
 <blockquote>
@@ -1236,7 +1218,7 @@ An unexpected error has occurred, returns a simple error message.</p></li>
     </span><span class="s2">"branch"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"27b6"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Hiper Central"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"shortName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Hiper"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"short_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Hiper"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Calle Beta 181 - 195, Callao"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"latitude"</span><span class="p">:</span><span class="w"> </span><span class="mf">-12.049919</span><span class="p">,</span><span class="w">
         </span><span class="s2">"longitude"</span><span class="p">:</span><span class="w"> </span><span class="mf">-77.0845193</span><span class="p">,</span><span class="w">
@@ -1245,12 +1227,12 @@ An unexpected error has occurred, returns a simple error message.</p></li>
     </span><span class="s2">"service"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"s8"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Plataforma"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"shortName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Plataforma"</span><span class="w">
+        </span><span class="s2">"short_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Plataforma"</span><span class="w">
     </span><span class="p">},</span><span class="w">
-    </span><span class="s2">"startTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-02-20T14:00:00.000Z"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"endTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-02-20T15:00:00.000Z"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"createdAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-02-10T14:00:00.000Z"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"updatedAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-02-10T14:00:00.000Z"</span><span class="w">
+    </span><span class="s2">"start_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-02-20T14:00:00.000Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"end_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-02-20T15:00:00.000Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-02-10T14:00:00.000Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-02-10T14:00:00.000Z"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
@@ -1258,15 +1240,13 @@ An unexpected error has occurred, returns a simple error message.</p></li>
 
 <h3 id="endpoint">Endpoint</h3>
 
-<p><code class="prettyprint">GET /v1/bookings/customer/{customerId}/bookings/{bookingId}</code></p>
+<p><code class="prettyprint">GET /v1/bookings/{booking_id}</code></p>
 
 <h3 id="path-params">Path Params</h3>
 
 <ul>
-<li><p><strong>customerId</strong> <span class="param-type">String</span> <span class="required-param">required</span><br>
-Customer unique identifier.</p></li>
-<li><p><strong>bookingId</strong> <span class="param-type">String</span> <span class="required-param">required</span><br>
-Booking unique identifier (Generated in the booking creation).</p></li>
+<li><strong>booking_id</strong> <span class="param-type">String</span> <span class="required-param">required</span><br>
+Booking unique identifier (Generated in the booking creation).</li>
 </ul>
 
 <h3 id="query-params">Query Params</h3>
@@ -1295,18 +1275,19 @@ An unexpected error has occurred, returns a simple error message.</p></li>
 <p>Sample request:</p>
 </blockquote>
 
-<pre class="highlight http tab-http"><code><span class="nf">POST</span> <span class="nn">/v1/bookings/customer/c9mas9js/bookings</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<pre class="highlight http tab-http"><code><span class="nf">POST</span> <span class="nn">/v1/bookings</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 <span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
 
 <span class="p">{</span><span class="w">
-    </span><span class="s2">"channelId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"c10"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"branchId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"27b6"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"serviceId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"s8"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"docType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"D"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"docNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"90452291"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"channel_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"c10"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"branch_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"27b6"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"service_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"s8"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"customer_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"c9mas9js"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"doc_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"D"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"doc_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"90452291"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"+51987882567"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"startTime"</span><span class="p">:</span><span class="s2">"2017-02-20T14:00:00.000Z"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"endTime"</span><span class="p">:</span><span class="s2">"2017-02-20T15:00:00.000Z"</span><span class="w">
+    </span><span class="s2">"start_time"</span><span class="p">:</span><span class="s2">"2017-02-20T14:00:00.000Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"end_time"</span><span class="p">:</span><span class="s2">"2017-02-20T15:00:00.000Z"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
@@ -1329,7 +1310,7 @@ An unexpected error has occurred, returns a simple error message.</p></li>
     </span><span class="s2">"branch"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"27b6"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Hiper Central"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"shortName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Hiper"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"short_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Hiper"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Calle Beta 181 - 195, Callao"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"latitude"</span><span class="p">:</span><span class="w"> </span><span class="mf">-12.049919</span><span class="p">,</span><span class="w">
         </span><span class="s2">"longitude"</span><span class="p">:</span><span class="w"> </span><span class="mf">-77.0845193</span><span class="p">,</span><span class="w">
@@ -1338,12 +1319,12 @@ An unexpected error has occurred, returns a simple error message.</p></li>
     </span><span class="s2">"service"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"s8"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Plataforma"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"shortName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Plataforma"</span><span class="w">
+        </span><span class="s2">"short_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Plataforma"</span><span class="w">
     </span><span class="p">},</span><span class="w">
-    </span><span class="s2">"startTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-02-20T14:00:00.000Z"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"endTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-02-20T15:00:00.000Z"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"createdAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-02-10T14:00:00.000Z"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"updatedAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-02-10T14:00:00.000Z"</span><span class="w">
+    </span><span class="s2">"start_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-02-20T14:00:00.000Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"end_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-02-20T15:00:00.000Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-02-10T14:00:00.000Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-02-10T14:00:00.000Z"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
@@ -1356,41 +1337,31 @@ An unexpected error has occurred, returns a simple error message.</p></li>
         <li>The referenced channel must support the requested service.</li>
         <li>The referenced branch must support the requested service .</li>
         <li>The referenced client must has no other booking in state <code>ACTIVE</code> or <code>PENDING</code> for the same requested service.</li>
-        <li>The <code>startTime</code> and the <code>endTime</code> must be available.</li>
+        <li>The <code>start_time</code> and the <code>end_time</code> must be available.</li>
     <ul>
 </aside>
 
 <h3 id="endpoint">Endpoint</h3>
 
-<p><code class="prettyprint">POST /v1/bookings/customer/{customerId}/bookings</code></p>
-
-<h3 id="path-params">Path Params</h3>
-
-<ul>
-<li><strong>customerId</strong> <span class="param-type">String</span><br>
-Customer unique identifier.</li>
-</ul>
+<p><code class="prettyprint">POST /v1/bookings</code></p>
 
 <h3 id="request">Request</h3>
 
 <ul>
-<li><p><strong>channelId</strong> <span class="param-type">String</span> <span class="required-param">required</span><br>
+<li><p><strong>channel_id</strong> <span class="param-type">String</span> <span class="required-param">required</span><br>
 Unique identifier of the channel used. This value must be set in the client application.</p></li>
-<li><p><strong>branchId</strong> <span class="param-type">String</span> <span class="required-param">required</span><br>
+<li><p><strong>branch_id</strong> <span class="param-type">String</span> <span class="required-param">required</span><br>
 Unique identifier of the requested branch.</p></li>
-<li><p><strong>serviceId</strong> <span class="param-type">String</span> <span class="required-param">required</span><br>
+<li><p><strong>service_id</strong> <span class="param-type">String</span> <span class="required-param">required</span><br>
 Unique identifier of the requested service.</p></li>
-<li><p><strong>name</strong> <span class="param-type">String</span><br>
-Name or alias of the client used for contact purpose.
-<p>
-<span class="param-condition">Maximum length:</span> <code class="prettyprint">50</code>
-</p></p></li>
-<li><p><strong>docType</strong> <span class="param-type">String</span><br>
+<li><p><strong>customer_id</strong> <span class="param-type">String</span> <span class="required-param">required</span><br>
+Customer unique identifier.</p></li>
+<li><p><strong>doc_type</strong> <span class="param-type">String</span><br>
 Type of document used to identify the client.
 <p>
 <span class="param-condition">Maximum length:</span> <code class="prettyprint">5</code>
 </p></p></li>
-<li><p><strong>docNumber</strong> <span class="param-type">String</span><br>
+<li><p><strong>doc_number</strong> <span class="param-type">String</span><br>
 Number of document used to identify the client.
 <p>
 <span class="param-condition">Maximum length:</span> <code class="prettyprint">20</code>
@@ -1400,12 +1371,12 @@ Customer phone for notifications associated to the booking.
 <p>
 <span class="param-condition">Validation pattern:</span> <code class="prettyprint">^\+[1-9]{1}[0-9]{3,14}$</code>
 </p></p></li>
-<li><p><strong>startTime</strong> <span class="param-type">DateTime</span> <span class="required-param">required</span><br>
+<li><p><strong>start_time</strong> <span class="param-type">DateTime</span> <span class="required-param">required</span><br>
 Start time of booking.
 <p>
 <span class="param-condition">Format:</span> <code><a href="https://en.wikipedia.org/wiki/ISO_8601">ISO 8601</a></code>
 </p></p></li>
-<li><p><strong>endTime</strong> <span class="param-type">DateTime</span> <span class="required-param">required</span><br>
+<li><p><strong>end_time</strong> <span class="param-type">DateTime</span> <span class="required-param">required</span><br>
 End time of booking.
 <p>
 <span class="param-condition">Format:</span> <code><a href="https://en.wikipedia.org/wiki/ISO_8601">ISO 8601</a></code>
@@ -1429,7 +1400,7 @@ An unexpected error has occurred, returns a simple error message.</p></li>
 <p>Sample request:</p>
 </blockquote>
 
-<pre class="highlight http tab-http"><code><span class="nf">PUT</span> <span class="nn">/v1/bookings/customer/c9mas9js/bookings/a90mos</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<pre class="highlight http tab-http"><code><span class="nf">PUT</span> <span class="nn">/v1/bookings/a90mos</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 <span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
 
 <span class="p">{</span><span class="w">
@@ -1448,15 +1419,13 @@ An unexpected error has occurred, returns a simple error message.</p></li>
 
 <h3 id="endpoint">Endpoint</h3>
 
-<p><code class="prettyprint">PUT /v1/bookings/customer/{customerId}/bookings/{bookingId}</code></p>
+<p><code class="prettyprint">PUT /v1/bookings/{booking_id}</code></p>
 
 <h3 id="path-params">Path Params</h3>
 
 <ul>
-<li><p><strong>customerId</strong> <span class="param-type">String</span> <span class="required-param">required</span><br>
-Customer unique identifier.</p></li>
-<li><p><strong>bookingId</strong> <span class="param-type">String</span> <span class="required-param">required</span><br>
-Booking unique identifier (Generated in the booking creation).</p></li>
+<li><strong>booking_id</strong> <span class="param-type">String</span> <span class="required-param">required</span><br>
+Booking unique identifier (Generated in the booking creation).</li>
 </ul>
 
 <h3 id="request">Request</h3>
@@ -1488,7 +1457,7 @@ An unexpected error has occurred, returns a simple error message.</p></li>
 <p>Sample request:</p>
 </blockquote>
 
-<pre class="highlight http tab-http"><code><span class="nf">DELETE</span> <span class="nn">/v1/bookings/customer/c9mas9js/bookings/a90mos</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<pre class="highlight http tab-http"><code><span class="nf">DELETE</span> <span class="nn">/v1/bookings/a90mos</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 </code></pre>
 
 <blockquote>
@@ -1502,15 +1471,13 @@ An unexpected error has occurred, returns a simple error message.</p></li>
 
 <h3 id="endpoint">Endpoint</h3>
 
-<p><code class="prettyprint">DELETE /v1/bookings/customer/{customerId}/bookings/{bookingId}</code></p>
+<p><code class="prettyprint">DELETE /v1/bookings/{booking_id}</code></p>
 
 <h3 id="path-params">Path Params</h3>
 
 <ul>
-<li><p><strong>customerId</strong> <span class="param-type">String</span> <span class="required-param">required</span><br>
-Customer unique identifier.</p></li>
-<li><p><strong>bookingId</strong> <span class="param-type">String</span> <span class="required-param">required</span><br>
-Booking unique identifier (Generated in the booking creation).</p></li>
+<li><strong>booking_id</strong> <span class="param-type">String</span> <span class="required-param">required</span><br>
+Booking unique identifier (Generated in the booking creation).</li>
 </ul>
 
 <h3 id="responses">Responses</h3>
@@ -1548,7 +1515,7 @@ An unexpected error has occurred, returns a simple error message.</p></li>
     </span><span class="s2">"branch"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"27b6"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Hiper Central"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"shortName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Hiper"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"short_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Hiper"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Calle Beta 181 - 195, Callao"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"latitude"</span><span class="p">:</span><span class="w"> </span><span class="mf">-12.049919</span><span class="p">,</span><span class="w">
         </span><span class="s2">"longitude"</span><span class="p">:</span><span class="w"> </span><span class="mf">-77.0845193</span><span class="p">,</span><span class="w">
@@ -1557,12 +1524,12 @@ An unexpected error has occurred, returns a simple error message.</p></li>
     </span><span class="s2">"service"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"s8"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Plataforma"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"shortName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Plataforma"</span><span class="w">
+        </span><span class="s2">"short_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Plataforma"</span><span class="w">
     </span><span class="p">},</span><span class="w">
-    </span><span class="s2">"startTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-02-20T14:00:00.000Z"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"endTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-02-20T15:00:00.000Z"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"createdAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-02-10T14:00:00.000Z"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"updatedAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-02-10T14:00:00.000Z"</span><span class="w">
+    </span><span class="s2">"start_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-02-20T14:00:00.000Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"end_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-02-20T15:00:00.000Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-02-10T14:00:00.000Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-02-10T14:00:00.000Z"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
@@ -1598,22 +1565,22 @@ Channel where the booking was created.</p></li>
 Branch where the booking is valid.</p></li>
 <li><p><strong>service</strong> <span class="param-type"><a href="#service">Service</a></span><br>
 Service booked.</p></li>
-<li><p><strong>startTime</strong> <span class="param-type">DateTime</span><br>
+<li><p><strong>start_time</strong> <span class="param-type">DateTime</span><br>
 Start time of booking.
 <p>
 <span class="param-condition">Standard:</span> <code><a href="https://en.wikipedia.org/wiki/ISO_8601">ISO 8601</a></code>
 </p></p></li>
-<li><p><strong>endTime</strong> <span class="param-type">DateTime</span><br>
+<li><p><strong>end_time</strong> <span class="param-type">DateTime</span><br>
 End time of booking.
 <p>
 <span class="param-condition">Standard:</span> <code><a href="https://en.wikipedia.org/wiki/ISO_8601">ISO 8601</a></code>
 </p></p></li>
-<li><p><strong>createdAt</strong> <span class="param-type">DateTime</span><br>
+<li><p><strong>created_at</strong> <span class="param-type">DateTime</span><br>
 Date of booking creation.
 <p>
 <span class="param-condition">Standard:</span> <code><a href="https://en.wikipedia.org/wiki/ISO_8601">ISO 8601</a></code>
 </p></p></li>
-<li><p><strong>updatedAt</strong> <span class="param-type">DateTime</span><br>
+<li><p><strong>updated_at</strong> <span class="param-type">DateTime</span><br>
 Date of the last update of booking.
 <p>
 <span class="param-condition">Standard:</span> <code><a href="https://en.wikipedia.org/wiki/ISO_8601">ISO 8601</a></code>
@@ -1629,19 +1596,19 @@ Date of the last update of booking.
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"27b6"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Hiper Central"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"shortName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Hiper"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"short_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Hiper"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Calle Beta 181 - 195, Callao"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"latitude"</span><span class="p">:</span><span class="w"> </span><span class="mf">-12.049919</span><span class="p">,</span><span class="w">
     </span><span class="s2">"longitude"</span><span class="p">:</span><span class="w"> </span><span class="mf">-77.0845193</span><span class="p">,</span><span class="w">
     </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACTIVE"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"congestion"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MEDIUM"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"lowEstimatedTime"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"highEstimatedTime"</span><span class="p">:</span><span class="w"> </span><span class="mi">14</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"low_estimated_time"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"high_estimated_time"</span><span class="p">:</span><span class="w"> </span><span class="mi">14</span><span class="p">,</span><span class="w">
     </span><span class="s2">"sectors"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
         </span><span class="p">{</span><span class="w">
             </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"m9"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tower A"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"shortName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"A"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"short_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"A"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACTIVE"</span><span class="w">
         </span><span class="p">}</span><span class="w">
     </span><span class="p">]</span><span class="w">
@@ -1651,7 +1618,7 @@ Date of the last update of booking.
 <p>Model of branch object.</p>
 
 <aside class="warning">
-    <strong>Caution:</strong> The <code>congestion</code>, <code>lowEstimatedTime</code> and <code>highEstimatedTime</code> are calculated using the configuration of the associated branch type. You need configure the next:
+    <strong>Caution:</strong> The <code>congestion</code>, <code>low_estimated_time</code> and <code>high_estimated_time</code> are calculated using the configuration of the associated branch type. You need configure the next:
     <ul>
         <li>Time range to consider to calculate the waiting time.</li>
         <li>Desviation of waiting time.</li>
@@ -1671,7 +1638,7 @@ Complete name of the branch.
 <p>
 <span class="param-condition">Maximum length:</span> <code>50</code>
 </p></p></li>
-<li><p><strong>shortName</strong> <span class="param-type">String</span><br>
+<li><p><strong>short_name</strong> <span class="param-type">String</span><br>
 Name to display in small devices.
 <p>
 <span class="param-condition">Maximum length:</span> <code>20</code>
@@ -1704,9 +1671,9 @@ Flag of branch congestion.
         <li><code>HIGH</code>: The average waiting time is equal or upper to the minimal waiting time of high congestion</li>
     </ul>
 </p></p></li>
-<li><p><strong>lowEstimatedTime</strong> <span class="param-type">Integer</span><br>
+<li><p><strong>low_estimated_time</strong> <span class="param-type">Integer</span><br>
 Lower bound of the estimated waiting time. It&rsquo;s equal to the average waiting time minus the configured desviation.</p></li>
-<li><p><strong>highEstimatedTime</strong> <span class="param-type">Integer</span><br>
+<li><p><strong>high_estimated_time</strong> <span class="param-type">Integer</span><br>
 Upper bound of the estimated waiting time. It&rsquo;s equal to the average waiting time plus the configured desviation.</p></li>
 <li><p><strong>sectors</strong> <span class="param-type">List&lt;<a href="#sector">Sector</a>&gt;</span><br>
 List of the branch&rsquo;s sectors. A correct configuration include at least one sector per branch.
@@ -1784,8 +1751,8 @@ Account name of teller in counter.
     </span><span class="s2">"day"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-02-20T00:00:00.000Z"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"ranges"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
         </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"startTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-02-20T14:00:00.000Z"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"endTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-02-20T15:00:00.000Z"</span><span class="w">
+            </span><span class="s2">"start_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-02-20T14:00:00.000Z"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"end_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-02-20T15:00:00.000Z"</span><span class="w">
         </span><span class="p">}</span><span class="w">
     </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -1933,8 +1900,8 @@ Complete name of the queue type.
 </blockquote>
 
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-    </span><span class="s2">"startTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-02-20T14:00:00.000Z"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"endTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-02-20T15:00:00.000Z"</span><span class="w">
+    </span><span class="s2">"start_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-02-20T14:00:00.000Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"end_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-02-20T15:00:00.000Z"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
@@ -1943,12 +1910,12 @@ Complete name of the queue type.
 <h3 id="fields">Fields</h3>
 
 <ul>
-<li><p><strong>startTime</strong> <span class="param-type">DateTime</span><br>
+<li><p><strong>start_time</strong> <span class="param-type">DateTime</span><br>
 Start time of range.
 <p>
 <span class="param-condition">Standard:</span> <code><a href="https://en.wikipedia.org/wiki/ISO_8601">ISO 8601</a></code>
 </p></p></li>
-<li><p><strong>endTime</strong> <span class="param-type">DateTime</span><br>
+<li><p><strong>end_time</strong> <span class="param-type">DateTime</span><br>
 End time of range.
 <p>
 <span class="param-condition">Standard:</span> <code><a href="https://en.wikipedia.org/wiki/ISO_8601">ISO 8601</a></code>
@@ -1966,7 +1933,7 @@ End time of range.
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"m9"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tower A"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"shortName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"A"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"short_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"A"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"OPEN"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
@@ -1981,7 +1948,7 @@ Complete name of the sector.
 <p>
 <span class="param-condition">Maximum length:</span> <code>50</code>
 </p></p></li>
-<li><p><strong>shortName</strong> <span class="param-type">String</span> <br>
+<li><p><strong>short_name</strong> <span class="param-type">String</span> <br>
 Name to display in small devices.
 <p>
 <span class="param-condition">Maximum length:</span> <code>20</code>
@@ -1996,12 +1963,6 @@ Current status of the sector.
 </ul>
 
 <p></p></p></li>
-<li><p><strong>services</strong> <span class="param-type">List&lt;String&gt;</span><br>
-List of ids of the services allowed at sector. By default all services are allowed in the sectors if not register a specific configuration for the sector.
-<p>
-<span class="param-condition">Unique items:</span> <code>true</code><br>
-<span class="param-condition">Minimum items:</span> <code>1</code>
-</p></p></li>
 </ul></p>
 
 <p><h2 id="service">Service</h2></p>
@@ -2013,7 +1974,7 @@ List of ids of the services allowed at sector. By default all services are allow
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"s8"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Plataforma"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"shortName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Plataforma"</span><span class="w">
+    </span><span class="s2">"short_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Plataforma"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
@@ -2029,7 +1990,7 @@ Complete name of the service.
 <p>
 <span class="param-condition">Maximum length:</span> <code>50</code>
 </p></p></li>
-<li><p><strong>shortName</strong> <span class="param-type">String</span><br>
+<li><p><strong>short_name</strong> <span class="param-type">String</span><br>
 Name to display in small devices.
 <p>
 <span class="param-condition">Maximum length:</span> <code>20</code>
@@ -2049,8 +2010,8 @@ Name to display in small devices.
     </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BLOCKED"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"+51987776576"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"position"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"lowEstimatedTime"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"highEstimatedTime"</span><span class="p">:</span><span class="w"> </span><span class="mi">15</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"low_estimated_time"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"high_estimated_time"</span><span class="p">:</span><span class="w"> </span><span class="mi">15</span><span class="p">,</span><span class="w">
     </span><span class="s2">"messages"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
         </span><span class="s2">"We have a promotion for you!"</span><span class="w">
     </span><span class="p">],</span><span class="w">
@@ -2061,7 +2022,7 @@ Name to display in small devices.
     </span><span class="s2">"branch"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"27b6"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Hiper Central"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"shortName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Hiper"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"short_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Hiper"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Calle Beta 181 - 195, Callao"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"latitude"</span><span class="p">:</span><span class="w"> </span><span class="mf">-12.049919</span><span class="p">,</span><span class="w">
         </span><span class="s2">"longitude"</span><span class="p">:</span><span class="w"> </span><span class="mf">-77.0845193</span><span class="p">,</span><span class="w">
@@ -2070,15 +2031,15 @@ Name to display in small devices.
     </span><span class="s2">"sector"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"m9"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tower A"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"shortName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"A"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"short_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"A"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACTIVE"</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="s2">"service"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"s8"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Plataforma"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"shortName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Plataforma"</span><span class="w">
+        </span><span class="s2">"short_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Plataforma"</span><span class="w">
     </span><span class="p">},</span><span class="w">
-    </span><span class="s2">"queueType"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"queue_type"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"R0009"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CC"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Comercial"</span><span class="w">
@@ -2088,8 +2049,8 @@ Name to display in small devices.
         </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"V10"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"teller"</span><span class="p">:</span><span class="w"> </span><span class="s2">"achavez"</span><span class="w">
     </span><span class="p">},</span><span class="w">
-    </span><span class="s2">"createdAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-02-20T10:00:00.000Z"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"updatedAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-02-20T10:00:00.000Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-02-20T10:00:00.000Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-02-20T10:00:00.000Z"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"print"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
         </span><span class="p">{</span><span class="w">
             </span><span class="s2">"align"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CENTER"</span><span class="p">,</span><span class="w">
@@ -2107,7 +2068,7 @@ Name to display in small devices.
 <aside class="warning">
 <strong>Caution:</strong>
 The entities associated to ticket not provide all their fields for performance reasons. If you need more information, you can use others endpoints to get this information using the ids returned in the ticket. You can to see the default information provided in the sample object.<br><br>
-The <code>lowEstimatedTime</code> and <code>highEstimatedTime</code> are calculated using the configuration of the associated branch type. You need configure the next:
+The <code>low_estimated_time</code> and <code>high_estimated_time</code> are calculated using the configuration of the associated branch type. You need configure the next:
 <ul>
     <li>Time range to consider to calculate the waiting time.</li>
     <li>Desviation of waiting time.</li>
@@ -2127,8 +2088,8 @@ Current status of the ticket.
 <p>
 <span class="param-condition">Possible values:</span>
 <ul>
-    <li><code>BLOCKED</code>: When the counters cannot call the ticket.</li>
-    <li><code>ENABLED</code>: When the counters can call the ticket.</li>
+    <li><code>BLOCKED</code>: When the ticket shouldn&rsquo;t called by teller.</li>
+    <li><code>ENABLED</code>: When the can to be called by the teller.</li>
 </ul>
 
 <p></p></p></li>
@@ -2136,9 +2097,9 @@ Current status of the ticket.
 Customer phone for notifications associated to the ticket.</p></li>
 <li><p><strong>position</strong> <span class="param-type">Integer</span><br>
 Ticket position in the queue.</p></li>
-<li><p><strong>lowEstimatedTime</strong> <span class="param-type">Integer</span><br>
+<li><p><strong>low_estimated_time</strong> <span class="param-type">Integer</span><br>
 Lower bound of the estimated waiting time. It&rsquo;s equal to the average waiting time minus the configured desviation.</p></li>
-<li><p><strong>highEstimatedTime</strong> <span class="param-type">Integer</span><br>
+<li><p><strong>high_estimated_time</strong> <span class="param-type">Integer</span><br>
 Upper bound of the estimated waiting time. It&rsquo;s equal to the average waiting time plus the configured desviation.</p></li>
 <li><p><strong>messages</strong> <span class="param-type">List&lt;String&gt;</span><br>
 Messages to print.</p></li>
@@ -2150,16 +2111,16 @@ Branch where the ticket is valid.</p></li>
 Sector where the ticket is valid.</p></li>
 <li><p><strong>service</strong> <span class="param-type"><a href="#service">Service</a></span><br>
 Service requested by the customer.</p></li>
-<li><p><strong>queueType</strong> <span class="param-type"><a href="#queue-type">QueueType</a></span><br>
+<li><p><strong>queue_type</strong> <span class="param-type"><a href="#queue-type">QueueType</a></span><br>
 Assigned queue type.</p></li>
 <li><p><strong>counter</strong> <span class="param-type"><a href="#counter">Counter</a></span><br>
 Assigned counter.</p></li>
-<li><p><strong>createdAt</strong> <span class="param-type">DateTime</span><br>
+<li><p><strong>created_at</strong> <span class="param-type">DateTime</span><br>
 Date of ticket creation.
 <p>
 <span class="param-condition">Standard:</span> <code><a href="https://en.wikipedia.org/wiki/ISO_8601">ISO 8601</a></code>
 </p></p></li>
-<li><p><strong>updatedAt</strong> <span class="param-type">DateTime</span><br>
+<li><p><strong>updated_at</strong> <span class="param-type">DateTime</span><br>
 Date of the last update of ticket.
 <p>
 <span class="param-condition">Standard:</span> <code><a href="https://en.wikipedia.org/wiki/ISO_8601">ISO 8601</a></code>
