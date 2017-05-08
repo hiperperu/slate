@@ -1394,63 +1394,6 @@ One or more parameters are not valid, returns a description of validation failed
 An unexpected error has occurred, returns a simple error message.</p></li>
 </ul>
 
-<p><h2 id="update-booking">Update booking</h2></p>
-
-<blockquote>
-<p>Sample request:</p>
-</blockquote>
-
-<pre class="highlight http tab-http"><code><span class="nf">PUT</span> <span class="nn">/v1/bookings/a90mos</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
-<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
-
-<span class="p">{</span><span class="w">
-    </span><span class="s2">"phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"+51908999189"</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-
-<blockquote>
-<p>Sample response:</p>
-</blockquote>
-
-<pre class="highlight http tab-http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">204</span> <span class="ne">No Content</span>
-</code></pre>
-
-<p>Update a customer booking by ID.</p>
-
-<h3 id="endpoint">Endpoint</h3>
-
-<p><code class="prettyprint">PUT /v1/bookings/{booking_id}</code></p>
-
-<h3 id="path-params">Path Params</h3>
-
-<ul>
-<li><strong>booking_id</strong> <span class="param-type">String</span> <span class="required-param">required</span><br>
-Booking unique identifier (Generated in the booking creation).</li>
-</ul>
-
-<h3 id="request">Request</h3>
-
-<ul>
-<li><strong>phone</strong> <span class="param-type">String</span><br>
-New customer phone for notifications.
-<p>
-<span class="param-condition">Validation pattern:</span> <code class="prettyprint">^\+[1-9]{1}[0-9]{3,14}$</code>
-</p></li>
-</ul>
-
-<h3 id="responses">Responses</h3>
-
-<ul>
-<li><p><strong>204</strong> <span class="verb-description">No Content</span><br>
-Successful update.</p></li>
-<li><p><strong>400</strong> <span class="verb-description">Bad Request</span> <span class="param-type"><a href="#error">Error</a></span><br>
-One or more parameters are not valid, returns a description of validation failed.</p></li>
-<li><p><strong>404</strong> <span class="verb-description">Not Found</span> <span class="param-type"><a href="#error">Error</a></span><br>
-The resource requested not found, returns a simple error message.</p></li>
-<li><p><strong>500</strong> <span class="verb-description">Internal Server Error</span> <span class="param-type"><a href="#error">Error</a></span><br>
-An unexpected error has occurred, returns a simple error message.</p></li>
-</ul>
-
 <p><h2 id="cancel-booking">Cancel booking</h2></p>
 
 <blockquote>
