@@ -4,7 +4,7 @@
 > Sample request:
 
 ```http
-GET /v1/tickets/services HTTP/1.1
+GET /v1/tickets/services?channel_id=c10 HTTP/1.1
 ```
 
 > Sample response:
