@@ -4,7 +4,7 @@
 > Sample request:
 
 ```http
-DELETE /v1/bookings/customer/c9mas9js/bookings/a90mos HTTP/1.1
+DELETE /v1/bookings/a90mos HTTP/1.1
 ```
 
 > Sample response:
@@ -17,14 +17,11 @@ Cancel a customer booking by ID.
 
 ###Endpoint
 
-`DELETE /v1/bookings/customer/{customerId}/bookings/{bookingId}`
+`DELETE /v1/bookings/{booking_id}`
 
 ### Path Params
 
-* **customerId** <span class="param-type">String</span> <span class="required-param">required</span><br>
-Customer unique identifier.
-
-* **bookingId** <span class="param-type">String</span> <span class="required-param">required</span><br>
+* **booking_id** <span class="param-type">String</span> <span class="required-param">required</span><br>
 Booking unique identifier (Generated in the booking creation).
 
 ### Responses

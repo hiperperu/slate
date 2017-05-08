@@ -7,19 +7,19 @@
 {
     "id": "27b6",
     "name": "Hiper Central",
-    "shortName": "Hiper",
+    "short_name": "Hiper",
     "address": "Calle Beta 181 - 195, Callao",
     "latitude": -12.049919,
     "longitude": -77.0845193,
     "status": "ACTIVE",
     "congestion": "MEDIUM",
-    "lowEstimatedTime": 10,
-    "highEstimatedTime": 14,
+    "low_estimated_time": 10,
+    "high_estimated_time": 14,
     "sectors": [
         {
             "id": "m9",
             "name": "Tower A",
-            "shortName": "A",
+            "short_name": "A",
             "status": "ACTIVE"
         }
     ]
@@ -29,7 +29,7 @@
 Model of branch object.
 
 <aside class="warning">
-    <strong>Caution:</strong> The <code>congestion</code>, <code>lowEstimatedTime</code> and <code>highEstimatedTime</code> are calculated using the configuration of the associated branch type. You need configure the next:
+    <strong>Caution:</strong> The <code>congestion</code>, <code>low_estimated_time</code> and <code>high_estimated_time</code> are calculated using the configuration of the associated branch type. You need configure the next:
     <ul>
         <li>Time range to consider to calculate the waiting time.</li>
         <li>Desviation of waiting time.</li>
@@ -50,7 +50,7 @@ Complete name of the branch.
     <span class="param-condition">Maximum length:</span> <code>50</code>
 </p>
 
-* **shortName** <span class="param-type">String</span><br>
+* **short_name** <span class="param-type">String</span><br>
 Name to display in small devices.
 <p>
     <span class="param-condition">Maximum length:</span> <code>20</code>
@@ -89,10 +89,10 @@ Flag of branch congestion.
         </ul>
 </p>
 
-* **lowEstimatedTime** <span class="param-type">Integer</span><br>
+* **low_estimated_time** <span class="param-type">Integer</span><br>
 Lower bound of the estimated waiting time. It's equal to the average waiting time minus the configured desviation.
 
-* **highEstimatedTime** <span class="param-type">Integer</span><br>
+* **high_estimated_time** <span class="param-type">Integer</span><br>
 Upper bound of the estimated waiting time. It's equal to the average waiting time plus the configured desviation.
 
 * **sectors** <span class="param-type">List\<[Sector](#sector)\></span><br>

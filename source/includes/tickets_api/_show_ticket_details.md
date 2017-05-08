@@ -4,7 +4,7 @@
 > Sample request:
 
 ```http
-GET /v1/tickets/customer/c9mas9js/tickets/89m32b0 HTTP/1.1
+GET /v1/tickets/89m32b0 HTTP/1.1
 ```
 
 > Sample response:
@@ -19,8 +19,8 @@ Content-Type: application/json
     "status": "BLOCKED",
     "phone": "+51987776576",
     "position": 10,
-    "lowEstimatedTime": 10,
-    "highEstimatedTime": 15,
+    "low_estimated_time": 10,
+    "high_estimated_time": 15,
     "messages": [
         "We have a promotion for you!"
     ],
@@ -31,7 +31,7 @@ Content-Type: application/json
     "branch": {
         "id": "27b6",
         "name": "Hiper Central",
-        "shortName": "Hiper",
+        "short_name": "Hiper",
         "address": "Calle Beta 181 - 195, Callao",
         "latitude": -12.049919,
         "longitude": -77.0845193,
@@ -40,15 +40,15 @@ Content-Type: application/json
     "sector": {
         "id": "m9",
         "name": "Tower A",
-        "shortName": "A",
+        "short_name": "A",
         "status": "ACTIVE"
     },
     "service": {
         "id": "s8",
         "name": "Plataforma",
-        "shortName": "Plataforma"
+        "short_name": "Plataforma"
     },
-    "queueType": {
+    "queue_type": {
         "id": "R0009",
         "code": "CC",
         "name": "Comercial"
@@ -58,8 +58,8 @@ Content-Type: application/json
         "name": "V10",
         "teller": "achavez"
     },
-    "createdAt": "2017-02-20T10:00:00.000Z",
-    "updatedAt": "2017-02-20T10:00:00.000Z",
+    "created_at": "2017-02-20T10:00:00.000Z",
+    "updated_at": "2017-02-20T10:00:00.000Z",
     "print": [
         {
             "align": "CENTER",
@@ -77,20 +77,17 @@ Returns a customer ticket by ID.
 
 ### Endpoint
 
-`GET /v1/tickets/customer/{customerId}/tickets/{ticketId}`
+`GET /v1/tickets/{ticket_id}`
 
 ### Path Params
 
-* **customerId** <span class="param-type">String</span> <span class="required-param">required</span><br>
-Customer unique identifier.
-
-* **ticketId** <span class="param-type">String</span> <span class="required-param">required</span><br>
+* **ticket_id** <span class="param-type">String</span> <span class="required-param">required</span><br>
 Ticket unique identifier (Generated in the ticket creation).
 
 ### Query Params
 
 * **fields** <span class="param-type">List\<String\></span> <span class="recomended-param">recomended</span><br>
-Entity fields that will included in the response(See available fields in [the ticket object definition](#ticket)). For example: `fields=id,queueType,number`.
+Entity fields that will included in the response(See available fields in [the ticket object definition](#ticket)). For example: `fields=id,queue_type,number`.
 
 ### Responses
 

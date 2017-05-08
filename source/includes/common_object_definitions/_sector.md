@@ -9,7 +9,7 @@ Model of sector object.
 {
     "id": "m9",
     "name": "Tower A",
-    "shortName": "A",
+    "short_name": "A",
     "status": "OPEN"
 }
 ```
@@ -25,7 +25,7 @@ Complete name of the sector.
     <span class="param-condition">Maximum length:</span> <code>50</code>
 </p>
 
-* **shortName** <span class="param-type">String</span> <br>
+* **short_name** <span class="param-type">String</span> <br>
 Name to display in small devices.
 <p>
     <span class="param-condition">Maximum length:</span> <code>20</code>
@@ -39,11 +39,4 @@ Current status of the sector.
         <li><code>ACTIVE</code>: At least one counter in the sector is <code>ACTIVE</code> or <code>SUSPENDED</code></li>
         <li><code>INACTIVE</code>: All counters in the sector are <code>INACTIVE</code></li>
     </ul>
-</p>
-
-* **services** <span class="param-type">List\<String\></span><br>
-List of ids of the services allowed at sector. By default all services are allowed in the sectors if not register a specific configuration for the sector.
-<p>
-    <span class="param-condition">Unique items:</span> <code>true</code><br>
-    <span class="param-condition">Minimum items:</span> <code>1</code>
 </p>

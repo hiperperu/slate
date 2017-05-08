@@ -11,8 +11,8 @@
     "status": "BLOCKED",
     "phone": "+51987776576",
     "position": 10,
-    "lowEstimatedTime": 10,
-    "highEstimatedTime": 15,
+    "low_estimated_time": 10,
+    "high_estimated_time": 15,
     "messages": [
         "We have a promotion for you!"
     ],
@@ -23,7 +23,7 @@
     "branch": {
         "id": "27b6",
         "name": "Hiper Central",
-        "shortName": "Hiper",
+        "short_name": "Hiper",
         "address": "Calle Beta 181 - 195, Callao",
         "latitude": -12.049919,
         "longitude": -77.0845193,
@@ -32,15 +32,15 @@
     "sector": {
         "id": "m9",
         "name": "Tower A",
-        "shortName": "A",
+        "short_name": "A",
         "status": "ACTIVE"
     },
     "service": {
         "id": "s8",
         "name": "Plataforma",
-        "shortName": "Plataforma"
+        "short_name": "Plataforma"
     },
-    "queueType": {
+    "queue_type": {
         "id": "R0009",
         "code": "CC",
         "name": "Comercial"
@@ -50,8 +50,8 @@
         "name": "V10",
         "teller": "achavez"
     },
-    "createdAt": "2017-02-20T10:00:00.000Z",
-    "updatedAt": "2017-02-20T10:00:00.000Z",
+    "created_at": "2017-02-20T10:00:00.000Z",
+    "updated_at": "2017-02-20T10:00:00.000Z",
     "print": [
         {
             "align": "CENTER",
@@ -69,7 +69,7 @@ Model of ticket object.
 <aside class="warning">
 <strong>Caution:</strong>
 The entities associated to ticket not provide all their fields for performance reasons. If you need more information, you can use others endpoints to get this information using the ids returned in the ticket. You can to see the default information provided in the sample object.<br><br>
-The <code>lowEstimatedTime</code> and <code>highEstimatedTime</code> are calculated using the configuration of the associated branch type. You need configure the next:
+The <code>low_estimated_time</code> and <code>high_estimated_time</code> are calculated using the configuration of the associated branch type. You need configure the next:
 <ul>
     <li>Time range to consider to calculate the waiting time.</li>
     <li>Desviation of waiting time.</li>
@@ -90,8 +90,8 @@ Current status of the ticket.
 <p>
     <span class="param-condition">Possible values:</span>
     <ul>
-        <li><code>BLOCKED</code>: When the counters cannot call the ticket.</li>
-        <li><code>ENABLED</code>: When the counters can call the ticket.</li>
+        <li><code>BLOCKED</code>: When the ticket shouldn't called by teller.</li>
+        <li><code>ENABLED</code>: When the can to be called by the teller.</li>
     </ul>
 </p>
 
@@ -101,10 +101,10 @@ Customer phone for notifications associated to the ticket.
 * **position** <span class="param-type">Integer</span><br>
 Ticket position in the queue.
 
-* **lowEstimatedTime** <span class="param-type">Integer</span><br>
+* **low_estimated_time** <span class="param-type">Integer</span><br>
 Lower bound of the estimated waiting time. It's equal to the average waiting time minus the configured desviation.
 
-* **highEstimatedTime** <span class="param-type">Integer</span><br>
+* **high_estimated_time** <span class="param-type">Integer</span><br>
 Upper bound of the estimated waiting time. It's equal to the average waiting time plus the configured desviation.
 
 * **messages** <span class="param-type">List\<String\></span><br>
@@ -122,19 +122,19 @@ Sector where the ticket is valid.
 * **service** <span class="param-type">[Service](#service)</span><br>
 Service requested by the customer.
 
-* **queueType** <span class="param-type">[QueueType](#queue-type)</span><br>
+* **queue_type** <span class="param-type">[QueueType](#queue-type)</span><br>
 Assigned queue type.
 
 * **counter** <span class="param-type">[Counter](#counter)</span><br>
 Assigned counter.
 
-* **createdAt** <span class="param-type">DateTime</span><br>
+* **created_at** <span class="param-type">DateTime</span><br>
 Date of ticket creation.
 <p>
     <span class="param-condition">Standard:</span> <code>[ISO 8601](https://en.wikipedia.org/wiki/ISO_8601)</code>
 </p>
 
-* **updatedAt** <span class="param-type">DateTime</span><br>
+* **updated_at** <span class="param-type">DateTime</span><br>
 Date of the last update of ticket.
 <p>
     <span class="param-condition">Standard:</span> <code>[ISO 8601](https://en.wikipedia.org/wiki/ISO_8601)</code>

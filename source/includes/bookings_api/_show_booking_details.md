@@ -4,7 +4,7 @@
 > Sample request:
 
 ```http
-GET /v1/bookings/customer/c9mas9js/bookings/a90mos HTTP/1.1
+GET /v1/bookings/a90mos HTTP/1.1
 ```
 
 > Sample response:
@@ -25,7 +25,7 @@ Content-Type: application/json
     "branch": {
         "id": "27b6",
         "name": "Hiper Central",
-        "shortName": "Hiper",
+        "short_name": "Hiper",
         "address": "Calle Beta 181 - 195, Callao",
         "latitude": -12.049919,
         "longitude": -77.0845193,
@@ -34,12 +34,12 @@ Content-Type: application/json
     "service": {
         "id": "s8",
         "name": "Plataforma",
-        "shortName": "Plataforma"
+        "short_name": "Plataforma"
     },
-    "startTime": "2017-02-20T14:00:00.000Z",
-    "endTime": "2017-02-20T15:00:00.000Z",
-    "createdAt": "2017-02-10T14:00:00.000Z",
-    "updatedAt": "2017-02-10T14:00:00.000Z"
+    "start_time": "2017-02-20T14:00:00.000Z",
+    "end_time": "2017-02-20T15:00:00.000Z",
+    "created_at": "2017-02-10T14:00:00.000Z",
+    "updated_at": "2017-02-10T14:00:00.000Z"
 }
 ```
 
@@ -47,14 +47,11 @@ Returns a customer booking by ID.
 
 ### Endpoint
 
-`GET /v1/bookings/customer/{customerId}/bookings/{bookingId}`
+`GET /v1/bookings/{booking_id}`
 
 ### Path Params
 
-* **customerId** <span class="param-type">String</span> <span class="required-param">required</span><br>
-Customer unique identifier.
-
-* **bookingId** <span class="param-type">String</span> <span class="required-param">required</span><br>
+* **booking_id** <span class="param-type">String</span> <span class="required-param">required</span><br>
 Booking unique identifier (Generated in the booking creation).
 
 ### Query Params

@@ -16,7 +16,7 @@
     "branch": {
         "id": "27b6",
         "name": "Hiper Central",
-        "shortName": "Hiper",
+        "short_name": "Hiper",
         "address": "Calle Beta 181 - 195, Callao",
         "latitude": -12.049919,
         "longitude": -77.0845193,
@@ -25,12 +25,12 @@
     "service": {
         "id": "s8",
         "name": "Plataforma",
-        "shortName": "Plataforma"
+        "short_name": "Plataforma"
     },
-    "startTime": "2017-02-20T14:00:00.000Z",
-    "endTime": "2017-02-20T15:00:00.000Z",
-    "createdAt": "2017-02-10T14:00:00.000Z",
-    "updatedAt": "2017-02-10T14:00:00.000Z"
+    "start_time": "2017-02-20T14:00:00.000Z",
+    "end_time": "2017-02-20T15:00:00.000Z",
+    "created_at": "2017-02-10T14:00:00.000Z",
+    "updated_at": "2017-02-10T14:00:00.000Z"
 }
 ```
 
@@ -71,25 +71,25 @@ Branch where the booking is valid.
 * **service** <span class="param-type">[Service](#service)</span><br>
 Service booked.
 
-* **startTime** <span class="param-type">DateTime</span><br>
+* **start_time** <span class="param-type">DateTime</span><br>
 Start time of booking.
 <p>
     <span class="param-condition">Standard:</span> <code>[ISO 8601](https://en.wikipedia.org/wiki/ISO_8601)</code>
 </p>
 
-* **endTime** <span class="param-type">DateTime</span><br>
+* **end_time** <span class="param-type">DateTime</span><br>
 End time of booking.
 <p>
     <span class="param-condition">Standard:</span> <code>[ISO 8601](https://en.wikipedia.org/wiki/ISO_8601)</code>
 </p>
 
-* **createdAt** <span class="param-type">DateTime</span><br>
+* **created_at** <span class="param-type">DateTime</span><br>
 Date of booking creation.
 <p>
     <span class="param-condition">Standard:</span> <code>[ISO 8601](https://en.wikipedia.org/wiki/ISO_8601)</code>
 </p>
 
-* **updatedAt** <span class="param-type">DateTime</span><br>
+* **updated_at** <span class="param-type">DateTime</span><br>
 Date of the last update of booking.
 <p>
     <span class="param-condition">Standard:</span> <code>[ISO 8601](https://en.wikipedia.org/wiki/ISO_8601)</code>

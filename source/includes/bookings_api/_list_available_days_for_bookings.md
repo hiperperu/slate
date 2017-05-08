@@ -4,7 +4,7 @@
 > Sample request:
 
 ```http
-GET /v1/bookings/availability?serviceId=s8&branchId=27b6 HTTP/1.1
+GET /v1/bookings/days?service_id=s8&branch_id=27b6 HTTP/1.1
 ```
 
 > Sample response:
@@ -21,8 +21,8 @@ Content-Type: application/json
         "day": "2017-02-20T00:00:00.000Z",
         "ranges": [
             {
-                "startTime": "2017-02-20T14:00:00.000Z",
-                "endTime": "2017-02-20T15:00:00.000Z"
+                "start_time": "2017-02-20T14:00:00.000Z",
+                "end_time": "2017-02-20T15:00:00.000Z"
             }
         ]
     }
@@ -46,14 +46,14 @@ Returns a list of days for book a service in a branch.
 
 ### Endpoint
 
-`GET /v1/bookings/availability`
+`GET /v1/bookings/days`
 
 ### Query Params
 
-* **serviceId** <span class="param-type">String</span> <span title="required" class="required-param">required</span><br>
+* **service_id** <span class="param-type">String</span> <span title="required" class="required-param">required</span><br>
 Unique identifier of requested service.
 
-* **branchId** <span class="param-type">String</span> <span title="required" class="required-param">required</span><br>
+* **branch_id** <span class="param-type">String</span> <span title="required" class="required-param">required</span><br>
 Unique identifier of requested branch.
 
 * **offset** <span class="param-type">Integer</span><br>

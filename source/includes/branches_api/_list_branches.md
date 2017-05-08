@@ -4,7 +4,7 @@
 > Sample request:
 
 ```http
-GET /v1/branches/branch?offset=9&limit=1 HTTP/1.1
+GET /v1/branches?offset=9&limit=1 HTTP/1.1
 ```
 
 > Sample response:
@@ -20,19 +20,19 @@ Content-Type: application/json
     {
         "id": "27b6",
         "name": "Hiper Central",
-        "shortName": "Hiper",
+        "short_name": "Hiper",
         "address": "Calle Beta 181 - 195, Callao",
         "latitude": -12.049919,
         "longitude": -77.0845193,
         "status": "ACTIVE",
         "congestion": "MEDIUM", 
-        "lowEstimatedTime": 10,
-        "highEstimatedTime": 14,
+        "low_estimated_time": 10,
+        "high_estimated_time": 14,
         "sectors": [
             {
                 "id": "m9",
                 "name": "Tower A",
-                "shortName": "A",
+                "short_name": "A",
                 "status": "ACTIVE"
             }
         ]
@@ -46,10 +46,9 @@ Returns all branches with their sectors that fulfill the filters.
     <strong>Caution:</strong>
     You must consider the next:
     <ul>
-        <li>The branches to return must be marked with the flag <code>exposed by the API</code> from Bmatic configuration panel.</li>
         <li>An empty collection is returned when no branch fulfill the filters.</li>
-        <li>Filter branches by geolocalization it is necessary to specify <code>minLatitude</code>, <code>maxLatitude</code>, <code>minLongitude</code> and <code>maxLongitude</code>. If any of these parameters is not included then all will be ignored.</li>
-        <li>To order the branches by proximity to the client location it is necessary specify <code>latitude</code> and <code>longitude</code>. If any of these parameters is not included then all will be ignored.</li>
+        <li>To filter branches by geolocalization it is necessary to specify <code>min_latitude</code>, <code>max_latitude</code>, <code>min_longitude</code> and <code>max_longitude</code>. If any of these parameters is not included then all will be ignored.</li>
+        <li>To sort branches by proximity to the client location it is necessary specify <code>latitude</code> and <code>longitude</code>. If any of these parameters is not included then all will be ignored.</li>
     </ul>
 </aside>
 
@@ -60,12 +59,12 @@ Returns all branches with their sectors that fulfill the filters.
 
 <aside class="success">
     <strong>Remember:</strong>
-    Customers prefer to attend the nearest branches, for that it is recommendable ever use <code>longitude</code>, <code>latitude</code>, <code>minLatitude</code>, <code>maxLatitude</code>, <code>minLongitude</code> and <code>maxLongitude</code> parameters.
+    Customers prefer to attend the nearest branches, so it is recommendable to use <code>longitude</code>, <code>latitude</code>, <code>min_latitude</code>, <code>max_latitude</code>, <code>min_longitude</code> and <code>max_longitude</code> parameters.
 </aside>
 
 ### Endpoint
 
-`GET /v1/branches/branch`
+`GET /v1/branches`
 
 ### Query Params
 
@@ -75,16 +74,16 @@ Latitude component of customer location.
 * **longitude** <span class="param-type">Float</span> <span class="recomended-param">recomended</span><br>
 Longitude component of customer location.
 
-* **minLatitude** <span class="param-type">Float</span> <span class="recomended-param">recomended</span><br>
+* **min_latitude** <span class="param-type">Float</span> <span class="recomended-param">recomended</span><br>
 Minimum latitude of the geographic area that has to contain the branches.
 
-* **maxLatitude** <span class="param-type">Float</span> <span class="recomended-param">recomended</span><br>
+* **max_latitude** <span class="param-type">Float</span> <span class="recomended-param">recomended</span><br>
 Maximum latitude of the geographic area that has to contain the branches.
 
-* **minLongitude** <span class="param-type">Float</span> <span class="recomended-param">recomended</span><br>
+* **min_longitude** <span class="param-type">Float</span> <span class="recomended-param">recomended</span><br>
 Minimum longitude of the geographic area that has to contain the branches.
 
-* **maxLongitude** <span class="param-type">Float</span> <span class="recomended-param">recomended</span><br>
+* **max_longitude** <span class="param-type">Float</span> <span class="recomended-param">recomended</span><br>
 Maximum longitude of the geographic area that has to contain the branches.
 
 * **fields** <span class="param-type">List\<String\></span> <span class="recomended-param">recomended</span><br>

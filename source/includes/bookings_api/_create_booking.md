@@ -4,18 +4,19 @@
 > Sample request:
 
 ```http
-POST /v1/bookings/customer/c9mas9js/bookings HTTP/1.1
+POST /v1/bookings HTTP/1.1
 Content-Type: application/json
 
 {
-    "channelId": "c10",
-    "branchId": "27b6",
-    "serviceId": "s8",
-    "docType": "D",
-    "docNumber": "90452291",
+    "channel_id": "c10",
+    "branch_id": "27b6",
+    "service_id": "s8",
+    "customer_id": "c9mas9js",
+    "doc_type": "D",
+    "doc_number": "90452291",
     "phone": "+51987882567",
-    "startTime":"2017-02-20T14:00:00.000Z",
-    "endTime":"2017-02-20T15:00:00.000Z"
+    "start_time":"2017-02-20T14:00:00.000Z",
+    "end_time":"2017-02-20T15:00:00.000Z"
 }
 ```
 
@@ -37,7 +38,7 @@ Content-Type: application/json
     "branch": {
         "id": "27b6",
         "name": "Hiper Central",
-        "shortName": "Hiper",
+        "short_name": "Hiper",
         "address": "Calle Beta 181 - 195, Callao",
         "latitude": -12.049919,
         "longitude": -77.0845193,
@@ -46,12 +47,12 @@ Content-Type: application/json
     "service": {
         "id": "s8",
         "name": "Plataforma",
-        "shortName": "Plataforma"
+        "short_name": "Plataforma"
     },
-    "startTime": "2017-02-20T14:00:00.000Z",
-    "endTime": "2017-02-20T15:00:00.000Z",
-    "createdAt": "2017-02-10T14:00:00.000Z",
-    "updatedAt": "2017-02-10T14:00:00.000Z"
+    "start_time": "2017-02-20T14:00:00.000Z",
+    "end_time": "2017-02-20T15:00:00.000Z",
+    "created_at": "2017-02-10T14:00:00.000Z",
+    "updated_at": "2017-02-10T14:00:00.000Z"
 }
 ```
 
@@ -64,43 +65,35 @@ Create a new customer booking and returns it.
         <li>The referenced channel must support the requested service.</li>
         <li>The referenced branch must support the requested service .</li>
         <li>The referenced client must has no other booking in state <code>ACTIVE</code> or <code>PENDING</code> for the same requested service.</li>
-        <li>The <code>startTime</code> and the <code>endTime</code> must be available.</li>
+        <li>The <code>start_time</code> and the <code>end_time</code> must be available.</li>
     <ul>
 </aside>
 
 ### Endpoint
 
-`POST /v1/bookings/customer/{customerId}/bookings`
-
-### Path Params
-
-* **customerId** <span class="param-type">String</span><br>
-Customer unique identifier.
+`POST /v1/bookings`
 
 ### Request
 
-* **channelId** <span class="param-type">String</span> <span class="required-param">required</span><br>
+* **channel_id** <span class="param-type">String</span> <span class="required-param">required</span><br>
 Unique identifier of the channel used. This value must be set in the client application.
 
-* **branchId** <span class="param-type">String</span> <span class="required-param">required</span><br>
+* **branch_id** <span class="param-type">String</span> <span class="required-param">required</span><br>
 Unique identifier of the requested branch.
 
-* **serviceId** <span class="param-type">String</span> <span class="required-param">required</span><br>
+* **service_id** <span class="param-type">String</span> <span class="required-param">required</span><br>
 Unique identifier of the requested service.
 
-* **name** <span class="param-type">String</span><br>
-Name or alias of the client used for contact purpose.
-<p>
-    <span class="param-condition">Maximum length:</span> `50`
-</p>
+* **customer_id** <span class="param-type">String</span> <span class="required-param">required</span><br>
+Customer unique identifier.
 
-* **docType** <span class="param-type">String</span><br>
+* **doc_type** <span class="param-type">String</span><br>
 Type of document used to identify the client.
 <p>
     <span class="param-condition">Maximum length:</span> `5`
 </p>
 
-* **docNumber** <span class="param-type">String</span><br>
+* **doc_number** <span class="param-type">String</span><br>
 Number of document used to identify the client.
 <p>
     <span class="param-condition">Maximum length:</span> `20`
@@ -112,13 +105,13 @@ Customer phone for notifications associated to the booking.
     <span class="param-condition">Validation pattern:</span> `^\+[1-9]{1}[0-9]{3,14}$`
 </p>
 
-* **startTime** <span class="param-type">DateTime</span> <span class="required-param">required</span><br>
+* **start_time** <span class="param-type">DateTime</span> <span class="required-param">required</span><br>
 Start time of booking.
 <p>
     <span class="param-condition">Format:</span> <code>[ISO 8601](https://en.wikipedia.org/wiki/ISO_8601)</code>
 </p>
 
-* **endTime** <span class="param-type">DateTime</span> <span class="required-param">required</span><br>
+* **end_time** <span class="param-type">DateTime</span> <span class="required-param">required</span><br>
 End time of booking.
 <p>
     <span class="param-condition">Format:</span> <code>[ISO 8601](https://en.wikipedia.org/wiki/ISO_8601)</code>

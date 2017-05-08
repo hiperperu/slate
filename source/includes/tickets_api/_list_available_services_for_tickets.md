@@ -4,7 +4,7 @@
 > Sample request:
 
 ```http
-GET /v1/tickets/channel/c10/services HTTP/1.1
+GET /v1/tickets/services HTTP/1.1
 ```
 
 > Sample response:
@@ -17,7 +17,7 @@ Content-Type: application/json
     {
         "id": "s8",
         "name": "Plataforma",
-        "shortName": "Plataforma"
+        "short_name": "Plataforma"
     }
 ]
 ```
@@ -35,11 +35,11 @@ Returns available services for the specified channel.
 
 ### Endpoint
 
-`GET /v1/tickets/channel/{channelId}/services`
+`GET /v1/tickets/services`
 
-### Path Params
+### Query Params
 
-* **channelId** <span class="param-type">String</span> <span class="required-param">required</span><br>
+* **channel_id** <span class="param-type">String</span> <span class="required-param">required</span><br>
 Unique identifier of the channel used. This value must be set in the client application.
 
 ### Responses

@@ -4,7 +4,7 @@
 > Sample request:
 
 ```http
-PUT /v1/tickets/customer/c9mas9js/tickets/89m32b0 HTTP/1.1
+PUT /v1/tickets/89m32b0 HTTP/1.1
 Content-Type: application/json
 
 {
@@ -22,14 +22,11 @@ Update a customer ticket by ID.
 
 ###Endpoint
 
-`PUT /v1/tickets/customer/{customerId}/tickets/{ticketId}`
+`PUT /v1/tickets/{ticket_id}`
 
 ### Path Params
 
-* **customerId** <span class="param-type">String</span> <span class="required-param">required</span><br>
-Customer unique identifier.
-
-* **ticketId** <span class="param-type">String</span> <span class="required-param">required</span><br>
+* **ticket_id** <span class="param-type">String</span> <span class="required-param">required</span><br>
 Ticket unique identifier (Generated in the ticket creation).
 
 ### Request
@@ -42,12 +39,6 @@ New status for the ticket.
         <li><code>BLOCKED</code></li>
         <li><code>ENABLED</code></li>
     </ul>
-</p>
-
-* **phone** <span class="param-type">String</span><br>
-New customer phone for notifications.
-<p>
-    <span class="param-condition">Validation pattern:</span> `^\+[1-9]{1}[0-9]{3,14}$`
 </p>
 
 ### Responses

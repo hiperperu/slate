@@ -4,7 +4,7 @@
 > Sample request:
 
 ```http
-GET /v1/bookings/customer/c9mas9js/bookings HTTP/1.1
+GET /v1/bookings?customer_id=c9mas9js HTTP/1.1
 ```
 
 > Sample response:
@@ -26,7 +26,7 @@ Content-Type: application/json
         "branch": {
             "id": "27b6",
             "name": "Hiper Central",
-            "shortName": "Hiper",
+            "short_name": "Hiper",
             "address": "Calle Beta 181 - 195, Callao",
             "latitude": -12.049919,
             "longitude": -77.0845193,
@@ -35,12 +35,12 @@ Content-Type: application/json
         "service": {
             "id": "s8",
             "name": "Plataforma",
-            "shortName": "Plataforma"
+            "short_name": "Plataforma"
         },
-        "startTime": "2017-02-20T14:00:00.000Z",
-        "endTime": "2017-02-20T15:00:00.000Z",
-        "createdAt": "2017-02-10T14:00:00.000Z",
-        "updatedAt": "2017-02-10T14:00:00.000Z"
+        "start_time": "2017-02-20T14:00:00.000Z",
+        "end_time": "2017-02-20T15:00:00.000Z",
+        "created_at": "2017-02-10T14:00:00.000Z",
+        "updated_at": "2017-02-10T14:00:00.000Z"
     }
 ]
 ```
@@ -52,25 +52,23 @@ Returns all bookings created by a specific customer.
     You must consider the following:
     <ul>
         <li>The bookings are not available anymore after the booking day.</li>
-        <li>An empty list is returned when there is no registered bookings with the <code>customerId</code> received.</li>
+        <li>An empty list is returned when there is no registered bookings with the <code>customer_id</code> received.</li>
     <ul>
 </aside>
 
 <aside class="notice">
     <strong>Order:</strong>
-    The bookings are sorted descendantly by the field: <code>createdAt</code>.
+    The bookings are sorted descendantly by the field: <code>created_at</code>.
 </aside>
 
 ### Endpoint
 
-`GET /v1/bookings/customer/{customerId}/bookings`
-
-### Path Params
-
-* **customerId** <span class="param-type">String</span> <span class="required-param">required</span><br>
-Customer unique identifier.
+`GET /v1/bookings`
 
 ### Query Params
+
+* **customer_id** <span class="param-type">String</span> <span class="required-param">required</span><br>
+Customer unique identifier.
 
 * **fields** <span class="param-type">List\<String\></span> <span class="recomended-param">recomended</span><br>
 Entity fields that will included in the response(See available fields in [the booking object definition](#booking)). For example: `fields=id,code,status`.

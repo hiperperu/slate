@@ -4,7 +4,7 @@
 > Sample request:
 
 ```http
-GET /v1/branches/branch/{branchId} HTTP/1.1
+GET /v1/branches/{branch_id} HTTP/1.1
 ```
 
 > Sample response:
@@ -16,19 +16,19 @@ Content-Type: application/json
 {
     "id": "27b6",
     "name": "Hiper Central",
-    "shortName": "Hiper",
+    "short_name": "Hiper",
     "address": "Calle Beta 181 - 195, Callao",
     "latitude": -12.049919,
     "longitude": -77.0845193,
     "status": "ACTIVE",
     "congestion": "MEDIUM",
-    "lowEstimatedTime": 10,
-    "highEstimatedTime": 14,
+    "low_estimated_time": 10,
+    "high_estimated_time": 14,
     "sectors": [
         {
             "id": "m9",
             "name": "Tower A",
-            "shortName": "A",
+            "short_name": "A",
             "status": "ACTIVE"
         }
     ]
@@ -40,11 +40,11 @@ Returns a specific branch requested by ID.
 
 ### Endpoint
 
-`GET /v1/branches/branch/{branchId}`
+`GET /v1/branches/{branch_id}`
 
 ### Path Params
 
-* **branchId** <span class="param-type">String</span> <span class="required-param">required</span><br>
+* **branch_id** <span class="param-type">String</span> <span class="required-param">required</span><br>
 Branch unique identifier (Configured from Bmatic configuration panel).
 
 ### Query Params

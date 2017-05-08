@@ -7,7 +7,7 @@
 {
     "id": "s8",
     "name": "Plataforma",
-    "shortName": "Plataforma"
+    "short_name": "Plataforma"
 }
 ```
 
@@ -24,7 +24,7 @@ Complete name of the service.
     <span class="param-condition">Maximum length:</span> <code>50</code>
 </p>
 
-* **shortName** <span class="param-type">String</span><br>
+* **short_name** <span class="param-type">String</span><br>
 Name to display in small devices.
 <p>
     <span class="param-condition">Maximum length:</span> <code>20</code>
