@@ -4,7 +4,7 @@
 > Sample request:
 
 ```http
-POST /v1/bookings HTTP/1.1
+POST /v1/bookings/ HTTP/1.1
 Content-Type: application/json
 
 {
@@ -51,8 +51,7 @@ Content-Type: application/json
     },
     "start_time": "2017-02-20T14:00:00.000Z",
     "end_time": "2017-02-20T15:00:00.000Z",
-    "created_at": "2017-02-10T14:00:00.000Z",
-    "updated_at": "2017-02-10T14:00:00.000Z"
+    "created_at": "2017-02-10T14:00:00.000Z"
 }
 ```
 
@@ -71,7 +70,7 @@ Create a new customer booking and returns it.
 
 ### Endpoint
 
-`POST /v1/bookings`
+`POST /v1/bookings/`
 
 ### Request
 

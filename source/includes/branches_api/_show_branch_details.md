@@ -50,7 +50,7 @@ Branch unique identifier (Configured from Bmatic configuration panel).
 ### Query Params
 
 * **fields** <span class="param-type">List\<String\></span> <span class="recomended-param">recomended</span><br>
-Entity fields that will included in the response(See available fields in [the branch object definition](#branch)). For example: `fields=id,name,shortName`.
+Entity fields that will included in the response(See available fields in [the branch object definition](#branch)). For example: `fields=id,name,short_name`.
 
 ### Responses
 

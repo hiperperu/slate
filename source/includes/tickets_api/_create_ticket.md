@@ -4,7 +4,7 @@
 > Sample request:
 
 ```http
-POST /v1/tickets HTTP/1.1
+POST /v1/tickets/ HTTP/1.1
 Content-Type: application/json
 
 {
@@ -12,7 +12,6 @@ Content-Type: application/json
     "branch_id": "27b6",
     "sector_id": "m9",
     "service_id": "s8",
-    "status": "BLOCKED",
     "customer_id": "c9mas9js",
     "doc_type": "D",
     "doc_number": "90452291",
@@ -29,11 +28,11 @@ Content-Type: application/json
 {
     "id": "89m32b0",    
     "number": 2,
-    "status": "BLOCKED",
-    "phone": "+51987776576",
+    "status": "WAITING",
     "position": 10,
     "low_estimated_time": 10,
     "high_estimated_time": 15,
+    "phone": "+51987882567",
     "messages": [
         "We have a promotion for you!"
     ],
@@ -69,10 +68,13 @@ Content-Type: application/json
     "counter": {
         "id": "v10",
         "name": "V10",
-        "teller": "achavez"
+        "teller": "achavez",
+        "type": {
+            "id": "v2002",
+            "name": "Ventanilla"
+        }
     },
     "created_at": "2017-02-20T10:00:00.000Z",
-    "updated_at": "2017-02-20T10:00:00.000Z",
     "print": [
         {
             "align": "CENTER",
@@ -94,13 +96,13 @@ Create a new customer ticket and returns it.
         <li>The referenced channel must support the requested service.</li>
         <li>The referenced branch must contain the requested sector.</li>
         <li>The referenced sector must support the requested service.</li>
-        <li>The customer must has no other ticket for the same service.</li>
+        <li>The customer must has no other ticket in waiting for the same service.</li>
     <ul>
 </aside>
 
 ### Endpoint
 
-`POST /v1/tickets`
+`POST /v1/tickets/`
 
 ### Request
 
@@ -115,16 +117,6 @@ Unique identifier of the requested sector.
 
 * **service_id** <span class="param-type">String</span> <span class="required-param">required</span><br>
 Unique identifier of the requested service.
-
-* **status** <span class="param-type">Enum</span><br>
-Status of the ticket.
-<p>
-    <span class="param-condition">Possible values:</span>
-    <ul>
-        <li><code>BLOCKED</code>: When the ticket shouldn't called by teller.</li>
-        <li><code>ENABLED</code>: When the can to be called by the teller.</li>
-    </ul>
-</p>
 
 * **customer_id** <span class="param-type">String</span><br>
 Customer unique identifier.

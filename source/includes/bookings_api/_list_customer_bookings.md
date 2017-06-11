@@ -4,7 +4,7 @@
 > Sample request:
 
 ```http
-GET /v1/bookings?customer_id=c9mas9js HTTP/1.1
+GET /v1/bookings/?customer_id=c9mas9js HTTP/1.1
 ```
 
 > Sample response:
@@ -39,8 +39,7 @@ Content-Type: application/json
         },
         "start_time": "2017-02-20T14:00:00.000Z",
         "end_time": "2017-02-20T15:00:00.000Z",
-        "created_at": "2017-02-10T14:00:00.000Z",
-        "updated_at": "2017-02-10T14:00:00.000Z"
+        "created_at": "2017-02-10T14:00:00.000Z"
     }
 ]
 ```
@@ -63,7 +62,7 @@ Returns all bookings created by a specific customer.
 
 ### Endpoint
 
-`GET /v1/bookings`
+`GET /v1/bookings/`
 
 ### Query Params
 

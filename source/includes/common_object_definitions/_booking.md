@@ -29,8 +29,7 @@
     },
     "start_time": "2017-02-20T14:00:00.000Z",
     "end_time": "2017-02-20T15:00:00.000Z",
-    "created_at": "2017-02-10T14:00:00.000Z",
-    "updated_at": "2017-02-10T14:00:00.000Z"
+    "created_at": "2017-02-10T14:00:00.000Z"
 }
 ```
 
@@ -55,6 +54,7 @@ Current status of the booking.
     <ul>
         <li><code>ACTIVE</code>: When the current time is between the booking start time minus the configured tolerance and the end time plus the configured tolerance.</li>
         <li><code>INACTIVE</code>: When the current time is lower to the booking start time minus the configured tolerance.</li>
+        <li><code>USED</code>: When a ticket associated to booking was generated.</li>
         <li><code>DEFEATED</code>: When the current time is upper to the booking end time plus the configured tolerance.</li>
     </ul>
 </p>
@@ -84,13 +84,7 @@ End time of booking.
 </p>
 
 * **created_at** <span class="param-type">DateTime</span><br>
-Date of booking creation.
-<p>
-    <span class="param-condition">Standard:</span> <code>[ISO 8601](https://en.wikipedia.org/wiki/ISO_8601)</code>
-</p>
-
-* **updated_at** <span class="param-type">DateTime</span><br>
-Date of the last update of booking.
+Creation Date of booking.
 <p>
     <span class="param-condition">Standard:</span> <code>[ISO 8601](https://en.wikipedia.org/wiki/ISO_8601)</code>
 </p>

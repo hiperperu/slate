@@ -31,12 +31,12 @@ Model of branch object.
 <aside class="warning">
     <strong>Caution:</strong> The <code>congestion</code>, <code>low_estimated_time</code> and <code>high_estimated_time</code> are calculated using the configuration of the associated branch type. You need configure the next:
     <ul>
-        <li>Time range to consider to calculate the waiting time.</li>
-        <li>Desviation of waiting time.</li>
+        <li>Time range to take for calculate the waiting time.</li>
+        <li>Desviation of estimated waiting time.</li>
         <li>Minimal waiting time of medium congestion.</li>
         <li>Minimal waiting time of high congestion.</li>
     </ul>
-    If the branch is <code>INACTIVE</code> this fields are not returned.
+    If the branch is <code>INACTIVE</code> these fields will not return.
 </aside>
 
 ### Fields
@@ -69,7 +69,7 @@ Latitude component of branch location.
 Longitude component of branch location.
 
 * **status** <span class="param-type">Enum</span><br>
-Current status of the branch.
+Current status of branch.
 <p>
     <span class="param-condition">Possible values:</span>
         <ul>
@@ -85,7 +85,7 @@ Flag of branch congestion.
         <ul>
             <li><code>LOW</code>: The average waiting time is lower to the minimal waiting time of medium congestion.</li>
             <li><code>MEDIUM</code>: The average waiting time is lower to the minimal waiting time of high congestion but equal or upper to the minimal waiting time of medium congestion.</li>
-            <li><code>HIGH</code>: The average waiting time is equal or upper to the minimal waiting time of high congestion</li>
+            <li><code>HIGH</code>: The average waiting time is equal or upper to the minimal waiting time of high congestion.</li>
         </ul>
 </p>
 

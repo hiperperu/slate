@@ -28,7 +28,6 @@ Returns available services for the specified channel.
     <strong>Caution:</strong> 
     You must consider the following:
     <ul>
-        <li>This operation throw an error(404) when the referenced channel does not exist.</li>
         <li>An empty list is returned when not available services exist from the specified channel.</li>
     <ul>
 </aside>
@@ -49,9 +48,6 @@ A list of services.
 
 * **400** <span class="verb-description">Bad Request</span> <span class="param-type">[Error](#error)</span><br>
 One or more parameters are not valid, returns a description of validation failed.
-
-* **404** <span class="verb-description">Not Found</span> <span class="param-type">[Error](#error)</span><br>
-The resource requested not found, returns a simple error message.
 
 * **500** <span class="verb-description">Internal Server Error</span> <span class="param-type">[Error](#error)</span><br>
 An unexpected error has occurred, returns a simple error message.

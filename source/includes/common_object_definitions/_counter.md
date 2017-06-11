@@ -7,7 +7,11 @@
 {
     "id": "v10",
     "name": "V10",
-    "teller": "achavez"
+    "teller": "achavez",
+    "type": {
+        "id": "v2002",
+        "name": "Ventanilla"
+    }
 }
 ```
 
@@ -29,3 +33,6 @@ Account name of teller in counter.
 <p>
     <span class="param-condition">Maximum length:</span> <code>30</code>
 </p>
+
+* **type** <span class="param-type">[CounterType](#counter-type)</span><br>
+Associated counter type.

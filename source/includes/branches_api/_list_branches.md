@@ -4,7 +4,7 @@
 > Sample request:
 
 ```http
-GET /v1/branches?offset=9&limit=1 HTTP/1.1
+GET /v1/branches/?offset=9&limit=1 HTTP/1.1
 ```
 
 > Sample response:
@@ -64,7 +64,7 @@ Returns all branches with their sectors that fulfill the filters.
 
 ### Endpoint
 
-`GET /v1/branches`
+`GET /v1/branches/`
 
 ### Query Params
 
@@ -87,7 +87,7 @@ Minimum longitude of the geographic area that has to contain the branches.
 Maximum longitude of the geographic area that has to contain the branches.
 
 * **fields** <span class="param-type">List\<String\></span> <span class="recomended-param">recomended</span><br>
-Entity fields that will included in the response(See available fields in [the branch object definition](#branch)). For example: `fields=id,name,shortName`.
+Entity fields that will included in the response(See available fields in [the branch object definition](#branch)). For example: `fields=id,name,short_name`.
 
 * **offset** <span class="param-type">Integer</span><br>
 Position in pagination.

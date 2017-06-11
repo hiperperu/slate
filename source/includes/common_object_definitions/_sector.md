@@ -36,7 +36,7 @@ Current status of the sector.
 <p>
     <span class="param-condition">Possible values:</span>
     <ul>
-        <li><code>ACTIVE</code>: At least one counter in the sector is <code>ACTIVE</code> or <code>SUSPENDED</code></li>
-        <li><code>INACTIVE</code>: All counters in the sector are <code>INACTIVE</code></li>
+        <li><code>ACTIVE</code>: At least one counter in the sector is <code>ACTIVE</code> or <code>SUSPENDED</code>.</li>
+        <li><code>INACTIVE</code>: All counters in the sector are <code>INACTIVE</code>.</li>
     </ul>
 </p>

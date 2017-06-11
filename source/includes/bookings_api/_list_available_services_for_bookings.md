@@ -28,7 +28,6 @@ Returns available services to book for the specified channel.
     <strong>Caution:</strong>
     You must consider the following:
     <ul>
-        <li>This operation throw a error(404) when the referenced channel does not exist.</li>
         <li>An empty list is returned when no bookable services exist from the specified channel.</li>
     <ul>
 </aside>

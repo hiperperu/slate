@@ -13,14 +13,15 @@ GET /v1/tickets/89m32b0 HTTP/1.1
 HTTP/1.1 200 OK
 Content-Type: application/json
 
+
 {
     "id": "89m32b0",    
     "number": 2,
-    "status": "BLOCKED",
-    "phone": "+51987776576",
+    "status": "ATTENDED",
     "position": 10,
     "low_estimated_time": 10,
     "high_estimated_time": 15,
+    "phone": "+51987776576",
     "messages": [
         "We have a promotion for you!"
     ],
@@ -56,10 +57,15 @@ Content-Type: application/json
     "counter": {
         "id": "v10",
         "name": "V10",
-        "teller": "achavez"
+        "teller": "achavez",
+        "type": {
+            "id": "v2002",
+            "name": "Ventanilla"
+        }
     },
     "created_at": "2017-02-20T10:00:00.000Z",
-    "updated_at": "2017-02-20T10:00:00.000Z",
+    "called_at": "2017-02-20T10:05:00.000Z",
+    "started_at": "2017-02-20T10:05:18.000Z",
     "print": [
         {
             "align": "CENTER",

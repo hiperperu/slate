@@ -9,10 +9,10 @@
     "id": "89m32b0",    
     "number": 2,
     "status": "BLOCKED",
-    "phone": "+51987776576",
     "position": 10,
     "low_estimated_time": 10,
     "high_estimated_time": 15,
+    "phone": "+51987776576",
     "messages": [
         "We have a promotion for you!"
     ],
@@ -48,10 +48,15 @@
     "counter": {
         "id": "v10",
         "name": "V10",
-        "teller": "achavez"
+        "teller": "achavez",
+        "type": {
+            "id": "v2002",
+            "name": "Ventanilla"
+        }
     },
     "created_at": "2017-02-20T10:00:00.000Z",
-    "updated_at": "2017-02-20T10:00:00.000Z",
+    "called_at": "2017-02-20T10:05:00.000Z",
+    "started_at": "2017-02-20T10:05:18.000Z",
     "print": [
         {
             "align": "CENTER",
@@ -74,7 +79,7 @@ The <code>low_estimated_time</code> and <code>high_estimated_time</code> are cal
     <li>Time range to consider to calculate the waiting time.</li>
     <li>Desviation of waiting time.</li>
 </ul>
-If the branch associated is <code>INACTIVE</code> this fields are not returned.
+If the branch associated is not in <code>WAITING</code>, these fields are not returned including position field.
 </aside>
 
 ### Fields
@@ -90,13 +95,12 @@ Current status of the ticket.
 <p>
     <span class="param-condition">Possible values:</span>
     <ul>
-        <li><code>BLOCKED</code>: When the ticket shouldn't called by teller.</li>
-        <li><code>ENABLED</code>: When the can to be called by the teller.</li>
+        <li><code>WAITING</code>: When the ticket is waiting for teller call.</li>
+        <li><code>CALLED</code>: When the ticket is called by teller.</li>
+        <li><code>INATTENTION</code>: When the ticket is in attetion.</li>
+        <li><code>ATTENDED</code>: When the attention of ticket is finished.</li>
     </ul>
 </p>
-
-* **phone** <span class="param-type">String</span><br>
-Customer phone for notifications associated to the ticket.
 
 * **position** <span class="param-type">Integer</span><br>
 Ticket position in the queue.
@@ -106,6 +110,9 @@ Lower bound of the estimated waiting time. It's equal to the average waiting tim
 
 * **high_estimated_time** <span class="param-type">Integer</span><br>
 Upper bound of the estimated waiting time. It's equal to the average waiting time plus the configured desviation.
+
+* **phone** <span class="param-type">String</span><br>
+Customer phone for notifications associated to the ticket.
 
 * **messages** <span class="param-type">List\<String\></span><br>
 Messages to print.
@@ -129,13 +136,19 @@ Assigned queue type.
 Assigned counter.
 
 * **created_at** <span class="param-type">DateTime</span><br>
-Date of ticket creation.
+Creation date of ticket.
 <p>
     <span class="param-condition">Standard:</span> <code>[ISO 8601](https://en.wikipedia.org/wiki/ISO_8601)</code>
 </p>
 
-* **updated_at** <span class="param-type">DateTime</span><br>
-Date of the last update of ticket.
+* **called_at** <span class="param-type">DateTime</span><br>
+Call date of ticket.
+<p>
+    <span class="param-condition">Standard:</span> <code>[ISO 8601](https://en.wikipedia.org/wiki/ISO_8601)</code>
+</p>
+
+* **started_at** <span class="param-type">DateTime</span><br>
+Start date of ticket attention.
 <p>
     <span class="param-condition">Standard:</span> <code>[ISO 8601](https://en.wikipedia.org/wiki/ISO_8601)</code>
 </p>

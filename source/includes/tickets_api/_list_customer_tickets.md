@@ -4,7 +4,7 @@
 > Sample request:
 
 ```http
-GET /v1/tickets?customer_id=c9mas9js HTTP/1.1
+GET /v1/tickets/?customer_id=c9mas9js HTTP/1.1
 ```
 
 > Sample response:
@@ -17,11 +17,11 @@ Content-Type: application/json
     {
         "id": "89m32b0",    
         "number": 2,
-        "status": "BLOCKED",
-        "phone": "+51987776576",
+        "status": "ATTENDED",
         "position": 10,
         "low_estimated_time": 10,
         "high_estimated_time": 15,
+        "phone": "+51987776576",
         "messages": [
             "We have a promotion for you!"
         ],
@@ -57,10 +57,15 @@ Content-Type: application/json
         "counter": {
             "id": "v10",
             "name": "V10",
-            "teller": "achavez"
+            "teller": "achavez",
+            "type": {
+                "id": "v2002",
+                "name": "Ventanilla"
+            }
         },
         "created_at": "2017-02-20T10:00:00.000Z",
-        "updated_at": "2017-02-20T10:00:00.000Z",
+        "called_at": "2017-02-20T10:05:00.000Z",
+        "started_at": "2017-02-20T10:05:18.000Z",
         "print": [
             {
                 "align": "CENTER",
@@ -80,8 +85,9 @@ Returns all tickets created by a specific customer.
     <strong>Caution:</strong>
     You must consider the following:
     <ul>
-        <li>When the teller calls the ticket, it is automatically deleted and is not available anymore.</li>
-        <li>An empty list is returned when no registered tickets with the <code>customer_id</code> existed.</li>
+        <li>The API just provide the tickets of the current day.</li>
+        <li>When the ticket is canceled, it is not available anymore from API.</li>
+        <li>An empty list is returned when no tickets exist for the <code>customer_id</code></li>
     <ul>
 </aside>
 
@@ -99,7 +105,7 @@ Returns all tickets created by a specific customer.
 * **customer_id** <span class="param-type">String</span> <span class="required-param">required</span> <br> Customer unique identifier.
 
 * **fields** <span class="param-type">List\<String\></span> <span class="recomended-param">recomended</span><br>
-Entity fields that will included in the response(See available fields in [the ticket object definition](#ticket)). For example: `fields=id,queueType,number`.
+Entity fields that will included in the response(See available fields in [the ticket object definition](#ticket)). For example: `fields=id,queue_type,number`.
 
 ### Responses
 
