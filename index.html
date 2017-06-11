@@ -223,7 +223,7 @@
 <p>Sample request:</p>
 </blockquote>
 
-<pre class="highlight http tab-http"><code><span class="nf">GET</span> <span class="nn">/v1/branches?offset=9&amp;limit=1</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<pre class="highlight http tab-http"><code><span class="nf">GET</span> <span class="nn">/v1/branches/?offset=9&amp;limit=1</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 </code></pre>
 
 <blockquote>
@@ -284,7 +284,7 @@
 
 <h3 id="endpoint">Endpoint</h3>
 
-<p><code class="prettyprint">GET /v1/branches</code></p>
+<p><code class="prettyprint">GET /v1/branches/</code></p>
 
 <h3 id="query-params">Query Params</h3>
 
@@ -302,7 +302,7 @@ Minimum longitude of the geographic area that has to contain the branches.</p></
 <li><p><strong>max_longitude</strong> <span class="param-type">Float</span> <span class="recomended-param">recomended</span><br>
 Maximum longitude of the geographic area that has to contain the branches.</p></li>
 <li><p><strong>fields</strong> <span class="param-type">List&lt;String&gt;</span> <span class="recomended-param">recomended</span><br>
-Entity fields that will included in the response(See available fields in <a href="#branch">the branch object definition</a>). For example: <code class="prettyprint">fields=id,name,shortName</code>.</p></li>
+Entity fields that will included in the response(See available fields in <a href="#branch">the branch object definition</a>). For example: <code class="prettyprint">fields=id,name,short_name</code>.</p></li>
 <li><p><strong>offset</strong> <span class="param-type">Integer</span><br>
 Position in pagination.
 <p>
@@ -388,7 +388,7 @@ Branch unique identifier (Configured from Bmatic configuration panel).</li>
 
 <ul>
 <li><strong>fields</strong> <span class="param-type">List&lt;String&gt;</span> <span class="recomended-param">recomended</span><br>
-Entity fields that will included in the response(See available fields in <a href="#branch">the branch object definition</a>). For example: <code class="prettyprint">fields=id,name,shortName</code>.</li>
+Entity fields that will included in the response(See available fields in <a href="#branch">the branch object definition</a>). For example: <code class="prettyprint">fields=id,name,short_name</code>.</li>
 </ul>
 
 <h3 id="responses">Responses</h3>
@@ -439,7 +439,6 @@ An unexpected error has occurred, returns a simple error message.</p></li>
     <strong>Caution:</strong> 
     You must consider the following:
     <ul>
-        <li>This operation throw an error(404) when the referenced channel does not exist.</li>
         <li>An empty list is returned when not available services exist from the specified channel.</li>
     <ul>
 </aside>
@@ -462,8 +461,6 @@ Unique identifier of the channel used. This value must be set in the client appl
 A list of services.</p></li>
 <li><p><strong>400</strong> <span class="verb-description">Bad Request</span> <span class="param-type"><a href="#error">Error</a></span><br>
 One or more parameters are not valid, returns a description of validation failed.</p></li>
-<li><p><strong>404</strong> <span class="verb-description">Not Found</span> <span class="param-type"><a href="#error">Error</a></span><br>
-The resource requested not found, returns a simple error message.</p></li>
 <li><p><strong>500</strong> <span class="verb-description">Internal Server Error</span> <span class="param-type"><a href="#error">Error</a></span><br>
 An unexpected error has occurred, returns a simple error message.</p></li>
 </ul>
@@ -474,7 +471,7 @@ An unexpected error has occurred, returns a simple error message.</p></li>
 <p>Sample request:</p>
 </blockquote>
 
-<pre class="highlight http tab-http"><code><span class="nf">GET</span> <span class="nn">/v1/tickets?customer_id=c9mas9js</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<pre class="highlight http tab-http"><code><span class="nf">GET</span> <span class="nn">/v1/tickets/?customer_id=c9mas9js</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 </code></pre>
 
 <blockquote>
@@ -488,11 +485,11 @@ An unexpected error has occurred, returns a simple error message.</p></li>
     </span><span class="p">{</span><span class="w">
         </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"89m32b0"</span><span class="p">,</span><span class="w">    
         </span><span class="s2">"number"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BLOCKED"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"+51987776576"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ATTENDED"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"position"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
         </span><span class="s2">"low_estimated_time"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
         </span><span class="s2">"high_estimated_time"</span><span class="p">:</span><span class="w"> </span><span class="mi">15</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"+51987776576"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"messages"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
             </span><span class="s2">"We have a promotion for you!"</span><span class="w">
         </span><span class="p">],</span><span class="w">
@@ -528,10 +525,15 @@ An unexpected error has occurred, returns a simple error message.</p></li>
         </span><span class="s2">"counter"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
             </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"v10"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"V10"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"teller"</span><span class="p">:</span><span class="w"> </span><span class="s2">"achavez"</span><span class="w">
+            </span><span class="s2">"teller"</span><span class="p">:</span><span class="w"> </span><span class="s2">"achavez"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"v2002"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Ventanilla"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
         </span><span class="p">},</span><span class="w">
         </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-02-20T10:00:00.000Z"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-02-20T10:00:00.000Z"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"called_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-02-20T10:05:00.000Z"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"started_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-02-20T10:05:18.000Z"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"print"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
             </span><span class="p">{</span><span class="w">
                 </span><span class="s2">"align"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CENTER"</span><span class="p">,</span><span class="w">
@@ -551,8 +553,9 @@ An unexpected error has occurred, returns a simple error message.</p></li>
     <strong>Caution:</strong>
     You must consider the following:
     <ul>
-        <li>When the teller calls the ticket, it is automatically deleted and is not available anymore.</li>
-        <li>An empty list is returned when no registered tickets with the <code>customer_id</code> existed.</li>
+        <li>The API just provide the tickets of the current day.</li>
+        <li>When the ticket is canceled, it is not available anymore from API.</li>
+        <li>An empty list is returned when no tickets exist for the <code>customer_id</code></li>
     <ul>
 </aside>
 
@@ -570,7 +573,7 @@ An unexpected error has occurred, returns a simple error message.</p></li>
 <ul>
 <li><p><strong>customer_id</strong> <span class="param-type">String</span> <span class="required-param">required</span> <br> Customer unique identifier.</p></li>
 <li><p><strong>fields</strong> <span class="param-type">List&lt;String&gt;</span> <span class="recomended-param">recomended</span><br>
-Entity fields that will included in the response(See available fields in <a href="#ticket">the ticket object definition</a>). For example: <code class="prettyprint">fields=id,queueType,number</code>.</p></li>
+Entity fields that will included in the response(See available fields in <a href="#ticket">the ticket object definition</a>). For example: <code class="prettyprint">fields=id,queue_type,number</code>.</p></li>
 </ul>
 
 <h3 id="responses">Responses</h3>
@@ -600,14 +603,15 @@ An unexpected error has occurred, returns a simple error message.</p></li>
 <pre class="highlight http tab-http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
 <span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
 
-<span class="p">{</span><span class="w">
+<span class="w">
+</span><span class="p">{</span><span class="w">
     </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"89m32b0"</span><span class="p">,</span><span class="w">    
     </span><span class="s2">"number"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BLOCKED"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"+51987776576"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ATTENDED"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"position"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
     </span><span class="s2">"low_estimated_time"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
     </span><span class="s2">"high_estimated_time"</span><span class="p">:</span><span class="w"> </span><span class="mi">15</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"+51987776576"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"messages"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
         </span><span class="s2">"We have a promotion for you!"</span><span class="w">
     </span><span class="p">],</span><span class="w">
@@ -643,10 +647,15 @@ An unexpected error has occurred, returns a simple error message.</p></li>
     </span><span class="s2">"counter"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"v10"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"V10"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"teller"</span><span class="p">:</span><span class="w"> </span><span class="s2">"achavez"</span><span class="w">
+        </span><span class="s2">"teller"</span><span class="p">:</span><span class="w"> </span><span class="s2">"achavez"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"v2002"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Ventanilla"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-02-20T10:00:00.000Z"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-02-20T10:00:00.000Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"called_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-02-20T10:05:00.000Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"started_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-02-20T10:05:18.000Z"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"print"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
         </span><span class="p">{</span><span class="w">
             </span><span class="s2">"align"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CENTER"</span><span class="p">,</span><span class="w">
@@ -698,7 +707,7 @@ An unexpected error has occurred, returns a simple error message.</p></li>
 <p>Sample request:</p>
 </blockquote>
 
-<pre class="highlight http tab-http"><code><span class="nf">POST</span> <span class="nn">/v1/tickets</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<pre class="highlight http tab-http"><code><span class="nf">POST</span> <span class="nn">/v1/tickets/</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 <span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
 
 <span class="p">{</span><span class="w">
@@ -706,7 +715,6 @@ An unexpected error has occurred, returns a simple error message.</p></li>
     </span><span class="s2">"branch_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"27b6"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"sector_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"m9"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"service_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"s8"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BLOCKED"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"customer_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"c9mas9js"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"doc_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"D"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"doc_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"90452291"</span><span class="p">,</span><span class="w">
@@ -724,11 +732,11 @@ An unexpected error has occurred, returns a simple error message.</p></li>
 <span class="p">{</span><span class="w">
     </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"89m32b0"</span><span class="p">,</span><span class="w">    
     </span><span class="s2">"number"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BLOCKED"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"+51987776576"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"WAITING"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"position"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
     </span><span class="s2">"low_estimated_time"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
     </span><span class="s2">"high_estimated_time"</span><span class="p">:</span><span class="w"> </span><span class="mi">15</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"+51987882567"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"messages"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
         </span><span class="s2">"We have a promotion for you!"</span><span class="w">
     </span><span class="p">],</span><span class="w">
@@ -764,10 +772,13 @@ An unexpected error has occurred, returns a simple error message.</p></li>
     </span><span class="s2">"counter"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"v10"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"V10"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"teller"</span><span class="p">:</span><span class="w"> </span><span class="s2">"achavez"</span><span class="w">
+        </span><span class="s2">"teller"</span><span class="p">:</span><span class="w"> </span><span class="s2">"achavez"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"v2002"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Ventanilla"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-02-20T10:00:00.000Z"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-02-20T10:00:00.000Z"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"print"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
         </span><span class="p">{</span><span class="w">
             </span><span class="s2">"align"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CENTER"</span><span class="p">,</span><span class="w">
@@ -789,13 +800,13 @@ An unexpected error has occurred, returns a simple error message.</p></li>
         <li>The referenced channel must support the requested service.</li>
         <li>The referenced branch must contain the requested sector.</li>
         <li>The referenced sector must support the requested service.</li>
-        <li>The customer must has no other ticket for the same service.</li>
+        <li>The customer must has no other ticket in waiting for the same service.</li>
     <ul>
 </aside>
 
 <h3 id="endpoint">Endpoint</h3>
 
-<p><code class="prettyprint">POST /v1/tickets</code></p>
+<p><code class="prettyprint">POST /v1/tickets/</code></p>
 
 <h3 id="request">Request</h3>
 
@@ -808,16 +819,6 @@ Unique identifier of the requested branch.</p></li>
 Unique identifier of the requested sector.</p></li>
 <li><p><strong>service_id</strong> <span class="param-type">String</span> <span class="required-param">required</span><br>
 Unique identifier of the requested service.</p></li>
-<li><p><strong>status</strong> <span class="param-type">Enum</span><br>
-Status of the ticket.
-<p>
-<span class="param-condition">Possible values:</span>
-<ul>
-    <li><code>BLOCKED</code>: When the ticket shouldn&rsquo;t called by teller.</li>
-    <li><code>ENABLED</code>: When the can to be called by the teller.</li>
-</ul>
-
-<p></p></p></li>
 <li><p><strong>customer_id</strong> <span class="param-type">String</span><br>
 Customer unique identifier.</p></li>
 <li><p><strong>doc_type</strong> <span class="param-type">String</span><br>
@@ -833,9 +834,9 @@ Number of document used to identify the client.
 <li><p><strong>phone</strong> <span class="param-type">String</span><br>
 Customer phone for notifications associated to the ticket.
 <p>
-<span class="param-condition">Validation pattern:</span> <code class="prettyprint">^+[1-9]{1}[0-9]{3,14}$</code>
+<span class="param-condition">Validation pattern:</span> <code class="prettyprint">^\+[1-9]{1}[0-9]{3,14}$</code>
 </p></p></li>
-</ul></p>
+</ul>
 
 <h3 id="responses">Responses</h3>
 
@@ -844,68 +845,6 @@ Customer phone for notifications associated to the ticket.
 Successful creation, returns the new ticket.</p></li>
 <li><p><strong>400</strong> <span class="verb-description">Bad Request</span> <span class="param-type"><a href="#error">Error</a></span><br>
 One or more parameters are not valid, returns a description of validation failed.</p></li>
-<li><p><strong>500</strong> <span class="verb-description">Internal Server Error</span> <span class="param-type"><a href="#error">Error</a></span><br>
-An unexpected error has occurred, returns a simple error message.</p></li>
-</ul>
-
-<p><h2 id="update-ticket">Update ticket</h2></p>
-
-<blockquote>
-<p>Sample request:</p>
-</blockquote>
-
-<pre class="highlight http tab-http"><code><span class="nf">PUT</span> <span class="nn">/v1/tickets/89m32b0</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
-<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
-
-<span class="p">{</span><span class="w">
-    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ENABLED"</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-
-<blockquote>
-<p>Sample response:</p>
-</blockquote>
-
-<pre class="highlight http tab-http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">204</span> <span class="ne">No Content</span>
-</code></pre>
-
-<p>Update a customer ticket by ID.</p>
-
-<h3 id="endpoint">Endpoint</h3>
-
-<p><code class="prettyprint">PUT /v1/tickets/{ticket_id}</code></p>
-
-<h3 id="path-params">Path Params</h3>
-
-<ul>
-<li><strong>ticket_id</strong> <span class="param-type">String</span> <span class="required-param">required</span><br>
-Ticket unique identifier (Generated in the ticket creation).</li>
-</ul>
-
-<h3 id="request">Request</h3>
-
-<ul>
-<li><strong>status</strong> <span class="param-type">Enum</span><br>
-New status for the ticket.
-<p>
-<span class="param-condition">Possible values:</span><br>
-<ul>
-    <li><code>BLOCKED</code></li>
-    <li><code>ENABLED</code></li>
-</ul>
-
-<p></p></li>
-</ul></p>
-
-<h3 id="responses">Responses</h3>
-
-<ul>
-<li><p><strong>204</strong> <span class="verb-description">No Content</span><br>
-Successful update.</p></li>
-<li><p><strong>400</strong> <span class="verb-description">Bad Request</span> <span class="param-type"><a href="#error">Error</a></span><br>
-One or more parameters are not valid, returns a description of validation failed.</p></li>
-<li><p><strong>404</strong> <span class="verb-description">Not Found</span> <span class="param-type"><a href="#error">Error</a></span><br>
-The resource requested not found, returns a simple error message.</p></li>
 <li><p><strong>500</strong> <span class="verb-description">Internal Server Error</span> <span class="param-type"><a href="#error">Error</a></span><br>
 An unexpected error has occurred, returns a simple error message.</p></li>
 </ul>
@@ -987,7 +926,6 @@ An unexpected error has occurred, returns a simple error message.</p></li>
     <strong>Caution:</strong>
     You must consider the following:
     <ul>
-        <li>This operation throw a error(404) when the referenced channel does not exist.</li>
         <li>An empty list is returned when no bookable services exist from the specified channel.</li>
     <ul>
 </aside>
@@ -1108,7 +1046,7 @@ An unexpected error has occurred, returns a simple error message.</p></li>
 <p>Sample request:</p>
 </blockquote>
 
-<pre class="highlight http tab-http"><code><span class="nf">GET</span> <span class="nn">/v1/bookings?customer_id=c9mas9js</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<pre class="highlight http tab-http"><code><span class="nf">GET</span> <span class="nn">/v1/bookings/?customer_id=c9mas9js</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 </code></pre>
 
 <blockquote>
@@ -1144,8 +1082,7 @@ An unexpected error has occurred, returns a simple error message.</p></li>
         </span><span class="p">},</span><span class="w">
         </span><span class="s2">"start_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-02-20T14:00:00.000Z"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"end_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-02-20T15:00:00.000Z"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-02-10T14:00:00.000Z"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-02-10T14:00:00.000Z"</span><span class="w">
+        </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-02-10T14:00:00.000Z"</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">]</span><span class="w">
 </span></code></pre>
@@ -1168,7 +1105,7 @@ An unexpected error has occurred, returns a simple error message.</p></li>
 
 <h3 id="endpoint">Endpoint</h3>
 
-<p><code class="prettyprint">GET /v1/bookings</code></p>
+<p><code class="prettyprint">GET /v1/bookings/</code></p>
 
 <h3 id="query-params">Query Params</h3>
 
@@ -1231,8 +1168,7 @@ An unexpected error has occurred, returns a simple error message.</p></li>
     </span><span class="p">},</span><span class="w">
     </span><span class="s2">"start_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-02-20T14:00:00.000Z"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"end_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-02-20T15:00:00.000Z"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-02-10T14:00:00.000Z"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-02-10T14:00:00.000Z"</span><span class="w">
+    </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-02-10T14:00:00.000Z"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
@@ -1275,7 +1211,7 @@ An unexpected error has occurred, returns a simple error message.</p></li>
 <p>Sample request:</p>
 </blockquote>
 
-<pre class="highlight http tab-http"><code><span class="nf">POST</span> <span class="nn">/v1/bookings</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<pre class="highlight http tab-http"><code><span class="nf">POST</span> <span class="nn">/v1/bookings/</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 <span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
 
 <span class="p">{</span><span class="w">
@@ -1323,8 +1259,7 @@ An unexpected error has occurred, returns a simple error message.</p></li>
     </span><span class="p">},</span><span class="w">
     </span><span class="s2">"start_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-02-20T14:00:00.000Z"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"end_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-02-20T15:00:00.000Z"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-02-10T14:00:00.000Z"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-02-10T14:00:00.000Z"</span><span class="w">
+    </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-02-10T14:00:00.000Z"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
@@ -1343,7 +1278,7 @@ An unexpected error has occurred, returns a simple error message.</p></li>
 
 <h3 id="endpoint">Endpoint</h3>
 
-<p><code class="prettyprint">POST /v1/bookings</code></p>
+<p><code class="prettyprint">POST /v1/bookings/</code></p>
 
 <h3 id="request">Request</h3>
 
@@ -1471,8 +1406,7 @@ An unexpected error has occurred, returns a simple error message.</p></li>
     </span><span class="p">},</span><span class="w">
     </span><span class="s2">"start_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-02-20T14:00:00.000Z"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"end_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-02-20T15:00:00.000Z"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-02-10T14:00:00.000Z"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-02-10T14:00:00.000Z"</span><span class="w">
+    </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-02-10T14:00:00.000Z"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
@@ -1496,6 +1430,7 @@ Current status of the booking.
 <ul>
     <li><code>ACTIVE</code>: When the current time is between the booking start time minus the configured tolerance and the end time plus the configured tolerance.</li>
     <li><code>INACTIVE</code>: When the current time is lower to the booking start time minus the configured tolerance.</li>
+    <li><code>USED</code>: When a ticket associated to booking was generated.</li>
     <li><code>DEFEATED</code>: When the current time is upper to the booking end time plus the configured tolerance.</li>
 </ul>
 
@@ -1519,12 +1454,7 @@ End time of booking.
 <span class="param-condition">Standard:</span> <code><a href="https://en.wikipedia.org/wiki/ISO_8601">ISO 8601</a></code>
 </p></p></li>
 <li><p><strong>created_at</strong> <span class="param-type">DateTime</span><br>
-Date of booking creation.
-<p>
-<span class="param-condition">Standard:</span> <code><a href="https://en.wikipedia.org/wiki/ISO_8601">ISO 8601</a></code>
-</p></p></li>
-<li><p><strong>updated_at</strong> <span class="param-type">DateTime</span><br>
-Date of the last update of booking.
+Creation Date of booking.
 <p>
 <span class="param-condition">Standard:</span> <code><a href="https://en.wikipedia.org/wiki/ISO_8601">ISO 8601</a></code>
 </p></p></li>
@@ -1563,12 +1493,12 @@ Date of the last update of booking.
 <aside class="warning">
     <strong>Caution:</strong> The <code>congestion</code>, <code>low_estimated_time</code> and <code>high_estimated_time</code> are calculated using the configuration of the associated branch type. You need configure the next:
     <ul>
-        <li>Time range to consider to calculate the waiting time.</li>
-        <li>Desviation of waiting time.</li>
+        <li>Time range to take for calculate the waiting time.</li>
+        <li>Desviation of estimated waiting time.</li>
         <li>Minimal waiting time of medium congestion.</li>
         <li>Minimal waiting time of high congestion.</li>
     </ul>
-    If the branch is <code>INACTIVE</code> this fields are not returned.
+    If the branch is <code>INACTIVE</code> these fields will not return.
 </aside>
 
 <h3 id="fields">Fields</h3>
@@ -1596,7 +1526,7 @@ Latitude component of branch location.</p></li>
 <li><p><strong>longitude</strong> <span class="param-type">Float</span><br>
 Longitude component of branch location.</p></li>
 <li><p><strong>status</strong> <span class="param-type">Enum</span><br>
-Current status of the branch.
+Current status of branch.
 <p>
 <span class="param-condition">Possible values:</span>
     <ul>
@@ -1611,7 +1541,7 @@ Flag of branch congestion.
     <ul>
         <li><code>LOW</code>: The average waiting time is lower to the minimal waiting time of medium congestion.</li>
         <li><code>MEDIUM</code>: The average waiting time is lower to the minimal waiting time of high congestion but equal or upper to the minimal waiting time of medium congestion.</li>
-        <li><code>HIGH</code>: The average waiting time is equal or upper to the minimal waiting time of high congestion</li>
+        <li><code>HIGH</code>: The average waiting time is equal or upper to the minimal waiting time of high congestion.</li>
     </ul>
 </p></p></li>
 <li><p><strong>low_estimated_time</strong> <span class="param-type">Integer</span><br>
@@ -1661,7 +1591,11 @@ Complete name of the channel.
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"v10"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"V10"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"teller"</span><span class="p">:</span><span class="w"> </span><span class="s2">"achavez"</span><span class="w">
+    </span><span class="s2">"teller"</span><span class="p">:</span><span class="w"> </span><span class="s2">"achavez"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"v2002"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Ventanilla"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
@@ -1681,6 +1615,34 @@ Name of the counter.
 Account name of teller in counter.
 <p>
 <span class="param-condition">Maximum length:</span> <code>30</code>
+</p></p></li>
+<li><p><strong>type</strong> <span class="param-type"><a href="#counter-type">CounterType</a></span><br>
+Associated counter type.</p></li>
+</ul>
+
+<p><h2 id="counter-type">Counter Type</h2></p>
+
+<blockquote>
+<p>Sample object:</p>
+</blockquote>
+
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"v2002"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Ventanilla"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>Model of counter type object.</p>
+
+<h3 id="fields">Fields</h3>
+
+<ul>
+<li><p><strong>id</strong> <span class="param-type">String</span><br>
+Counter type unique identifier (Auto generated by Bmatic).</p></li>
+<li><p><strong>name</strong> <span class="param-type">String</span><br>
+Complete name of the counter type.
+<p>
+<span class="param-condition">Maximum length:</span> <code>50</code>
 </p></p></li>
 </ul>
 
@@ -1901,8 +1863,8 @@ Current status of the sector.
 <p>
 <span class="param-condition">Possible values:</span>
 <ul>
-    <li><code>ACTIVE</code>: At least one counter in the sector is <code>ACTIVE</code> or <code>SUSPENDED</code></li>
-    <li><code>INACTIVE</code>: All counters in the sector are <code>INACTIVE</code></li>
+    <li><code>ACTIVE</code>: At least one counter in the sector is <code>ACTIVE</code> or <code>SUSPENDED</code>.</li>
+    <li><code>INACTIVE</code>: All counters in the sector are <code>INACTIVE</code>.</li>
 </ul>
 
 <p></p></p></li>
@@ -1951,10 +1913,10 @@ Name to display in small devices.
     </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"89m32b0"</span><span class="p">,</span><span class="w">    
     </span><span class="s2">"number"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
     </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BLOCKED"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"+51987776576"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"position"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
     </span><span class="s2">"low_estimated_time"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
     </span><span class="s2">"high_estimated_time"</span><span class="p">:</span><span class="w"> </span><span class="mi">15</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"+51987776576"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"messages"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
         </span><span class="s2">"We have a promotion for you!"</span><span class="w">
     </span><span class="p">],</span><span class="w">
@@ -1990,10 +1952,15 @@ Name to display in small devices.
     </span><span class="s2">"counter"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"v10"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"V10"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"teller"</span><span class="p">:</span><span class="w"> </span><span class="s2">"achavez"</span><span class="w">
+        </span><span class="s2">"teller"</span><span class="p">:</span><span class="w"> </span><span class="s2">"achavez"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"v2002"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Ventanilla"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-02-20T10:00:00.000Z"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-02-20T10:00:00.000Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"called_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-02-20T10:05:00.000Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"started_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-02-20T10:05:18.000Z"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"print"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
         </span><span class="p">{</span><span class="w">
             </span><span class="s2">"align"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CENTER"</span><span class="p">,</span><span class="w">
@@ -2016,7 +1983,7 @@ The <code>low_estimated_time</code> and <code>high_estimated_time</code> are cal
     <li>Time range to consider to calculate the waiting time.</li>
     <li>Desviation of waiting time.</li>
 </ul>
-If the branch associated is <code>INACTIVE</code> this fields are not returned.
+If the branch associated is not in <code>WAITING</code>, these fields are not returned including position field.
 </aside>
 
 <h3 id="fields">Fields</h3>
@@ -2031,19 +1998,21 @@ Current status of the ticket.
 <p>
 <span class="param-condition">Possible values:</span>
 <ul>
-    <li><code>BLOCKED</code>: When the ticket shouldn&rsquo;t called by teller.</li>
-    <li><code>ENABLED</code>: When the can to be called by the teller.</li>
+    <li><code>WAITING</code>: When the ticket is waiting for teller call.</li>
+    <li><code>CALLED</code>: When the ticket is called by teller.</li>
+    <li><code>INATTENTION</code>: When the ticket is in attetion.</li>
+    <li><code>ATTENDED</code>: When the attention of ticket is finished.</li>
 </ul>
 
 <p></p></p></li>
-<li><p><strong>phone</strong> <span class="param-type">String</span><br>
-Customer phone for notifications associated to the ticket.</p></li>
 <li><p><strong>position</strong> <span class="param-type">Integer</span><br>
 Ticket position in the queue.</p></li>
 <li><p><strong>low_estimated_time</strong> <span class="param-type">Integer</span><br>
 Lower bound of the estimated waiting time. It&rsquo;s equal to the average waiting time minus the configured desviation.</p></li>
 <li><p><strong>high_estimated_time</strong> <span class="param-type">Integer</span><br>
 Upper bound of the estimated waiting time. It&rsquo;s equal to the average waiting time plus the configured desviation.</p></li>
+<li><p><strong>phone</strong> <span class="param-type">String</span><br>
+Customer phone for notifications associated to the ticket.</p></li>
 <li><p><strong>messages</strong> <span class="param-type">List&lt;String&gt;</span><br>
 Messages to print.</p></li>
 <li><p><strong>channel</strong> <span class="param-type"><a href="#channel">Channel</a></span><br>
@@ -2059,12 +2028,17 @@ Assigned queue type.</p></li>
 <li><p><strong>counter</strong> <span class="param-type"><a href="#counter">Counter</a></span><br>
 Assigned counter.</p></li>
 <li><p><strong>created_at</strong> <span class="param-type">DateTime</span><br>
-Date of ticket creation.
+Creation date of ticket.
 <p>
 <span class="param-condition">Standard:</span> <code><a href="https://en.wikipedia.org/wiki/ISO_8601">ISO 8601</a></code>
 </p></p></li>
-<li><p><strong>updated_at</strong> <span class="param-type">DateTime</span><br>
-Date of the last update of ticket.
+<li><p><strong>called_at</strong> <span class="param-type">DateTime</span><br>
+Call date of ticket.
+<p>
+<span class="param-condition">Standard:</span> <code><a href="https://en.wikipedia.org/wiki/ISO_8601">ISO 8601</a></code>
+</p></p></li>
+<li><p><strong>started_at</strong> <span class="param-type">DateTime</span><br>
+Start date of ticket attention.
 <p>
 <span class="param-condition">Standard:</span> <code><a href="https://en.wikipedia.org/wiki/ISO_8601">ISO 8601</a></code>
 </p></p></li>
